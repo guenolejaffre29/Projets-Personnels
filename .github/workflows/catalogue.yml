@@ -57,8 +57,12 @@ jobs:
             [ -n "$f" ] && essayer "https://download.checklistbank.org/col/monthly/$f"
           }
           test -f /tmp/col/col.zip
+          mv /tmp/col/col.zip /tmp/col/xr.zip
+          unzip -l /tmp/col/xr.zip | grep -vi '/source/' | head -30
+          # Version de base : noms français et statut « éteint », absents de l'export étendu.
+          essayer "https://download.checklistbank.org/col/latest_coldp.zip"
+          mv /tmp/col/col.zip /tmp/col/base.zip
           ls -la /tmp/col
-          unzip -l /tmp/col/col.zip | grep -vi '/source/' | head -30
 
       - name: Construire les données
         shell: bash
@@ -66,12 +70,12 @@ jobs:
           set -eo pipefail
           rm -rf arbre-du-vivant/d
           python3 arbre-du-vivant/outils/construire_catalogue.py \
-            /tmp/col/col.zip arbre-du-vivant/outils/atlas arbre-du-vivant/d 2>&1 | tee /tmp/construction.log
+            /tmp/col/xr.zip arbre-du-vivant/outils/atlas arbre-du-vivant/d /tmp/col/base.zip 2>&1 | tee /tmp/construction.log
           du -sh arbre-du-vivant/d arbre-du-vivant/d/t arbre-du-vivant/d/s
           ls arbre-du-vivant/d/t | wc -l
           ls arbre-du-vivant/d/s | wc -l
           echo "### Catalogue du vivant" >> "$GITHUB_STEP_SUMMARY"
-          grep -E '^(format|lignes|nœuds|morceaux|\{)' /tmp/construction.log >> "$GITHUB_STEP_SUMMARY" || true
+          grep -E '^(format|lignes|depuis|espèces ajoutées|racines sans|nœuds|morceaux|\{)' /tmp/construction.log >> "$GITHUB_STEP_SUMMARY" || true
 
       - name: Enregistrer sur la branche
         run: |

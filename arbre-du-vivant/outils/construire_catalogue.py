@@ -2,11 +2,13 @@
 """Construit les données du catalogue complet à partir d'un export ColDP du Catalogue of Life.
 
 Usage :
-    python3 construire_catalogue.py <export_coldp.zip|dossier> <dossier_annotations> <dossier_sortie>
+    python3 construire_catalogue.py <export_coldp.zip|dossier> <dossier_annotations> <dossier_sortie> [<version_de_base.zip>]
 
 - <export_coldp.zip> : export ColDP de ChecklistBank (NameUsage.tsv, VernacularName.tsv).
 - <dossier_annotations> : fichiers texte de l'atlas commenté (noms français et notes).
 - <dossier_sortie> : reçoit meta.json, t/*.gz (arbre) et s/*.gz (index de recherche).
+- <version_de_base.zip> (facultatif) : export ColDP de la version de base, d'où sont repris noms
+  français et statut « éteint » quand l'export principal (version étendue) ne les contient pas.
 
 Format de sortie (texte UTF-8 compressé en gzip) :
 - Les nœuds sont numérotés dans l'ordre d'un parcours en profondeur ; l'identifiant d'un
@@ -125,29 +127,48 @@ def _chain(first, it):
     yield from it
 
 
-def load_annotations(folder):
-    ann = {}
+def clean_name(nm):
+    nm = nm.lstrip("†").strip()
+    return ALIASES.get(nm, nm)
+
+
+def load_atlas(folder):
+    """Noms français et notes de l'atlas, plus ses espèces avec leurs ancêtres."""
+    ann, especes, ancetres = {}, [], {}
     if not folder or not os.path.isdir(folder):
-        return ann
+        return ann, especes
     for f in sorted(os.listdir(folder)):
         if not f.endswith(".txt"):
             continue
-        for line in open(os.path.join(folder, f), encoding="utf-8"):
-            s = line.strip()
-            if not s or s.startswith("#") or s.startswith("@@"):
+        base, pile = [], []
+        for brut in open(os.path.join(folder, f), encoding="utf-8"):
+            brut = brut.rstrip("\n")
+            if not brut.strip() or brut.strip().startswith("#"):
                 continue
-            p = [x.strip() for x in s.split("|")]
-            if len(p) < 2 or p[0] == "x":
+            if brut.startswith("@@"):
+                a = brut[2:].strip()
+                base, pile = ancetres.get(a, []) + [a], []
                 continue
-            name = p[1].lstrip("†").strip()
-            name = ALIASES.get(name, name)
-            ann.setdefault(name, (p[2] if len(p) > 2 else "", p[3] if len(p) > 3 else ""))
-    return ann
+            prof = len(brut) - len(brut.lstrip(" "))
+            p = [x.strip() for x in brut.strip().split("|")]
+            if len(p) < 2:
+                continue
+            code, nm = p[0], p[1]
+            pile = pile[:prof]
+            anc = base + pile
+            ancetres.setdefault(nm, anc)
+            pile.append(nm)
+            if code == "x":
+                continue
+            ann.setdefault(clean_name(nm), (p[2] if len(p) > 2 else "", p[3] if len(p) > 3 else ""))
+            if code == "S":
+                especes.append((clean_name(nm), nm.startswith("†"), [clean_name(a) for a in anc]))
+    return ann, especes
 
 
-def main(src, ann_dir, out):
-    ann = load_annotations(ann_dir)
-    print("annotations", len(ann), file=sys.stderr)
+def main(src, ann_dir, out, base=None):
+    ann, atlas_especes = load_atlas(ann_dir)
+    print("annotations", len(ann), "espèces de l'atlas", len(atlas_especes), file=sys.stderr)
 
     parent, rank, name, auth, extinct = {}, {}, {}, {}, set()
     seen_ranks = collections.Counter()
@@ -178,6 +199,34 @@ def main(src, ann_dir, out):
                 fr.setdefault(tid, (g("name") or g("vernacularName")).strip())
     print("noms français COL", len(fr), file=sys.stderr)
 
+    if base:
+        vern = {}
+        vh = open_tsv(base, "VernacularName.tsv")
+        if vh is not None:
+            for g in rows(vh):
+                if g("language").lower() in ("fra", "fre", "fr"):
+                    vern.setdefault(g("taxonID"), (g("name") or g("vernacularName")).strip())
+        fr_nom, ext_nom = {}, set()
+        for i, p, st, rk, nm, au, ext in usages(base):
+            if st.lower() not in ACCEPTED:
+                continue
+            if au and nm.endswith(" " + au):
+                nm = nm[: -len(au) - 1]
+            if i in vern:
+                fr_nom.setdefault(nm, vern[i])
+            if ext.lower() in ("true", "1", "yes"):
+                ext_nom.add(nm)
+        for i, nm in name.items():
+            if nm in fr_nom:
+                fr.setdefault(i, fr_nom[nm])
+            if nm in ext_nom:
+                extinct.add(i)
+        print("depuis la version de base : noms français", len(fr), "éteints", len(extinct), file=sys.stderr)
+    atlas_eteints = {nm for nm, ex, _ in atlas_especes if ex}
+    for i, nm in name.items():
+        if nm in atlas_eteints:
+            extinct.add(i)
+
     # Rattache chaque taxon gardé à son plus proche ancêtre gardé (on saute sous-genres, sections…).
     kept = {i for i, r in rank.items() if r in RANKS}
     memo = {}
@@ -197,9 +246,55 @@ def main(src, ann_dir, out):
 
     kids = collections.defaultdict(list)
     roots = []
+    kpar = {}
     for i in kept:
         p = kept_parent(i)
+        kpar[i] = p
         (kids[p].append(i) if p else roots.append(i))
+
+    # Espèces de l'atlas absentes du catalogue : rattachées à leur genre, ou au groupe le plus proche.
+    par_nom = collections.defaultdict(list)
+    for i in kept:
+        par_nom[name[i]].append(i)
+    def anc_noms(i):
+        out_ = set()
+        while i:
+            out_.add(name[i]); i = kpar.get(i, "")
+        return out_
+    def meilleur(cands, anc):
+        best, score = None, 0
+        for c in cands:
+            sc = len(anc_noms(c) & anc)
+            if sc > score:
+                best, score = c, sc
+        return best
+    ajouts = 0
+    for nm, ex, anc in atlas_especes:
+        if nm in par_nom or "Viruses" in anc or " " not in nm:
+            continue
+        ancs = set(anc)
+        genre = nm.split()[0]
+        g = meilleur([c for c in par_nom.get(genre, []) if rank[c] == "genus"], ancs)
+        if g is None:
+            attache = None
+            for a in reversed(anc):
+                # Rattachement à un embranchement ou plus bas, jamais directement sous un règne.
+                attache = meilleur([c for c in par_nom.get(a, []) if ORDER[RANKS[rank[c]]] >= ORDER["P"]], ancs)
+                if attache:
+                    break
+            if attache is None:
+                continue
+            g = f"__g:{genre}:{attache}"
+            if g not in rank:
+                parent[g], rank[g], name[g], auth[g], kpar[g] = attache, "genus", genre, "", attache
+                kids[attache].append(g); par_nom[genre].append(g)
+        s = f"__s:{nm}"
+        parent[s], rank[s], name[s], auth[s], kpar[s] = g, "species", nm, "", g
+        if ex:
+            extinct.add(s)
+        kids[g].append(s); par_nom[nm].append(s)
+        ajouts += 1
+    print("espèces ajoutées depuis l'atlas", ajouts, file=sys.stderr)
 
     # Racine virtuelle et regroupement des eucaryotes.
     VIRT = {"__vie": ("c", "Vie", "Le vivant", "Catalogue complet des espèces décrites, d'après le Catalogue of Life. Seules les espèces acceptées sont listées (pas les synonymes ni les sous-espèces)."),
@@ -216,6 +311,12 @@ def main(src, ann_dir, out):
     top.append(euk_node)
     placed = set(top) | set(kids.get("__euk", []))
     others = [r for r in roots if r not in placed]
+    # Racines sans classification : on garde les virus (anciens noms de familles…), on écarte le reste
+    # (souvent des variantes orthographiques intégrées automatiquement par la version étendue).
+    VIRUS_RE = re.compile(r"vir|viroid|satellit", re.I)
+    ecartes = [r for r in others if not (rank[r] == "realm" or VIRUS_RE.search(name[r]))]
+    others = [r for r in others if r not in ecartes]
+    print("racines sans classification écartées", len(ecartes), file=sys.stderr)
     if "Viruses" in by_name:
         vir_node = by_name["Viruses"]
         kids[vir_node] = kids.get(vir_node, []) + [r for r in others if r != vir_node]
@@ -361,4 +462,4 @@ def main(src, ann_dir, out):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main(*sys.argv[1:5])
