@@ -1,0 +1,279 @@
+@@ Vertebrata
+c|Cyclostomata|Cyclostomes|Vertébrés sans mâchoires.
+ C|Myxini|Myxines|Produisent des litres de mucus en quelques secondes.
+  S|Myxine glutinosa|Myxine
+ C|Petromyzontida|Lamproies
+  S|Petromyzon marinus|Lamproie marine
+  S|Lampetra fluviatilis|Lamproie de rivière
+  S|Lampetra planeri|Lamproie de Planer
+c|Gnathostomata|Gnathostomes|Vertébrés à mâchoires.
+ C|Chondrichthyes|Poissons cartilagineux|Squelette en cartilage. Environ 1 300 espèces.
+  Cb|Holocephali|Chimères
+   S|Chimaera monstrosa|Chimère commune
+   S|Callorhinchus milii|Chimère éléphant|Génome qui évolue le plus lentement parmi les vertébrés.
+  Cb|Elasmobranchii|Élasmobranches
+   c|Selachimorpha|Requins|Environ 550 espèces.
+    O|Heterodontiformes|Requins dormeurs
+     S|Heterodontus portusjacksoni|Requin de Port-Jackson
+    O|Orectolobiformes|Requins-tapis
+     S|Rhincodon typus|Requin-baleine|Le plus grand poisson : jusqu'à 18 m, se nourrit de plancton.
+     S|Ginglymostoma cirratum|Requin-nourrice
+     S|Stegostoma tigrinum|Requin-zèbre
+     G|Hemiscyllium|Requin marcheur|Marche sur ses nageoires.
+    O|Lamniformes|Lamniformes
+     S|Carcharodon carcharias|Grand requin blanc
+     S|Isurus oxyrinchus|Requin mako|Le plus rapide des requins.
+     S|Cetorhinus maximus|Requin pèlerin
+     S|Megachasma pelagios|Requin grande gueule|Découvert en 1976.
+     S|Alopias vulpinus|Requin-renard|Assomme ses proies avec sa queue.
+     S|Mitsukurina owstoni|Requin-lutin
+     S|Lamna nasus|Requin-taupe commun
+     S|†Otodus megalodon|Mégalodon|Requin géant éteint il y a 3,6 millions d'années.
+    O|Carcharhiniformes|Carcharhiniformes
+     S|Galeocerdo cuvier|Requin-tigre
+     S|Carcharhinus leucas|Requin-bouledogue|Remonte les fleuves.
+     S|Carcharhinus longimanus|Requin océanique
+     S|Prionace glauca|Requin bleu
+     S|Sphyrna mokarran|Grand requin-marteau
+     S|Scyliorhinus canicula|Petite roussette
+     G|Mustelus|Émissole
+    O|Hexanchiformes|Hexanchiformes
+     S|Hexanchus griseus|Requin griset
+     S|Chlamydoselachus anguineus|Requin-lézard
+    O|Squaliformes|Squaliformes
+     S|Squalus acanthias|Aiguillat commun
+     S|Somniosus microcephalus|Requin du Groenland|Vertébré le plus longévif : environ 400 ans.
+     S|Isistius brasiliensis|Squalelet féroce|Découpe des morceaux ronds dans les grands animaux.
+    O|Squatiniformes|Anges de mer
+     S|Squatina squatina|Ange de mer commun
+    O|Pristiophoriformes|Requins-scies
+   c|Batoidea|Raies|Environ 650 espèces.
+    O|Rajiformes|Raies vraies
+     S|Raja clavata|Raie bouclée
+     S|Dipturus batis|Pocheteau gris
+    O|Myliobatiformes|Pastenagues et raies mantas
+     S|Mobula birostris|Raie manta géante|Plus gros cerveau des poissons.
+     S|Dasyatis pastinaca|Pastenague commune
+     G|Potamotrygon|Raie d'eau douce
+     S|Aetobatus narinari|Raie léopard
+    O|Torpediniformes|Torpilles|Décharges électriques jusqu'à 220 volts.
+     S|Torpedo marmorata|Torpille marbrée
+    O|Rhinopristiformes|Poissons-scies et poissons-guitares
+     S|Pristis pristis|Poisson-scie commun
+     S|Rhina ancylostomus|Raie-guitare bouclée
+ c|Osteichthyes|Poissons osseux et tétrapodes|Squelette ossifié. Comprend tous les vertébrés terrestres.
+  C|Actinopterygii|Poissons à nageoires rayonnées|La moitié des vertébrés : environ 34 000 espèces.
+   c|Cladistia|Polyptères
+    O|Polypteriformes|Polyptères|Respirent de l'air avec des poumons.
+     S|Polypterus bichir|Bichir du Nil
+     S|Erpetoichthys calabaricus|Poisson-roseau
+   c|Chondrostei|Chondrostéens
+    O|Acipenseriformes|Esturgeons
+     S|Acipenser sturio|Esturgeon européen|Ne survit en France que dans la Gironde.
+     S|Huso huso|Béluga|Source du caviar le plus cher ; jusqu'à 7 m.
+     S|Polyodon spathula|Spatulaire
+     S|†Psephurus gladius|Poisson-spatule chinois|Déclaré éteint en 2022.
+   c|Holostei|Holostéens
+    O|Lepisosteiformes|Lépisostés
+     S|Atractosteus spatula|Garpique alligator
+    O|Amiiformes|Amies
+     S|Amia calva|Poisson-castor
+   c|Teleostei|Téléostéens|96 % des poissons actuels.
+    c|Elopomorpha|Élopomorphes|Larve transparente en forme de feuille (leptocéphale).
+     O|Elopiformes|Tarpons
+      S|Megalops atlanticus|Tarpon
+     O|Anguilliformes|Anguilles
+      S|Anguilla anguilla|Anguille européenne|Se reproduit dans la mer des Sargasses.
+      S|Conger conger|Congre
+      S|Muraena helena|Murène de Méditerranée
+      S|Eurypharynx pelecanoides|Grand-gousier
+    c|Osteoglossomorpha|Ostéoglossomorphes
+     O|Osteoglossiformes|Ostéoglossiformes
+      S|Arapaima gigas|Arapaïma|Un des plus grands poissons d'eau douce, respire de l'air.
+      S|Osteoglossum bicirrhosum|Arowana argenté
+      S|Gnathonemus petersii|Poisson éléphant|S'oriente par champ électrique.
+      S|Pantodon buchholzi|Poisson-papillon d'eau douce
+    c|Otomorpha|Otomorphes
+     O|Clupeiformes|Harengs et sardines
+      S|Clupea harengus|Hareng de l'Atlantique
+      S|Sardina pilchardus|Sardine
+      S|Engraulis encrasicolus|Anchois
+      S|Alosa alosa|Grande alose
+     O|Gonorynchiformes|Gonorynchiformes
+      S|Chanos chanos|Chanos
+     O|Cypriniformes|Carpes et apparentés|Environ 4 500 espèces.
+      S|Cyprinus carpio|Carpe commune
+      S|Carassius auratus|Poisson rouge|Domestiqué en Chine il y a plus de 1 000 ans.
+      S|Danio rerio|Poisson-zèbre|Modèle du développement des vertébrés.
+      S|Tinca tinca|Tanche
+      S|Rutilus rutilus|Gardon
+      S|Barbus barbus|Barbeau
+      S|Ctenopharyngodon idella|Carpe amour
+      S|Paedocypris progenetica|Paedocypris|Un des plus petits vertébrés : 7,9 mm.
+     O|Characiformes|Characiformes
+      S|Pygocentrus nattereri|Piranha à ventre rouge
+      S|Paracheirodon innesi|Néon
+      S|Astyanax mexicanus|Tétra aveugle|Une forme a perdu ses yeux dans les grottes.
+      S|Hydrocynus goliath|Poisson-tigre goliath
+     O|Siluriformes|Poissons-chats|Environ 4 000 espèces.
+      S|Silurus glanis|Silure glane|Jusqu'à 2,7 m ; attrape des pigeons sur les berges.
+      S|Ameiurus melas|Poisson-chat
+      S|Pangasianodon gigas|Silure géant du Mékong
+      S|Vandellia cirrhosa|Candiru
+      S|Malapterurus electricus|Poisson-chat électrique
+      G|Corydoras|Corydoras
+     O|Gymnotiformes|Gymnotes
+      S|Electrophorus electricus|Anguille électrique|Décharges de 860 volts.
+    c|Euteleostei|Eutéléostéens
+     O|Esociformes|Brochets
+      S|Esox lucius|Brochet
+     O|Salmoniformes|Saumons et truites
+      S|Salmo salar|Saumon atlantique|Retrouve sa rivière natale à l'odeur.
+      S|Salmo trutta|Truite commune
+      S|Oncorhynchus mykiss|Truite arc-en-ciel
+      S|Oncorhynchus nerka|Saumon rouge
+      S|Salvelinus alpinus|Omble chevalier
+      S|Thymallus thymallus|Ombre commun
+      S|Hucho hucho|Huchon
+     O|Osmeriformes|Éperlans
+      S|Osmerus eperlanus|Éperlan
+     O|Stomiiformes|Stomiiformes|Poissons des grands fonds, souvent lumineux.
+      S|Chauliodus sloani|Chauliode
+      G|Argyropelecus|Poisson-hachette
+      G|Cyclothone|Cyclothone|Probablement le vertébré le plus nombreux de la planète.
+     O|Aulopiformes|Aulopiformes
+      G|Bathypterois|Poisson-trépied
+     O|Myctophiformes|Poissons-lanternes|Migration verticale quotidienne, la plus grande du monde animal.
+     O|Lampriformes|Lampriformes
+      S|Regalecus glesne|Régalec|Le plus long poisson osseux (8 m) ; origine probable du serpent de mer.
+      S|Lampris guttatus|Opah|Premier poisson entièrement à sang chaud.
+     O|Gadiformes|Morues et merlus
+      S|Gadus morhua|Morue|Cabillaud quand il est frais.
+      S|Merluccius merluccius|Merlu
+      S|Melanogrammus aeglefinus|Églefin
+      S|Pollachius virens|Lieu noir
+      S|Lota lota|Lotte de rivière
+     O|Zeiformes|Zéiformes
+      S|Zeus faber|Saint-pierre
+     O|Trachichthyiformes|Trachichthyiformes
+      S|Hoplostethus atlanticus|Hoplostète orange|Peut vivre 250 ans.
+     c|Percomorpha|Percomorphes|La grande radiation des poissons modernes : environ 17 000 espèces.
+@@ Percomorpha
+O|Ophidiiformes|Ophidiiformes
+ S|Abyssobrotula galatheae|Abyssobrotula|Pêché à 8 370 m.
+O|Batrachoidiformes|Poissons-crapauds
+ S|Opsanus tau|Poisson-crapaud huître
+O|Gobiiformes|Gobies|Environ 2 300 espèces.
+ S|Gobius niger|Gobie noir
+ G|Periophthalmus|Périophtalme|Poisson qui marche hors de l'eau.
+ S|Pandaka pygmaea|Gobie pygmée nain
+O|Syngnathiformes|Syngnathiformes
+ S|Hippocampus guttulatus|Hippocampe moucheté|C'est le mâle qui porte les petits.
+ S|Hippocampus hippocampus|Hippocampe à museau court
+ S|Phycodurus eques|Dragon de mer feuillu
+ G|Syngnathus|Syngnathe
+ S|Mullus surmuletus|Rouget de roche
+ S|Dactylopterus volitans|Poule de mer
+O|Scombriformes|Thons et maquereaux
+ S|Thunnus thynnus|Thon rouge de l'Atlantique|Jusqu'à 680 kg ; nage à 70 km/h.
+ S|Thunnus albacares|Albacore
+ S|Katsuwonus pelamis|Bonite à ventre rayé
+ S|Scomber scombrus|Maquereau commun
+ S|Trichiurus lepturus|Poisson-sabre
+c|Carangaria|Carangaria
+ O|Istiophoriformes|Espadons et voiliers
+  S|Xiphias gladius|Espadon|Chauffe ses yeux et son cerveau.
+  S|Istiophorus platypterus|Voilier
+  S|Makaira nigricans|Marlin bleu
+ O|Carangiformes|Carangues
+  S|Trachurus trachurus|Chinchard
+  S|Seriola dumerili|Sériole
+  S|Echeneis naucrates|Rémora|S'accroche aux requins par une ventouse.
+  S|Coryphaena hippurus|Coryphène|Mahi-mahi.
+ O|Pleuronectiformes|Poissons plats|Un œil migre de l'autre côté de la tête pendant la croissance.
+  S|Pleuronectes platessa|Plie
+  S|Solea solea|Sole commune
+  S|Scophthalmus maximus|Turbot
+  S|Hippoglossus hippoglossus|Flétan de l'Atlantique
+ S|Sphyraena barracuda|Barracuda
+ S|Toxotes jaculatrix|Poisson-archer|Abat les insectes d'un jet d'eau.
+c|Ovalentaria|Ovalentaria
+ O|Cichliformes|Cichlidés|Radiations explosives dans les grands lacs africains : plus de 1 700 espèces.
+  S|Oreochromis niloticus|Tilapia du Nil
+  S|Pterophyllum scalare|Scalaire
+  S|Symphysodon discus|Discus
+  S|Astronotus ocellatus|Oscar
+  S|Maylandia zebra|Cichlidé zèbre du Malawi
+ O|Cyprinodontiformes|Cyprinodontiformes
+  S|Poecilia reticulata|Guppy
+  S|Xiphophorus hellerii|Porte-épée
+  S|Gambusia affinis|Gambusie
+  S|Kryptolebias marmoratus|Rivulus des mangroves|Seul vertébré qui s'autoféconde.
+  S|Nothobranchius furzeri|Killi turquoise|Vertébré à la vie la plus courte en captivité : quelques mois.
+  S|Cyprinodon diabolis|Poisson du trou du Diable|Toute l'espèce vit dans une seule mare.
+ O|Beloniformes|Béloniformes
+  S|Exocoetus volitans|Poisson volant
+  S|Belone belone|Orphie
+  S|Oryzias latipes|Médaka|Premier vertébré à s'accoupler dans l'espace (1994).
+ O|Atheriniformes|Athérines
+  S|Atherina presbyter|Prêtre
+ O|Mugiliformes|Mulets
+  S|Mugil cephalus|Mulet cabot
+ O|Blenniiformes|Blennies
+  S|Parablennius gattorugine|Blennie gattorugine
+  S|Aidablennius sphynx|Blennie sphinx
+  S|Salaria fluviatilis|Blennie fluviatile
+ F|Pomacentridae|Demoiselles et poissons-clowns
+  S|Amphiprion ocellaris|Poisson-clown|Change de sexe : le plus gros individu devient femelle.
+  S|Amphiprion percula|Poisson-clown orange
+  S|Chromis chromis|Castagnole
+  S|Dascyllus aruanus|Demoiselle à trois bandes
+ O|Gobiesociformes|Porte-écuelles|Ventouse ventrale.
+  S|Lepadogaster lepadogaster|Porte-écuelle
+
+O|Anabantiformes|Anabantiformes
+ S|Betta splendens|Combattant|Respire de l'air par un organe labyrinthe.
+ S|Channa argus|Tête de serpent
+O|Synbranchiformes|Anguilles des marais
+ S|Monopterus albus|Anguille des rizières
+c|Eupercaria|Eupercaria
+ O|Labriformes|Labres et perroquets
+  S|Labroides dimidiatus|Labre nettoyeur|Réussit le test du miroir.
+  S|Cheilinus undulatus|Napoléon
+  G|Scarus|Poisson-perroquet|Fabrique une partie du sable blanc des plages tropicales.
+ O|Acanthuriformes|Poissons-chirurgiens et apparentés
+  S|Paracanthurus hepatus|Chirurgien bleu
+  G|Chaetodon|Poisson-papillon
+  S|Pomacanthus imperator|Poisson-ange empereur
+  S|Argyrosomus regius|Maigre
+ O|Spariformes|Dorades
+  S|Sparus aurata|Dorade royale
+  S|Diplodus sargus|Sar commun
+ S|Dicentrarchus labrax|Bar commun|Loup en Méditerranée.
+ O|Lophiiformes|Baudroies
+  S|Lophius piscatorius|Baudroie commune|Lotte au marché.
+  S|Melanocetus johnsonii|Poisson-pêcheur des abysses
+  S|Ceratias holboelli|Cératies|Le mâle se soude à la femelle pour toujours.
+  G|Antennarius|Poisson-grenouille
+ O|Tetraodontiformes|Tétraodontiformes
+  S|Mola mola|Poisson-lune|Poisson osseux le plus lourd : plus de 2 tonnes.
+  S|Takifugu rubripes|Fugu|Mortel s'il est mal préparé (tétrodotoxine).
+  S|Diodon hystrix|Poisson porc-épic
+  S|Balistes capriscus|Baliste
+  S|Ostracion cubicum|Poisson-coffre jaune
+  S|Torquigener albomaculosus|Poisson-ballon architecte|Dessine des cercles de 2 m dans le sable.
+ O|Perciformes|Perciformes|Ordre restreint aux perches, rascasses et apparentés.
+  S|Perca fluviatilis|Perche commune
+  S|Sander lucioperca|Sandre
+  S|Epinephelus marginatus|Mérou brun
+  S|Scorpaena scrofa|Rascasse rouge
+  S|Pterois volitans|Rascasse volante|Invasive dans les Caraïbes.
+  S|Synanceia verrucosa|Poisson-pierre|Le poisson le plus venimeux.
+  S|Gasterosteus aculeatus|Épinoche|Le mâle construit un nid.
+  S|Cottus gobio|Chabot
+  S|Cyclopterus lumpus|Lompe
+  S|Anarhichas lupus|Loup atlantique
+  S|Pseudoliparis swirei|Limace de mer de la fosse des Mariannes|Vit au-delà de 7 000 m.
+  c|Notothenioidei|Poissons des glaces|Protéines antigel dans le sang.
+   S|Chaenocephalus aceratus|Poisson des glaces|Sang transparent, sans hémoglobine.
+   S|Dissostichus mawsoni|Légine antarctique

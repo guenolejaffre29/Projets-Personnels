@@ -1,0 +1,337 @@
+# Format : indentation d'un espace par niveau ; code|Nom scientifique|Nom français|Note
+# "@@ Nom" rattache les lignes suivantes (profondeur 0) à un nœud déjà défini.
+c|Vie|Le vivant|Tout descend d'un ancêtre commun, LUCA, qui vivait il y a environ 4,2 milliards d'années. Trois grandes lignées cellulaires en sont issues ; les virus sont rangés à part.
+ D|Bacteria|Bactéries|Cellules sans noyau, à paroi le plus souvent en peptidoglycane. Environ 20 000 espèces décrites, des millions estimées.
+  R|Bacillati|Terrabactéries|Grande lignée surtout terrestre à l'origine ; souvent une seule membrane (Gram positif).
+   P|Bacillota|Firmicutes|Bactéries Gram positif à faible teneur en GC, beaucoup forment des endospores.
+    C|Bacilli|Bacilles
+     O|Bacillales|Bacillales
+      S|Bacillus subtilis|Bacille du foin|Modèle de laboratoire, forme des spores très résistantes.
+      S|Bacillus anthracis|Bacille du charbon|Agent de la maladie du charbon (anthrax).
+      S|Bacillus thuringiensis|Bacille de Thuringe|Ses toxines sont utilisées comme insecticide biologique.
+      S|Staphylococcus aureus|Staphylocoque doré|Commensal de la peau, pathogène opportuniste (SARM).
+      S|Listeria monocytogenes|Listeria|Responsable de la listériose alimentaire.
+     O|Lactobacillales|Bactéries lactiques
+      S|Lactobacillus delbrueckii|Lactobacille bulgare|Ferment du yaourt avec Streptococcus thermophilus.
+      S|Lacticaseibacillus casei|Lactobacille casei
+      S|Streptococcus pneumoniae|Pneumocoque
+      S|Streptococcus pyogenes|Streptocoque du groupe A|Angines, scarlatine.
+      S|Streptococcus thermophilus|Streptocoque thermophile
+      S|Lactococcus lactis|Lactocoque|Ferment des fromages.
+      S|Enterococcus faecalis|Entérocoque
+    C|Clostridia|Clostridies
+     S|Clostridium botulinum|Bacille botulique|Produit la toxine botulique, la plus puissante connue.
+     S|Clostridium tetani|Bacille du tétanos
+     S|Clostridioides difficile|Clostridioides difficile|Diarrhées après antibiotiques.
+     S|Faecalibacterium duncaniae|Faecalibacterium|Une des bactéries les plus abondantes de l'intestin humain (ex-F. prausnitzii).
+     G|Epulopiscium|Epulopiscium|Bactérie géante de l'intestin des poissons-chirurgiens, visible à l'œil nu.
+    C|Negativicutes|Négativicutes|Firmicutes à double membrane.
+     G|Veillonella|Veillonella
+    C|Erysipelotrichia|Érysipélotriches
+   P|Mycoplasmatota|Mycoplasmes|Sans paroi cellulaire, génomes minuscules (ex-Tenericutes).
+    C|Mollicutes|Mollicutes
+     S|Mycoplasmoides genitalium|Mycoplasma genitalium|Un des plus petits génomes d'organisme cultivable : environ 525 gènes.
+     S|Mycoplasmoides pneumoniae|Mycoplasma pneumoniae
+     G|Spiroplasma|Spiroplasma|Hélicoïdales, symbiotes d'insectes.
+     G|Candidatus Phytoplasma|Phytoplasmes|Parasites de la sève, transmis par des insectes.
+   P|Actinomycetota|Actinobactéries|Gram positif à forte teneur en GC ; grands producteurs d'antibiotiques.
+    C|Actinomycetes|Actinomycètes
+     O|Mycobacteriales|Mycobactéries
+      S|Mycobacterium tuberculosis|Bacille de Koch|Agent de la tuberculose.
+      S|Mycobacterium leprae|Bacille de Hansen|Agent de la lèpre.
+      S|Corynebacterium diphtheriae|Bacille diphtérique
+      G|Nocardia|Nocardia
+     O|Kitasatosporales|Streptomycètes
+      G|Streptomyces|Streptomyces|Source de plus des deux tiers des antibiotiques naturels ; donne l'odeur de terre mouillée (géosmine).
+     O|Bifidobacteriales|Bifidobactéries
+      G|Bifidobacterium|Bifidobacterium|Colonise l'intestin des nourrissons allaités.
+     O|Propionibacteriales|Propionibactéries
+      S|Cutibacterium acnes|Bacille de l'acné
+      S|Propionibacterium freudenreichii|Propionibactérie|Fait les trous de l'emmental.
+     O|Micrococcales|Micrococcales
+      G|Micrococcus|Micrococcus
+     O|Frankiales|Frankiales
+      G|Frankia|Frankia|Fixe l'azote dans les racines de l'aulne.
+    C|Coriobacteriia|Coriobactéries
+    C|Rubrobacteria|Rubrobactéries
+    C|Acidimicrobiia|Acidimicrobies
+   P|Cyanobacteriota|Cyanobactéries|Ont inventé la photosynthèse qui libère de l'oxygène (Grande Oxydation, ~2,4 Ga). Un de leurs ancêtres est devenu le chloroplaste.
+    C|Cyanophyceae|Cyanobactéries photosynthétiques
+     O|Gloeobacterales|Gloeobacter|Lignée la plus ancienne, sans thylakoïdes.
+      S|Gloeobacter violaceus|Gloeobacter
+     O|Synechococcales|Synechococcales
+      S|Prochlorococcus marinus|Prochlorococcus|L'organisme photosynthétique le plus abondant de la planète.
+      G|Synechococcus|Synechococcus
+     O|Chroococcales|Chroococcales
+      S|Microcystis aeruginosa|Microcystis|Responsable des « fleurs d'eau » toxiques des lacs.
+     O|Oscillatoriales|Oscillatoriales
+      S|Limnospira platensis|Spiruline|Vendue comme complément alimentaire (ex-Arthrospira).
+      S|Trichodesmium erythraeum|Trichodesmium|Fixe l'azote en haute mer ; colore la mer Rouge.
+      G|Oscillatoria|Oscillatoria
+     O|Nostocales|Nostocales|Filaments avec hétérocystes fixateurs d'azote.
+      G|Nostoc|Nostoc
+      G|Anabaena|Anabaena
+    C|Vampirovibrionia|Mélainabactéries|Cousines non photosynthétiques des cyanobactéries.
+   P|Chloroflexota|Bactéries vertes non sulfureuses
+    S|Chloroflexus aurantiacus|Chloroflexus
+    G|Dehalococcoides|Dehalococcoides|Dégrade des solvants chlorés.
+   P|Deinococcota|Deinococcus-Thermus
+    S|Deinococcus radiodurans|Deinococcus|Résiste à des radiations mille fois mortelles pour l'humain.
+    S|Thermus aquaticus|Thermus aquaticus|Source de la Taq polymérase utilisée en PCR.
+   P|Armatimonadota|Armatimonadota
+   P|Dormibacterota|Dormibacterota
+  R|Pseudomonadati|Gracilicutes|Grande lignée de bactéries à double membrane (Gram négatif).
+   P|Pseudomonadota|Protéobactéries|Le plus vaste embranchement bactérien (ex-Proteobacteria).
+    C|Alphaproteobacteria|Alphaprotéobactéries|Les mitochondries descendent d'une bactérie proche de ce groupe.
+     O|Rickettsiales|Rickettsiales
+      S|Rickettsia prowazekii|Rickettsie du typhus
+      S|Wolbachia pipientis|Wolbachia|Infecte peut-être la moitié des espèces d'insectes et manipule leur reproduction.
+     O|Pelagibacterales|SAR11
+      S|Pelagibacter ubique|Pelagibacter|Probablement la bactérie la plus nombreuse des océans.
+     O|Hyphomicrobiales|Rhizobiales
+      G|Rhizobium|Rhizobium|Fixe l'azote dans les nodosités des légumineuses.
+      S|Agrobacterium tumefaciens|Agrobactérie|Transfère naturellement de l'ADN aux plantes.
+      S|Brucella melitensis|Brucella|Agent de la brucellose.
+      S|Bartonella henselae|Bartonella|Maladie des griffes du chat.
+     O|Caulobacterales|Caulobacterales
+      S|Caulobacter crescentus|Caulobacter|Modèle du cycle cellulaire asymétrique.
+     O|Rhodobacterales|Rhodobacterales
+      G|Rhodobacter|Rhodobacter
+     O|Sphingomonadales|Sphingomonadales
+     O|Rhodospirillales|Rhodospirillales
+      S|Magnetospirillum magneticum|Magnétospirille|Fabrique des cristaux de magnétite pour s'orienter.
+     O|Acetobacterales|Bactéries acétiques
+      G|Acetobacter|Acetobacter|Transforme le vin en vinaigre.
+     O|Holosporales|Holosporales|Parasites du noyau des paramécies.
+    C|Betaproteobacteria|Bêtaprotéobactéries
+     O|Neisseriales|Neisseriales
+      S|Neisseria meningitidis|Méningocoque
+      S|Neisseria gonorrhoeae|Gonocoque
+     O|Burkholderiales|Burkholderiales
+      S|Bordetella pertussis|Bacille de la coqueluche
+      S|Burkholderia pseudomallei|Burkholderia
+     O|Nitrosomonadales|Nitrosomonadales
+      S|Nitrosomonas europaea|Nitrosomonas|Oxyde l'ammoniac : étape clé du cycle de l'azote.
+    C|Gammaproteobacteria|Gammaprotéobactéries
+     O|Enterobacterales|Entérobactéries
+      S|Escherichia coli|Colibacille|L'organisme modèle le plus étudié de la biologie.
+      S|Salmonella enterica|Salmonelle
+      G|Shigella|Shigella|Dysenterie bacillaire.
+      S|Klebsiella pneumoniae|Klebsielle
+      S|Yersinia pestis|Bacille de la peste|A causé la Peste noire au XIVe siècle.
+      S|Buchnera aphidicola|Buchnera|Symbiote obligatoire des pucerons.
+      S|Serratia marcescens|Serratia
+      S|Proteus mirabilis|Proteus
+     O|Pseudomonadales|Pseudomonadales
+      S|Pseudomonas aeruginosa|Bacille pyocyanique
+      S|Pseudomonas fluorescens|Pseudomonas fluorescent
+      S|Acinetobacter baumannii|Acinetobacter
+     O|Vibrionales|Vibrionales
+      S|Vibrio cholerae|Vibrion cholérique|Agent du choléra.
+      S|Aliivibrio fischeri|Vibrio fischeri|Bactérie lumineuse symbiote du calmar Euprymna.
+     O|Pasteurellales|Pasteurellales
+      S|Haemophilus influenzae|Haemophilus|Premier génome d'organisme libre séquencé (1995).
+      S|Pasteurella multocida|Pasteurella
+     O|Legionellales|Legionellales
+      S|Legionella pneumophila|Légionelle
+      S|Coxiella burnetii|Coxiella|Fièvre Q.
+     O|Thiotrichales|Thiotrichales
+      S|Francisella tularensis|Francisella|Tularémie.
+      S|Thiomargarita magnifica|Thiomargarita magnifica|Plus grande bactérie connue : un filament de 2 cm.
+     O|Xanthomonadales|Xanthomonadales
+      S|Xylella fastidiosa|Xylella|Tue les oliviers des Pouilles.
+      S|Xanthomonas campestris|Xanthomonas|Produit la gomme xanthane.
+     O|Chromatiales|Bactéries pourpres sulfureuses
+     O|Alteromonadales|Alteromonadales
+      S|Shewanella oneidensis|Shewanella|Respire des métaux.
+     O|Methylococcales|Méthanotrophes
+    C|Zetaproteobacteria|Zétaprotéobactéries
+     S|Mariprofundus ferrooxydans|Mariprofundus|Oxyde le fer près des sources hydrothermales.
+    C|Acidithiobacillia|Acidithiobacillia
+     S|Acidithiobacillus ferrooxidans|Acidithiobacillus|Utilisé pour extraire le cuivre des minerais.
+   P|Campylobacterota|Campylobactéries
+    S|Campylobacter jejuni|Campylobacter|Première cause bactérienne de gastro-entérite.
+    S|Helicobacter pylori|Hélicobactère|Responsable des ulcères de l'estomac (Nobel 2005).
+   P|Thermodesulfobacteriota|Desulfobacterota|Bactéries réductrices de sulfate.
+    G|Desulfovibrio|Desulfovibrio
+    S|Geobacter sulfurreducens|Geobacter|Produit de l'électricité : fabrique des « nanofils ».
+   P|Myxococcota|Myxobactéries
+    S|Myxococcus xanthus|Myxococcus|Les cellules s'assemblent en fructifications multicellulaires.
+   P|Bdellovibrionota|Bdellovibrions
+    S|Bdellovibrio bacteriovorus|Bdellovibrio|Prédateur qui pénètre dans d'autres bactéries.
+   P|Acidobacteriota|Acidobactéries|Très abondantes dans les sols.
+   P|Nitrospirota|Nitrospira
+    G|Nitrospira|Nitrospira|Certaines oxydent l'ammoniac jusqu'au nitrate (comammox).
+    G|Leptospirillum|Leptospirillum
+   P|Nitrospinota|Nitrospina
+   P|Spirochaetota|Spirochètes|Bactéries en tire-bouchon, flagelles internes.
+    S|Treponema pallidum|Tréponème pâle|Agent de la syphilis.
+    S|Borreliella burgdorferi|Borrélie|Agent de la maladie de Lyme.
+    S|Leptospira interrogans|Leptospire|Leptospirose.
+   P|Elusimicrobiota|Elusimicrobiota
+   P|Deferribacterota|Deferribacterota
+   c|Groupe PVC|Planctomycètes, Verrucomicrobies, Chlamydies
+    P|Planctomycetota|Planctomycètes|Membranes internes complexes.
+     S|Gemmata obscuriglobus|Gemmata
+     G|Candidatus Brocadia|Brocadia|Oxyde l'ammonium sans oxygène (anammox).
+    P|Verrucomicrobiota|Verrucomicrobies
+     S|Akkermansia muciniphila|Akkermansia|Se nourrit du mucus intestinal.
+    P|Chlamydiota|Chlamydies|Parasites intracellulaires obligatoires.
+     S|Chlamydia trachomatis|Chlamydia|Trachome et infection sexuellement transmissible.
+    P|Lentisphaerota|Lentisphaerota
+    P|Kiritimatiellota|Kiritimatiellota
+   c|Groupe FCB|Fibrobactères, Chlorobi, Bacteroidetes
+    P|Bacteroidota|Bactéroïdes|Grands dégradeurs de sucres complexes dans l'intestin.
+     S|Bacteroides fragilis|Bacteroides
+     S|Porphyromonas gingivalis|Porphyromonas|Maladie des gencives.
+     G|Prevotella|Prevotella
+     G|Flavobacterium|Flavobacterium
+    P|Chlorobiota|Bactéries vertes sulfureuses|Photosynthèse dans très peu de lumière.
+     G|Chlorobium|Chlorobium
+    P|Fibrobacterota|Fibrobacter|Dégradent la cellulose dans la panse des ruminants.
+    P|Gemmatimonadota|Gemmatimonadota
+    P|Ignavibacteriota|Ignavibacteriota
+    P|Balneolota|Balneolota
+    P|Calditrichota|Calditrichota
+  R|Fusobacteriati|Fusobactéries
+   P|Fusobacteriota|Fusobactéries
+    S|Fusobacterium nucleatum|Fusobacterium|Bactérie buccale associée au cancer colorectal.
+  R|Thermotogati|Thermotogati|Lignée de bactéries thermophiles.
+   P|Thermotogota|Thermotogales|Entourées d'une gaine (« toge »).
+    S|Thermotoga maritima|Thermotoga
+  c|Autres lignées thermophiles|Lignées basales, position débattue
+   P|Aquificota|Aquificales|Parmi les bactéries les plus thermophiles (jusqu'à 95 °C).
+    S|Aquifex aeolicus|Aquifex
+   P|Dictyoglomota|Dictyoglomota
+   P|Caldisericota|Caldisericota
+   P|Coprothermobacterota|Coprothermobacterota
+   P|Synergistota|Synergistota
+  c|Patescibacteria|Radiation des phylums candidats (CPR)|Bactéries ultra-petites (~0,2 µm) connues surtout par leur ADN ; elles vivent accrochées à d'autres bactéries. Peut-être un quart de la diversité bactérienne.
+   P|Candidatus Saccharibacteria|Saccharibactéries (TM7)|Vit en épibionte sur des actinobactéries de la bouche.
+   P|Candidatus Parcubacteria|Parcubactéries
+   P|Candidatus Microgenomates|Microgénomates
+ D|Archaea|Archées|Cellules sans noyau mais à machinerie proche des eucaryotes, membranes à lipides éthers. Aucune n'est pathogène connue. Souvent extrêmophiles, mais aussi partout dans les océans et les sols.
+  R|Methanobacteriati|Euryarchées
+   P|Methanobacteriota|Euryarchéotes|(ex-Euryarchaeota)
+    C|Methanobacteria|Méthanobactéries
+     S|Methanobrevibacter smithii|Methanobrevibacter|Principale archée de l'intestin humain, produit du méthane.
+     G|Methanobacterium|Methanobacterium
+     G|Methanothermobacter|Methanothermobacter
+    C|Methanococci|Méthanocoques
+     S|Methanocaldococcus jannaschii|Methanocaldococcus|Première archée séquencée (1996).
+    C|Methanopyri|Méthanopyres
+     S|Methanopyrus kandleri|Methanopyrus|Une souche se multiplie à 122 °C, record pour la vie.
+    C|Methanomicrobia|Méthanomicrobes
+     G|Methanosarcina|Methanosarcina|Plus grand génome d'archée connu.
+     G|Methanothrix|Methanothrix
+     c|ANME|Méthanotrophes anaérobies|Consomment le méthane des fonds marins avec des bactéries partenaires.
+    C|Halobacteria|Halobactéries|Vivent dans des saumures saturées en sel ; colorent les marais salants en rose.
+     S|Halobacterium salinarum|Halobacterium
+     S|Haloferax volcanii|Haloferax
+     S|Haloquadratum walsbyi|Archée carrée|Cellules plates et carrées.
+    C|Thermococci|Thermocoques
+     S|Pyrococcus furiosus|Pyrococcus|Pousse à 100 °C ; source de la polymérase Pfu.
+     G|Thermococcus|Thermococcus
+    C|Archaeoglobi|Archéoglobes
+     S|Archaeoglobus fulgidus|Archaeoglobus
+    C|Thermoplasmata|Thermoplasmes
+     S|Thermoplasma acidophilum|Thermoplasma|Sans paroi cellulaire.
+     S|Picrophilus torridus|Picrophilus|Vit à pH 0.
+     G|Ferroplasma|Ferroplasma
+    C|Poseidoniia|Archées marines du groupe II|Très abondantes dans les eaux de surface.
+   P|Hadarchaeota|Hadarchées|Vivent dans les sédiments profonds.
+  R|Thermoproteati|Groupe TACK
+   P|Thermoproteota|Thermoprotéotes|(ex-Crenarchaeota et Thaumarchaeota)
+    C|Thermoprotei|Thermoprotées|Hyperthermophiles des sources chaudes.
+     O|Sulfolobales|Sulfolobales
+      S|Saccharolobus solfataricus|Sulfolobus|Vit dans les solfatares à 80 °C et pH 3.
+      S|Sulfolobus acidocaldarius|Sulfolobus acidocaldarius
+     O|Desulfurococcales|Desulfurococcales
+      S|Pyrolobus fumarii|Pyrolobus|Survit jusqu'à 113 °C.
+      G|Ignicoccus|Ignicoccus|Hôte de la minuscule Nanoarchaeum.
+     O|Thermoproteales|Thermoproteales
+      G|Pyrobaculum|Pyrobaculum
+      G|Thermoproteus|Thermoproteus
+    C|Nitrososphaeria|Thaumarchées|Oxydent l'ammoniac ; parmi les êtres vivants les plus nombreux des océans.
+     S|Nitrosopumilus maritimus|Nitrosopumilus
+     G|Nitrososphaera|Nitrososphaera
+     S|Cenarchaeum symbiosum|Cenarchaeum|Symbiote d'une éponge.
+    C|Korarchaeia|Korarchées
+     S|Candidatus Korarchaeum cryptofilum|Korarchaeum
+    C|Bathyarchaeia|Bathyarchées|Abondantes dans les sédiments marins.
+    C|Methanomethylicia|Verstraetearchées|Méthanogènes hors des Euryarchées.
+  R|Nanobdellati|Superphylum DPANN|Archées minuscules, souvent symbiotes ou parasites d'autres archées.
+   P|Nanobdellota|Nanoarchées
+    S|Nanoarchaeum equitans|Nanoarchaeum|Vit accrochée à Ignicoccus ; génome de 490 000 paires de bases.
+   P|Candidatus Micrarchaeota|Micrarchées|Archées ARMAN des drainages miniers acides.
+   P|Candidatus Woesearchaeota|Woesearchées
+   P|Candidatus Altiarchaeota|Altiarchées
+    S|Candidatus Altiarchaeum hamiconexum|Altiarchaeum|Cellules hérissées de grappins.
+   P|Candidatus Nanohaloarchaeota|Nanohaloarchées
+   P|Candidatus Aenigmarchaeota|Aenigmarchées
+  R|Promethearchaeati|Archées d'Asgard|Les plus proches parentes des eucaryotes : elles possèdent déjà des gènes « eucaryotes » (actine, ESCRT…). Noms tirés des dieux nordiques.
+   P|Promethearchaeota|Asgardarchées
+    C|Lokiarchaeia|Lokiarchées|Découvertes près du Château de Loki, une source hydrothermale arctique (2015).
+     S|Candidatus Prometheoarchaeum syntrophicum|Prometheoarchaeum|Première archée d'Asgard cultivée (2020), après 12 ans d'efforts ; cellules à longs bras.
+    C|Thorarchaeia|Thorarchées
+    C|Odinarchaeia|Odinarchées
+    C|Helarchaeia|Helarchées
+    C|Heimdallarchaeia|Heimdallarchées|Groupe dont seraient issus les eucaryotes (Hodarchaeales).
+ D|Eukaryota|Eucaryotes|Cellules à noyau, avec mitochondries (héritées d'une alphaprotéobactérie). Issus d'une archée d'Asgard il y a environ 2 milliards d'années. La plupart des lignées sont unicellulaires : les « protistes ».
+ c|Virus|Virus (hors arbre)|Les virus ne sont pas des cellules et n'ont pas d'ancêtre commun unique : ils ne font pas partie de l'arbre du vivant au sens strict. Ils sont classés en « domaines » (realms) par l'ICTV.
+  D|Riboviria|Riboviria|Virus à ARN et rétrovirus.
+   R|Orthornavirae|Virus à ARN
+    F|Coronaviridae|Coronavirus
+     S|SARS-CoV-2|Coronavirus du Covid-19
+    F|Orthomyxoviridae|Virus grippaux
+     S|Alphainfluenzavirus influenzae|Virus de la grippe A
+    F|Filoviridae|Filovirus
+     S|Orthoebolavirus zairense|Virus Ebola
+    F|Rhabdoviridae|Rhabdovirus
+     S|Lyssavirus rabies|Virus de la rage
+    F|Paramyxoviridae|Paramyxovirus
+     S|Morbillivirus hominis|Virus de la rougeole
+    F|Picornaviridae|Picornavirus
+     S|Enterovirus coxsackiepol|Poliovirus
+    F|Flaviviridae|Flavivirus
+     S|Orthoflavivirus denguei|Virus de la dengue
+     S|Orthoflavivirus zikaense|Virus Zika
+     S|Hepacivirus hominis|Virus de l'hépatite C
+    F|Virgaviridae|Virgavirus
+     S|Tobamovirus tabaci|Virus de la mosaïque du tabac|Premier virus découvert (1892).
+   R|Pararnavirae|Rétrovirus et apparentés
+    F|Retroviridae|Rétrovirus
+     S|Lentivirus humimdef1|VIH-1
+    F|Hepadnaviridae|Hépadnavirus
+     S|Orthohepadnavirus hominoidei|Virus de l'hépatite B
+  D|Duplodnaviria|Duplodnaviria|Virus à ADN double brin à capside « HK97 ».
+   C|Caudoviricetes|Bactériophages à queue|Les entités biologiques les plus nombreuses sur Terre (~10³¹).
+    G|Tequatrovirus|Phage T4|Phage d'Escherichia coli, modèle historique de la biologie moléculaire.
+    G|Lambdavirus|Phage lambda
+    c|crAssphage|crAssphage|Le virus le plus abondant de l'intestin humain.
+   O|Herpesvirales|Herpèsvirus
+    S|Simplexvirus humanalpha1|Herpès simplex 1
+    S|Varicellovirus humanalpha3|Virus de la varicelle
+    S|Lymphocryptovirus humangamma4|Virus d'Epstein-Barr
+  D|Varidnaviria|Varidnaviria|Virus à ADN à capside « double gelée roulée ».
+   P|Nucleocytoviricota|Virus géants|Plus gros que certaines bactéries.
+    S|Mimivirus bradfordmassiliense|Mimivirus|Découvert en 1992 dans une amibe, pris d'abord pour une bactérie.
+    G|Pandoravirus|Pandoravirus|Génome de 2,5 millions de paires de bases.
+    G|Pithovirus|Pithovirus|Réveillé après 30 000 ans dans le pergélisol sibérien.
+    F|Poxviridae|Poxvirus
+     S|Orthopoxvirus variola|Virus de la variole|Éradiqué en 1980.
+     S|Orthopoxvirus monkeypox|Virus mpox
+    F|Asfarviridae|Asfarvirus
+     S|Asfivirus haemorrhagiae|Virus de la peste porcine africaine
+   F|Adenoviridae|Adénovirus
+  D|Monodnaviria|Monodnaviria|Petits virus à ADN.
+   F|Papillomaviridae|Papillomavirus
+    G|Alphapapillomavirus|Papillomavirus humains (HPV 16, 18…)|Principale cause du cancer du col de l'utérus.
+   F|Polyomaviridae|Polyomavirus
+   F|Parvoviridae|Parvovirus
+   F|Microviridae|Microvirus
+    G|Sinsheimervirus|Phage φX174|Premier génome ADN entièrement séquencé (1977).
+  D|Adnaviria|Adnaviria|Virus d'archées hyperthermophiles, ADN sous forme A.
+   F|Rudiviridae|Rudivirus
+  D|Ribozyviria|Ribozyviria|Satellites à ARN circulaire avec ribozyme.
+   S|Deltavirus italiense|Virus de l'hépatite D

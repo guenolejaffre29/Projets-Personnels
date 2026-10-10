@@ -1,0 +1,342 @@
+<header class="top">
+  <div class="wrap">
+    <button class="iconbtn" id="back" aria-label="Remonter d'un niveau" disabled>
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Renard, Vulpes, Plasmodium…" aria-label="Chercher une espèce ou un groupe">
+      <button class="clear" id="clear" aria-label="Effacer la recherche" hidden>×</button>
+    </div>
+    <button class="iconbtn" id="rand" aria-label="Aller à une espèce au hasard">
+      <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" id="crumbs" aria-label="Lignée"></nav>
+  <main id="view">
+    <section class="card">
+      <div class="meta"><span class="dot"></span><span>Catalogue du vivant</span></div>
+      <h1>Le vivant</h1>
+      <p class="note">Chargement du catalogue des espèces décrites…</p>
+    </section>
+  </main>
+  <footer>
+    <p id="count"></p>
+    <p>Données : <a href="https://www.catalogueoflife.org/" target="_blank" rel="noopener">Catalogue of Life</a> (ChecklistBank, licence CC BY 4.0). Seules les espèces acceptées sont listées, sans synonymes ni sous-espèces. Les rangs suivent la classification du Catalogue of Life ; noms français et anecdotes viennent de l'atlas commenté quand ils existent.</p>
+    <p>Périmètre : tout le vivant sauf le végétal multicellulaire (plantes terrestres, algues rouges et vertes pluricellulaires), signalé en pointillés. Les algues unicellulaires et les algues brunes sont incluses.</p>
+    <p><a href="atlas.html">Ouvrir l'atlas commenté</a> : arbre phylogénétique illustré de ~5 500 groupes, avec anecdotes.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  const RANKS = {
+    c: "clade", D: "domaine", R: "règne", Rb: "sous-règne",
+    P: "embranchement", Pb: "sous-embranchement",
+    Cs: "super-classe", C: "classe", Cb: "sous-classe", Ci: "infra-classe",
+    Os: "super-ordre", O: "ordre", Ob: "sous-ordre", Oi: "infra-ordre",
+    Fs: "super-famille", F: "famille", Fb: "sous-famille", T: "tribu",
+    G: "genre", S: "espèce", x: "hors périmètre"
+  };
+  const RANK_ORDER = {};
+  "D R Rb P Pb Cs C Cb Ci Os O Ob Oi Fs F Fb T G S x".split(" ").forEach((c, i) => RANK_ORDER[c] = i);
+  const ITALIC = { G: 1, S: 1 };
+  const GROUPS = {
+    "Bacteria": ["--g-bact", "Bactéries"], "Archaea": ["--g-arch", "Archées"],
+    "Eukaryota": ["--g-prot", "Eucaryotes"], "Protozoa": ["--g-prot", "Protozoaires"],
+    "Chromista": ["--g-prot", "Chromistes"], "Plantae": ["--g-prot", "Algues unicellulaires"],
+    "Fungi": ["--g-fung", "Champignons"], "Animalia": ["--g-anim", "Animaux"], "Viruses": ["--g-vir", "Virus"]
+  };
+  const PAGE = 200;
+
+  const $ = id => document.getElementById(id);
+  const view = $("view"), crumbs = $("crumbs"), q = $("q"), backBtn = $("back"), clearBtn = $("clear");
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const fmt = x => x.toLocaleString("fr-FR");
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const chev = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+
+  // ---------- Chargement des données ----------
+  async function loadText(url) {
+    const r = await fetch(url);
+    if (!r.ok) throw new Error(url + " : " + r.status);
+    const buf = new Uint8Array(await r.arrayBuffer());
+    if (buf[0] === 0x1f && buf[1] === 0x8b) {
+      const s = new Blob([buf]).stream().pipeThrough(new DecompressionStream("gzip"));
+      return await new Response(s).text();
+    }
+    return new TextDecoder().decode(buf);
+  }
+
+  let meta = null;
+  const chunks = new Map();   // numéro de morceau -> Promise<Map(id parent -> texte)>
+  const shards = new Map();   // numéro d'index -> Promise<string[]>
+  const nodes = new Map();    // id -> nœud déjà lu
+  const kidsCache = new Map();
+
+  function chunkOf(id) {
+    const a = meta.chunks; let lo = 0, hi = a.length - 1;
+    while (lo < hi) { const m = (lo + hi + 1) >> 1; if (a[m] <= id) lo = m; else hi = m - 1; }
+    return lo;
+  }
+  function loadChunk(k) {
+    if (!chunks.has(k)) {
+      const p = loadText(`d/t/${k}.gz`).then(txt => {
+        const m = new Map();
+        for (const part of txt.split("\n#")) {
+          const nl = part.indexOf("\n");
+          if (nl < 0) continue;
+          m.set(parseInt(part.slice(part[0] === "#" ? 1 : 0, nl), 10), part.slice(nl + 1));
+        }
+        return m;
+      });
+      p.catch(() => chunks.delete(k));
+      chunks.set(k, p);
+    }
+    return chunks.get(k);
+  }
+
+  async function children(n) {
+    if (!n.size) return [];
+    if (kidsCache.has(n.id)) return kidsCache.get(n.id);
+    const block = (await loadChunk(chunkOf(n.id))).get(n.id) || "";
+    const out = [];
+    let id = n.id + 1;
+    for (const line of block.split("\n")) {
+      if (!line) continue;
+      let c;
+      const f = line.split("\t");
+      if (line[0] === "~" || line[0] === "!") {
+        const nm = line[0] === "~" ? n.name + " " + f[0].slice(1) : f[0].slice(1);
+        c = { id, code: "S", name: nm, auth: f[1] || "", fr: f[2] || "", note: f[3] || "", size: 0, nsp: 1 };
+      } else {
+        c = { id, code: f[0], name: f[1], size: +f[2], nsp: +f[3], fr: f[4] || "", note: f[5] || "", auth: f[6] || "" };
+      }
+      c.parent = n;
+      c.group = GROUPS[c.name] ? c.name : n.group;
+      out.push(c);
+      nodes.set(id, c);
+      id += 1 + c.size;
+    }
+    kidsCache.set(n.id, out);
+    return out;
+  }
+
+  async function nodeById(id) {
+    if (nodes.has(id)) return nodes.get(id);
+    let cur = ROOT;
+    while (cur.id !== id) {
+      const ks = await children(cur);
+      const next = ks.find(c => c.id <= id && id <= c.id + c.size);
+      if (!next) throw new Error("Identifiant introuvable : " + id);
+      cur = next;
+    }
+    return cur;
+  }
+
+  let ROOT;
+  const lineage = n => { const a = []; for (let p = n; p; p = p.parent) a.unshift(p); return a; };
+  const title = n => n.fr || n.name;
+  const sciHTML = n => ITALIC[n.code] ? `<span class="it">${esc(n.name)}</span>` : esc(n.name);
+  const colorOf = n => n.code === "x" ? "var(--g-excl)" : (n.group && GROUPS[n.group] ? `var(${GROUPS[n.group][0]})` : "var(--accent)");
+
+  function rowHTML(n, opts = {}) {
+    const sub = [];
+    if (n.fr) sub.push(sciHTML(n));
+    sub.push(`<span class="r">${RANKS[n.code] || n.code}</span>`);
+    let right = "";
+    if (n.size) right = `<span>${n.nsp ? fmt(n.nsp) + " esp." : fmt(n.size)}</span>${chev}`;
+    const cls = ["row"]; if (n.code === "x") cls.push("excl"); if (opts.current) cls.push("current");
+    const nm = opts.hl ? opts.hl(n) : (n.fr ? esc(n.fr) : sciHTML(n));
+    return `<li><button class="${cls.join(" ")}" data-id="${n.id}"${opts.current ? ' aria-current="true"' : ""}>
+      <span class="dot" style="--c:${colorOf(n)}"></span>
+      <span class="t"><span class="n">${nm}</span><span class="s">${sub.join(" · ")}</span>${opts.path ? `<span class="path">${opts.path}</span>` : ""}</span>
+      <span class="side">${right}</span></button></li>`;
+  }
+
+  // ---------- Vue d'un nœud ----------
+  let current = null, token = 0, listState = null;
+
+  async function render(n, dir) {
+    const my = ++token;
+    current = n;
+    const line = lineage(n);
+    crumbs.innerHTML = line.map((p, i) =>
+      (i ? '<span class="sep" aria-hidden="true">›</span>' : "") + `<button data-id="${p.id}">${esc(title(p))}</button>`).join("");
+    crumbs.scrollLeft = crumbs.scrollWidth;
+    backBtn.disabled = !n.parent;
+    const groupName = n.group && GROUPS[n.group] ? GROUPS[n.group][1] : "Tout le vivant";
+    let h = `<section class="card">
+      <div class="meta"><span class="dot" style="--c:${colorOf(n)}"></span><span>${esc(groupName)}</span><span class="rank">${RANKS[n.code] || n.code}</span></div>
+      <h1${!n.fr && ITALIC[n.code] ? ' class="it"' : ""}>${esc(title(n))}</h1>
+      ${n.fr ? `<p class="sci">${sciHTML(n)}${n.auth ? ` <span class="auth">${esc(n.auth)}</span>` : ""}</p>` : (n.auth ? `<p class="sci"><span class="auth">${esc(n.auth)}</span></p>` : "")}
+      ${n.note ? `<p class="note">${esc(n.note)}</p>` : ""}
+      ${n.code === "x" ? `<div class="excl-banner">Branche végétale multicellulaire : signalée pour situer l'arbre, mais pas détaillée ici.</div>` : ""}`;
+    if (n.size) {
+      h += `<div class="stats"><span><b>${fmt(n.nsp)}</b> espèce${n.nsp > 1 ? "s" : ""}</span><span><b>${fmt(n.size)}</b> taxons en dessous</span></div>`;
+    }
+    if (n === ROOT && meta) {
+      h += `<div class="legend">${Object.entries(meta.counts).map(([k, v]) => GROUPS[k] ? `<span><span class="dot" style="--c:var(${GROUPS[k][0]})"></span>${GROUPS[k][1]} <b class="num">${fmt(v)}</b></span>` : "").join("")}</div>`;
+    }
+    if (n !== ROOT && n.code !== "x" && n.code !== "c") {
+      h += `<div class="links"><a href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(n.name)}" target="_blank" rel="noopener">Wikipédia ↗</a><a href="https://www.catalogueoflife.org/data/search?q=${encodeURIComponent(n.name)}" target="_blank" rel="noopener">Catalogue of Life ↗</a></div>`;
+    }
+    h += `</section><div id="listzone"><p class="results-info">Chargement…</p></div>`;
+    view.innerHTML = h;
+    view.classList.remove("enter", "enter-back");
+    if (dir) { void view.offsetWidth; view.classList.add(dir < 0 ? "enter-back" : "enter"); }
+    document.title = n === ROOT ? "Catalogue du vivant" : `${title(n)} · Catalogue du vivant`;
+
+    try {
+      let list, heading, cur = null;
+      if (n.size) { list = await children(n); heading = n.code === "G" ? "Espèces" : "Sous-groupes"; }
+      else if (n.parent) { list = await children(n.parent); heading = "Dans " + title(n.parent); cur = n; }
+      else list = [];
+      if (my !== token) return;
+      listState = { list, cur, shown: 0, filter: "", heading };
+      drawList();
+    } catch (e) {
+      if (my === token) $("listzone").innerHTML = `<p class="results-info">Impossible de charger ce groupe. Vérifiez la connexion puis réessayez.</p>`;
+    }
+  }
+
+  function drawList(more) {
+    const z = $("listzone"); if (!z || !listState) return;
+    const st = listState;
+    const items = st.filter ? st.list.filter(c => norm(c.name + " " + c.fr).includes(st.filter)) : st.list;
+    if (!more) st.shown = 0;
+    let start = st.shown;
+    st.shown = Math.min(items.length, Math.max(st.shown + PAGE, st.cur ? items.indexOf(st.cur) + 20 : 0));
+    const rows = items.slice(start, st.shown).map(c => rowHTML(c, { current: c === st.cur })).join("");
+    if (!more) {
+      z.innerHTML = `<div class="listhead"><h2>${esc(st.heading)} <span class="num">${fmt(st.list.length)}</span></h2></div>` +
+        (st.list.length > 30 ? `<div class="filter"><input id="filter" type="search" placeholder="Filtrer ces ${fmt(st.list.length)} noms" autocomplete="off" value="${esc(st.filter)}" aria-label="Filtrer la liste"></div>` : "") +
+        `<ul class="list" id="list">${rows}</ul><div id="morezone"></div>`;
+      const f = $("filter");
+      if (f) f.addEventListener("input", () => { st.filter = norm(f.value); drawListBody(); });
+    } else {
+      $("list").insertAdjacentHTML("beforeend", rows);
+    }
+    $("morezone").innerHTML = st.shown < items.length ? `<button class="more" id="more">Afficher ${fmt(Math.min(PAGE, items.length - st.shown))} de plus (${fmt(items.length - st.shown)} restants)</button>` : (items.length ? "" : `<p class="results-info">Aucun nom ne correspond.</p>`);
+    const mb = $("more"); if (mb) mb.addEventListener("click", () => drawList(true));
+  }
+  function drawListBody() {
+    const st = listState; st.shown = 0;
+    const items = st.filter ? st.list.filter(c => norm(c.name + " " + c.fr).includes(st.filter)) : st.list;
+    st.shown = Math.min(items.length, PAGE);
+    $("list").innerHTML = items.slice(0, st.shown).map(c => rowHTML(c, { current: c === st.cur })).join("");
+    $("morezone").innerHTML = st.shown < items.length ? `<button class="more" id="more">Afficher ${fmt(Math.min(PAGE, items.length - st.shown))} de plus (${fmt(items.length - st.shown)} restants)</button>` : (items.length ? "" : `<p class="results-info">Aucun nom ne correspond.</p>`);
+    const mb = $("more"); if (mb) mb.addEventListener("click", () => drawList(true));
+  }
+
+  const isAncestor = (a, b) => { for (let p = b.parent; p; p = p.parent) if (p === a) return true; return false; };
+  async function go(id, push = true) {
+    let n;
+    try { n = await nodeById(id); } catch (e) { return; }
+    const dir = current && isAncestor(n, current) ? -1 : 1;
+    closeSearch(false);
+    render(n, dir);
+    window.scrollTo({ top: 0 });
+    if (push) { try { history.pushState({ id: n.id }, ""); } catch (e) {} }
+  }
+
+  window.addEventListener("popstate", e => {
+    const id = e.state && typeof e.state.id === "number" ? e.state.id : 0;
+    go(id, false);
+  });
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-id]");
+    if (b && meta) go(+b.dataset.id);
+  });
+  backBtn.addEventListener("click", () => { if (current && current.parent) go(current.parent.id); });
+  $("rand").addEventListener("click", async () => {
+    if (!meta) return;
+    let n = await nodeById(1 + Math.floor(Math.random() * (meta.nodes - 1)));
+    while (n.size) { const ks = await children(n); n = ks[Math.floor(Math.random() * ks.length)]; }
+    go(n.id);
+  });
+
+  // ---------- Recherche ----------
+  let timer = null, searchToken = 0;
+  q.addEventListener("input", () => { clearBtn.hidden = !q.value; clearTimeout(timer); timer = setTimeout(search, 180); });
+  q.addEventListener("keydown", e => {
+    if (e.key === "Escape") { closeSearch(true); q.blur(); }
+    if (e.key === "Enter") { const first = view.querySelector(".row"); if (first) first.click(); q.blur(); }
+  });
+  clearBtn.addEventListener("click", () => { closeSearch(true); q.focus(); });
+  function closeSearch(rerender) {
+    const was = !!q.value;
+    q.value = ""; clearBtn.hidden = true; searchToken++;
+    if (rerender && was && current) render(current, 0);
+  }
+  function loadShard(i) {
+    if (!shards.has(i)) {
+      const p = loadText(`d/s/${i}.gz`).then(t => t.split("\n"));
+      p.catch(() => shards.delete(i));
+      shards.set(i, p);
+    }
+    return shards.get(i);
+  }
+
+  async function search() {
+    const raw = q.value.trim(), k = norm(raw), my = ++searchToken;
+    if (!meta) return;
+    if (k.length < 2) { if (current) render(current, 0); return; }
+    const cands = [];
+    meta.shards.forEach((p, i) => {
+      const pp = p.replace(/=$/, "").replace(/_/g, " ");
+      if (pp.startsWith(k) || k.startsWith(pp)) cands.push(i);
+    });
+    crumbs.innerHTML = `<button disabled>Recherche</button>`;
+    if (cands.length > 8) {
+      view.innerHTML = `<p class="results-info">Tapez une ou deux lettres de plus pour chercher parmi ${fmt(meta.nodes)} noms.</p>`;
+      return;
+    }
+    view.innerHTML = `<p class="results-info">Recherche…</p>`;
+    let lines;
+    try { lines = (await Promise.all(cands.map(loadShard))).flat(); }
+    catch (e) { if (my === searchToken) view.innerHTML = `<p class="results-info">La recherche n'a pas pu se charger. Vérifiez la connexion.</p>`; return; }
+    if (my !== searchToken) return;
+    const hits = [], seen = new Set();
+    let total = 0;
+    for (const l of lines) {
+      if (!l.startsWith(k)) continue;
+      const f = l.split("\t");
+      const id = +f[1];
+      if (seen.has(id)) continue;
+      seen.add(id); total++;
+      if (hits.length < 2000) hits.push({ key: f[0], id, code: f[2], name: f[3], fr: f[4] || "" });
+    }
+    hits.sort((a, b) => (a.key === k ? 0 : 1) - (b.key === k ? 0 : 1) || RANK_ORDER[a.code] - RANK_ORDER[b.code] || a.key.localeCompare(b.key));
+    const shown = hits.slice(0, 100);
+    const hl = n => {
+      const text = n.fr && norm(n.fr).split(" ").some(w => w.startsWith(k.split(" ")[0])) ? n.fr : n.name;
+      const nt = norm(text);
+      const i = nt.indexOf(k);
+      const inner = i < 0 ? esc(text) : esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + k.length)) + "</mark>" + esc(text.slice(i + k.length));
+      return text === n.name && ITALIC[n.code] ? `<span class="it">${inner}</span>` : inner;
+    };
+    view.innerHTML = `<p class="results-info">${total ? `${fmt(total)} résultat${total > 1 ? "s" : ""}${total > shown.length ? ` (${shown.length} premiers affichés)` : ""} pour « ${esc(raw)} »` : `Aucun résultat pour « ${esc(raw)} ». Essayez le nom latin, ou le début du nom.`}</p>` +
+      (shown.length ? `<ul class="list">${shown.map(h => rowHTML({ id: h.id, code: h.code, name: h.name, fr: h.fr, size: 0, group: null }, { hl })).join("")}</ul>` : "");
+  }
+
+  // ---------- Démarrage ----------
+  (async function start() {
+    try {
+      meta = JSON.parse(await loadText("d/meta.json"));
+    } catch (e) {
+      view.innerHTML = `<section class="card"><h1>Le vivant</h1><p class="note">Les données du catalogue n'ont pas pu être chargées. Vérifiez la connexion puis rechargez la page.</p></section>`;
+      return;
+    }
+    ROOT = { id: 0, code: "c", name: "Vie", fr: "Le vivant", note: "Catalogue complet des espèces décrites, d'après le Catalogue of Life : chaque espèce acceptée y figure, rangée dans sa classification.", auth: "", size: meta.nodes - 1, nsp: meta.species, parent: null, group: null };
+    nodes.set(0, ROOT);
+    $("count").textContent = `${fmt(meta.species)} espèces et ${fmt(meta.nodes)} taxons au total (version du ${meta.built}).`;
+    try { history.replaceState({ id: 0 }, ""); } catch (e) {}
+    render(ROOT, 0);
+  })();
+})();
+</script>

@@ -1,0 +1,348 @@
+@@ Holozoa
+R|Metazoa|Animaux|Pluricellulaires hétérotrophes, issus d'un ancêtre proche des choanoflagellés il y a plus de 600 millions d'années. Environ 1,5 million d'espèces décrites, dont un million d'insectes.
+ P|Ctenophora|Cténophores|Nagent avec des peignes de cils irisés. Probablement la lignée sœur de tous les autres animaux (2023).
+  S|Mnemiopsis leidyi|Mnémiopsis|Invasive en mer Noire dans les années 1980.
+  S|Pleurobrachia pileus|Groseille de mer
+  G|Beroe|Béroé
+  S|Cestum veneris|Ceinture de Vénus|Ruban transparent de plus d'un mètre.
+  G|Coeloplana|Coeloplana|Cténophore rampant.
+ P|Porifera|Éponges|Sans tissus ni organes : l'eau est filtrée par des cellules à collerette. Environ 9 000 espèces.
+  C|Demospongiae|Démosponges
+   S|Spongia officinalis|Éponge de toilette
+   S|Spongilla lacustris|Éponge d'eau douce
+   G|Cliona|Cliona|Creuse les coquilles et le calcaire.
+  C|Hexactinellida|Éponges siliceuses
+   S|Euplectella aspergillum|Corbeille de Vénus|Abrite souvent un couple de crevettes à vie.
+   S|Monorhaphis chuni|Monorhaphis|Un spécimen aurait 11 000 ans.
+  C|Calcarea|Éponges calcaires
+   G|Sycon|Sycon
+   G|Leucosolenia|Leucosolenia
+  C|Homoscleromorpha|Homoscléromorphes
+   G|Oscarella|Oscarella
+ P|Placozoa|Placozoaires|Animaux les plus simples : une galette de quelques milliers de cellules, sans neurones.
+  S|Trichoplax adhaerens|Trichoplax
+  S|Hoilungia hongkongensis|Hoilungia
+ P|Cnidaria|Cnidaires|Cellules urticantes (cnidocytes). Méduses, coraux, anémones. Environ 11 000 espèces.
+  C|Anthozoa|Anthozoaires
+   Cb|Hexacorallia|Hexacoralliaires
+    O|Actiniaria|Anémones de mer
+     S|Actinia equina|Tomate de mer
+     S|Anemonia viridis|Anémone verte
+     S|Nematostella vectensis|Nematostella|Modèle de l'évolution du développement.
+    O|Scleractinia|Coraux durs|Bâtisseurs des récifs, en symbiose avec des zooxanthelles.
+     G|Acropora|Acropora
+     G|Porites|Porites
+     G|Fungia|Corail champignon
+    O|Zoantharia|Zoanthaires
+    O|Antipatharia|Coraux noirs|Certaines colonies ont plus de 4 000 ans.
+    O|Ceriantharia|Cérianthes
+   Cb|Octocorallia|Octocoralliaires
+    S|Corallium rubrum|Corail rouge de Méditerranée
+    G|Gorgonia|Gorgone
+    S|Alcyonium digitatum|Main de mer
+    G|Pennatula|Plume de mer
+    S|Heliopora coerulea|Corail bleu
+  C|Scyphozoa|Scyphozoaires|Les « vraies » méduses.
+   S|Aurelia aurita|Méduse lune
+   S|Pelagia noctiluca|Pélagie|Méduse urticante de Méditerranée, luminescente.
+   S|Rhizostoma pulmo|Rhizostome
+   S|Chrysaora hysoscella|Méduse rayonnée
+   S|Cyanea capillata|Méduse à crinière de lion|Tentacules de plus de 30 m.
+   G|Cassiopea|Méduse à l'envers
+  C|Cubozoa|Cuboméduses|Méduses à 24 yeux, très venimeuses.
+   S|Chironex fleckeri|Guêpe de mer|Un des animaux les plus venimeux du monde.
+   S|Malo kingi|Irukandji
+  C|Staurozoa|Staurozoaires|Méduses fixées par un pédoncule.
+   G|Haliclystus|Haliclystus
+  C|Hydrozoa|Hydrozoaires
+   S|Hydra vulgaris|Hydre d'eau douce|Ne semble pas vieillir.
+   S|Physalia physalis|Galère portugaise|Une colonie de polypes spécialisés.
+   S|Velella velella|Vélelle|Voile triangulaire qui la fait dériver au vent.
+   S|Turritopsis dohrnii|Méduse immortelle|Peut redevenir polype et recommencer sa vie.
+   S|Craspedacusta sowerbii|Méduse d'eau douce
+   G|Millepora|Corail de feu
+   G|Obelia|Obelia
+  C|Myxozoa|Myxozoaires|Cnidaires devenus parasites microscopiques de poissons.
+   S|Myxobolus cerebralis|Myxobolus|Maladie du tournis de la truite.
+   S|Henneguya salminicola|Henneguya|Seul animal connu sans génome mitochondrial.
+   S|Polypodium hydriforme|Polypodium|Parasite des œufs d'esturgeon.
+ c|Bilateria|Bilatériens|Symétrie gauche-droite, une tête, trois feuillets embryonnaires.
+  P|Xenacoelomorpha|Xénacœlomorphes|Vers très simples, sans anus.
+   S|Xenoturbella bocki|Xenoturbella
+   c|Acoela|Acœles
+    S|Symsagittifera roscoffensis|Ver de Roscoff|Vit grâce aux algues photosynthétiques logées sous sa peau.
+   c|Nemertodermatida|Némertodermatides
+  c|Protostomia|Protostomiens|La bouche se forme en premier dans l'embryon.
+   c|Ecdysozoa|Ecdysozoaires|Animaux qui muent leur cuticule.
+    c|Scalidophora|Scalidophores
+     P|Priapulida|Priapuliens
+      S|Priapulus caudatus|Priapule
+     P|Kinorhyncha|Kinorhynques
+      G|Echinoderes|Echinoderes
+     P|Loricifera|Loricifères|Certains vivraient sans oxygène dans les bassins hypersalés de Méditerranée.
+      G|Spinoloricus|Spinoloricus
+    c|Nematoida|Nématoïdes
+     P|Nematoda|Nématodes|Vers ronds. Les animaux les plus nombreux : quatre animaux sur cinq sur Terre. Environ 28 000 espèces décrites.
+      S|Caenorhabditis elegans|C. elegans|959 cellules exactement chez l'adulte hermaphrodite ; modèle de la mort cellulaire programmée.
+      S|Ascaris lumbricoides|Ascaris|Infecte près d'un milliard de personnes.
+      S|Enterobius vermicularis|Oxyure
+      S|Toxocara canis|Toxocara du chien
+      S|Trichinella spiralis|Trichine
+      S|Necator americanus|Ankylostome
+      S|Wuchereria bancrofti|Filaire de Bancroft|Éléphantiasis.
+      S|Onchocerca volvulus|Onchocerque|Cécité des rivières.
+      S|Loa loa|Ver de l'œil
+      S|Dracunculus medinensis|Ver de Guinée|Bientôt éradiqué : 15 cas humains en 2024.
+      S|Dirofilaria immitis|Ver du cœur du chien
+      S|Anisakis simplex|Anisakis|Ver du poisson cru.
+      G|Meloidogyne|Nématode à galles
+      S|Halicephalobus mephisto|Ver du diable|Trouvé à 1,3 km sous terre dans une mine d'or.
+     P|Nematomorpha|Nématomorphes|Vers gordiens.
+      S|Spinochordodes tellinii|Spinochordodes|Pousse les sauterelles à se jeter à l'eau.
+      G|Gordius|Gordius
+    c|Panarthropoda|Panarthropodes
+     P|Tardigrada|Tardigrades|Oursons d'eau : survivent au vide spatial et à la dessiccation (cryptobiose).
+      S|Hypsibius exemplaris|Hypsibius
+      S|Ramazzottius varieornatus|Ramazzottius
+      S|Milnesium tardigradum|Milnesium
+     P|Onychophora|Onychophores|Vers à pattes qui projettent de la glu pour chasser.
+      G|Peripatus|Péripate
+      S|Euperipatoides rowelli|Euperipatoides
+     P|Arthropoda|Arthropodes|Squelette externe articulé. Le plus grand embranchement : plus de 1,2 million d'espèces décrites.
+   c|Spiralia|Spiraliens|Segmentation en spirale de l'œuf. Mollusques, annélides, vers plats…
+    c|Gnathifera|Gnathifères|Mâchoires complexes.
+     P|Rotifera|Rotifères|Couronne de cils qui tourne comme une roue.
+      c|Bdelloidea|Bdelloïdes|Uniquement des femelles depuis des millions d'années.
+       S|Adineta vaga|Adineta|Un bdelloïde a été ranimé après 24 000 ans dans le pergélisol.
+      c|Monogononta|Monogonontes
+       S|Brachionus plicatilis|Brachionus
+       G|Asplanchna|Asplanchna
+      c|Acanthocephala|Acanthocéphales|Rotifères devenus parasites, à trompe épineuse.
+       S|Pomphorhynchus laevis|Pomphorhynchus
+     P|Gnathostomulida|Gnathostomulides
+     P|Micrognathozoa|Micrognathozoaires|Un seul représentant, découvert au Groenland (2000).
+      S|Limnognathia maerski|Limnognathia
+     P|Chaetognatha|Chétognathes|Vers flèches, prédateurs du plancton.
+      G|Parasagitta|Sagitta
+    P|Platyhelminthes|Vers plats|Sans cavité générale ni appareil circulatoire. Environ 30 000 espèces.
+     c|Catenulida|Caténulides
+      G|Stenostomum|Stenostomum
+     O|Tricladida|Planaires
+      S|Schmidtea mediterranea|Planaire méditerranéenne|Régénère un corps entier à partir d'un fragment.
+      S|Obama nungara|Obama nungara|Ver plat invasif des jardins français.
+      S|Bipalium kewense|Bipalium|Planaire terrestre à tête en marteau.
+     O|Polycladida|Polyclades|Vers plats marins très colorés.
+      G|Pseudobiceros|Pseudobiceros
+     c|Neodermata|Néodermates|Vers plats parasites.
+      C|Trematoda|Douves
+       S|Schistosoma mansoni|Schistosome|Bilharziose : plus de 200 millions de personnes infectées.
+       S|Fasciola hepatica|Grande douve du foie
+       S|Dicrocoelium dendriticum|Petite douve|Manipule les fourmis pour qu'elles soient mangées.
+       S|Leucochloridium paradoxum|Leucochloridium|Fait pulser les tentacules des escargots comme des chenilles.
+      C|Cestoda|Ténias
+       S|Taenia solium|Ténia du porc
+       S|Taenia saginata|Ténia du bœuf|Peut dépasser 10 m.
+       S|Echinococcus multilocularis|Échinocoque du renard
+       S|Dibothriocephalus latus|Bothriocéphale|Ténia du poisson, jusqu'à 15 m.
+      C|Monogenea|Monogènes
+       S|Gyrodactylus salaris|Gyrodactylus
+    P|Gastrotricha|Gastrotriches
+     G|Chaetonotus|Chaetonotus
+    c|Mesozoa|Mésozoaires|Parasites très simplifiés, position discutée.
+     P|Dicyemida|Dicyémides|Vivent dans les reins des pieuvres.
+      G|Dicyema|Dicyema
+     P|Orthonectida|Orthonectides
+      S|Intoshia linei|Intoshia
+    c|Lophotrochozoa|Lophotrochozoaires
+     P|Cycliophora|Cycliophores|Vivent sur les pièces buccales des homards.
+      S|Symbion pandora|Symbion
+     P|Entoprocta|Entoproctes
+      G|Pedicellina|Pedicellina
+     P|Bryozoa|Bryozoaires|Colonies de minuscules animaux filtreurs. Environ 6 000 espèces.
+      C|Phylactolaemata|Bryozoaires d'eau douce
+       S|Cristatella mucedo|Cristatella|Colonie qui rampe lentement.
+       S|Pectinatella magnifica|Pectinatelle|Boules gélatineuses de 60 cm, invasives en Europe.
+       S|Plumatella repens|Plumatelle
+      C|Stenolaemata|Sténolèmes
+       G|Crisia|Crisia
+      C|Gymnolaemata|Gymnolèmes
+       S|Membranipora membranacea|Dentelle de mer
+       S|Bugula neritina|Bugula|Source de la bryostatine.
+       S|Flustra foliacea|Flustre|Ressemble à une algue.
+       S|Pentapora fascialis|Rose de mer
+     P|Nemertea|Némertes|Vers rubans à trompe évaginable. Environ 1 300 espèces.
+      C|Palaeonemertea|Paléonémertes
+       G|Tubulanus|Tubulanus
+      c|Pilidiophora|Pilidiophores
+       S|Lineus longissimus|Ver lacet de botte|Peut-être l'animal le plus long : jusqu'à 30 m, voire plus.
+       S|Lineus ruber|Lineus ruber
+       S|Cerebratulus marginatus|Cerebratulus
+      c|Hoplonemertea|Hoplonémertes|Trompe armée d'un stylet.
+       G|Prostoma|Prostoma|Némerte d'eau douce.
+       S|Geonemertes dendyi|Némerte terrestre
+     P|Brachiopoda|Brachiopodes|Ressemblent à des coquillages mais n'en sont pas.
+      S|Lingula anatina|Lingule|Quasiment inchangée depuis 500 millions d'années.
+      G|Terebratulina|Terebratulina
+     P|Phoronida|Phoronidiens
+      G|Phoronis|Phoronis
+     P|Mollusca|Mollusques|Corps mou, souvent une coquille. Environ 85 000 espèces.
+      C|Solenogastres|Solénogastres|Mollusques vermiformes sans coquille.
+      C|Caudofoveata|Caudofovéates
+      C|Polyplacophora|Chitons|Coquille en huit plaques ; dents renforcées de magnétite.
+       S|Acanthochitona fascicularis|Chiton
+      C|Monoplacophora|Monoplacophores|Connus seulement par des fossiles jusqu'à leur redécouverte vivante en 1952.
+       S|Neopilina galatheae|Neopilina
+      C|Gastropoda|Gastéropodes|Escargots, limaces, nudibranches. Environ 65 000 espèces.
+       O|Patellogastropoda|Patelles
+        S|Patella vulgata|Patelle|Ses dents sont le matériau biologique le plus résistant connu.
+       O|Vetigastropoda|Vétigastéropodes
+        S|Haliotis tuberculata|Ormeau
+       O|Cycloneritida|Nérites
+        G|Nerita|Nérite
+       Cb|Caenogastropoda|Cénogastéropodes
+        S|Littorina littorea|Bigorneau
+        S|Buccinum undatum|Bulot
+        S|Conus geographus|Cône géographe|Son venin a tué des humains.
+        S|Aliger gigas|Lambi
+        S|Cypraea tigris|Porcelaine tigre
+        S|Charonia tritonis|Triton géant
+        S|Crepidula fornicata|Crépidule
+        S|Pomacea canaliculata|Escargot pomme
+        S|Chrysomallon squamiferum|Gastéropode à pied écailleux|Pied couvert d'écailles de sulfure de fer.
+        S|Janthina janthina|Janthine|Flotte grâce à un radeau de bulles.
+       Cb|Heterobranchia|Hétérobranches
+        O|Nudibranchia|Nudibranches|Limaces de mer aux couleurs vives.
+         S|Glaucus atlanticus|Dragon bleu|Mange les galères portugaises et stocke leur venin.
+         G|Hypselodoris|Hypselodoris
+        S|Elysia chlorotica|Élysie émeraude|Vole les chloroplastes des algues qu'elle mange.
+        S|Aplysia californica|Lièvre de mer|Modèle de la mémoire (Nobel 2000).
+        O|Pteropoda|Ptéropodes|Escargots nageurs du plancton.
+         S|Clione limacina|Ange de mer
+         S|Limacina helicina|Papillon de mer
+        O|Hygrophila|Escargots d'eau douce
+         S|Lymnaea stagnalis|Limnée
+         S|Biomphalaria glabrata|Biomphalaria|Hôte du parasite de la bilharziose.
+        O|Stylommatophora|Escargots et limaces terrestres
+         S|Helix pomatia|Escargot de Bourgogne
+         S|Cornu aspersum|Petit-gris
+         S|Arion rufus|Limace rouge
+         S|Limax maximus|Limace léopard
+         S|Lissachatina fulica|Achatine|Escargot géant africain, très invasif.
+      C|Bivalvia|Bivalves|Deux valves, pas de tête. Environ 9 000 espèces.
+       S|Mytilus edulis|Moule commune
+       S|Mytilus galloprovincialis|Moule méditerranéenne
+       S|Magallana gigas|Huître creuse
+       S|Ostrea edulis|Huître plate
+       S|Pecten maximus|Coquille Saint-Jacques|Une centaine d'yeux au bord du manteau.
+       S|Tridacna gigas|Bénitier géant|Plus de 200 kg.
+       S|Cerastoderma edule|Coque
+       S|Ruditapes decussatus|Palourde
+       S|Pinna nobilis|Grande nacre|Menacée d'extinction en Méditerranée.
+       S|Pinctada margaritifera|Huître perlière
+       S|Margaritifera margaritifera|Moule perlière d'eau douce
+       S|Dreissena polymorpha|Moule zébrée
+       S|Teredo navalis|Taret|Creuse le bois des navires.
+       S|Arctica islandica|Cyprine d'Islande|Un individu, « Ming », a vécu 507 ans.
+       G|Ensis|Couteau
+      C|Scaphopoda|Scaphopodes|Coquille en défense d'éléphant.
+       G|Antalis|Dentale
+      C|Cephalopoda|Céphalopodes|Les invertébrés les plus intelligents. Environ 800 espèces.
+       Cb|Nautiloidea|Nautiles
+        S|Nautilus pompilius|Nautile flammé
+       Cb|Coleoidea|Coléoïdes
+        O|Octopoda|Pieuvres
+         S|Octopus vulgaris|Poulpe commun
+         S|Hapalochlaena lunulata|Poulpe à anneaux bleus|Venin à la tétrodotoxine.
+         S|Enteroctopus dofleini|Pieuvre géante du Pacifique
+         S|Thaumoctopus mimicus|Poulpe mimétique
+         S|Argonauta argo|Argonaute
+         G|Grimpoteuthis|Pieuvre Dumbo
+        O|Vampyromorphida|Vampyromorphes
+         S|Vampyroteuthis infernalis|Vampire des abysses
+        O|Sepiida|Seiches
+         S|Sepia officinalis|Seiche commune
+         S|Metasepia pfefferi|Seiche flamboyante
+        O|Sepiolida|Sépioles
+         S|Euprymna scolopes|Calmar hawaïen|Lumière produite par des bactéries symbiotiques.
+        O|Spirulida|Spirules
+         S|Spirula spirula|Spirule
+        O|Myopsida|Calmars côtiers
+         S|Loligo vulgaris|Calmar commun
+        O|Oegopsida|Calmars océaniques
+         S|Architeuthis dux|Calmar géant|Les plus grands yeux du règne animal (27 cm).
+         S|Mesonychoteuthis hamiltoni|Calmar colossal|Le plus lourd des invertébrés, filmé vivant pour la première fois en 2025.
+         S|Dosidicus gigas|Calmar de Humboldt
+     P|Annelida|Annélides|Vers segmentés. Environ 22 000 espèces.
+      c|Errantia|Errantes|Vers marins mobiles.
+       S|Alitta virens|Néréis|Ver de pêche.
+       S|Hediste diversicolor|Gravette
+       S|Eunice aphroditois|Ver de Bobbit|Chasseur embusqué de plus de 2 m.
+       S|Aphrodita aculeata|Aphrodite|Poils irisés comme une souris de mer.
+       G|Tomopteris|Tomopteris
+       S|Ramisyllis multicaudata|Ramisyllis|Ver ramifié en centaines de branches dans une éponge.
+       S|Alvinella pompejana|Ver de Pompéi|Vit sur des cheminées hydrothermales à plus de 50 °C.
+      c|Sedentaria|Sédentaires
+       S|Arenicola marina|Arénicole|Laisse les tortillons de sable sur les plages.
+       S|Sabella spallanzanii|Spirographe
+       S|Spirobranchus giganteus|Ver arbre de Noël
+       c|Siboglinidae|Vers tubicoles des abysses|Sans bouche ni intestin, nourris par des bactéries.
+        S|Riftia pachyptila|Riftia|Vers géants des sources hydrothermales.
+        G|Osedax|Ver mangeur d'os|Vit sur les squelettes de baleines.
+        S|Lamellibrachia luymesi|Lamellibrachia|Peut vivre plus de 250 ans.
+       c|Echiura|Échiuriens
+        S|Bonellia viridis|Bonellie|Le mâle, minuscule, vit dans la femelle.
+       C|Clitellata|Clitellates
+        Cb|Oligochaeta|Vers de terre
+         S|Lumbricus terrestris|Lombric|Darwin lui a consacré son dernier livre.
+         S|Eisenia fetida|Ver du fumier
+         S|Megascolides australis|Ver géant du Gippsland|Jusqu'à 3 m.
+         S|Tubifex tubifex|Tubifex
+        Cb|Hirudinea|Sangsues
+         S|Hirudo medicinalis|Sangsue médicinale
+         S|Haementeria ghilianii|Sangsue géante d'Amazonie
+      c|Sipuncula|Siponcles|Vers cacahuètes, rattachés aux annélides.
+       S|Sipunculus nudus|Siponcle
+  c|Deuterostomia|Deutérostomiens|L'anus se forme avant la bouche dans l'embryon.
+   c|Ambulacraria|Ambulacraires
+    P|Echinodermata|Échinodermes|Symétrie d'ordre 5 chez l'adulte, squelette calcaire. Environ 7 000 espèces, toutes marines.
+     C|Crinoidea|Crinoïdes|Lys de mer et comatules.
+      S|Antedon bifida|Comatule
+     C|Asteroidea|Étoiles de mer
+      S|Asterias rubens|Étoile de mer commune
+      S|Marthasterias glacialis|Étoile de mer glaciaire
+      S|Acanthaster planci|Couronne d'épines|Dévore les coraux.
+      S|Pycnopodia helianthoides|Étoile tournesol|Jusqu'à 24 bras ; décimée depuis 2013.
+     C|Ophiuroidea|Ophiures
+      S|Ophiothrix fragilis|Ophiure fragile
+      G|Gorgonocephalus|Gorgonocéphale
+     C|Echinoidea|Oursins
+      S|Paracentrotus lividus|Oursin violet
+      S|Strongylocentrotus purpuratus|Oursin pourpre|Modèle d'embryologie.
+      S|Echinocardium cordatum|Oursin cœur
+      S|Diadema setosum|Diadème
+      G|Mellita|Dollar des sables
+     C|Holothuroidea|Holothuries|Concombres de mer.
+      S|Holothuria forskali|Concombre de mer noir
+      S|Apostichopus japonicus|Trépang
+      S|Enypniastes eximia|Holothurie nageuse
+    P|Hemichordata|Hémicordés
+     C|Enteropneusta|Entéropneustes|Vers glands.
+      S|Saccoglossus kowalevskii|Saccoglossus
+     C|Pterobranchia|Ptérobranches
+      G|Rhabdopleura|Rhabdopleura
+   P|Chordata|Cordés|Corde dorsale, tube nerveux dorsal, fentes pharyngiennes. Environ 75 000 espèces.
+    Pb|Cephalochordata|Céphalocordés
+     S|Branchiostoma lanceolatum|Amphioxus|Un « vertébré sans vertèbres », proche du plan de base des cordés.
+    c|Olfactores|Olfactores
+     Pb|Tunicata|Tuniciers|Les plus proches parents invertébrés des vertébrés ; la larve ressemble à un têtard.
+      C|Ascidiacea|Ascidies
+       S|Ciona intestinalis|Ciona
+       S|Halocynthia roretzi|Ananas de mer
+       S|Botryllus schlosseri|Botrylle
+       S|Clavelina lepadiformis|Clavelina
+      C|Thaliacea|Thaliacés
+       S|Pyrosoma atlanticum|Pyrosome|Colonie tubulaire lumineuse.
+       G|Salpa|Salpe
+      C|Appendicularia|Appendiculaires
+       S|Oikopleura dioica|Oikopleura|Construit une « maison » de mucus filtrante, renouvelée toutes les 4 heures.
+     Pb|Vertebrata|Vertébrés|Crâne et colonne vertébrale. Environ 72 000 espèces.

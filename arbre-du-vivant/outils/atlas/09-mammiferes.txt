@@ -1,0 +1,391 @@
+@@ Mammalia
+Cb|Prototheria|Monotrèmes|Mammifères qui pondent des œufs.
+ O|Monotremata|Monotrèmes
+  S|Ornithorhynchus anatinus|Ornithorynque|Bec électrosensible ; le mâle a un ergot venimeux.
+  S|Tachyglossus aculeatus|Échidné à nez court
+  S|Zaglossus attenboroughi|Échidné d'Attenborough|Redécouvert en 2023 après 60 ans.
+Cb|Theria|Thériens|Mammifères vivipares.
+ Ci|Marsupialia|Marsupiaux|Les petits finissent leur développement dans une poche. Environ 380 espèces.
+  O|Didelphimorphia|Opossums
+   S|Didelphis virginiana|Opossum de Virginie|Fait le mort.
+  O|Paucituberculata|Opossums musaraignes
+  O|Microbiotheria|Microbiothères
+   S|Dromiciops gliroides|Monito del monte|Plus proche des marsupiaux australiens que des opossums.
+  O|Dasyuromorphia|Dasyuromorphes
+   S|Sarcophilus harrisii|Diable de Tasmanie|Menacé par un cancer contagieux.
+   S|†Thylacinus cynocephalus|Thylacine|Le « tigre de Tasmanie », disparu en 1936.
+   S|Myrmecobius fasciatus|Numbat
+   G|Dasyurus|Quoll
+  O|Peramelemorphia|Bandicoots
+   S|Macrotis lagotis|Bilby
+  O|Notoryctemorphia|Taupes marsupiales
+   S|Notoryctes typhlops|Taupe marsupiale
+  O|Diprotodontia|Diprotodontes
+   S|Osphranter rufus|Kangourou roux|Le plus grand marsupial.
+   S|Macropus giganteus|Kangourou géant
+   S|Setonix brachyurus|Quokka
+   G|Dendrolagus|Kangourou arboricole
+   S|Phascolarctos cinereus|Koala|Mange des feuilles d'eucalyptus toxiques pour presque tous les autres.
+   S|Vombatus ursinus|Wombat commun|Crottes cubiques.
+   S|Petaurus breviceps|Phalanger volant
+   S|Trichosurus vulpecula|Phalanger-renard
+   S|Tarsipes rostratus|Souris à miel
+ Ci|Placentalia|Placentaires|Environ 6 100 espèces.
+  c|Afrotheria|Afrothériens|Lignée née en Afrique.
+   O|Afrosoricida|Tenrecs et taupes dorées
+    S|Tenrec ecaudatus|Tenrec commun|Jusqu'à 32 petits par portée.
+    c|Chrysochloridae|Taupes dorées|Fourrure irisée.
+   O|Macroscelidea|Musaraignes à trompe
+    S|Rhynchocyon petersi|Rat à trompe de Peters
+   O|Tubulidentata|Oryctérope
+    S|Orycteropus afer|Oryctérope du Cap
+   O|Hyracoidea|Damans|Plus proches parents des éléphants, malgré leur taille de lapin.
+    S|Procavia capensis|Daman du Cap
+   O|Proboscidea|Éléphants
+    S|Loxodonta africana|Éléphant de savane d'Afrique|Plus grand animal terrestre.
+    S|Loxodonta cyclotis|Éléphant de forêt d'Afrique
+    S|Elephas maximus|Éléphant d'Asie
+    S|†Mammuthus primigenius|Mammouth laineux|Les derniers ont vécu sur l'île Wrangel il y a 4 000 ans.
+   O|Sirenia|Siréniens|Mammifères marins herbivores.
+    S|Trichechus manatus|Lamantin des Caraïbes
+    S|Dugong dugon|Dugong
+    S|†Hydrodamalis gigas|Rhytine de Steller|Exterminée 27 ans après sa découverte (1768).
+  c|Xenarthra|Xénarthres|Lignée née en Amérique du Sud.
+   O|Cingulata|Tatous
+    S|Dasypus novemcinctus|Tatou à neuf bandes|Donne toujours naissance à des quadruplés identiques.
+    S|Priodontes maximus|Tatou géant
+    S|Chlamyphorus truncatus|Chlamyphore tronqué
+    S|†Glyptodon clavipes|Glyptodon|Tatou géant de la taille d'une voiture.
+   O|Pilosa|Paresseux et fourmiliers
+    S|Bradypus variegatus|Paresseux à gorge brune|Des algues poussent dans son pelage.
+    S|Choloepus didactylus|Unau
+    S|†Megatherium americanum|Mégathérium|Paresseux terrestre de 4 tonnes.
+    S|Myrmecophaga tridactyla|Tamanoir
+    S|Tamandua tetradactyla|Tamandua
+    S|Cyclopes didactylus|Myrmidon
+  c|Boreoeutheria|Boréoeuthériens
+   c|Euarchontoglires|Euarchontoglires
+    c|Glires|Glires|Rongeurs et lagomorphes : incisives à croissance continue.
+     O|Lagomorpha|Lagomorphes
+      S|Oryctolagus cuniculus|Lapin de garenne
+      S|Lepus europaeus|Lièvre d'Europe
+      S|Lepus timidus|Lièvre variable
+      S|Ochotona princeps|Pika d'Amérique
+     O|Rodentia|Rongeurs|L'ordre le plus vaste des mammifères : environ 2 600 espèces.
+      Ob|Sciuromorpha|Écureuils et loirs
+       S|Sciurus vulgaris|Écureuil roux
+       S|Marmota marmota|Marmotte des Alpes
+       S|Cynomys ludovicianus|Chien de prairie
+       S|Tamias striatus|Tamia rayé
+       S|Glis glis|Loir gris
+       S|Muscardinus avellanarius|Muscardin
+      Ob|Castorimorpha|Castors et apparentés
+       S|Castor fiber|Castor d'Europe
+       S|Castor canadensis|Castor du Canada
+       G|Dipodomys|Rat-kangourou|Ne boit jamais.
+      Ob|Myomorpha|Myomorphes
+       S|Mus musculus|Souris domestique
+       S|Rattus norvegicus|Rat surmulot
+       S|Rattus rattus|Rat noir
+       S|Mesocricetus auratus|Hamster doré
+       S|Cricetus cricetus|Grand hamster d'Alsace
+       S|Meriones unguiculatus|Gerbille de Mongolie
+       S|Microtus arvalis|Campagnol des champs
+       S|Ondatra zibethicus|Rat musqué
+       S|Lemmus lemmus|Lemming de Norvège
+       S|Jaculus jaculus|Gerboise
+       G|Spalax|Rat-taupe aveugle
+      Ob|Anomaluromorpha|Anomaluromorphes
+       S|Pedetes capensis|Lièvre sauteur
+      Ob|Hystricomorpha|Hystricomorphes
+       S|Hydrochoerus hydrochaeris|Capybara|Le plus grand rongeur : 65 kg.
+       S|Cavia porcellus|Cobaye
+       S|Heterocephalus glaber|Rat-taupe nu|Ne ressent presque pas la douleur ; vit plus de 30 ans ; société à reine.
+       S|Hystrix cristata|Porc-épic à crête
+       S|Erethizon dorsatum|Porc-épic d'Amérique
+       S|Chinchilla lanigera|Chinchilla|Fourrure la plus dense des mammifères terrestres.
+       S|Myocastor coypus|Ragondin
+       S|Dolichotis patagonum|Mara
+    c|Euarchonta|Euarchontes
+     O|Scandentia|Toupayes
+      G|Tupaia|Toupaye
+     O|Dermoptera|Dermoptères
+      S|Galeopterus variegatus|Galéopithèque|Plane jusqu'à 100 m.
+     O|Primates|Primates|Environ 520 espèces.
+      Ob|Strepsirrhini|Strepsirrhiniens|Lémuriens et loris.
+       S|Lemur catta|Maki catta
+       S|Daubentonia madagascariensis|Aye-aye|Chasse les larves en tapotant le bois avec un doigt filiforme.
+       S|Microcebus berthae|Microcèbe de Mme Berthe|Le plus petit primate : 30 g.
+       S|Propithecus verreauxi|Propithèque de Verreaux
+       S|Indri indri|Indri
+       S|Nycticebus coucang|Loris lent|Un des rares mammifères venimeux.
+       S|Galago senegalensis|Galago du Sénégal
+      Ob|Haplorhini|Haplorhiniens
+       Oi|Tarsiiformes|Tarsiers
+        S|Carlito syrichta|Tarsier des Philippines|Chaque œil est aussi gros que son cerveau.
+       Oi|Platyrrhini|Singes du Nouveau Monde
+        S|Sapajus apella|Sapajou
+        S|Saimiri sciureus|Saïmiri
+        G|Alouatta|Singe hurleur|Cri audible à 5 km.
+        G|Ateles|Atèle
+        S|Callithrix jacchus|Ouistiti commun
+        S|Cebuella pygmaea|Ouistiti pygmée
+        S|Leontopithecus rosalia|Tamarin-lion doré
+        G|Aotus|Douroucouli|Seul singe nocturne.
+        S|Cacajao calvus|Ouakari chauve
+       Oi|Catarrhini|Singes de l'Ancien Monde
+        F|Cercopithecidae|Cercopithécidés
+         S|Macaca mulatta|Macaque rhésus|A donné son nom au facteur Rhésus.
+         S|Macaca fuscata|Macaque japonais|Se baigne dans les sources chaudes.
+         S|Macaca sylvanus|Magot
+         S|Papio anubis|Babouin olive
+         S|Mandrillus sphinx|Mandrill
+         S|Theropithecus gelada|Gélada
+         S|Nasalis larvatus|Nasique
+         S|Colobus guereza|Colobe guéréza
+         S|Rhinopithecus roxellana|Rhinopithèque de Roxellane
+        F|Hylobatidae|Gibbons
+         S|Hylobates lar|Gibbon à mains blanches
+         S|Symphalangus syndactylus|Siamang
+        F|Hominidae|Hominidés|Grands singes, humains compris.
+         Fb|Ponginae|Orangs-outans
+          S|Pongo pygmaeus|Orang-outan de Bornéo
+          S|Pongo abelii|Orang-outan de Sumatra
+          S|Pongo tapanuliensis|Orang-outan de Tapanuli|Décrit en 2017 ; environ 800 individus.
+         Fb|Homininae|Homininés
+          T|Gorillini|Gorilles
+           S|Gorilla gorilla|Gorille de l'Ouest
+           S|Gorilla beringei|Gorille de l'Est
+          T|Hominini|Hominines|Chimpanzés et humains.
+           G|Pan|Chimpanzés|Nos plus proches parents vivants : séparés il y a 6 à 7 millions d'années.
+            S|Pan troglodytes|Chimpanzé
+            S|Pan paniscus|Bonobo
+           c|Hominina|Lignée humaine
+            S|†Sahelanthropus tchadensis|Toumaï|7 millions d'années, Tchad.
+            S|†Ardipithecus ramidus|Ardi
+            S|†Australopithecus afarensis|Lucy|3,2 millions d'années, Éthiopie.
+            S|†Paranthropus boisei|Paranthrope de Boisei
+            G|Homo|Humains
+             S|†Homo habilis|Homme habile
+             S|†Homo erectus|Homme dressé|Premier à quitter l'Afrique.
+             S|†Homo floresiensis|Homme de Florès|« Hobbit » d'un mètre.
+             S|†Homo naledi|Homo naledi
+             S|†Homo neanderthalensis|Néandertalien|2 % environ de l'ADN des non-Africains vient de lui.
+             S|†Homo longi|Dénisovien|Identifié par l'ADN ; le crâne de Harbin lui a été rattaché en 2025.
+             S|Homo sapiens|Humain|Apparu en Afrique il y a environ 300 000 ans. 8 milliards d'individus.
+   c|Laurasiatheria|Laurasiathériens
+    O|Eulipotyphla|Hérissons, taupes et musaraignes
+     S|Erinaceus europaeus|Hérisson d'Europe
+     S|Talpa europaea|Taupe d'Europe
+     S|Condylura cristata|Condylure étoilé|Nez à 22 tentacules ultrasensibles.
+     S|Sorex araneus|Musaraigne carrelet
+     S|Suncus etruscus|Pachyure étrusque|Le plus petit mammifère par la masse : 1,8 g.
+     S|Neomys fodiens|Crossope aquatique|Salive venimeuse.
+     S|Galemys pyrenaicus|Desman des Pyrénées
+     S|Solenodon paradoxus|Solénodon d'Haïti|Mammifère venimeux.
+    O|Chiroptera|Chauves-souris|Seuls mammifères au vol actif. Environ 1 480 espèces : un mammifère sur cinq.
+     Ob|Yinpterochiroptera|Yinptérochiroptères
+      S|Pteropus vampyrus|Grand renard volant|1,5 m d'envergure.
+      S|Rousettus aegyptiacus|Roussette d'Égypte
+      S|Rhinolophus ferrumequinum|Grand rhinolophe
+      S|Craseonycteris thonglongyai|Chauve-souris bourdon|2 g.
+     Ob|Yangochiroptera|Yangochiroptères
+      S|Pipistrellus pipistrellus|Pipistrelle commune
+      S|Myotis myotis|Grand murin
+      S|Nyctalus noctula|Noctule commune
+      S|Plecotus auritus|Oreillard roux
+      S|Tadarida brasiliensis|Molosse du Brésil|Colonies de 20 millions d'individus ; vol à 160 km/h.
+      S|Desmodus rotundus|Vampire commun|Partage le sang avec les congénères affamés.
+      S|Glossophaga soricina|Glossophage de Pallas|Chauve-souris nectarivore.
+      S|Noctilio leporinus|Noctilion pêcheur
+    O|Pholidota|Pangolins|Écailles de kératine ; les mammifères les plus braconnés.
+     S|Manis pentadactyla|Pangolin de Chine
+     S|Manis javanica|Pangolin javanais
+     S|Smutsia gigantea|Pangolin géant
+    O|Carnivora|Carnivores|Environ 300 espèces.
+     Ob|Feliformia|Féliformes
+      F|Felidae|Félins
+       S|Panthera leo|Lion
+       S|Panthera tigris|Tigre
+       S|Panthera pardus|Léopard
+       S|Panthera onca|Jaguar
+       S|Panthera uncia|Panthère des neiges
+       S|Acinonyx jubatus|Guépard|Le plus rapide des animaux terrestres : 100 km/h.
+       S|Puma concolor|Puma
+       S|Lynx lynx|Lynx boréal
+       S|Lynx pardinus|Lynx pardelle
+       S|Felis catus|Chat domestique
+       S|Felis silvestris|Chat forestier
+       S|Caracal caracal|Caracal
+       S|Leptailurus serval|Serval
+       S|†Smilodon fatalis|Smilodon|Félin à dents de sabre.
+      F|Hyaenidae|Hyènes
+       S|Crocuta crocuta|Hyène tachetée
+       S|Hyaena hyaena|Hyène rayée
+       S|Proteles cristata|Protèle|Hyène qui mange des termites.
+      F|Herpestidae|Mangoustes
+       S|Herpestes ichneumon|Mangouste ichneumon
+       S|Suricata suricatta|Suricate
+      F|Viverridae|Civettes et genettes
+       S|Genetta genetta|Genette commune
+       S|Arctictis binturong|Binturong|Sent le pop-corn.
+      F|Eupleridae|Euplérides
+       S|Cryptoprocta ferox|Fossa|Prédateur des lémuriens à Madagascar.
+     Ob|Caniformia|Caniformes
+      F|Canidae|Canidés
+       S|Canis lupus|Loup gris
+       Sb|Canis lupus familiaris|Chien|Domestiqué il y a plus de 15 000 ans.
+       S|Canis latrans|Coyote
+       S|Canis aureus|Chacal doré
+       S|Canis simensis|Loup d'Éthiopie
+       S|Lycaon pictus|Lycaon
+       S|Cuon alpinus|Dhole
+       S|Chrysocyon brachyurus|Loup à crinière
+       S|Vulpes vulpes|Renard roux
+       S|Vulpes lagopus|Renard polaire
+       S|Vulpes zerda|Fennec
+       S|Nyctereutes procyonoides|Chien viverrin
+      F|Ursidae|Ours
+       S|Ursus arctos|Ours brun
+       S|Ursus maritimus|Ours polaire
+       S|Ursus americanus|Ours noir
+       S|Ailuropoda melanoleuca|Panda géant|Carnivore devenu presque exclusivement mangeur de bambou.
+       S|Helarctos malayanus|Ours malais
+       S|Tremarctos ornatus|Ours à lunettes
+       S|Melursus ursinus|Ours lippu
+      c|Pinnipedia|Pinnipèdes
+       F|Otariidae|Otaries
+        S|Zalophus californianus|Otarie de Californie
+        S|Eumetopias jubatus|Lion de mer de Steller
+       F|Odobenidae|Morses
+        S|Odobenus rosmarus|Morse
+       F|Phocidae|Phoques
+        S|Phoca vitulina|Phoque veau-marin
+        S|Halichoerus grypus|Phoque gris
+        S|Mirounga leonina|Éléphant de mer austral
+        S|Hydrurga leptonyx|Léopard de mer
+        S|Leptonychotes weddellii|Phoque de Weddell
+        S|Pusa sibirica|Phoque du Baïkal|Seul phoque d'eau douce.
+        S|Monachus monachus|Phoque moine de Méditerranée
+      F|Mephitidae|Mouffettes
+       S|Mephitis mephitis|Mouffette rayée
+      F|Ailuridae|Panda roux
+       S|Ailurus fulgens|Panda roux
+      F|Procyonidae|Procyonidés
+       S|Procyon lotor|Raton laveur
+       S|Nasua nasua|Coati roux
+       S|Potos flavus|Kinkajou
+      F|Mustelidae|Mustélidés
+       S|Meles meles|Blaireau européen
+       S|Lutra lutra|Loutre d'Europe
+       S|Enhydra lutris|Loutre de mer|Utilise des pierres pour casser les coquillages.
+       S|Pteronura brasiliensis|Loutre géante
+       S|Mustela nivalis|Belette|Le plus petit carnivore.
+       S|Mustela erminea|Hermine
+       Sb|Mustela putorius furo|Furet
+       S|Martes martes|Martre des pins
+       S|Martes foina|Fouine
+       S|Gulo gulo|Glouton
+       S|Mellivora capensis|Ratel
+    O|Perissodactyla|Périssodactyles|Ongulés à nombre impair de doigts.
+     F|Equidae|Équidés
+      S|Equus ferus caballus|Cheval
+      S|Equus przewalskii|Cheval de Przewalski
+      S|Equus asinus|Âne
+      S|Equus quagga|Zèbre des plaines
+      S|Equus grevyi|Zèbre de Grévy
+      S|Equus hemionus|Hémione
+     F|Rhinocerotidae|Rhinocéros
+      S|Ceratotherium simum|Rhinocéros blanc|La sous-espèce du Nord ne compte plus que deux femelles.
+      S|Diceros bicornis|Rhinocéros noir
+      S|Rhinoceros unicornis|Rhinocéros indien
+      S|Rhinoceros sondaicus|Rhinocéros de Java
+      S|Dicerorhinus sumatrensis|Rhinocéros de Sumatra
+      S|†Coelodonta antiquitatis|Rhinocéros laineux
+     F|Tapiridae|Tapirs
+      S|Tapirus terrestris|Tapir du Brésil
+      S|Tapirus indicus|Tapir de Malaisie
+    O|Artiodactyla|Cétartiodactyles|Ongulés à nombre pair de doigts… et les cétacés, qui en descendent.
+     Ob|Tylopoda|Camélidés
+      S|Camelus dromedarius|Dromadaire
+      S|Camelus bactrianus|Chameau de Bactriane
+      S|Lama glama|Lama
+      S|Vicugna pacos|Alpaga
+      S|Vicugna vicugna|Vigogne
+     Ob|Suina|Suidés et pécaris
+      S|Sus scrofa|Sanglier
+      Sb|Sus scrofa domesticus|Porc
+      S|Phacochoerus africanus|Phacochère
+      S|Babyrousa babyrussa|Babiroussa|Les canines percent le museau et se recourbent.
+      S|Pecari tajacu|Pécari à collier
+     Ob|Ruminantia|Ruminants|Estomac à quatre poches.
+      S|Tragulus kanchil|Petit chevrotain
+      F|Giraffidae|Girafidés
+       S|Giraffa camelopardalis|Girafe
+       S|Okapia johnstoni|Okapi
+      F|Antilocapridae|Antilocapre
+       S|Antilocapra americana|Pronghorn
+      F|Moschidae|Porte-musc
+      F|Cervidae|Cervidés|Bois renouvelés chaque année.
+       S|Cervus elaphus|Cerf élaphe
+       S|Capreolus capreolus|Chevreuil
+       S|Dama dama|Daim
+       S|Alces alces|Élan
+       S|Rangifer tarandus|Renne|Caribou en Amérique.
+       S|Pudu puda|Pudu
+       S|Hydropotes inermis|Hydropote|Cerf sans bois, à canines en défenses.
+       S|†Megaloceros giganteus|Mégacéros|Bois de 3,6 m d'envergure.
+      F|Bovidae|Bovidés|Cornes permanentes.
+       S|Bos taurus|Vache|Descend de l'aurochs.
+       S|†Bos primigenius|Aurochs|Dernière femelle morte en Pologne en 1627.
+       S|Bos indicus|Zébu
+       S|Bos grunniens|Yack
+       S|Bison bison|Bison d'Amérique
+       S|Bison bonasus|Bison d'Europe
+       S|Bubalus bubalis|Buffle d'eau
+       S|Syncerus caffer|Buffle d'Afrique
+       S|Ovis aries|Mouton
+       S|Ovis gmelini|Mouflon
+       S|Ovis ammon|Argali
+       S|Capra hircus|Chèvre
+       S|Capra ibex|Bouquetin des Alpes
+       S|Rupicapra rupicapra|Chamois
+       S|Ovibos moschatus|Bœuf musqué
+       S|Connochaetes taurinus|Gnou bleu|Grande migration de 1,5 million de gnous.
+       S|Aepyceros melampus|Impala
+       S|Gazella dorcas|Gazelle dorcas
+       S|Oryx gazella|Oryx gazelle
+       S|Saiga tatarica|Saïga
+       S|Tragelaphus strepsiceros|Grand koudou
+       S|Taurotragus oryx|Éland du Cap
+     c|Whippomorpha|Hippopotames et cétacés
+      F|Hippopotamidae|Hippopotames|Plus proches parents vivants des baleines.
+       S|Hippopotamus amphibius|Hippopotame
+       S|Choeropsis liberiensis|Hippopotame pygmée
+      Oi|Cetacea|Cétacés|Mammifères retournés à la mer il y a 50 millions d'années. Environ 94 espèces.
+       c|Mysticeti|Baleines à fanons
+        S|Balaenoptera musculus|Baleine bleue|Le plus gros animal ayant jamais existé : jusqu'à 30 m et 190 tonnes.
+        S|Balaenoptera physalus|Rorqual commun
+        S|Balaenoptera acutorostrata|Petit rorqual
+        S|Megaptera novaeangliae|Baleine à bosse|Chants complexes qui se transmettent d'un océan à l'autre.
+        S|Eschrichtius robustus|Baleine grise
+        S|Balaena mysticetus|Baleine boréale|Le mammifère le plus longévif : plus de 200 ans.
+        S|Eubalaena glacialis|Baleine franche de l'Atlantique Nord
+        S|Caperea marginata|Baleine pygmée
+       c|Odontoceti|Cétacés à dents|Chassent par écholocation.
+        S|Physeter macrocephalus|Cachalot|Le plus gros cerveau du règne animal.
+        S|Kogia breviceps|Cachalot pygmée
+        S|Monodon monoceros|Narval|Sa « corne » est une dent de 3 m.
+        S|Delphinapterus leucas|Béluga
+        S|Ziphius cavirostris|Baleine à bec de Cuvier|Record de plongée : 2 992 m et 3 h 42 sous l'eau.
+        S|Orcinus orca|Orque|Le plus grand des dauphins.
+        S|Tursiops truncatus|Grand dauphin
+        S|Delphinus delphis|Dauphin commun
+        S|Globicephala melas|Globicéphale noir
+        S|Grampus griseus|Dauphin de Risso
+        S|Stenella coeruleoalba|Dauphin bleu et blanc
+        S|Phocoena phocoena|Marsouin commun
+        S|Phocoena sinus|Vaquita|Le cétacé le plus menacé : une dizaine d'individus.
+        S|Inia geoffrensis|Dauphin de l'Amazone
+        S|Platanista gangetica|Dauphin du Gange
+        S|†Lipotes vexillifer|Baiji|Dauphin du Yangtsé, déclaré fonctionnellement éteint en 2006.

@@ -1,0 +1,336 @@
+# Compléments pluricellulaires : champignons
+@@ Microsporidia
+S|Nosema bombycis|Pébrine du ver à soie|Pasteur a sauvé la sériciculture française en l'étudiant.
+S|Vavraia culicis|Vavraia
+@@ Chytridiomycota
+O|Chytridiales|Chytridiales
+O|Rhizophydiales|Rhizophydiales|Parasites du phytoplancton.
+O|Spizellomycetales|Spizellomycétales
+ S|Spizellomyces punctatus|Spizellomyces
+O|Cladochytriales|Cladochytriales
+O|Lobulomycetales|Lobulomycétales
+@@ Monoblepharidomycetes
+G|Monoblepharis|Monoblepharis
+@@ Mucoromycotina
+S|Pilobolus crystallinus|Pilobole|Canon à spores qui vise la lumière à 2,5 m.
+S|Mucor circinelloides|Mucor circinelloides
+S|Rhizopus microsporus|Rhizopus microsporus|Sa toxine est en fait produite par une bactérie qui vit dans ses filaments.
+S|Syncephalastrum racemosum|Syncephalastrum
+@@ Glomeromycotina
+S|Gigaspora margarita|Gigaspora
+S|Funneliformis mosseae|Funneliformis
+@@ Entomophthoromycotina
+S|Massospora cicadina|Massospora|Fait tomber l'abdomen des cigales, qui continuent de s'accoupler.
+S|Conidiobolus coronatus|Conidiobolus
+S|Pandora neoaphidis|Pandora|Tue les pucerons.
+@@ Zoopagomycotina
+G|Piptocephalis|Piptocephalis
+@@ Kickxellomycotina
+G|Coemansia|Coemansia
+c|Harpellales|Harpellales|Vivent dans l'intestin des larves aquatiques d'insectes.
+@@ Taphrinomycotina
+C|Archaeorhizomycetes|Archaeorhizomycètes|Champignons du sol très répandus, connus surtout par leur ADN.
+S|Taphrina betulina|Balai de sorcière du bouleau
+@@ Saccharomycotina
+S|Saccharomyces pastorianus|Levure de bière blonde|Hybride né dans les caves bavaroises.
+S|Hanseniaspora uvarum|Hanseniaspora
+S|Metschnikowia pulcherrima|Metschnikowia
+S|Torulaspora delbrueckii|Torulaspora
+S|Wickerhamomyces anomalus|Wickerhamomyces
+S|Starmerella bombicola|Starmerella|Vit dans les fleurs et l'intestin des bourdons.
+S|Debaryomyces hansenii|Debaryomyces|Levure des saumures et des fromages.
+S|Geotrichum candidum|Géotrichum|Croûte des fromages de chèvre.
+@@ Pezizomycotina
+C|Arthoniomycetes|Arthoniomycètes|Lichens crustacés.
+ S|Roccella tinctoria|Orseille|Lichen dont on tirait la teinture violette et le tournesol.
+ S|Arthonia radiata|Arthonia
+C|Lichinomycetes|Lichinomycètes|Petits lichens à cyanobactéries.
+C|Geoglossomycetes|Langues de terre
+ G|Geoglossum|Géoglosse
+C|Xylonomycetes|Xylonomycètes
+C|Coniocybomycetes|Coniocybomycètes|Lichens à épingles.
+ G|Chaenotheca|Chaenotheca
+@@ Pezizomycetes
+S|Gyromitra esculenta|Gyromitre|Mortel cru ; longtemps consommé en Scandinavie.
+S|Helvella crispa|Helvelle crépue
+S|Aleuria aurantia|Pézize orangée
+S|Tuber aestivum|Truffe d'été|Truffe de Bourgogne.
+S|Tuber borchii|Truffe blanche de printemps
+S|Terfezia boudieri|Terfez|Truffe du désert d'Afrique du Nord.
+S|Urnula craterium|Urne du diable
+S|Morchella elata|Morille élevée
+S|Verpa bohemica|Verpe de Bohême
+S|Sarcosphaera coronaria|Pézize couronnée
+S|Pyronema omphalodes|Pyronema|Pousse sur le sol brûlé.
+@@ Eurotiomycetes
+S|Aspergillus oryzae|Kōji|Sert à fabriquer le saké, le miso et la sauce soja.
+S|Aspergillus nidulans|Aspergillus nidulans|Modèle de génétique.
+S|Talaromyces marneffei|Talaromyces
+S|Coccidioides immitis|Coccidioides|Fièvre de la vallée de San Joaquin.
+S|Penicillium digitatum|Pourriture verte des agrumes
+S|Penicillium nalgiovense|Fleur du saucisson
+S|Penicillium expansum|Pourriture bleue des pommes
+S|Exophiala dermatitidis|Levure noire des lave-vaisselle
+S|Microsporum canis|Teigne du chat
+S|Blastomyces dermatitidis|Blastomyces
+S|Verrucaria maura|Lichen noir des rochers marins|Ligne noire en haut des rochers du littoral.
+S|Byssochlamys fulva|Byssochlamys|Résiste à la pasteurisation des jus de fruits.
+S|Xeromyces bisporus|Xeromyces|Pousse dans le milieu le plus sec connu pour la vie.
+@@ Sordariomycetes
+S|Podospora anserina|Podospora|Modèle du vieillissement.
+S|Chaetomium globosum|Chaetomium
+S|Daldinia concentrica|Boule de charbon|Brûle comme de l'amadou.
+S|Nectria cinnabarina|Nectrie cinabre
+S|Hypomyces lactifluorum|Champignon homard|Parasite qui transforme un lactaire en mets orange.
+S|Epichloë festucae|Epichloë|Vit dans les graminées et les protège des herbivores.
+S|Cryphonectria parasitica|Chancre du châtaignier|A tué 4 milliards de châtaigniers américains.
+S|Verticillium dahliae|Verticilliose
+S|Ophiocordyceps sinensis|Cordyceps chinois|Vendu plus cher que l'or au Tibet.
+S|Xylaria polymorpha|Doigts de mort
+S|Ceratocystis platani|Chancre coloré du platane|Tue les platanes du canal du Midi.
+S|Fusarium venenatum|Fusarium du Quorn|Source de mycoprotéine alimentaire.
+S|Metarhizium anisopliae|Muscardine verte|Insecticide biologique.
+S|Tolypocladium inflatum|Tolypocladium|Produit la ciclosporine, qui permet les greffes d'organes.
+S|Trichoderma harzianum|Trichoderma harzianum
+S|Ustulina deusta|Ustuline
+S|Hypoxylon fragiforme|Hypoxylon fraise
+S|Clonostachys rosea|Clonostachys
+@@ Leotiomycetes
+S|Chlorociboria aeruginascens|Pézize turquoise|Colore le bois en vert, utilisé en marqueterie.
+S|Monilinia fructigena|Moniliose
+S|Rhytisma acerinum|Taches goudronneuses de l'érable
+S|Leotia lubrica|Léotie lubrique
+S|Pseudogymnoascus destructans|Syndrome du museau blanc|A tué des millions de chauves-souris en Amérique du Nord.
+S|Sclerotinia sclerotiorum|Sclérotinia
+S|Bulgaria inquinans|Bulgarie salissante
+S|Mitrula paludosa|Mitrule des marais
+@@ Dothideomycetes
+S|Pseudocercospora fijiensis|Cercosporiose noire du bananier
+S|Hortaea werneckii|Hortaea|Levure noire des salines.
+S|Cenococcum geophilum|Cenococcum|Un des champignons mycorhiziens les plus répandus.
+S|Parastagonospora nodorum|Septoriose des glumes
+S|Leptosphaeria maculans|Phoma du colza
+S|Cladosporium sphaerospermum|Cladosporium de Tchernobyl|Pousse sur les murs radioactifs, peut-être grâce à la mélanine.
+S|Hysterium angustatum|Hysterium
+@@ Lecanoromycetes
+S|Rhizocarpon geographicum|Lichen géographique|Si lent qu'on l'utilise pour dater les moraines.
+S|Physcia adscendens|Physcie ascendante
+S|Parmelia sulcata|Parmélie sillonnée
+S|Ramalina farinacea|Ramaline farineuse
+S|Graphis scripta|Lichen écriture
+S|Letharia vulpina|Lichen-loup|Servait à empoisonner les loups.
+S|Umbilicaria esculenta|Tripe de roche|Lichen comestible au Japon et en Corée.
+S|Cetraria islandica|Lichen d'Islande
+S|Pseudevernia furfuracea|Pseudévernie
+S|Hypogymnia physodes|Hypogymnie
+S|Lecanora muralis|Lécanore des murs
+S|Cladonia fimbriata|Cladonie en trompette
+S|Cladonia cristatella|Soldats britanniques
+S|Peltigera canina|Peltigère canine
+S|Sticta fuliginosa|Sticta
+S|Lecidea fuscoatra|Lécidée
+S|Ochrolechia parella|Ochrolechia
+@@ Laboulbeniomycetes
+S|Hesperomyces virescens|Hesperomyces|Pousse sur les coccinelles asiatiques.
+@@ Pucciniomycotina
+C|Microbotryomycetes|Microbotryomycètes
+ S|Microbotryum violaceum|Charbon des anthères|Fait produire des spores à la place du pollen.
+C|Pucciniomycetes|Pucciniomycètes|La plupart des rouilles.
+C|Agaricostilbomycetes|Agaricostilbomycètes
+C|Atractiellomycetes|Atractiellomycètes
+C|Cystobasidiomycetes|Cystobasidiomycètes
+C|Mixiomycetes|Mixiomycètes
+C|Classiculomycetes|Classiculomycètes
+C|Cryptomycocolacomycetes|Cryptomycocolacomycètes
+C|Spiculogloeomycetes|Spiculogloeomycètes
+C|Tritirachiomycetes|Tritirachiomycètes
+S|Gymnosporangium sabinae|Rouille grillagée du poirier|Alterne entre poirier et genévrier.
+S|Melampsora larici-populina|Rouille du peuplier
+S|Cronartium ribicola|Rouille vésiculeuse du pin blanc
+S|Puccinia striiformis|Rouille jaune du blé
+S|Puccinia triticina|Rouille brune du blé
+S|Austropuccinia psidii|Rouille des myrtacées
+S|Uromyces appendiculatus|Rouille du haricot
+@@ Ustilaginomycotina
+C|Ustilaginomycetes|Ustilaginomycètes
+C|Exobasidiomycetes|Exobasidiomycètes
+ S|Exobasidium vaccinii|Exobasidium de l'airelle
+C|Malasseziomycetes|Malasseziomycètes
+C|Moniliellomycetes|Moniliellomycètes
+S|Sporisorium reilianum|Charbon des panicules
+S|Ustilago nuda|Charbon nu de l'orge
+S|Moesziomyces antarcticus|Moesziomyces|Source d'une lipase industrielle.
+S|Malassezia globosa|Malassezia globosa
+@@ Tremellomycetes
+S|Cryptococcus gattii|Cryptococcus gattii
+S|Phaeotremella foliacea|Trémelle foliacée
+S|Naematelia encephala|Trémelle cérébriforme
+@@ Dacrymycetes
+S|Calocera viscosa|Calocère visqueuse
+S|Dacrymyces chrysospermus|Dacrymyces orangé
+@@ Agaricomycetes
+O|Sebacinales|Sébacinales
+ S|Serendipita indica|Serendipita|Champignon endophyte qui stimule la croissance des plantes.
+O|Trechisporales|Tréchisporales
+O|Corticiales|Corticiales
+O|Gloeophyllales|Gloeophyllales
+ S|Gloeophyllum sepiarium|Lenzite des clôtures
+O|Jaapiales|Jaapiales
+O|Atheliales|Athéliales
+O|Amylocorticiales|Amylocorticiales
+O|Lepidostromatales|Lépidostromatales|Lichens basidiomycètes.
+O|Hysterangiales|Hystérangiales|Fausses truffes.
+O|Tremellodendropsidales|Trémellodendropsidales
+O|Stereopsidales|Stéréopsidales
+@@ Agaricales
+S|Amanita pantherina|Amanite panthère
+S|Amanita rubescens|Golmotte|Amanite rougissante, comestible cuite.
+S|Amanita ocreata|Ange destructeur
+S|Amanita citrina|Amanite citrine
+S|Galerina marginata|Galère marginée|Mortelle, confondue avec la pholiote changeante.
+S|Lepiota brunneoincarnata|Lépiote brun-incarnat|Petite lépiote mortelle.
+S|Clitocybe dealbata|Clitocybe blanchi
+S|Paralepistopsis amoenolens|Clitocybe à bonne odeur|Provoque des brûlures intenses aux mains et aux pieds pendant des semaines.
+S|Tricholoma equestre|Tricholome équestre|Longtemps comestible, il peut détruire les muscles.
+S|Tricholoma terreum|Petit-gris des pins
+S|Calocybe gambosa|Mousseron de la Saint-Georges
+S|Hygrocybe coccinea|Hygrophore écarlate
+S|Volvariella volvacea|Volvaire comestible
+S|Pleurotus eryngii|Pleurote du panicaut
+S|Agaricus xanthodermus|Agaric jaunissant
+S|Agaricus augustus|Agaric auguste
+S|Coprinellus micaceus|Coprin micacé
+S|Coprinopsis atramentaria|Coprin noir d'encre|Toxique avec l'alcool.
+S|Coprinopsis cinerea|Coprin cendré|Modèle de génétique des champignons.
+S|Gymnopilus junonius|Gymnopile remarquable
+S|Pholiota squarrosa|Pholiote écailleuse
+S|Kuehneromyces mutabilis|Pholiote changeante
+S|Stropharia rugosoannulata|Strophaire à anneau rugueux
+S|Hebeloma crustuliniforme|Hébélome échaudé
+S|Inocybe erubescens|Inocybe de Patouillard
+S|Entoloma sinuatum|Entolome livide
+S|Clitopilus prunulus|Meunier
+S|Mycena pura|Mycène pure
+S|Marasmius rotula|Marasme petite roue
+S|Armillaria mellea|Armillaire couleur de miel
+S|Mucidula mucida|Collybie mucide
+S|Cyathus striatus|Cyathe strié|Ressemble à un nid d'oiseau rempli d'œufs.
+S|Bovista plumbea|Boviste plombé
+S|Leucoagaricus gongylophorus|Champignon des fourmis coupe-feuilles|Cultivé par les fourmis depuis des millions d'années.
+S|Termitomyces titanicus|Termitomyces géant|Le plus grand champignon comestible : chapeau d'un mètre.
+S|Pleurotus djamor|Pleurote rose
+S|Hypsizygus tessellatus|Shimeji
+S|Cortinarius rubellus|Cortinaire couleur de rocou
+S|Cortinarius violaceus|Cortinaire violet
+S|Laccaria bicolor|Laccaire bicolore|Modèle de la symbiose mycorhizienne.
+S|Pluteus cervinus|Plutée couleur de cerf
+S|Asterophora lycoperdoides|Nyctalis|Pousse sur d'autres champignons.
+S|Chlorophyllum molybdites|Lépiote à spores vertes|Cause fréquente d'intoxication en Amérique.
+S|Leucocoprinus birnbaumii|Lépiote jaune des pots de fleurs
+S|Clitocybe nebularis|Clitocybe nébuleux
+S|Infundibulicybe geotropa|Tête de moine
+S|Hygrophorus marzuolus|Hygrophore de mars
+S|Cuphophyllus pratensis|Hygrophore des prés
+S|Panaeolus semiovatus|Panéole
+S|Conocybe filaris|Conocybe filaris
+S|Lepista personata|Pied-violet
+S|Agrocybe aegerita|Pholiote du peuplier
+S|Mycena interrupta|Mycène bleue
+S|Roridomyces phyllostachydis|Mycène lumineuse du bambou
+S|Gymnopus dryophilus|Collybie des chênes
+S|Macrolepiota rhacodes|Lépiote déguenillée
+S|Lycoperdon pyriforme|Vesse-de-loup en poire
+S|Nidularia deformis|Nidulaire
+@@ Boletales
+S|Boletus pinophilus|Cèpe des pins
+S|Boletus reticulatus|Cèpe d'été
+S|Leccinum scabrum|Bolet rude
+S|Leccinum versipelle|Bolet orangé des bouleaux
+S|Xerocomellus chrysenteron|Bolet à chair jaune
+S|Suillus grevillei|Bolet élégant
+S|Suillus bovinus|Bolet des bouviers
+S|Gyroporus cyanescens|Bolet indigotier|Bleuit instantanément.
+S|Tylopilus felleus|Bolet amer
+S|Caloboletus calopus|Bolet à beau pied
+S|Neoboletus erythropus|Bolet à pied rouge
+S|Hygrophoropsis aurantiaca|Fausse girolle
+S|Pisolithus arhizus|Pisolithe|Utilisé pour aider les arbres à pousser sur les terres dégradées.
+S|Coniophora puteana|Coniophore des caves
+S|Chalciporus piperatus|Bolet poivré
+S|Strobilomyces strobilaceus|Bolet pomme de pin
+S|Astraeus hygrometricus|Astrée hygrométrique|S'ouvre et se ferme selon l'humidité.
+S|Gomphidius glutinosus|Gomphide glutineux
+S|Chroogomphus rutilus|Gomphide rutilant
+S|Rhizopogon roseolus|Rhizopogon rougissant
+S|Boletus barrowsii|Cèpe blanc
+@@ Russulales
+S|Russula cyanoxantha|Charbonnier
+S|Russula virescens|Palomet
+S|Russula emetica|Russule émétique
+S|Russula vesca|Russule comestible
+S|Lactarius torminosus|Lactaire à toison
+S|Lactarius indigo|Lactaire indigo|Lait bleu.
+S|Lactifluus volemus|Lactaire à lait abondant
+S|Lactarius sanguifluus|Lactaire sanguin
+S|Lactarius quietus|Lactaire tranquille
+S|Lactifluus piperatus|Lactaire poivré
+S|Auriscalpium vulgare|Cure-oreille
+S|Stereum hirsutum|Stérée hirsute
+S|Hericium coralloides|Hydne corail
+S|Bondarzewia mesenterica|Polypore des montagnes
+S|Peniophora quercina|Peniophora du chêne
+@@ Cantharellales
+S|Craterellus lutescens|Chanterelle jaunissante
+S|Craterellus tubaeformis|Chanterelle en tube
+S|Hydnum rufescens|Pied-de-mouton roux
+S|Clavulina coralloides|Clavaire à crête
+S|Rhizoctonia solani|Rhizoctone brun|Pathogène de nombreuses cultures.
+S|Cantharellus amethysteus|Girolle améthyste
+S|Cantharellus cinnabarinus|Chanterelle cinabre
+@@ Polyporales
+S|Fomitopsis betulina|Polypore du bouleau|Ötzi en avait aussi, peut-être comme remède.
+S|Fomitopsis pinicola|Polypore marginé
+S|Trametes gibbosa|Tramète bossue
+S|Daedalea quercina|Dédale du chêne
+S|Cerioporus squamosus|Polypore écailleux
+S|Pycnoporus cinnabarinus|Polypore cinabre
+S|Bjerkandera adusta|Bjerkandera brûlé
+S|Wolfiporia cocos|Poria|Sclérote utilisé en médecine chinoise.
+S|Ganoderma applanatum|Ganoderme aplani|On peut dessiner sur sa face inférieure.
+S|Meripilus giganteus|Polypore géant
+S|Lentinus tigrinus|Lentin tigré
+S|Hapalopilus rutilans|Polypore rutilant|Devient violet à l'ammoniaque.
+S|Postia ptychogaster|Postia
+S|Irpex lacteus|Irpex laiteux
+S|Phlebia radiata|Phlébie rayonnante
+@@ Hymenochaetales
+S|Phellinus igniarius|Phellin du saule
+S|Fomitiporia mediterranea|Esca de la vigne
+S|Coltricia perennis|Polypore vivace
+S|Inonotus hispidus|Polypore hérissé
+S|Fomitiporia ellipsoidea|Fomitiporia ellipsoidea|Le plus grand carpophore connu : près de 11 m de long, environ 500 kg, en Chine.
+S|Hymenochaete rubiginosa|Hyménochète rouillée
+S|Trichaptum abietinum|Polypore du sapin
+@@ Phallales
+S|Phallus indusiatus|Dame voilée
+S|Mutinus caninus|Phallus du chien
+S|Aseroe rubra|Champignon étoile de mer
+S|Pseudocolus fusiformis|Pseudocolus
+S|Ileodictyon cibarium|Panier
+@@ Geastrales
+S|Geastrum fimbriatum|Géastre frangé
+S|Myriostoma coliforme|Géastre à plusieurs bouches
+@@ Auriculariales
+S|Exidia glandulosa|Exidie glanduleuse
+S|Pseudohydnum gelatinosum|Trémelle gélatineuse
+S|Auricularia polytricha|Oreille de bois chinoise
+@@ Gomphales
+S|Ramaria formosa|Clavaire élégante|Toxique.
+S|Ramaria botrytis|Clavaire chou-fleur
+S|Gomphus clavatus|Gomphe en massue
+@@ Thelephorales
+S|Thelephora terrestris|Théléphore terrestre
+S|Hydnellum peckii|Hydne de Peck|Exsude des gouttes rouge sang.
+S|Thelephora ganbajun|Ganbajun|Champignon de luxe du Yunnan.
+@@ Cantharellales
+S|Botryobasidium subcoronatum|Botryobasidium

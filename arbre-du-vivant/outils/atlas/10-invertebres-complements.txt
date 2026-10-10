@@ -1,0 +1,288 @@
+# Compléments pluricellulaires : invertébrés
+@@ Demospongiae
+S|Xestospongia muta|Éponge baril géante|Certaines auraient plus de 2 000 ans.
+S|Tethya aurantium|Orange de mer
+S|Aplysina aerophoba|Aplysine
+S|Halichondria panicea|Éponge mie de pain
+S|Chondrocladia lyra|Éponge harpe|Éponge carnivore des abysses.
+G|Callyspongia|Éponge tube
+@@ Hexactinellida
+S|Anoxycalyx joubini|Éponge géante antarctique|Croissance extrêmement lente, peut-être des millénaires.
+@@ Calcarea
+S|Clathrina coriacea|Clathrine
+@@ Ctenophora
+G|Velamen|Velamen|Ruban transparent apparenté à la ceinture de Vénus.
+S|Euplokamis dunlapae|Euplokamis
+@@ Hydrozoa
+O|Siphonophorae|Siphonophores|Colonies d'individus spécialisés qui forment un seul « animal » ; les plus longs organismes connus.
+ G|Apolemia|Apolemia|Une colonie d'environ 47 m a été filmée en 2020 au large de l'Australie.
+ S|Praya dubia|Praya|Colonies de 40 m dans les profondeurs.
+ G|Nanomia|Nanomia
+O|Anthoathecata|Anthoathécates|Polypes sans thèque.
+ G|Tubularia|Tubulaire
+ S|Porpita porpita|Porpite|Disque bleu flottant.
+O|Leptothecata|Leptothécates|Polypes protégés par une thèque.
+ S|Aequorea victoria|Aequorée|Source de la protéine fluorescente verte (GFP), Nobel 2008.
+O|Trachymedusae|Trachyméduses
+ G|Liriope|Liriope
+O|Narcomedusae|Narcoméduses
+ G|Solmissus|Solmissus
+O|Limnomedusae|Limnoméduses
+O|Actinulida|Actinulides|Hydrozoaires minuscules vivant entre les grains de sable.
+@@ Scyphozoa
+O|Coronatae|Méduses à couronne
+ S|Periphylla periphylla|Périphylle|Méduse rouge des profondeurs, lumineuse.
+O|Rhizostomeae|Rhizostomes
+ S|Rhopilema esculentum|Méduse comestible
+ S|Nemopilema nomurai|Méduse de Nomura|Jusqu'à 200 kg.
+ S|Cotylorhiza tuberculata|Méduse œuf au plat
+O|Semaeostomeae|Sémaéostomes
+ S|Stygiomedusa gigantea|Méduse fantôme géante|Bras de 10 m.
+ S|Chrysaora fuscescens|Ortie de mer du Pacifique
+@@ Cubozoa
+S|Carukia barnesi|Irukandji de Barnes|Méduse de 1 cm au venin redoutable.
+S|Tripedalia cystophora|Tripedalia|24 yeux, dont certains avec cristallin.
+@@ Hexacorallia
+O|Corallimorpharia|Corallimorphaires|Anémones-coraux sans squelette.
+@@ Scleractinia
+S|Desmophyllum pertusum|Corail blanc des eaux froides|Récifs profonds de l'Atlantique jusqu'à plus de 1 000 m.
+S|Cladocora caespitosa|Madrépore méditerranéen
+G|Montipora|Montipora
+@@ Actiniaria
+S|Metridium senile|Œillet de mer
+S|Stichodactyla gigantea|Anémone géante|Hôte des poissons-clowns.
+@@ Octocorallia
+S|Paramuricea clavata|Gorgone pourpre
+S|Veretillum cynomorium|Vérétille
+S|Paragorgia arborea|Corail chewing-gum|Grandes gorgones des eaux froides.
+@@ Myxozoa
+S|Kudoa septempunctata|Kudoa|Intoxications au poisson cru au Japon.
+@@ Acoela
+G|Convolutriloba|Convolutriloba|Se reproduit en bourgeonnant à l'envers.
+@@ Xenacoelomorpha
+S|Xenoturbella churro|Xenoturbella churro|Décrit en 2016, au nom inspiré du beignet.
+@@ Priapulida
+S|Priapulus abyssorum|Priapule des abysses
+S|†Ottoia prolifica|Ottoia|Priapulien de Burgess, 508 Ma.
+@@ Nematoda
+S|Trichuris trichiura|Trichocéphale
+S|Strongyloides stercoralis|Anguillule|Peut se multiplier dans son hôte.
+S|Bursaphelenchus xylophilus|Nématode du pin|Tue les pins, transporté par un longicorne.
+S|Xiphinema index|Xiphinème|Transmet le court-noué de la vigne.
+S|Heterodera glycines|Nématode à kystes du soja
+S|Globodera rostochiensis|Nématode doré de la pomme de terre
+S|Steinernema carpocapsae|Steinernema|Nématode tueur d'insectes utilisé en jardinage biologique.
+S|Pristionchus pacificus|Pristionchus|Modèle de la plasticité : prédateur ou mangeur de bactéries selon l'environnement.
+S|Haemonchus contortus|Ver du mouton
+S|Angiostrongylus cantonensis|Ver du poumon du rat|Peut provoquer des méningites.
+S|Placentonema gigantissima|Placentonema|Plus long nématode : 8 m, dans le placenta des cachalots.
+S|Panagrolaimus kolymaensis|Panagrolaimus de la Kolyma|Ranimé après 46 000 ans dans le pergélisol (2023).
+@@ Nematomorpha
+G|Nectonema|Nectonema|Seul nématomorphe marin.
+@@ Tardigrada
+C|Heterotardigrada|Hétérotardigrades
+ S|Echiniscus testudo|Echiniscus
+ S|Batillipes mirus|Batillipes|Tardigrade marin des sables.
+C|Eutardigrada|Eutardigrades
+ S|Paramacrobiotus richtersi|Paramacrobiotus|Certains brillent en bleu sous UV.
+@@ Onychophora
+S|Epiperipatus broadwayi|Péripate des Caraïbes
+@@ Rotifera
+S|Philodina roseola|Philodine
+S|Keratella cochlearis|Keratella
+@@ Acanthocephala
+S|Moniliformis moniliformis|Moniliformis
+S|Macracanthorhynchus hirudinaceus|Échinorhynque géant du porc
+@@ Gnathostomulida
+G|Gnathostomula|Gnathostomula
+@@ Chaetognatha
+G|Spadella|Spadella|Chétognathe benthique.
+S|Eukrohnia hamata|Eukrohnia
+@@ Platyhelminthes
+O|Macrostomorpha|Macrostomides
+ S|Macrostomum lignano|Macrostomum|Modèle de régénération et de reproduction.
+O|Prorhynchida|Prorhynchides
+O|Rhabdocoela|Rhabdocœles
+ G|Mesostoma|Mesostoma
+ S|Temnocephala chilensis|Temnocéphale|Vit sur les écrevisses.
+O|Proseriata|Prosériates
+O|Fecampiida|Fécampiides|Parasites de crustacés.
+@@ Tricladida
+S|Dugesia gonocephala|Planaire gonocéphale
+S|Polycelis felina|Polycelis
+S|Arthurdendyus triangulatus|Ver plat de Nouvelle-Zélande|Prédateur invasif des vers de terre.
+@@ Trematoda
+S|Schistosoma haematobium|Schistosome urinaire
+S|Clonorchis sinensis|Douve de Chine
+S|Paragonimus westermani|Douve du poumon
+S|Opisthorchis felineus|Douve du chat
+S|Diplostomum spathaceum|Diplostome|Rend les poissons aveugles.
+@@ Cestoda
+S|Echinococcus granulosus|Échinocoque du chien
+S|Hymenolepis nana|Ténia nain
+S|Dipylidium caninum|Ténia du chien
+S|Schistocephalus solidus|Schistocephalus|Pousse les épinoches vers la surface, où les oiseaux les mangent.
+S|Ligula intestinalis|Ligule
+@@ Monogenea
+S|Polystoma integerrimum|Polystome|Vit dans la vessie des grenouilles.
+G|Diplozoon|Diplozoon|Deux individus fusionnés à vie.
+@@ Gastrotricha
+G|Lepidodermella|Lepidodermella
+G|Turbanella|Turbanella
+@@ Entoprocta
+G|Loxosomella|Loxosomella
+G|Barentsia|Barentsia
+@@ Brachiopoda
+S|Novocrania anomala|Crania
+S|Magellania venosa|Magellania|Grand brachiopode des fjords chiliens.
+S|†Spirifer striatus|Spirifer|Brachiopode fossile très courant.
+@@ Phoronida
+S|Phoronopsis californica|Phoronopsis
+@@ Polyplacophora
+S|Cryptochiton stelleri|Chiton géant|Jusqu'à 33 cm.
+S|Lepidochitona cinerea|Chiton cendré
+@@ Solenogastres
+G|Neomenia|Neomenia
+@@ Caudofoveata
+G|Chaetoderma|Chaetoderma
+@@ Scaphopoda
+G|Cadulus|Cadulus
+@@ Caenogastropoda
+S|Bolinus brandaris|Murex épineux|Source de la pourpre de Tyr, le colorant des empereurs.
+S|Hexaplex trunculus|Murex fascié
+S|Nucella lapillus|Pourpre petite-pierre
+S|Ocenebra erinaceus|Bigorneau perceur
+S|Euspira catena|Natice|Perce les coquilles des bivalves.
+S|Viviparus viviparus|Paludine
+S|Tritia reticulata|Nasse réticulée
+S|Aporrhais pespelecani|Pied-de-pélican
+S|Carinaria cristata|Carinaire|Gastéropode nageur transparent.
+S|Conus textile|Cône textile
+@@ Vetigastropoda
+S|Steromphala umbilicalis|Gibbule ombiliquée
+S|Turbo marmoratus|Turbo marbré
+G|Pleurotomaria|Pleurotomaire|« Fossile vivant » des grandes profondeurs.
+@@ Nudibranchia
+S|Flabellina affinis|Flabelline mauve
+S|Dendrodoris limbata|Doris
+S|Chromodoris annae|Chromodoris d'Anne
+@@ Heterobranchia
+S|Tylodina perversa|Tylodine|Mange une éponge et prend sa couleur jaune.
+S|Bulla striata|Bulle striée
+@@ Stylommatophora
+S|Cepaea nemoralis|Escargot des haies|Coquilles de couleurs variées, modèle de génétique des populations.
+S|Deroceras reticulatum|Limace grise
+S|Euglandina rosea|Escargot loup|Prédateur introduit qui a fait disparaître de nombreux escargots d'îles.
+S|Rumina decollata|Bulime tronqué|Casse volontairement le haut de sa coquille.
+S|Testacella haliotidea|Testacelle|Limace prédatrice de vers de terre.
+S|Partula turgida|Partula|Escargot des îles de la Société ; éteint dans la nature.
+S|Achatinella mustelina|Achatinelle d'Oahu
+@@ Hygrophila
+S|Planorbarius corneus|Planorbe
+S|Physella acuta|Physe
+@@ Bivalvia
+S|Pholas dactylus|Pholade|Bivalve lumineux qui creuse la roche.
+S|Lithophaga lithophaga|Datte de mer|Creuse le calcaire ; sa récolte est interdite.
+S|Spondylus gaederopus|Spondyle pied-d'âne
+S|Glycymeris glycymeris|Amande de mer
+S|Mya arenaria|Mye des sables
+S|Venus verrucosa|Praire
+S|Donax trunculus|Telline
+S|Mercenaria mercenaria|Clam
+S|Unio crassus|Mulette épaisse
+S|Anodonta cygnea|Anodonte des étangs
+S|Corbicula fluminea|Corbicule asiatique
+S|Xylophaga dorsalis|Xylophage|Creuse le bois coulé au fond de la mer.
+S|Kuphus polythalamius|Taret géant|Ver de 1,5 m qui se nourrit grâce à des bactéries sulfureuses.
+S|Bathymodiolus azoricus|Moule des sources hydrothermales
+S|Solemya velum|Solemya|Bivalve sans tube digestif fonctionnel.
+@@ Octopoda
+S|Octopus cyanea|Poulpe de jour
+S|Amphioctopus marginatus|Poulpe veiné|Transporte des coques de noix de coco pour s'abriter.
+S|Eledone cirrhosa|Élédone
+S|Wunderpus photogenicus|Wunderpus
+S|Haliphron atlanticus|Poulpe à sept bras|Un des plus grands poulpes.
+@@ Sepiida
+S|Sepia apama|Seiche géante d'Australie
+@@ Oegopsida
+S|Todarodes sagittatus|Toutenon
+S|Taningia danae|Calmar de Dana|Organes lumineux grands comme des citrons.
+S|Histioteuthis heteropsis|Calmar à œil de biche
+S|Magnapinna pacifica|Calmar aux longs bras
+@@ Myopsida
+S|Sepioteuthis lessoniana|Calmar à grandes nageoires
+@@ Cephalopoda
+c|†Ammonoidea|Ammonites|Céphalopodes à coquille spiralée, éteints il y a 66 millions d'années.
+ S|†Parapuzosia seppenradensis|Ammonite géante|Coquille de près de 2 m.
+c|†Belemnitida|Bélemnites
+@@ Errantia
+S|Platynereis dumerilii|Platynereis|Modèle du développement et de l'évolution du cerveau.
+S|Hermodice carunculata|Ver de feu
+S|Glycera dibranchiata|Glycère|Mâchoires renforcées de cuivre.
+S|Nereis pelagica|Néréis pélagique
+S|Hesiocaeca methanicola|Ver de glace|Vit sur les hydrates de méthane.
+S|Odontosyllis enopla|Ver de feu des Bermudes|Parades lumineuses après la pleine lune.
+S|Paralvinella sulfincola|Paralvinella
+@@ Sedentaria
+S|Sabellaria alveolata|Hermelle|Construit des récifs de sable en baie du Mont-Saint-Michel.
+S|Chaetopterus variopedatus|Chétoptère
+S|Lanice conchilega|Lanice
+S|Terebella lapidaria|Térébelle
+G|Serpula|Serpule
+S|Owenia fusiformis|Owenia
+S|Capitella teleta|Capitella
+S|Pectinaria koreni|Pectinaire|Construit un tube conique de grains de sable.
+c|Myzostomida|Myzostomides|Parasites des crinoïdes.
+@@ Oligochaeta
+S|Aporrectodea caliginosa|Ver de terre gris
+S|Lumbricus rubellus|Ver rouge
+S|Amynthas agrestis|Ver sauteur|Ver asiatique invasif qui se tortille violemment.
+S|Enchytraeus albidus|Enchytrée
+S|Mesenchytraeus solifugus|Ver des glaciers
+G|Branchiobdella|Branchiobdelles|Petits vers qui vivent sur les écrevisses.
+@@ Hirudinea
+S|Hirudo verbana|Sangsue médicinale verte
+S|Haemopis sanguisuga|Fausse sangsue du cheval
+S|Helobdella robusta|Helobdella
+@@ Asteroidea
+S|Astropecten aranciacus|Étoile-peigne
+S|Echinaster sepositus|Étoile de mer rouge
+S|Linckia laevigata|Étoile de mer bleue
+S|Culcita novaeguineae|Étoile coussin
+S|Patiria miniata|Étoile chauve-souris
+S|Xyloplax medusiformis|Marguerite de mer|Étoile de mer en disque, vit sur le bois immergé.
+S|Labidiaster annulatus|Étoile de mer antarctique aux 50 bras
+@@ Ophiuroidea
+S|Ophiocomina nigra|Ophiure noire
+S|Ophiopholis aculeata|Ophiure épineuse
+@@ Echinoidea
+S|Echinus esculentus|Oursin comestible
+S|Psammechinus miliaris|Oursin vert
+S|Heterocentrotus mamillatus|Oursin crayon
+S|Arbacia lixula|Oursin noir
+S|Spatangus purpureus|Spatangue pourpre
+S|Toxopneustes pileolus|Oursin fleur|Pédicellaires venimeux.
+S|Lytechinus variegatus|Oursin varié
+@@ Holothuroidea
+S|Holothuria tubulosa|Holothurie tubuleuse
+S|Scotoplanes globosa|Cochon de mer|Holothurie des abysses à « pattes ».
+S|Psychropotes longicauda|Holothurie à queue
+S|Thelenota ananas|Holothurie ananas
+S|Synapta maculata|Synapte|Longue de 3 m, sans pieds.
+@@ Crinoidea
+S|Metacrinus rotundus|Lys de mer du Japon
+S|Florometra serratissima|Comatule du Pacifique
+@@ Enteropneusta
+S|Balanoglossus clavigerus|Balanoglosse
+@@ Pterobranchia
+G|Cephalodiscus|Cephalodiscus
+@@ Ascidiacea
+S|Didemnum vexillum|Didemnum|Ascidie coloniale invasive.
+S|Phallusia mammillata|Ascidie blanche
+S|Microcosmus sabatieri|Violet|Mangé en Provence.
+S|Styela clava|Ascidie japonaise
+@@ Thaliacea
+G|Doliolum|Doliolum
+@@ Cephalochordata
+S|Branchiostoma floridae|Amphioxus de Floride
+S|Asymmetron lucayanum|Asymmetron

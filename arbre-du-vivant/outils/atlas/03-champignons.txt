@@ -1,0 +1,192 @@
+@@ Holomycota
+R|Fungi|Champignons|Plus proches des animaux que des plantes : paroi de chitine, réserves de glycogène. Environ 155 000 espèces décrites, peut-être 2 à 3 millions au total.
+ c|Opisthosporidia|Opisthosporidies|Lignées parasites à la base des champignons.
+  P|Rozellomycota|Cryptomycètes
+   S|Rozella allomycis|Rozella|Parasite d'autres champignons.
+  P|Microsporidia|Microsporidies|Parasites intracellulaires à génomes ultra-réduits, qui injectent leur contenu par un tube polaire.
+   S|Vairimorpha ceranae|Nosema de l'abeille|Affaiblit les colonies d'abeilles (ex-Nosema ceranae).
+   S|Encephalitozoon cuniculi|Encephalitozoon|Un des plus petits génomes d'eucaryote : 2,9 millions de paires de bases.
+   S|Enterocytozoon bieneusi|Enterocytozoon
+  P|Aphelida|Aphélides|Parasites d'algues.
+   G|Aphelidium|Aphelidium
+ P|Chytridiomycota|Chytrides|Spores nageuses à flagelle ; surtout aquatiques.
+  S|Batrachochytrium dendrobatidis|Chytride des amphibiens|A causé le déclin de plus de 500 espèces d'amphibiens.
+  S|Batrachochytrium salamandrivorans|Chytride des salamandres
+  S|Synchytrium endobioticum|Galle verruqueuse de la pomme de terre
+  C|Monoblepharidomycetes|Monoblépharidomycètes
+ P|Neocallimastigomycota|Champignons du rumen|Anaérobies, digèrent la cellulose dans la panse des herbivores.
+  G|Neocallimastix|Neocallimastix
+  G|Piromyces|Piromyces
+ P|Blastocladiomycota|Blastocladiomycètes
+  S|Allomyces macrogynus|Allomyces
+  G|Coelomomyces|Coelomomyces|Parasite des larves de moustiques.
+ P|Olpidiomycota|Olpidiomycètes
+  S|Olpidium brassicae|Olpidium
+ c|Zoopagomycota|Zoopagomycètes
+  Pb|Entomophthoromycotina|Entomophthorales|Champignons tueurs d'insectes.
+   S|Entomophthora muscae|Entomophthora|Pousse la mouche à grimper puis à mourir les ailes écartées pour disperser ses spores.
+   G|Basidiobolus|Basidiobolus
+  Pb|Kickxellomycotina|Kickxellomycotina
+  Pb|Zoopagomycotina|Zoopagomycotina|Prédateurs d'amibes et de nématodes.
+ P|Mucoromycota|Mucoromycètes|Moisissures à croissance rapide et champignons mycorhiziens.
+  Pb|Mucoromycotina|Mucorales
+   G|Mucor|Mucor
+   S|Rhizopus stolonifer|Moisissure noire du pain
+   S|Rhizopus oryzae|Rhizopus du tempeh
+   S|Phycomyces blakesleeanus|Phycomyces|Ses filaments se tournent vers la lumière.
+  Pb|Mortierellomycotina|Mortierellales
+   G|Mortierella|Mortierella
+  Pb|Glomeromycotina|Gloméromycètes|Forment les mycorhizes arbusculaires avec environ 70 % des plantes terrestres.
+   S|Rhizophagus irregularis|Rhizophagus
+   S|Geosiphon pyriformis|Geosiphon|Abrite des cyanobactéries dans ses vésicules.
+ c|Dikarya|Dicaryotes|Champignons supérieurs : leurs cellules passent par un stade à deux noyaux.
+  P|Ascomycota|Ascomycètes|Spores formées dans un sac (asque). Le plus grand embranchement de champignons (~95 000 espèces).
+   Pb|Taphrinomycotina|Taphrinomycètes
+    S|Schizosaccharomyces pombe|Levure de fission|Modèle du cycle cellulaire (Nobel 2001).
+    S|Pneumocystis jirovecii|Pneumocystis|Pneumonies chez les immunodéprimés.
+    S|Taphrina deformans|Cloque du pêcher
+    G|Neolecta|Neolecta
+   Pb|Saccharomycotina|Levures vraies
+    S|Saccharomyces cerevisiae|Levure de boulanger|Pain, bière, vin : domestiquée depuis plus de 5 000 ans. Premier eucaryote séquencé (1996).
+    S|Candida albicans|Candida|Champignon commensal responsable de mycoses.
+    S|Candidozyma auris|Candida auris|Levure multirésistante émergente.
+    S|Komagataella phaffii|Pichia|Usine à protéines en biotechnologie.
+    S|Kluyveromyces lactis|Kluyveromyces|Fermente le lactose.
+    S|Yarrowia lipolytica|Yarrowia
+    S|Brettanomyces bruxellensis|Brettanomyces|Donne le goût « animal » de certains vins et des bières lambics.
+   Pb|Pezizomycotina|Pézizomycètes au sens large|Champignons filamenteux ascomycètes.
+    C|Pezizomycetes|Pézizes
+     S|Morchella esculenta|Morille commune
+     S|Tuber melanosporum|Truffe noire du Périgord
+     S|Tuber magnatum|Truffe blanche d'Alba
+     S|Sarcoscypha coccinea|Pézize écarlate
+     S|Peziza vesiculosa|Pézize vésiculeuse
+    C|Orbiliomycetes|Orbiliomycètes
+     S|Arthrobotrys oligospora|Arthrobotrys|Capture les nématodes dans des lassos.
+    C|Eurotiomycetes|Eurotiomycètes
+     S|Penicillium rubens|Penicillium de Fleming|La moisissure qui a donné la pénicilline (1928).
+     S|Penicillium roqueforti|Penicillium du roquefort
+     S|Penicillium camemberti|Penicillium du camembert
+     S|Aspergillus niger|Aspergillus noir|Produit l'acide citrique industriel.
+     S|Aspergillus fumigatus|Aspergillus fumigatus|Aspergillose pulmonaire.
+     S|Aspergillus flavus|Aspergillus flavus|Produit l'aflatoxine, très cancérigène.
+     S|Trichophyton rubrum|Trichophyton|Mycose des pieds.
+     S|Histoplasma capsulatum|Histoplasma
+    C|Sordariomycetes|Sordariomycètes
+     S|Neurospora crassa|Neurospora|Expérience « un gène, une enzyme » (1941).
+     S|Claviceps purpurea|Ergot du seigle|Responsable du « mal des ardents » ; origine du LSD.
+     S|Ophiocordyceps unilateralis|Cordyceps des fourmis|Transforme les fourmis en « zombies » qui s'agrippent aux feuilles.
+     S|Cordyceps militaris|Cordyceps militaire
+     S|Fusarium graminearum|Fusariose du blé
+     S|Fusarium oxysporum|Fusarium oxysporum
+     S|Trichoderma reesei|Trichoderma|Produit des cellulases industrielles.
+     S|Pyricularia oryzae|Pyriculariose du riz|Une des maladies les plus graves du riz.
+     S|Beauveria bassiana|Muscardine blanche|Insecticide biologique.
+     S|Ophiostoma novo-ulmi|Graphiose de l'orme|A décimé les ormes d'Europe.
+     S|Xylaria hypoxylon|Xylaire du bois
+    C|Leotiomycetes|Léotiomycètes
+     S|Botrytis cinerea|Pourriture grise|Aussi « pourriture noble » des vins liquoreux.
+     S|Erysiphe necator|Oïdium de la vigne
+     S|Blumeria graminis|Oïdium des céréales
+     S|Hymenoscyphus fraxineus|Chalarose du frêne
+    C|Dothideomycetes|Dothidéomycètes
+     S|Venturia inaequalis|Tavelure du pommier
+     G|Alternaria|Alternaria
+     G|Cladosporium|Cladosporium|Une des moisissures les plus fréquentes dans l'air.
+     S|Zymoseptoria tritici|Septoriose du blé
+     S|Aureobasidium pullulans|Aureobasidium
+    C|Lecanoromycetes|Lichens (lécanoromycètes)|La plupart des lichens : un champignon associé à une algue ou une cyanobactérie.
+     S|Xanthoria parietina|Parmélie des murailles|Lichen jaune orangé des toits et des troncs.
+     S|Cladonia rangiferina|Lichen des rennes
+     G|Usnea|Usnée|Barbe de vieillard des forêts humides.
+     S|Lobaria pulmonaria|Lobaire pulmonaire
+     S|Evernia prunastri|Mousse de chêne|Utilisée en parfumerie.
+     G|Peltigera|Peltigère
+    C|Laboulbeniomycetes|Laboulbéniomycètes|Minuscules parasites externes d'insectes.
+     G|Laboulbenia|Laboulbenia
+  P|Basidiomycota|Basidiomycètes|Spores portées par des basides. La plupart des champignons à chapeau (~50 000 espèces).
+   Pb|Pucciniomycotina|Rouilles
+    S|Puccinia graminis|Rouille noire du blé
+    S|Hemileia vastatrix|Rouille du caféier|A ruiné la culture du café à Ceylan au XIXe siècle.
+    G|Rhodotorula|Rhodotorula|Levure rose.
+   Pb|Ustilaginomycotina|Charbons
+    S|Ustilago maydis|Charbon du maïs|Mangé au Mexique sous le nom de huitlacoche.
+    G|Malassezia|Malassezia|Levure de la peau, liée aux pellicules.
+    G|Tilletia|Carie du blé
+   Pb|Wallemiomycotina|Wallemiomycètes
+    G|Wallemia|Wallemia|Supporte des milieux très salés ou sucrés.
+   Pb|Agaricomycotina|Agaricomycètes au sens large
+    C|Tremellomycetes|Trémelles
+     S|Cryptococcus neoformans|Cryptocoque|Méningites chez les immunodéprimés.
+     S|Tremella mesenterica|Trémelle mésentérique
+     S|Tremella fuciformis|Champignon des neiges
+    C|Dacrymycetes|Dacrymycètes
+     G|Dacrymyces|Dacrymyces
+    C|Agaricomycetes|Agaricomycètes|Les champignons à chapeau, polypores, vesses-de-loup…
+     O|Agaricales|Agaricales|Champignons à lames, l'ordre le plus vaste (~13 000 espèces).
+      S|Agaricus bisporus|Champignon de Paris
+      S|Agaricus campestris|Rosé des prés
+      S|Amanita phalloides|Amanite phalloïde|Responsable de la plupart des intoxications mortelles.
+      S|Amanita muscaria|Amanite tue-mouches
+      S|Amanita caesarea|Oronge|Amanite des Césars, comestible.
+      S|Amanita virosa|Amanite vireuse
+      S|Pleurotus ostreatus|Pleurote en huître|Chasse les nématodes avec des toxines.
+      S|Lentinula edodes|Shiitake
+      S|Flammulina filiformis|Enoki
+      S|Psilocybe cubensis|Psilocybe cubensis
+      S|Psilocybe semilanceata|Psilocybe lancéolé
+      S|Coprinus comatus|Coprin chevelu|Se liquéfie en encre noire.
+      S|Armillaria ostoyae|Armillaire obscure|Un individu de l'Oregon couvre 9 km² : un des plus grands organismes du monde.
+      S|Marasmius oreades|Faux mousseron|Forme des « ronds de sorcière ».
+      S|Cortinarius orellanus|Cortinaire des montagnes|Mortel, toxicité rénale retardée.
+      S|Lepista nuda|Pied bleu
+      S|Macrolepiota procera|Coulemelle
+      S|Mycena chlorophos|Mycène luminescente
+      S|Omphalotus olearius|Clitocybe de l'olivier|Lames phosphorescentes.
+      S|Schizophyllum commune|Schizophylle commun|Plus de 20 000 types sexuels.
+      S|Calvatia gigantea|Vesse-de-loup géante|Peut dépasser 50 cm et contenir des milliers de milliards de spores.
+      S|Lycoperdon perlatum|Vesse-de-loup perlée
+      S|Fistulina hepatica|Langue de bœuf
+      S|Tricholoma matsutake|Matsutake
+      S|Hypholoma fasciculare|Hypholome en touffe
+      S|Laccaria amethystina|Laccaire améthyste
+     O|Boletales|Bolets
+      S|Boletus edulis|Cèpe de Bordeaux
+      S|Boletus aereus|Cèpe tête-de-nègre
+      S|Imleria badia|Bolet bai
+      S|Suillus luteus|Nonnette voilée
+      S|Rubroboletus satanas|Bolet Satan
+      S|Paxillus involutus|Paxille enroulé|Longtemps mangé, il peut provoquer une hémolyse mortelle.
+      S|Serpula lacrymans|Mérule pleureuse|Détruit les charpentes.
+      G|Scleroderma|Scléroderme
+     O|Russulales|Russulales
+      G|Russula|Russules
+      S|Lactarius deliciosus|Lactaire délicieux
+      S|Hericium erinaceus|Hydne hérisson
+      S|Heterobasidion annosum|Fomès|Pourriture des racines des conifères.
+     O|Cantharellales|Chanterelles
+      S|Cantharellus cibarius|Girolle
+      S|Craterellus cornucopioides|Trompette de la mort
+      S|Hydnum repandum|Pied-de-mouton
+     O|Polyporales|Polypores
+      S|Fomes fomentarius|Amadouvier|Ötzi en portait sur lui il y a 5 300 ans.
+      S|Ganoderma lucidum|Ganoderme luisant|Le « reishi ».
+      S|Trametes versicolor|Tramète versicolore
+      S|Laetiporus sulphureus|Polypore soufré
+      S|Grifola frondosa|Maitake
+      S|Sparassis crispa|Sparassis crépu
+      S|Phanerochaete chrysosporium|Phanerochaete|Dégrade la lignine.
+     O|Hymenochaetales|Hyménochétales
+      S|Inonotus obliquus|Chaga
+     O|Phallales|Phallales
+      S|Phallus impudicus|Satyre puant|Odeur de charogne qui attire les mouches.
+      S|Clathrus archeri|Doigts du diable
+      S|Clathrus ruber|Clathre rouge
+     O|Geastrales|Géastres
+      G|Geastrum|Géastre|Vesse-de-loup en étoile.
+     O|Auriculariales|Auriculariales
+      S|Auricularia auricula-judae|Oreille de Judas
+     O|Gomphales|Gomphales
+      G|Ramaria|Clavaires
+     O|Thelephorales|Théléphorales
+      S|Sarcodon imbricatus|Hydne imbriqué

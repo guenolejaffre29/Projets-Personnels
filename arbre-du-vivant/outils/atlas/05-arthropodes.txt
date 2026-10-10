@@ -1,0 +1,511 @@
+@@ Arthropoda
+Pb|Chelicerata|Chélicérates|Pièces buccales en pinces (chélicères), pas d'antennes.
+ C|Pycnogonida|Pycnogonides|Araignées de mer : leur intestin se prolonge dans les pattes.
+  G|Nymphon|Nymphon
+ C|Merostomata|Limules|« Fossiles vivants » au sang bleu, utilisé pour tester les vaccins.
+  S|Limulus polyphemus|Limule
+  S|Tachypleus tridentatus|Limule japonaise
+ C|Arachnida|Arachnides|Huit pattes. Environ 110 000 espèces.
+  O|Araneae|Araignées|Fabriquent de la soie avec des filières abdominales. Environ 52 000 espèces.
+   Ob|Mesothelae|Liphistiides|Araignées primitives à abdomen segmenté.
+    G|Liphistius|Liphistius
+   Oi|Mygalomorphae|Mygales
+    F|Theraphosidae|Mygales théraphoses
+     S|Theraphosa blondi|Mygale Goliath|La plus grande araignée en masse.
+     S|Brachypelma hamorii|Mygale à genoux rouges
+    F|Atracidae|Atracidés
+     S|Atrax robustus|Atrax de Sydney|Venin mortel pour l'humain.
+   Oi|Araneomorphae|Aranéomorphes
+    F|Araneidae|Araignées à toile orbiculaire
+     S|Araneus diadematus|Épeire diadème
+     S|Argiope bruennichi|Argiope frelon
+     S|Caerostris darwini|Araignée de Darwin|Soie parmi les plus résistantes ; toiles de 25 m au-dessus des rivières.
+    F|Theridiidae|Théridiidés
+     S|Latrodectus mactans|Veuve noire
+     S|Latrodectus tredecimguttatus|Malmignatte
+     S|Steatoda nobilis|Fausse veuve noire
+    F|Salticidae|Araignées sauteuses|La plus grande famille d'araignées ; excellente vision.
+     S|Maratus volans|Araignée paon|Le mâle danse en dépliant un éventail coloré.
+     S|Bagheera kiplingi|Bagheera|Seule araignée presque végétarienne.
+     S|Salticus scenicus|Saltique chevronnée
+    F|Lycosidae|Araignées-loups
+     S|Lycosa tarantula|Tarentule|Le nom de la tarentelle vient d'elle.
+    F|Sicariidae|Sicariidés
+     S|Loxosceles reclusa|Recluse brune
+     S|Loxosceles rufescens|Recluse méditerranéenne
+    F|Pholcidae|Pholques
+     S|Pholcus phalangioides|Pholque phalangide
+    F|Thomisidae|Araignées-crabes
+     S|Misumena vatia|Thomise variable|Change de couleur selon la fleur.
+    F|Agelenidae|Agélénidés
+     S|Eratigena atrica|Tégénaire des maisons
+    F|Ctenidae|Araignées-bananes
+     S|Phoneutria nigriventer|Araignée-banane
+    F|Dictynidae|Dictynidés
+     S|Argyroneta aquatica|Argyronète|Vit sous l'eau dans une cloche d'air.
+    F|Pisauridae|Pisauridés
+     S|Dolomedes fimbriatus|Dolomède|Chasse à la surface des mares.
+    F|Linyphiidae|Linyphiidés|Araignées de quelques millimètres qui voyagent au vent sur un fil.
+  O|Scorpiones|Scorpions|Brillent sous ultraviolets. Environ 2 700 espèces.
+   S|Androctonus australis|Androctone|« Tueur d'hommes » du Sahara.
+   S|Leiurus quinquestriatus|Rôdeur mortel
+   S|Buthus occitanus|Scorpion languedocien
+   S|Euscorpius flavicaudis|Scorpion à queue jaune
+   S|Pandinus imperator|Scorpion empereur
+  O|Opiliones|Opilions|Faucheux : corps en une seule pièce, pas de venin ni de soie.
+   S|Phalangium opilio|Faucheux commun
+  O|Pseudoscorpiones|Pseudoscorpions
+   S|Chelifer cancroides|Chélifère des livres
+  O|Solifugae|Solifuges|Araignées-chameaux.
+   G|Galeodes|Galeodes
+  O|Amblypygi|Amblypyges|Scorpions-fouets sans queue.
+   G|Phrynus|Phrynus
+  O|Uropygi|Uropyges|Vinaigriers : projettent de l'acide acétique.
+   S|Mastigoproctus giganteus|Vinaigrier géant
+  O|Ricinulei|Ricinules
+  O|Palpigradi|Palpigrades
+  O|Schizomida|Schizomides
+  c|Acari|Acariens et tiques|Environ 55 000 espèces décrites, sans doute bien plus.
+   O|Ixodida|Tiques
+    S|Ixodes ricinus|Tique du mouton|Transmet la maladie de Lyme en Europe.
+    S|Hyalomma marginatum|Tique Hyalomma|Vecteur de la fièvre de Crimée-Congo.
+   O|Mesostigmata|Mésostigmates
+    S|Varroa destructor|Varroa|Parasite majeur des abeilles domestiques.
+    S|Dermanyssus gallinae|Pou rouge des poules
+   O|Trombidiformes|Trombidiformes
+    S|Demodex folliculorum|Demodex|Vit dans les follicules des cils de presque tous les humains.
+    S|Tetranychus urticae|Araignée rouge
+    S|Neotrombicula autumnalis|Aoûtat
+   O|Sarcoptiformes|Sarcoptiformes
+    S|Sarcoptes scabiei|Sarcopte de la gale
+    S|Dermatophagoides pteronyssinus|Acarien de la poussière
+    c|Oribatida|Oribates|Acariens du sol, parfois des centaines de milliers par m².
+Pb|Myriapoda|Myriapodes|Mille-pattes et apparentés. Environ 16 000 espèces.
+ C|Chilopoda|Chilopodes|Une paire de pattes par segment, crochets à venin.
+  S|Scolopendra gigantea|Scolopendre géante|Chasse les chauves-souris.
+  S|Scolopendra cingulata|Scolopendre méditerranéenne
+  S|Scutigera coleoptrata|Scutigère véloce
+  S|Lithobius forficatus|Lithobie
+ C|Diplopoda|Diplopodes|Deux paires de pattes par segment. Environ 13 000 espèces.
+  O|Polyxenida|Polyxénides|Minuscules, couverts de soies.
+   S|Polyxenus lagurus|Polyxène
+  O|Glomerida|Gloméris|Se roulent en boule.
+   S|Glomeris marginata|Gloméris bordé
+  O|Sphaerotheriida|Mille-pattes boules géants
+   G|Zoosphaerium|Zoosphaerium|Boules de la taille d'une balle de golf, à Madagascar.
+  O|Polydesmida|Polydesmes|Certains libèrent du cyanure.
+   S|Polydesmus angustus|Polydesme
+   S|Apheloria virginiensis|Apheloria
+  O|Platydesmida|Platydesmides
+   S|Illacme plenipes|Illacme|Jusqu'à 750 pattes.
+  O|Polyzoniida|Polyzoniides
+   S|Eumillipes persephone|Eumillipes|Premier vrai « mille-pattes » : 1 306 pattes (2021), à 60 m sous terre.
+  O|Julida|Iules
+   S|Tachypodoiulus niger|Iule à pattes blanches
+   S|Ommatoiulus sabulosus|Iule des sables
+  O|Spirostreptida|Spirostreptides
+   S|Archispirostreptus gigas|Mille-pattes géant africain
+  O|Spirobolida|Spirobolides
+   G|Narceus|Narceus
+  S|†Arthropleura armata|Arthropleure|Mille-pattes géant du Carbonifère : 2,6 m.
+ C|Pauropoda|Pauropodes
+ C|Symphyla|Symphyles
+  G|Scutigerella|Scutigerella
+c|Pancrustacea|Pancrustacés|Crustacés et hexapodes : les insectes sont des crustacés devenus terrestres.
+ C|Ostracoda|Ostracodes|Crustacés dans une coquille à deux valves.
+  G|Cypris|Cypris
+ C|Ichthyostraca|Ichthyostracés
+  c|Branchiura|Branchiures
+   G|Argulus|Pou des poissons
+  c|Pentastomida|Pentastomides|Parasites vermiformes des poumons de reptiles.
+   S|Linguatula serrata|Linguatule
+ C|Thecostraca|Cirripèdes|Darwin a passé huit ans à les étudier.
+  G|Balanus|Balane
+  S|Lepas anatifera|Anatife
+  S|Pollicipes pollicipes|Pouce-pied
+  S|Sacculina carcini|Sacculine|Parasite qui castre le crabe et le fait couver ses œufs.
+ C|Copepoda|Copépodes|Peut-être les animaux les plus nombreux des océans.
+  S|Calanus finmarchicus|Calanus
+  G|Cyclops|Cyclope
+  S|Lernaeocera branchialis|Lernée
+ C|Malacostraca|Malacostracés|Les « grands » crustacés. Environ 40 000 espèces.
+  O|Leptostraca|Leptostracés
+   G|Nebalia|Nebalia
+  O|Stomatopoda|Squilles
+   S|Odontodactylus scyllarus|Crevette-mante paon|Frappe à la vitesse d'une balle ; 16 types de photorécepteurs.
+   S|Squilla mantis|Squille
+  O|Euphausiacea|Krill
+   S|Euphausia superba|Krill antarctique|Une des plus grandes biomasses animales : ~380 millions de tonnes.
+  O|Decapoda|Décapodes|Crabes, homards, crevettes. Dix pattes.
+   F|Nephropidae|Homards
+    S|Homarus gammarus|Homard européen
+    S|Homarus americanus|Homard américain
+    S|Nephrops norvegicus|Langoustine
+   F|Palinuridae|Langoustes
+    S|Palinurus elephas|Langouste rouge
+   F|Astacidae|Écrevisses
+    S|Astacus astacus|Écrevisse à pattes rouges
+    S|Austropotamobius pallipes|Écrevisse à pattes blanches
+   F|Cambaridae|Écrevisses américaines
+    S|Procambarus clarkii|Écrevisse de Louisiane
+    S|Procambarus virginalis|Écrevisse marbrée|Uniquement des femelles clonales.
+   c|Brachyura|Crabes
+    S|Cancer pagurus|Tourteau
+    S|Carcinus maenas|Crabe vert
+    S|Maja squinado|Araignée de mer
+    S|Macrocheira kaempferi|Crabe géant du Japon|Jusqu'à 3,7 m d'envergure.
+    S|Gecarcoidea natalis|Crabe rouge de l'île Christmas|Migration de dizaines de millions de crabes.
+    S|Eriocheir sinensis|Crabe chinois
+    G|Uca|Crabe violoniste
+   c|Anomura|Anomoures
+    S|Pagurus bernhardus|Bernard-l'ermite
+    S|Birgus latro|Crabe de cocotier|Le plus grand arthropode terrestre.
+    S|Paralithodes camtschaticus|Crabe royal
+   c|Caridea|Crevettes
+    S|Crangon crangon|Crevette grise
+    S|Palaemon serratus|Bouquet
+    G|Alpheus|Crevette pistolet|Claquement qui crée une bulle à 4 700 °C.
+    S|Lysmata amboinensis|Crevette nettoyeuse
+   F|Penaeidae|Crevettes pénéides
+    S|Penaeus monodon|Crevette géante tigrée
+  O|Isopoda|Isopodes|Environ 10 000 espèces, dont les cloportes terrestres.
+   S|Armadillidium vulgare|Cloporte commun
+   S|Porcellio scaber|Cloporte rugueux
+   S|Asellus aquaticus|Aselle
+   S|Bathynomus giganteus|Isopode géant|Jusqu'à 50 cm dans les abysses.
+   S|Cymothoa exigua|Pou mangeur de langue|Remplace la langue du poisson.
+   S|Ligia oceanica|Ligie
+  O|Amphipoda|Amphipodes
+   S|Talitrus saltator|Puce de mer
+   S|Gammarus pulex|Gammare
+   G|Caprella|Caprelle
+   S|Hirondellea gigas|Hirondellea|Vit au fond de la fosse des Mariannes.
+  O|Mysida|Mysidacés
+ C|Branchiopoda|Branchiopodes
+  O|Anostraca|Anostracés
+   S|Artemia salina|Artémie|Ses œufs survivent des années à sec.
+  O|Notostraca|Notostracés
+   S|Triops cancriformis|Triops|Presque inchangé depuis 250 millions d'années.
+  O|Diplostraca|Puces d'eau
+   S|Daphnia pulex|Daphnie
+   S|Daphnia magna|Grande daphnie
+ C|Remipedia|Rémipèdes|Crustacés aveugles des grottes sous-marines, proches parents des hexapodes.
+  G|Speleonectes|Speleonectes
+ C|Cephalocarida|Céphalocarides
+ Cs|Hexapoda|Hexapodes|Six pattes, trois segments.
+  C|Collembola|Collemboles|Sautent grâce à une fourche ventrale ; jusqu'à 100 000 par m² de sol.
+   S|Folsomia candida|Folsomia
+   S|Sminthurus viridis|Sminthure vert
+   S|Anurida maritima|Anurida
+  C|Protura|Protoures|Sans yeux ni antennes.
+  C|Diplura|Diploures
+   G|Campodea|Campodea
+  C|Insecta|Insectes|Environ un million d'espèces décrites : plus de la moitié des espèces connues.
+@@ Insecta
+O|Archaeognatha|Archéognathes|Insectes sans ailes primitifs.
+ G|Machilis|Machilis
+O|Zygentoma|Zygentomes
+ S|Lepisma saccharinum|Poisson d'argent
+ S|Thermobia domestica|Thermobie
+c|Pterygota|Ptérygotes|Insectes ailés : les premiers animaux à voler (~400 Ma).
+ O|Ephemeroptera|Éphémères|Adultes sans bouche, vivent parfois quelques heures.
+  S|Ephemera danica|Éphémère danoise
+  S|Palingenia longicauda|Fleur de la Tisza
+ O|Odonata|Odonates|Libellules et demoiselles. Environ 6 400 espèces.
+  Ob|Anisoptera|Libellules
+   S|Anax imperator|Anax empereur
+   S|Aeshna cyanea|Aeschne bleue
+   S|Libellula depressa|Libellule déprimée
+   S|Pantala flavescens|Pantala|Migration transocéanique de 18 000 km sur plusieurs générations.
+  Ob|Zygoptera|Demoiselles
+   S|Calopteryx virgo|Caloptéryx vierge
+   S|Calopteryx splendens|Caloptéryx éclatant
+   S|Coenagrion puella|Agrion jouvencelle
+ c|Neoptera|Néoptères|Peuvent replier leurs ailes sur le dos.
+  c|Polyneoptera|Polynéoptères
+   O|Plecoptera|Plécoptères|Larves indicatrices d'eau propre.
+    G|Perla|Perla
+   O|Dermaptera|Dermaptères
+    S|Forficula auricularia|Perce-oreille
+   O|Orthoptera|Orthoptères|Criquets, sauterelles, grillons. Environ 29 000 espèces.
+    Ob|Caelifera|Criquets
+     S|Schistocerca gregaria|Criquet pèlerin|Essaims de milliards d'individus.
+     S|Locusta migratoria|Criquet migrateur
+     G|Chorthippus|Criquet mélodieux
+    Ob|Ensifera|Sauterelles et grillons
+     S|Gryllus campestris|Grillon champêtre
+     S|Acheta domesticus|Grillon domestique
+     S|Gryllotalpa gryllotalpa|Courtilière
+     S|Tettigonia viridissima|Grande sauterelle verte
+     S|Deinacrida heteracantha|Wētā géant|Un des insectes les plus lourds (70 g).
+   O|Phasmatodea|Phasmes
+    S|Carausius morosus|Phasme bâton
+    S|Phryganistria chinensis|Phasme géant de Chine|Plus long insecte : 64 cm.
+    G|Phyllium|Phyllie|Imite une feuille.
+    S|Dryococelus australis|Phasme de Lord Howe|Cru éteint, redécouvert sur un rocher en 2001.
+   O|Mantodea|Mantes
+    S|Mantis religiosa|Mante religieuse
+    S|Hymenopus coronatus|Mante orchidée
+    S|Empusa pennata|Empuse
+   O|Blattodea|Blattes et termites
+    S|Periplaneta americana|Blatte américaine
+    S|Blattella germanica|Blatte germanique
+    S|Macropanesthia rhinoceros|Blatte rhinocéros|La plus lourde (35 g).
+    c|Termitoidae|Termites|Des blattes sociales. Environ 3 000 espèces.
+     S|Macrotermes bellicosus|Macrotermes|Termitières climatisées de plusieurs mètres.
+     S|Reticulitermes flavipes|Termite de Saintonge
+     S|Mastotermes darwiniensis|Mastotermes|Le plus primitif des termites.
+   O|Embioptera|Embioptères|Tissent de la soie avec leurs pattes avant.
+   O|Zoraptera|Zoraptères
+   O|Grylloblattodea|Grylloblattes|Insectes des glaciers.
+   O|Mantophasmatodea|Mantophasmes|Ordre découvert en 2002.
+  c|Paraneoptera|Paranéoptères
+   O|Psocodea|Psoques et poux
+    S|Pediculus humanus capitis|Pou de tête
+    S|Pediculus humanus humanus|Pou de corps|Vecteur du typhus.
+    S|Pthirus pubis|Morpion
+    G|Liposcelis|Pou des livres
+   O|Thysanoptera|Thrips
+    S|Frankliniella occidentalis|Thrips californien
+   O|Hemiptera|Hémiptères|Pièces buccales en rostre piqueur. Environ 100 000 espèces.
+    Ob|Heteroptera|Punaises
+     S|Pyrrhocoris apterus|Gendarme
+     S|Graphosoma italicum|Punaise arlequin
+     S|Halyomorpha halys|Punaise diabolique
+     S|Cimex lectularius|Punaise de lit
+     S|Triatoma infestans|Triatome|Vecteur de la maladie de Chagas.
+     S|Gerris lacustris|Gerris|Marche sur l'eau.
+     S|Notonecta glauca|Notonecte|Nage sur le dos.
+     G|Lethocerus|Punaise d'eau géante
+    Ob|Auchenorrhyncha|Cigales et cicadelles
+     S|Lyristes plebejus|Grande cigale commune
+     S|Magicicada septendecim|Cigale de 17 ans|Émerge en masse tous les 17 ans (nombre premier).
+     S|Philaenus spumarius|Cercope des prés|Larves dans la « crachat de coucou » ; vecteur de Xylella.
+     S|Fulgora laternaria|Fulgore porte-lanterne
+    Ob|Sternorrhyncha|Pucerons et cochenilles
+     S|Acyrthosiphon pisum|Puceron du pois
+     S|Myzus persicae|Puceron vert du pêcher
+     S|Daktulosphaira vitifoliae|Phylloxéra|A ravagé le vignoble européen au XIXe siècle.
+     S|Bemisia tabaci|Aleurode du tabac
+     S|Dactylopius coccus|Cochenille du carmin|Donne le colorant rouge E120.
+     S|Kerria lacca|Cochenille à laque|Source de la gomme-laque.
+  c|Holometabola|Holométaboles|Métamorphose complète avec nymphe. Plus de 80 % des insectes.
+   O|Hymenoptera|Hyménoptères|Abeilles, guêpes, fourmis. Environ 150 000 espèces.
+    Ob|Symphyta|Tenthrèdes et sirex|Hyménoptères sans « taille de guêpe ».
+     G|Tenthredo|Tenthrède
+     S|Urocerus gigas|Sirex géant
+    c|Parasitica|Guêpes parasitoïdes|Pondent dans d'autres insectes.
+     F|Ichneumonidae|Ichneumons
+     F|Braconidae|Braconides
+      S|Cotesia glomerata|Cotesia
+     c|Chalcidoidea|Chalcidiens
+      S|Blastophaga psenes|Blastophage du figuier|Seul pollinisateur du figuier commun.
+      G|Trichogramma|Trichogramme|Lutte biologique contre la pyrale du maïs.
+      S|Dicopomorpha echmepterygis|Dicopomorpha|Le mâle mesure 0,14 mm : plus petit insecte connu.
+    c|Aculeata|Aculéates|Hyménoptères à aiguillon.
+     F|Chrysididae|Guêpes coucous
+      G|Chrysis|Chrysis
+     F|Ampulicidae|Guêpes à cafards
+      S|Ampulex compressa|Guêpe émeraude|Pique le cerveau d'une blatte pour la mener en laisse.
+     F|Pompilidae|Pompiles
+      G|Pepsis|Guêpe tueuse de tarentules
+     F|Mutillidae|Fourmis de velours
+      S|Mutilla europaea|Mutille européenne
+     F|Vespidae|Guêpes sociales et solitaires
+      S|Vespa crabro|Frelon européen
+      S|Vespa velutina|Frelon asiatique|Invasif en France depuis 2004.
+      S|Vespa mandarinia|Frelon géant
+      S|Vespula vulgaris|Guêpe commune
+      S|Polistes dominula|Poliste gaulois
+     F|Formicidae|Fourmis|Environ 14 000 espèces ; peut-être 20 millions de milliards de fourmis sur Terre.
+      S|Formica rufa|Fourmi rousse des bois
+      S|Lasius niger|Fourmi noire des jardins
+      G|Camponotus|Fourmi charpentière
+      S|Atta cephalotes|Fourmi coupe-feuille|Cultive un champignon.
+      S|Eciton burchellii|Fourmi légionnaire
+      S|Oecophylla smaragdina|Fourmi tisserande
+      S|Paraponera clavata|Fourmi balle de fusil|Piqûre la plus douloureuse de l'échelle de Schmidt.
+      S|Solenopsis invicta|Fourmi de feu
+      S|Linepithema humile|Fourmi d'Argentine|Une « supercolonie » s'étend sur 6 000 km le long de la Méditerranée.
+      S|Messor barbarus|Fourmi moissonneuse
+     c|Anthophila|Abeilles|Environ 20 000 espèces, dont 1 000 en France.
+      S|Apis mellifera|Abeille domestique|Communique par la danse (Nobel 1973).
+      S|Apis cerana|Abeille asiatique
+      S|Bombus terrestris|Bourdon terrestre
+      S|Xylocopa violacea|Xylocope violet
+      S|Osmia cornuta|Osmie cornue
+      S|Megachile pluto|Abeille géante de Wallace|La plus grande abeille, redécouverte en 2019.
+      G|Melipona|Mélipone|Abeille sans dard.
+      G|Halictus|Halicte
+      G|Andrena|Andrène
+   c|Neuropterida|Neuroptéroïdes
+    O|Neuroptera|Névroptères
+     S|Chrysoperla carnea|Chrysope verte
+     S|Myrmeleon formicarius|Fourmilion|Larve qui creuse des pièges en entonnoir.
+    O|Megaloptera|Mégaloptères
+     G|Sialis|Sialis
+    O|Raphidioptera|Raphidioptères
+   O|Coleoptera|Coléoptères|Le plus grand ordre du vivant : environ 400 000 espèces. Ailes avant durcies en élytres.
+    Ob|Adephaga|Adéphages
+     F|Carabidae|Carabes
+      S|Carabus auronitens|Carabe doré
+      S|Brachinus crepitans|Bombardier|Projette un jet bouillant de 100 °C.
+      S|Cicindela campestris|Cicindèle champêtre
+     F|Dytiscidae|Dytiques
+      S|Dytiscus marginalis|Dytique bordé
+     F|Gyrinidae|Gyrins|Tourniquets à la surface de l'eau.
+    Ob|Polyphaga|Polyphages
+     F|Ptiliidae|Ptiliidés
+      S|Scydosella musawasensis|Scydosella|Plus petit coléoptère : 0,3 mm.
+     F|Staphylinidae|Staphylins|Une des plus grandes familles animales : environ 64 000 espèces.
+      S|Ocypus olens|Staphylin odorant
+     F|Silphidae|Silphes
+      S|Nicrophorus vespilloides|Nécrophore|Enterre les cadavres et nourrit ses larves.
+     F|Lucanidae|Lucanes
+      S|Lucanus cervus|Lucane cerf-volant
+     F|Geotrupidae|Géotrupes
+     F|Scarabaeidae|Scarabées
+      S|Scarabaeus sacer|Scarabée sacré|S'oriente grâce à la Voie lactée.
+      S|Melolontha melolontha|Hanneton commun
+      S|Cetonia aurata|Cétoine dorée
+      S|Oryctes nasicornis|Rhinocéros
+      S|Dynastes hercules|Dynaste Hercule
+      S|Goliathus goliatus|Goliath
+      S|Popillia japonica|Scarabée japonais
+     F|Buprestidae|Buprestes
+     F|Elateridae|Taupins
+     F|Lampyridae|Lucioles
+      S|Lampyris noctiluca|Ver luisant
+      S|Photinus pyralis|Luciole commune d'Amérique
+     F|Dermestidae|Dermestes
+     F|Coccinellidae|Coccinelles
+      S|Coccinella septempunctata|Coccinelle à sept points
+      S|Harmonia axyridis|Coccinelle asiatique
+      S|Adalia bipunctata|Coccinelle à deux points
+     F|Tenebrionidae|Ténébrions
+      S|Tenebrio molitor|Ver de farine|Peut digérer le polystyrène.
+      S|Tribolium castaneum|Tribolium
+      S|Onymacris unguicularis|Ténébrion du Namib|Boit le brouillard condensé sur son dos.
+     F|Meloidae|Méloés
+      S|Lytta vesicatoria|Cantharide officinale
+     F|Cerambycidae|Longicornes
+      S|Cerambyx cerdo|Grand capricorne
+      S|Rosalia alpina|Rosalie des Alpes
+      S|Titanus giganteus|Titan|Jusqu'à 17 cm.
+      S|Anoplophora glabripennis|Capricorne asiatique
+     F|Chrysomelidae|Chrysomèles
+      S|Leptinotarsa decemlineata|Doryphore
+      S|Diabrotica virgifera|Chrysomèle du maïs
+     F|Curculionidae|Charançons|Environ 50 000 espèces.
+      S|Sitophilus granarius|Charançon du blé
+      S|Rhynchophorus ferrugineus|Charançon rouge du palmier
+      S|Ips typographus|Typographe|Scolyte qui tue les épicéas affaiblis.
+      S|Anthonomus grandis|Anthonome du cotonnier
+   O|Strepsiptera|Strepsiptères|Parasites d'autres insectes ; femelles sans ailes ni pattes.
+    G|Stylops|Stylops
+   c|Mecopterida|Mécoptéroïdes
+    O|Trichoptera|Trichoptères|Larves aquatiques qui se construisent un fourreau.
+     G|Phryganea|Phrygane
+    O|Lepidoptera|Lépidoptères|Papillons de jour et de nuit, ailes couvertes d'écailles. Environ 160 000 espèces.
+     F|Micropterigidae|Micropterigidés|Papillons primitifs avec des mandibules.
+      G|Micropterix|Micropterix
+     F|Tineidae|Teignes
+      S|Tineola bisselliella|Mite des vêtements
+     F|Tortricidae|Tordeuses
+      S|Cydia pomonella|Carpocapse des pommes
+     F|Crambidae|Crambidés
+      S|Cydalima perspectalis|Pyrale du buis
+      S|Ostrinia nubilalis|Pyrale du maïs
+     F|Pyralidae|Pyrales
+      S|Galleria mellonella|Fausse teigne de la cire|Sa chenille dégrade le polyéthylène.
+     F|Hesperiidae|Hespéries
+     F|Papilionidae|Porte-queue
+      S|Papilio machaon|Machaon
+      S|Iphiclides podalirius|Flambé
+      S|Parnassius apollo|Apollon
+      S|Ornithoptera alexandrae|Ornithoptère de la reine Alexandra|Plus grand papillon de jour : 28 cm.
+     F|Pieridae|Piérides
+      S|Pieris brassicae|Piéride du chou
+      S|Gonepteryx rhamni|Citron
+     F|Lycaenidae|Lycènes
+      S|Polyommatus icarus|Azuré commun
+      S|Phengaris arion|Azuré du serpolet|Sa chenille est élevée par des fourmis.
+     F|Nymphalidae|Nymphalidés
+      S|Danaus plexippus|Monarque|Migre jusqu'à 4 000 km vers le Mexique.
+      S|Vanessa atalanta|Vulcain
+      S|Vanessa cardui|Belle-Dame|Migre entre l'Afrique et l'Europe.
+      S|Aglais io|Paon-du-jour
+      S|Morpho menelaus|Morpho bleu|Couleur structurale, sans pigment.
+      S|Heliconius melpomene|Heliconius
+     F|Geometridae|Géomètres|Chenilles arpenteuses.
+      S|Biston betularia|Phalène du bouleau|Exemple classique de sélection naturelle (mélanisme industriel).
+     F|Bombycidae|Bombycidés
+      S|Bombyx mori|Ver à soie|Domestiqué en Chine il y a 5 000 ans ; ne survit plus à l'état sauvage.
+     F|Saturniidae|Saturnies
+      S|Saturnia pyri|Grand paon de nuit|Plus grand papillon d'Europe.
+      S|Attacus atlas|Atlas
+      S|Actias luna|Papillon lune
+      S|Graellsia isabellae|Isabelle de France
+     F|Sphingidae|Sphinx
+      S|Acherontia atropos|Sphinx tête-de-mort|Pousse un cri et vole le miel des ruches.
+      S|Macroglossum stellatarum|Moro-sphinx|Butine en vol stationnaire comme un colibri.
+      S|Xanthopan praedicta|Sphinx de Morgan|Prédit par Darwin à partir d'une orchidée.
+     F|Notodontidae|Notodontidés
+      S|Thaumetopoea pityocampa|Processionnaire du pin
+     F|Erebidae|Érébidés
+      S|Arctia caja|Écaille martre
+      S|Lymantria dispar|Bombyx disparate
+     F|Noctuidae|Noctuelles
+      S|Helicoverpa armigera|Noctuelle de la tomate
+    O|Diptera|Diptères|Mouches et moustiques : une seule paire d'ailes, l'autre réduite en balanciers. Environ 160 000 espèces.
+     c|Nematocera|Nématocères|Moustiques et apparentés.
+      F|Culicidae|Moustiques|L'animal le plus mortel pour l'humain.
+       S|Anopheles gambiae|Anophèle|Vecteur du paludisme.
+       S|Aedes aegypti|Moustique de la fièvre jaune
+       S|Aedes albopictus|Moustique tigre
+       S|Culex pipiens|Moustique commun
+      F|Psychodidae|Phlébotomes et papillons de salle de bain
+       S|Phlebotomus papatasi|Phlébotome
+      F|Simuliidae|Simulies
+       S|Simulium damnosum|Simulie|Vecteur de la cécité des rivières.
+      F|Ceratopogonidae|Moucherons piqueurs
+       G|Culicoides|Culicoides|Vecteur de la fièvre catarrhale ovine.
+      F|Chironomidae|Chironomes
+       S|Belgica antarctica|Belgica|Seul insecte endémique de l'Antarctique.
+      F|Tipulidae|Tipules
+       S|Tipula oleracea|Tipule
+      F|Cecidomyiidae|Cécidomyies
+     c|Brachycera|Brachycères|Mouches.
+      F|Tabanidae|Taons
+       S|Tabanus bovinus|Taon des bœufs
+      F|Asilidae|Asiles
+      F|Bombyliidae|Bombyles
+       S|Bombylius major|Grand bombyle
+      F|Syrphidae|Syrphes|Imitent les guêpes ; pollinisateurs importants.
+       S|Episyrphus balteatus|Syrphe ceinturé
+       S|Eristalis tenax|Éristale gluante
+      F|Tephritidae|Mouches des fruits
+       S|Ceratitis capitata|Mouche méditerranéenne des fruits
+       S|Bactrocera oleae|Mouche de l'olive
+      F|Drosophilidae|Drosophiles
+       S|Drosophila melanogaster|Drosophile|Modèle de la génétique depuis 1910 ; au moins six prix Nobel.
+       S|Drosophila suzukii|Drosophile à ailes tachetées
+      F|Muscidae|Mouches domestiques
+       S|Musca domestica|Mouche domestique
+       S|Stomoxys calcitrans|Mouche des étables
+      F|Glossinidae|Mouches tsé-tsé
+       S|Glossina palpalis|Tsé-tsé|Vecteur de la maladie du sommeil.
+      F|Calliphoridae|Mouches à viande
+       S|Calliphora vomitoria|Mouche bleue
+       S|Lucilia sericata|Mouche verte|Asticots utilisés pour nettoyer les plaies.
+       S|Cochliomyia hominivorax|Lucilie bouchère
+      F|Oestridae|Œstres
+       S|Dermatobia hominis|Ver macaque|Larve sous la peau, pondue via un moustique.
+      F|Hippoboscidae|Mouches plates
+      F|Tachinidae|Tachinaires|Parasitoïdes de chenilles.
+    O|Mecoptera|Mécoptères
+     S|Panorpa communis|Mouche-scorpion
+    O|Siphonaptera|Puces|Sautent 100 fois leur longueur.
+     S|Pulex irritans|Puce de l'homme
+     S|Ctenocephalides felis|Puce du chat
+     S|Xenopsylla cheopis|Puce du rat|Vecteur de la peste.

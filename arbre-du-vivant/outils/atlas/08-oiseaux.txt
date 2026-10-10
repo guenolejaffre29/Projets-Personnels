@@ -1,0 +1,285 @@
+@@ Aves
+Os|Palaeognathae|Paléognathes|Ratites et tinamous.
+ O|Struthioniformes|Autruches
+  S|Struthio camelus|Autruche|Le plus grand oiseau vivant ; court à 70 km/h.
+ O|Rheiformes|Nandous
+  S|Rhea americana|Nandou d'Amérique
+ O|Tinamiformes|Tinamous|Les seuls paléognathes qui volent.
+  S|Tinamus major|Grand tinamou
+ O|Casuariiformes|Casoars et émeus
+  S|Casuarius casuarius|Casoar à casque
+  S|Dromaius novaehollandiae|Émeu
+ O|Apterygiformes|Kiwis|Pondent un œuf qui fait 20 % de leur poids.
+  S|Apteryx mantelli|Kiwi de Mantell
+ O|†Dinornithiformes|Moas|Exterminés en Nouvelle-Zélande vers 1400.
+  S|†Dinornis robustus|Moa géant
+ O|†Aepyornithiformes|Oiseaux-éléphants
+  S|†Aepyornis maximus|Aepyornis|Œufs de 10 litres, à Madagascar.
+Os|Galloanserae|Galloansères
+ O|Galliformes|Galliformes
+  S|Gallus gallus|Coq doré|Ancêtre de la poule : environ 25 milliards de poulets vivent sur Terre.
+  S|Meleagris gallopavo|Dindon sauvage
+  S|Pavo cristatus|Paon bleu
+  S|Phasianus colchicus|Faisan de Colchide
+  S|Coturnix coturnix|Caille des blés
+  S|Tetrao urogallus|Grand tétras
+  S|Lagopus muta|Lagopède alpin
+  S|Alectoris rufa|Perdrix rouge
+  S|Numida meleagris|Pintade de Numidie
+  G|Megapodius|Mégapode|Fait couver ses œufs par la chaleur du compost.
+ O|Anseriformes|Ansériformes
+  S|Anhima cornuta|Kamichi cornu
+  S|Anas platyrhynchos|Canard colvert
+  S|Cygnus olor|Cygne tuberculé
+  S|Anser anser|Oie cendrée
+  S|Branta canadensis|Bernache du Canada
+  S|Aix galericulata|Canard mandarin
+  S|Somateria mollissima|Eider à duvet
+Os|Neoaves|Néoaves|La grande radiation des oiseaux après la chute de l'astéroïde.
+@@ Neoaves
+O|Columbiformes|Pigeons et tourterelles
+ S|Columba livia|Pigeon biset
+ S|Streptopelia decaocto|Tourterelle turque
+ S|†Ectopistes migratorius|Pigeon voyageur|Des milliards au XIXe siècle ; la dernière, Martha, est morte en 1914.
+ S|†Raphus cucullatus|Dodo|Disparu de l'île Maurice vers 1680.
+ S|Goura victoria|Goura de Victoria
+O|Pterocliformes|Gangas|Les mâles transportent l'eau dans leurs plumes.
+O|Mesitornithiformes|Mésites
+O|Phoenicopteriformes|Flamants
+ S|Phoenicopterus roseus|Flamant rose|Couleur due aux caroténoïdes de sa nourriture.
+O|Podicipediformes|Grèbes
+ S|Podiceps cristatus|Grèbe huppé
+O|Cuculiformes|Coucous
+ S|Cuculus canorus|Coucou gris|Pond dans le nid d'autres oiseaux.
+ S|Geococcyx californianus|Grand géocoucou
+O|Otidiformes|Outardes
+ S|Otis tarda|Grande outarde|Un des oiseaux volants les plus lourds.
+O|Musophagiformes|Touracos
+O|Caprimulgiformes|Engoulevents
+ S|Caprimulgus europaeus|Engoulevent d'Europe
+O|Nyctibiiformes|Ibijaux
+ S|Nyctibius griseus|Ibijau gris|Se camoufle en branche morte.
+O|Steatornithiformes|Guacharo
+ S|Steatornis caripensis|Guacharo des cavernes|Oiseau écholocalisant.
+O|Apodiformes|Martinets et colibris
+ S|Apus apus|Martinet noir|Peut rester en vol 10 mois sans se poser.
+ S|Mellisuga helenae|Colibri d'Elena|Le plus petit oiseau : 2 g.
+ S|Archilochus colubris|Colibri à gorge rubis
+ S|Patagona gigas|Colibri géant
+O|Opisthocomiformes|Hoazin
+ S|Opisthocomus hoazin|Hoazin|Les poussins ont des griffes aux ailes.
+O|Gruiformes|Grues et râles
+ S|Grus grus|Grue cendrée
+ S|Fulica atra|Foulque macroule
+ S|Gallinula chloropus|Gallinule poule-d'eau
+ S|Rallus aquaticus|Râle d'eau
+ S|Porphyrio hochstetteri|Takahé|Cru éteint, redécouvert en 1948.
+O|Charadriiformes|Limicoles, mouettes et pingouins
+ S|Vanellus vanellus|Vanneau huppé
+ S|Haematopus ostralegus|Huîtrier pie
+ S|Recurvirostra avosetta|Avocette élégante
+ S|Scolopax rusticola|Bécasse des bois
+ S|Limosa lapponica|Barge rousse|Record de vol sans escale : 13 560 km.
+ S|Calidris alba|Bécasseau sanderling
+ S|Larus argentatus|Goéland argenté
+ S|Chroicocephalus ridibundus|Mouette rieuse
+ S|Sterna paradisaea|Sterne arctique|Plus longue migration : 70 000 km par an.
+ S|Stercorarius skua|Grand labbe
+ S|Fratercula arctica|Macareux moine
+ S|Alca torda|Petit pingouin
+ S|†Pinguinus impennis|Grand pingouin|Le vrai « pingouin », exterminé en 1844.
+O|Eurypygiformes|Kagou et caurale
+ S|Rhynochetos jubatus|Kagou huppé|Emblème de la Nouvelle-Calédonie.
+O|Phaethontiformes|Phaétons
+O|Gaviiformes|Plongeons
+ S|Gavia immer|Plongeon huard
+O|Sphenisciformes|Manchots|Ailes transformées en nageoires. 18 espèces.
+ S|Aptenodytes forsteri|Manchot empereur|Couve en plein hiver antarctique, l'œuf sur les pattes.
+ S|Aptenodytes patagonicus|Manchot royal
+ S|Pygoscelis adeliae|Manchot Adélie
+ S|Spheniscus demersus|Manchot du Cap
+ S|Eudyptula minor|Manchot pygmée
+O|Procellariiformes|Albatros et pétrels|Narines tubulaires, odorat développé.
+ S|Diomedea exulans|Albatros hurleur|Plus grande envergure : 3,5 m.
+ S|Phoebastria immutabilis|Albatros de Laysan|« Wisdom » pond encore à plus de 70 ans.
+ S|Fulmarus glacialis|Fulmar boréal
+ S|Puffinus puffinus|Puffin des Anglais
+ S|Hydrobates pelagicus|Océanite tempête
+O|Ciconiiformes|Cigognes
+ S|Ciconia ciconia|Cigogne blanche
+ S|Ciconia nigra|Cigogne noire
+ S|Leptoptilos crumenifer|Marabout d'Afrique
+O|Suliformes|Fous et cormorans
+ S|Morus bassanus|Fou de Bassan
+ S|Sula nebouxii|Fou à pieds bleus
+ S|Phalacrocorax carbo|Grand cormoran
+ S|Fregata magnificens|Frégate superbe
+O|Pelecaniformes|Pélicans, hérons et ibis
+ S|Pelecanus onocrotalus|Pélican blanc
+ S|Balaeniceps rex|Bec-en-sabot
+ S|Scopus umbretta|Ombrette africaine
+ S|Ardea cinerea|Héron cendré
+ S|Ardea alba|Grande aigrette
+ S|Egretta garzetta|Aigrette garzette
+ S|Botaurus stellaris|Butor étoilé
+ S|Threskiornis aethiopicus|Ibis sacré
+ S|Platalea leucorodia|Spatule blanche
+ S|Eudocimus ruber|Ibis rouge
+O|Cathartiformes|Vautours du Nouveau Monde
+ S|Vultur gryphus|Condor des Andes
+ S|Gymnogyps californianus|Condor de Californie|Sauvé de justesse : 27 individus en 1987.
+ S|Cathartes aura|Urubu à tête rouge
+O|Accipitriformes|Rapaces diurnes
+ S|Pandion haliaetus|Balbuzard pêcheur
+ S|Sagittarius serpentarius|Messager sagittaire|Tue les serpents à coups de pied.
+ S|Aquila chrysaetos|Aigle royal
+ S|Haliaeetus leucocephalus|Pygargue à tête blanche
+ S|Harpia harpyja|Harpie féroce
+ S|Pithecophaga jefferyi|Pygargue des singes
+ S|Gyps fulvus|Vautour fauve
+ S|Gypaetus barbatus|Gypaète barbu|Se nourrit d'os, qu'il brise en les lâchant sur les rochers.
+ S|Buteo buteo|Buse variable
+ S|Accipiter nisus|Épervier d'Europe
+ S|Milvus milvus|Milan royal
+ S|Circaetus gallicus|Circaète Jean-le-Blanc
+O|Strigiformes|Rapaces nocturnes
+ S|Tyto alba|Effraie des clochers
+ S|Bubo bubo|Grand-duc d'Europe
+ S|Bubo scandiacus|Harfang des neiges
+ S|Strix aluco|Chouette hulotte
+ S|Athene noctua|Chevêche d'Athéna
+ S|Asio otus|Hibou moyen-duc
+ S|Glaucidium passerinum|Chevêchette d'Europe
+O|Coliiformes|Colious
+O|Leptosomiformes|Courol
+ S|Leptosomus discolor|Courol vouroudriou
+O|Trogoniformes|Trogons
+ S|Pharomachrus mocinno|Quetzal resplendissant
+O|Bucerotiformes|Calaos et huppes
+ S|Buceros bicornis|Calao bicorne
+ S|Bucorvus leadbeateri|Bucorve du Sud
+ S|Upupa epops|Huppe fasciée
+O|Coraciiformes|Martins-pêcheurs et rolliers
+ S|Alcedo atthis|Martin-pêcheur d'Europe
+ S|Dacelo novaeguineae|Martin-chasseur géant|Le kookaburra, au cri de rire.
+ S|Merops apiaster|Guêpier d'Europe
+ S|Coracias garrulus|Rollier d'Europe
+O|Piciformes|Pics et toucans
+ S|Dendrocopos major|Pic épeiche
+ S|Dryocopus martius|Pic noir
+ S|Picus viridis|Pic vert
+ S|Jynx torquilla|Torcol fourmilier
+ S|Ramphastos toco|Toucan toco
+ S|Indicator indicator|Grand indicateur|Guide les humains vers les ruches.
+O|Cariamiformes|Cariamas
+ S|Cariama cristata|Cariama huppé
+O|Falconiformes|Faucons|Plus proches des perroquets que des aigles.
+ S|Falco peregrinus|Faucon pèlerin|L'animal le plus rapide : plus de 380 km/h en piqué.
+ S|Falco tinnunculus|Faucon crécerelle
+ S|Falco rusticolus|Faucon gerfaut
+ S|Caracara plancus|Caracara huppé
+O|Psittaciformes|Perroquets|Environ 400 espèces.
+ S|Strigops habroptilus|Kakapo|Perroquet nocturne qui ne vole pas ; environ 240 individus.
+ S|Nestor notabilis|Kéa
+ S|Ara macao|Ara rouge
+ S|Anodorhynchus hyacinthinus|Ara hyacinthe
+ S|Psittacus erithacus|Perroquet gris du Gabon
+ S|Melopsittacus undulatus|Perruche ondulée
+ S|Nymphicus hollandicus|Calopsitte
+ S|Cacatua galerita|Cacatoès à huppe jaune
+ S|Psittacula krameri|Perruche à collier
+O|Passeriformes|Passereaux|Plus de la moitié des oiseaux : environ 6 500 espèces.
+ Ob|Acanthisitti|Xéniques
+  S|Acanthisitta chloris|Xénique grimpeur
+ Ob|Tyranni|Suboscines|Chant inné, non appris.
+  F|Tyrannidae|Tyrans
+  F|Pipridae|Manakins
+  F|Cotingidae|Cotingas
+   S|Rupicola rupicola|Coq-de-roche orange
+  F|Furnariidae|Fourniers
+   S|Furnarius rufus|Fournier roux
+  F|Pittidae|Brèves
+ Ob|Passeri|Oscines|Passereaux chanteurs, qui apprennent leur chant.
+  F|Menuridae|Ménures
+   S|Menura novaehollandiae|Ménure superbe|Imite tronçonneuses et appareils photo.
+  F|Ptilonorhynchidae|Jardiniers|Le mâle décore une tonnelle.
+   S|Ptilonorhynchus violaceus|Jardinier satiné
+  F|Maluridae|Mérions
+   S|Malurus cyaneus|Mérion superbe
+  F|Meliphagidae|Méliphages
+  F|Paradisaeidae|Paradisiers
+   S|Paradisaea raggiana|Paradisier de Raggi
+   S|Lophorina superba|Paradisier superbe
+  F|Laniidae|Pies-grièches|Empalent leurs proies sur des épines.
+   S|Lanius collurio|Pie-grièche écorcheur
+  F|Oriolidae|Loriots
+   S|Oriolus oriolus|Loriot d'Europe
+  F|Corvidae|Corvidés|Parmi les oiseaux les plus intelligents.
+   S|Corvus corax|Grand corbeau
+   S|Corvus corone|Corneille noire
+   S|Corvus frugilegus|Corbeau freux
+   S|Corvus moneduloides|Corbeau calédonien|Fabrique des outils en crochet.
+   S|Pica pica|Pie bavarde|Réussit le test du miroir.
+   S|Garrulus glandarius|Geai des chênes|Plante des milliers de glands.
+   S|Nucifraga caryocatactes|Cassenoix moucheté
+  F|Paridae|Mésanges
+   S|Parus major|Mésange charbonnière
+   S|Cyanistes caeruleus|Mésange bleue
+  F|Alaudidae|Alouettes
+   S|Alauda arvensis|Alouette des champs
+  F|Hirundinidae|Hirondelles
+   S|Hirundo rustica|Hirondelle rustique
+   S|Delichon urbicum|Hirondelle de fenêtre
+  F|Aegithalidae|Orites
+   S|Aegithalos caudatus|Mésange à longue queue
+  F|Phylloscopidae|Pouillots
+   S|Phylloscopus collybita|Pouillot véloce
+  F|Acrocephalidae|Rousserolles
+   S|Acrocephalus scirpaceus|Rousserolle effarvatte
+  F|Sylviidae|Fauvettes
+   S|Sylvia atricapilla|Fauvette à tête noire
+  F|Regulidae|Roitelets
+   S|Regulus regulus|Roitelet huppé|Le plus petit oiseau d'Europe : 5 g.
+  F|Troglodytidae|Troglodytes
+   S|Troglodytes troglodytes|Troglodyte mignon
+  F|Sittidae|Sittelles
+   S|Sitta europaea|Sittelle torchepot
+  F|Sturnidae|Étourneaux
+   S|Sturnus vulgaris|Étourneau sansonnet|Murmurations de milliers d'oiseaux.
+   S|Gracula religiosa|Mainate religieux
+  F|Mimidae|Moqueurs
+   S|Mimus polyglottos|Moqueur polyglotte
+  F|Turdidae|Grives et merles
+   S|Turdus merula|Merle noir
+   S|Turdus philomelos|Grive musicienne
+  F|Muscicapidae|Gobemouches
+   S|Erithacus rubecula|Rougegorge familier
+   S|Luscinia megarhynchos|Rossignol philomèle
+   S|Phoenicurus ochruros|Rougequeue noir
+  F|Cinclidae|Cincles
+   S|Cinclus cinclus|Cincle plongeur|Marche au fond des torrents.
+  F|Bombycillidae|Jaseurs
+   S|Bombycilla garrulus|Jaseur boréal
+  F|Passeridae|Moineaux
+   S|Passer domesticus|Moineau domestique
+   S|Passer montanus|Moineau friquet
+  F|Ploceidae|Tisserins
+   S|Quelea quelea|Travailleur à bec rouge|L'oiseau sauvage le plus nombreux : 1,5 milliard.
+   S|Ploceus cucullatus|Tisserin gendarme
+  F|Estrildidae|Astrilds
+   S|Taeniopygia guttata|Diamant mandarin|Modèle de l'apprentissage du chant.
+  F|Motacillidae|Bergeronnettes et pipits
+   S|Motacilla alba|Bergeronnette grise
+  F|Fringillidae|Fringilles
+   S|Fringilla coelebs|Pinson des arbres
+   S|Carduelis carduelis|Chardonneret élégant
+   S|Serinus canaria|Serin des Canaries
+   S|Pyrrhula pyrrhula|Bouvreuil pivoine
+   S|Loxia curvirostra|Bec-croisé des sapins
+  F|Emberizidae|Bruants
+   S|Emberiza citrinella|Bruant jaune
+  F|Cardinalidae|Cardinaux
+   S|Cardinalis cardinalis|Cardinal rouge
+  F|Parulidae|Parulines
+  F|Thraupidae|Tangaras|Comprend les pinsons de Darwin.
+   S|Geospiza fortis|Géospize à bec moyen|Son bec a changé en quelques générations pendant les sécheresses.

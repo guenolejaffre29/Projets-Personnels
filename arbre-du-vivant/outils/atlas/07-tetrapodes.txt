@@ -1,0 +1,229 @@
+@@ Osteichthyes
+C|Sarcopterygii|Sarcoptérygiens|Nageoires charnues sur un axe osseux : les ancêtres des membres.
+ c|Actinistia|Actinistiens
+  O|Coelacanthiformes|Cœlacanthes|Crus éteints depuis 66 millions d'années, retrouvés vivants en 1938.
+   S|Latimeria chalumnae|Cœlacanthe des Comores
+   S|Latimeria menadoensis|Cœlacanthe indonésien
+ c|Rhipidistia|Rhipidistiens
+  c|Dipnoi|Dipneustes|Poissons à poumons.
+   S|Neoceratodus forsteri|Dipneuste australien|Génome de 43 milliards de paires de bases, 14 fois le nôtre.
+   S|Protopterus annectens|Protoptère africain|Survit des années dans un cocon de boue séchée.
+   S|Lepidosiren paradoxa|Lépidosirène
+  c|Tetrapoda|Tétrapodes|Vertébrés à quatre membres, sortis de l'eau il y a environ 370 millions d'années.
+   S|†Tiktaalik roseae|Tiktaalik|Poisson à « poignets », transition vers la terre ferme.
+   C|Amphibia|Amphibiens|Peau nue et perméable ; souvent une larve aquatique. Environ 8 900 espèces, très menacées.
+    O|Anura|Grenouilles et crapauds|Environ 7 800 espèces.
+     F|Ascaphidae|Ascaphidés
+      S|Ascaphus truei|Grenouille à queue
+     F|Leiopelmatidae|Léiopelmatidés
+      G|Leiopelma|Leiopelma
+     F|Alytidae|Alytes et discoglosses
+      S|Alytes obstetricans|Alyte accoucheur|Le mâle porte les œufs enroulés autour des pattes.
+     F|Bombinatoridae|Sonneurs
+      S|Bombina variegata|Sonneur à ventre jaune
+     F|Pipidae|Pipidés
+      S|Xenopus laevis|Xénope lisse|Ancien test de grossesse ; modèle de laboratoire.
+      S|Pipa pipa|Pipa|Les petits sortent de la peau du dos de la mère.
+     F|Pelobatidae|Pélobates
+      S|Pelobates fuscus|Pélobate brun
+     F|Myobatrachidae|Myobatrachidés
+      S|†Rheobatrachus silus|Grenouille à incubation gastrique|Couvait ses petits dans son estomac ; éteinte vers 1983.
+     F|Bufonidae|Crapauds
+      S|Bufo bufo|Crapaud commun
+      S|Epidalea calamita|Crapaud calamite
+      S|Rhinella marina|Crapaud buffle|Invasif en Australie.
+      S|†Incilius periglenes|Crapaud doré|Disparu vers 1989, victime du chytride.
+     F|Dendrobatidae|Grenouilles venimeuses
+      S|Phyllobates terribilis|Phyllobate terrible|Assez de poison pour tuer dix personnes.
+      S|Dendrobates tinctorius|Dendrobate à tapirer
+      S|Oophaga pumilio|Dendrobate fraise
+     F|Hylidae|Rainettes
+      S|Hyla arborea|Rainette verte
+      S|Hyla meridionalis|Rainette méridionale
+      S|Agalychnis callidryas|Rainette aux yeux rouges
+      S|Ranoidea caerulea|Rainette de White
+     F|Centrolenidae|Grenouilles de verre|Ventre transparent.
+      G|Hyalinobatrachium|Hyalinobatrachium
+     F|Ranidae|Grenouilles vraies
+      S|Rana temporaria|Grenouille rousse
+      S|Pelophylax esculentus|Grenouille verte
+      S|Aquarana catesbeiana|Ouaouaron|Grenouille-taureau invasive.
+      S|Lithobates sylvaticus|Grenouille des bois|Gèle en hiver et redémarre au printemps.
+     F|Conrauidae|Conrauidés
+      S|Conraua goliath|Grenouille goliath|La plus grande grenouille : 3 kg.
+     F|Rhacophoridae|Grenouilles arboricoles d'Asie
+      S|Rhacophorus nigropalmatus|Grenouille volante de Wallace
+     F|Microhylidae|Microhylidés
+      S|Paedophryne amauensis|Paedophryne|Le plus petit vertébré connu : 7,7 mm.
+    O|Caudata|Urodèles|Salamandres et tritons. Environ 830 espèces.
+     F|Cryptobranchidae|Salamandres géantes
+      S|Andrias davidianus|Salamandre géante de Chine|Plus grand amphibien : jusqu'à 1,8 m.
+      S|Cryptobranchus alleganiensis|Ménopome
+     F|Hynobiidae|Hynobiidés
+     F|Sirenidae|Sirènes
+      S|Siren lacertina|Grande sirène
+     F|Salamandridae|Salamandres et tritons
+      S|Salamandra salamandra|Salamandre tachetée
+      S|Salamandra atra|Salamandre noire|Gestation de 2 à 4 ans en altitude.
+      S|Triturus cristatus|Triton crêté
+      S|Ichthyosaura alpestris|Triton alpestre
+      S|Lissotriton helveticus|Triton palmé
+      S|Pleurodeles waltl|Pleurodèle de Waltl|Perce sa peau avec ses côtes pour se défendre.
+     F|Ambystomatidae|Ambystomes
+      S|Ambystoma mexicanum|Axolotl|Reste larvaire toute sa vie et régénère ses membres.
+      S|Ambystoma tigrinum|Salamandre tigrée
+     F|Proteidae|Protées
+      S|Proteus anguinus|Protée anguillard|Aveugle, vit dans les grottes ; peut vivre 100 ans.
+      S|Necturus maculosus|Necture tacheté
+     F|Plethodontidae|Salamandres sans poumons|Respirent par la peau.
+      G|Speleomantes|Spélerpès
+      G|Bolitoglossa|Bolitoglossa
+    O|Gymnophiona|Gymnophiones|Cécilies : amphibiens sans pattes, souvent fouisseurs. Environ 220 espèces.
+     S|Typhlonectes natans|Typhlonectes
+     S|Atretochoana eiselti|Atretochoana|Grande cécilie sans poumons.
+     G|Ichthyophis|Ichthyophis
+     G|Boulengerula|Boulengerula|Les petits mangent la peau de leur mère.
+   c|Amniota|Amniotes|Œuf à membranes (amnios) : reproduction affranchie de l'eau.
+    c|Sauropsida|Sauropsidés|Reptiles, oiseaux compris.
+     c|Lepidosauria|Lépidosauriens
+      O|Rhynchocephalia|Rhynchocéphales|Un seul survivant d'un groupe autrefois diversifié.
+       S|Sphenodon punctatus|Sphénodon|Le tuatara de Nouvelle-Zélande, à « troisième œil ».
+      O|Squamata|Squamates|Lézards et serpents. Environ 12 000 espèces.
+       c|Gekkota|Geckos
+        S|Tarentola mauritanica|Tarente de Maurétanie
+        S|Gekko gecko|Gecko tokay|Adhère aux murs par des milliards de poils microscopiques.
+        S|Eublepharis macularius|Gecko léopard
+        G|Uroplatus|Gecko à queue plate
+        S|Sphaerodactylus ariasae|Sphérodactyle de Jaragua|Un des plus petits reptiles : 16 mm.
+       c|Scincoidea|Scinques
+        G|Tiliqua|Scinque à langue bleue
+        S|Chalcides chalcides|Seps strié
+        S|Corucia zebrata|Scinque à queue préhensile
+       c|Lacertoidea|Lacertoïdes
+        F|Lacertidae|Lézards vrais
+         S|Podarcis muralis|Lézard des murailles
+         S|Lacerta bilineata|Lézard vert occidental
+         S|Timon lepidus|Lézard ocellé
+         S|Zootoca vivipara|Lézard vivipare
+        F|Teiidae|Téiidés
+         S|Salvator merianae|Tégu
+         G|Aspidoscelis|Cnémidophore|Certaines espèces n'ont que des femelles.
+        c|Amphisbaenia|Amphisbènes|Lézards fouisseurs sans pattes.
+         S|Blanus cinereus|Amphisbène cendré
+         S|Bipes biporus|Bipes|N'a que deux pattes avant.
+       c|Toxicofera|Toxicofères|Lignée où le venin est apparu.
+        c|Anguimorpha|Anguimorphes
+         S|Anguis fragilis|Orvet fragile|Un lézard sans pattes.
+         S|Heloderma suspectum|Monstre de Gila|Son venin a inspiré un médicament antidiabète.
+         S|Varanus komodoensis|Dragon de Komodo|Le plus grand lézard : 3 m.
+         S|Varanus niloticus|Varan du Nil
+         S|Lanthanotus borneensis|Varan sans oreilles
+        c|Iguania|Iguaniens
+         S|Iguana iguana|Iguane vert
+         S|Amblyrhynchus cristatus|Iguane marin|Seul lézard qui se nourrit en mer.
+         S|Basiliscus basiliscus|Basilic|Court sur l'eau.
+         S|Phrynosoma cornutum|Lézard cornu|Projette du sang par les yeux.
+         S|Anolis carolinensis|Anolis vert
+         S|Draco volans|Dragon volant
+         S|Pogona vitticeps|Agame barbu
+         S|Moloch horridus|Diable cornu|Boit par capillarité à travers sa peau.
+         S|Chlamydosaurus kingii|Lézard à collerette
+         S|Chamaeleo chamaeleon|Caméléon commun
+         S|Furcifer pardalis|Caméléon panthère
+         S|Brookesia nana|Brookesia nana|Le plus petit reptile connu : 22 mm (2021).
+        c|Serpentes|Serpents|Environ 4 100 espèces.
+         S|Indotyphlops braminus|Typhlops brame|Serpent aveugle, uniquement femelle.
+         F|Boidae|Boas
+          S|Boa constrictor|Boa constricteur
+          S|Eunectes murinus|Anaconda vert|Le serpent le plus lourd.
+         F|Pythonidae|Pythons
+          S|Malayopython reticulatus|Python réticulé|Le plus long serpent : plus de 7 m.
+          S|Python bivittatus|Python birman
+          S|Python regius|Python royal
+         F|Acrochordidae|Serpents-verrues
+         F|Viperidae|Vipères|Crochets mobiles repliables.
+          S|Vipera aspis|Vipère aspic
+          S|Vipera berus|Vipère péliade
+          S|Bitis gabonica|Vipère du Gabon|Crochets les plus longs : 5 cm.
+          S|Bitis arietans|Vipère heurtante
+          S|Echis carinatus|Vipère des pyramides
+          S|Cerastes cerastes|Vipère à cornes
+          S|Crotalus atrox|Crotale diamantin de l'Ouest
+          S|Bothrops insularis|Bothrops de l'île de Queimada Grande
+          S|Lachesis muta|Maître de la brousse
+         F|Elapidae|Élapidés|Cobras, mambas et serpents marins.
+          S|Ophiophagus hannah|Cobra royal|Le plus long serpent venimeux ; mange d'autres serpents.
+          S|Naja naja|Cobra indien
+          S|Naja haje|Cobra égyptien
+          S|Dendroaspis polylepis|Mamba noir
+          S|Oxyuranus microlepidotus|Taïpan du désert|Venin le plus toxique des serpents terrestres.
+          S|Pseudonaja textilis|Serpent brun de l'Est
+          G|Micrurus|Serpent corail
+          S|Hydrophis platurus|Serpent marin à ventre jaune
+          S|Laticauda colubrina|Tricot rayé
+         F|Psammophiidae|Psammophiidés
+          S|Malpolon monspessulanus|Couleuvre de Montpellier
+         F|Colubridae|Couleuvres
+          S|Natrix helvetica|Couleuvre helvétique|Fait la morte quand on la dérange.
+          S|Zamenis longissimus|Couleuvre d'Esculape
+          S|Hierophis viridiflavus|Couleuvre verte et jaune
+          S|Pantherophis guttatus|Serpent des blés
+          S|Dispholidus typus|Boomslang
+          S|Chrysopelea paradisi|Serpent volant
+     c|Archelosauria|Archélosauriens|Tortues et archosaures.
+      O|Testudines|Tortues|Carapace formée par les côtes. Environ 360 espèces.
+       Ob|Pleurodira|Tortues à cou de côté
+        S|Chelus fimbriata|Matamata
+        S|Podocnemis expansa|Tortue arrau
+       Ob|Cryptodira|Tortues à cou rétractile
+        F|Chelydridae|Tortues serpentines
+         S|Macrochelys temminckii|Tortue alligator|Attire les poissons avec un leurre sur la langue.
+        F|Dermochelyidae|Tortue luth
+         S|Dermochelys coriacea|Tortue luth|La plus grande tortue : plus de 600 kg ; plonge à 1 200 m.
+        F|Cheloniidae|Tortues marines
+         S|Chelonia mydas|Tortue verte
+         S|Caretta caretta|Caouanne
+         S|Eretmochelys imbricata|Tortue imbriquée
+        F|Trionychidae|Tortues à carapace molle
+         S|Rafetus swinhoei|Tortue géante du Yangtsé|Probablement la tortue la plus menacée : un ou deux individus connus.
+        F|Emydidae|Émydidés
+         S|Emys orbicularis|Cistude d'Europe
+         S|Trachemys scripta|Tortue de Floride
+        F|Testudinidae|Tortues terrestres
+         S|Testudo hermanni|Tortue d'Hermann
+         S|Chelonoidis niger|Tortue géante des Galápagos
+         S|Aldabrachelys gigantea|Tortue géante des Seychelles|Jonathan, né vers 1832, est le plus vieil animal terrestre connu.
+      c|Archosauria|Archosaures|Crocodiles, dinosaures et oiseaux.
+       O|Crocodylia|Crocodiliens|Les plus proches parents vivants des oiseaux. Environ 28 espèces.
+        S|Crocodylus porosus|Crocodile marin|Le plus grand reptile actuel : 6 m.
+        S|Crocodylus niloticus|Crocodile du Nil
+        S|Alligator mississippiensis|Alligator d'Amérique
+        S|Alligator sinensis|Alligator de Chine
+        S|Caiman crocodilus|Caïman à lunettes
+        S|Melanosuchus niger|Caïman noir
+        S|Gavialis gangeticus|Gavial du Gange
+        S|Tomistoma schlegelii|Faux-gavial
+       c|Avemetatarsalia|Avémétatarsaliens
+        O|†Pterosauria|Ptérosaures|Premiers vertébrés volants, éteints il y a 66 millions d'années. Ce ne sont pas des dinosaures.
+         S|†Quetzalcoatlus northropi|Quetzalcoatlus|10 m d'envergure.
+         S|†Pteranodon longiceps|Ptéranodon
+        c|Dinosauria|Dinosaures|Les oiseaux en sont les seuls survivants.
+         c|†Ornithischia|Ornithischiens
+          S|†Triceratops horridus|Tricératops
+          S|†Stegosaurus stenops|Stégosaure
+          S|†Iguanodon bernissartensis|Iguanodon|Dizaines de squelettes trouvés dans une mine belge.
+          S|†Ankylosaurus magniventris|Ankylosaure
+          S|†Parasaurolophus walkeri|Parasaurolophus
+         c|Saurischia|Saurischiens
+          c|†Sauropodomorpha|Sauropodes
+           S|†Diplodocus carnegii|Diplodocus
+           S|†Brachiosaurus altithorax|Brachiosaure
+           S|†Patagotitan mayorum|Patagotitan|Un des plus grands animaux terrestres : plus de 50 tonnes.
+          c|Theropoda|Théropodes|Dinosaures bipèdes, souvent carnivores, souvent à plumes.
+           S|†Tyrannosaurus rex|Tyrannosaure
+           S|†Spinosaurus aegyptiacus|Spinosaure
+           S|†Allosaurus fragilis|Allosaure
+           S|†Velociraptor mongoliensis|Vélociraptor|Couvert de plumes, de la taille d'une dinde.
+           S|†Archaeopteryx lithographica|Archéoptéryx|Le « premier oiseau », découvert en 1861.
+           C|Aves|Oiseaux|Dinosaures à plumes, à bec et à œufs à coquille dure. Environ 11 000 espèces.
+    C|Mammalia|Mammifères|Poils, glandes mammaires, trois osselets dans l'oreille. Environ 6 600 espèces.

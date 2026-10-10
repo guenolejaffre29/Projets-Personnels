@@ -1,0 +1,232 @@
+# Compléments pluricellulaires : arthropodes
+@@ Arthropoda
+c|†Radiodonta|Radiodontes|Grands prédateurs du Cambrien, à la base des arthropodes.
+ S|†Anomalocaris canadensis|Anomalocaris|Prédateur d'un mètre il y a 508 millions d'années.
+ S|†Aegirocassis benmoulai|Aegirocassis|Filtreur géant de 2 m.
+C|†Trilobita|Trilobites|Plus de 20 000 espèces fossiles, de –521 à –252 millions d'années.
+ S|†Elrathia kingii|Elrathia|Le trilobite fossile le plus vendu au monde.
+ G|†Paradoxides|Paradoxides
+ G|†Phacops|Phacops|Yeux à lentilles de calcite.
+ S|†Isotelus rex|Isotelus|Plus grand trilobite complet : 72 cm.
+@@ Chelicerata
+C|†Eurypterida|Euryptérides|« Scorpions de mer » du Paléozoïque.
+ S|†Jaekelopterus rhenaniae|Jaekelopterus|Le plus grand arthropode connu : environ 2,5 m.
+@@ Pycnogonida
+S|Colossendeis megalonyx|Pycnogonide géant antarctique
+@@ Mygalomorphae
+F|Ctenizidae|Araignées à trappe
+ S|Cteniza sauvagesi|Cténize de Sauvages|Ferme son terrier par une porte à charnière.
+F|Atypidae|Atypidés
+ S|Atypus affinis|Atype|Mygale de France qui vit dans un tube de soie.
+F|Nemesiidae|Némésiidés
+F|Hexathelidae|Hexathélidés
+@@ Theraphosidae
+S|Poecilotheria metallica|Mygale bleue de Gooty
+S|Grammostola rosea|Mygale du Chili
+@@ Araneomorphae
+F|Uloboridae|Uloboridés|Sans glandes à venin.
+ S|Uloborus walckenaerius|Ulobore
+F|Deinopidae|Araignées à filet
+ G|Deinopis|Deinopis|Lance un filet de soie sur ses proies ; yeux géants.
+F|Tetragnathidae|Tétragnathes
+ S|Tetragnatha extensa|Tétragnathe étirée
+ S|Metellina segmentata|Méta d'automne
+F|Eresidae|Érèses
+ S|Eresus kollari|Érèse coccinelle|Les mères se laissent manger par leurs petits.
+F|Oxyopidae|Araignées-lynx
+ S|Peucetia viridans|Araignée-lynx verte
+F|Scytodidae|Scytodes
+ S|Scytodes thoracica|Scytode|Crache un filet de glu venimeuse.
+F|Mimetidae|Araignées pirates|Mangent d'autres araignées.
+F|Gnaphosidae|Gnaphosidés
+F|Clubionidae|Clubionidés
+F|Zodariidae|Zodariidés|Chasseuses de fourmis.
+F|Oonopidae|Oonopidés|Araignées de 1 à 2 mm.
+F|Filistatidae|Filistatidés
+F|Hersiliidae|Hersiliidés
+F|Sparassidae|Araignées-crabes géantes
+ S|Heteropoda maxima|Heteropoda maxima|La plus grande envergure : 30 cm.
+ S|Cebrennus rechenbergi|Araignée roue|Se roule en roue pour fuir dans les dunes.
+F|Trechaleidae|Trechaleidés
+F|Segestriidae|Ségestries
+ S|Segestria florentina|Ségestrie florentine
+@@ Araneidae
+S|Trichonephila clavipes|Néphile dorée|Soie dorée.
+S|Gasteracantha cancriformis|Araignée épineuse
+S|Cyclosa conica|Cyclose|Décore sa toile avec ses débris.
+S|Mastophora hutchinsoni|Araignée bolas|Chasse les papillons avec une boule de glu parfumée.
+S|Larinioides sclopetarius|Épeire des ponts
+@@ Theridiidae
+S|Latrodectus hasselti|Veuve noire australienne
+S|Parasteatoda tepidariorum|Théridion des serres
+S|Argyrodes elevatus|Argyrode|Vole la nourriture dans les toiles des autres.
+@@ Lycosidae
+S|Pardosa amentata|Pardose
+S|Hogna radiata|Lycose radiée
+S|Hogna ingens|Lycose des Desertas|Grande lycose menacée de Madère.
+@@ Salticidae
+S|Phidippus regius|Saltique royale
+S|Portia fimbriata|Portia|Planifie des détours pour attaquer d'autres araignées.
+S|Toxeus magnus|Araignée sauteuse lactante|Nourrit ses petits avec une sorte de lait (2018).
+@@ Agelenidae
+S|Agelena labyrinthica|Agélène à labyrinthe
+S|Tegenaria domestica|Tégénaire domestique
+@@ Scorpiones
+S|Heterometrus spinifer|Scorpion géant de forêt
+S|Hadrurus arizonensis|Scorpion velu du désert
+S|Centruroides sculpturatus|Scorpion d'écorce d'Arizona
+S|Tityus serrulatus|Scorpion jaune du Brésil|Se reproduit sans mâle ; envahit les villes.
+S|Parabuthus transvaalicus|Parabuthus|Projette son venin.
+S|Microtityus minimus|Microtityus|Le plus petit scorpion : 11 mm.
+S|†Pulmonoscorpius kirktonensis|Scorpion géant du Carbonifère|70 cm.
+@@ Opiliones
+S|Leiobunum rotundum|Faucheux à pattes fines
+G|Trogulus|Trogule
+@@ Acari
+O|Opilioacarida|Opilioacariens
+O|Holothyrida|Holothyrides
+@@ Ixodida
+S|Rhipicephalus sanguineus|Tique brune du chien
+S|Dermacentor reticulatus|Dermacentor
+S|Ornithodoros moubata|Ornithodore|Tique molle, vecteur de la fièvre récurrente.
+S|Amblyomma americanum|Tique étoilée|Sa morsure peut rendre allergique à la viande rouge.
+@@ Trombidiformes
+S|Trombidium holosericeum|Trombidion soyeux
+S|Phytoptus avellanae|Phytopte du noisetier
+S|Paratarsotomus macropalpis|Paratarsotomus|Record de vitesse relative : 322 longueurs de corps par seconde.
+@@ Sarcoptiformes
+S|Archegozetes longisetosus|Archegozetes|Oribate modèle, aux mâchoires surpuissantes.
+S|Acarus siro|Acarien de la farine
+S|Psoroptes ovis|Psoropte du mouton
+@@ Mesostigmata
+S|Phytoseiulus persimilis|Phytoseiulus|Acarien prédateur utilisé en serre.
+S|Tropilaelaps clareae|Tropilaelaps
+@@ Chilopoda
+O|Geophilomorpha|Géophiles|Jusqu'à 191 paires de pattes, toujours en nombre impair.
+ S|Geophilus flavus|Géophile jaune
+ S|Strigamia maritima|Strigamia|Premier génome de myriapode séquencé.
+O|Craterostigmomorpha|Craterostigmomorphes
+S|Scolopendra subspinipes|Scolopendre géante d'Asie
+S|Ethmostigmus rubripes|Scolopendre géante d'Australie
+S|Scolopendra cataracta|Scolopendre amphibie|Chasse sous l'eau (décrite en 2016).
+@@ Pauropoda
+G|Pauropus|Pauropus
+@@ Thecostraca
+c|Facetotecta|Facétotectes|Connus seulement par leurs larves « y » ; adulte jamais observé.
+S|Semibalanus balanoides|Balane commune
+S|Coronula diadema|Balane des baleines
+S|Chthamalus stellatus|Chthamale
+@@ Copepoda
+O|Calanoida|Calanoïdes
+ S|Calanus glacialis|Calanus arctique
+ S|Eurytemora affinis|Eurytemora
+O|Cyclopoida|Cyclopoïdes
+ S|Oithona similis|Oithona|Peut-être l'animal multicellulaire le plus nombreux de la planète.
+O|Harpacticoida|Harpacticoïdes
+ S|Tigriopus californicus|Tigriopus
+O|Siphonostomatoida|Siphonostomatoïdes|Copépodes parasites.
+ S|Lepeophtheirus salmonis|Pou du saumon
+ S|Pennella balaenoptera|Pennelle|Plus grand copépode : 32 cm, parasite des baleines.
+@@ Ostracoda
+S|Gigantocypris muelleri|Ostracode géant|Grands yeux réflecteurs.
+S|Vargula hilgendorfii|Luciole de mer|Ostracode lumineux, poudre utilisée comme lampe par l'armée japonaise.
+G|Darwinula|Darwinula|Sans mâles depuis 200 millions d'années.
+@@ Branchiopoda
+O|Laevicaudata|Laevicaudata
+O|Spinicaudata|Spinicaudata|Crevettes à coquille bivalve des mares temporaires.
+@@ Anostraca
+S|Branchipus schaefferi|Branchipe
+S|Branchinecta gigas|Branchinecte géante
+@@ Diplostraca
+S|Leptodora kindtii|Leptodora|Grande puce d'eau prédatrice, transparente.
+S|Bythotrephes longimanus|Bythotrephes|Invasif dans les Grands Lacs.
+@@ Notostraca
+S|Lepidurus apus|Lépidure
+@@ Remipedia
+S|Xibalbanus tulumensis|Xibalbanus|Seul crustacé venimeux connu.
+@@ Cephalocarida
+S|Hutchinsoniella macracantha|Hutchinsoniella
+@@ Malacostraca
+O|Cumacea|Cumacés
+ S|Diastylis rathkei|Diastylis
+O|Tanaidacea|Tanaïdacés
+O|Lophogastrida|Lophogastrides
+ G|Gnathophausia|Gnathophausia
+O|Bathynellacea|Bathynelles|Crustacés aveugles des nappes souterraines.
+O|Thermosbaenacea|Thermosbénacés|Vivent dans des sources chaudes souterraines.
+O|Spelaeogriphacea|Spéléogriphacés|Crustacés de grottes, 4 espèces.
+@@ Mysida
+S|Neomysis integer|Mysis
+S|Mysis relicta|Mysis relicte
+@@ Euphausiacea
+S|Meganyctiphanes norvegica|Krill nordique
+S|Euphausia crystallorophias|Krill des glaces
+@@ Stomatopoda
+S|Lysiosquillina maculata|Squille zébrée|La plus grande crevette-mante : 40 cm.
+S|Gonodactylus smithii|Gonodactylus
+@@ Decapoda
+F|Scyllaridae|Cigales de mer
+ S|Scyllarides latus|Grande cigale de mer
+ S|Scyllarus arctus|Petite cigale de mer
+F|Polychelidae|Polychélidés|Homards aveugles des abysses.
+F|Parastacidae|Écrevisses australes
+ S|Astacopsis gouldi|Écrevisse géante de Tasmanie|Le plus grand invertébré d'eau douce : jusqu'à 5 kg.
+ S|Cherax quadricarinatus|Écrevisse à pinces rouges
+F|Kiwaidae|Crabes yétis
+ S|Kiwa hirsuta|Crabe yéti|Cultive des bactéries sur ses pinces velues.
+c|Dendrobranchiata|Crevettes pénéides et sergestes
+ S|Penaeus vannamei|Crevette à pattes blanches|La crevette la plus élevée au monde.
+ S|Penaeus japonicus|Crevette kuruma
+ S|Sergia lucens|Crevette sakura
+@@ Penaeidae
+S|Penaeus kerathurus|Caramote
+@@ Brachyura
+S|Necora puber|Étrille
+S|Pachygrapsus marmoratus|Crabe marbré
+S|Callinectes sapidus|Crabe bleu|Invasif en Méditerranée et sur les côtes françaises.
+S|Potamon fluviatile|Crabe de rivière
+S|Grapsus grapsus|Crabe rouge des rochers
+G|Ocypode|Crabe fantôme
+S|Lybia tessellata|Crabe boxeur|Porte une anémone dans chaque pince.
+S|Dromia personata|Dromie|Se coiffe d'une éponge.
+S|Pinnotheres pisum|Crabe petit pois|Vit dans les moules.
+S|Ranina ranina|Crabe grenouille
+S|Mictyris longicarpus|Crabe soldat
+S|Johngarthia lagostoma|Crabe terrestre de l'Ascension
+@@ Anomura
+S|Munida rugosa|Galathée
+S|Emerita talpoida|Crabe-taupe
+S|Coenobita clypeatus|Bernard-l'ermite terrestre
+S|Porcellana platycheles|Porcelaine velue
+S|Lithodes santolla|Centolla
+@@ Caridea
+S|Macrobrachium rosenbergii|Crevette géante d'eau douce
+S|Neocaridina davidi|Crevette cerise
+S|Rimicaris exoculata|Crevette des sources hydrothermales|Détecte la lueur des cheminées avec un œil dorsal.
+S|Pandalus borealis|Crevette nordique
+S|Atyaephyra desmarestii|Crevette d'eau douce européenne
+S|Stenopus hispidus|Crevette nettoyeuse baguée
+S|Hymenocera picta|Crevette arlequin|Ne mange que des étoiles de mer.
+S|Synalpheus regalis|Synalpheus|Première crevette eusociale découverte.
+@@ Isopoda
+S|Glyptonotus antarcticus|Isopode géant antarctique
+S|Eurydice pulchra|Eurydice
+S|Idotea balthica|Idotée
+S|Hemilepistus reaumuri|Cloporte du désert|Vit en famille dans un terrier.
+S|Trichoniscus pusillus|Trichoniscus
+S|Proasellus cavaticus|Aselle cavernicole
+S|Sphaeroma serratum|Sphérome
+@@ Amphipoda
+S|Niphargus virei|Niphargus|Amphipode aveugle des grottes.
+S|Phronima sedentaria|Phronime|Vit dans une salpe évidée ; inspiration de l'Alien.
+S|Orchestia gammarellus|Orchestie
+S|Dikerogammarus villosus|Gammare tueur|Invasif dans les rivières d'Europe.
+S|Alicella gigantea|Amphipode géant|Jusqu'à 34 cm dans les abysses.
+@@ Collembola
+S|Podura aquatica|Podure aquatique
+S|Hypogastrura nivicola|Puce des neiges
+S|Tetrodontophora bielanensis|Tetrodontophora|Collembole géant bleu de 9 mm.
+@@ Diplura
+G|Japyx|Japyx|Diploure à pinces.
+@@ Protura
+G|Acerentomon|Acerentomon

@@ -1,0 +1,397 @@
+@@ Eukaryota
+c|Amorphea|Amorphea|Animaux, champignons, amibes et leurs parents unicellulaires.
+ c|Obazoa|Obazoa
+  c|Opisthokonta|Opisthocontes|Cellules mobiles à un flagelle postérieur, comme le spermatozoïde.
+   c|Holomycota|Holomycètes|Champignons et leurs parents amiboïdes.
+    c|Rotosphaerida|Nucléariides|Amibes à fins pseudopodes, plus proches parents des champignons.
+     G|Nuclearia|Nuclearia
+     S|Fonticula alba|Fonticula|Amibe qui s'agrège en petite fructification.
+   c|Holozoa|Holozoaires|Animaux et leurs parents unicellulaires.
+    c|Ichthyosporea|Ichthyosporés|Parasites et commensaux d'animaux aquatiques.
+     S|Sphaeroforma arctica|Sphaeroforma
+     S|Creolimax fragrantissima|Creolimax
+     S|Ichthyophonus hoferi|Ichthyophonus|Parasite des harengs.
+    c|Pluriformea|Pluriformea
+     S|Corallochytrium limacisporum|Corallochytrium
+     S|Syssomonas multiformis|Syssomonas
+    c|Filasterea|Filastérés
+     S|Capsaspora owczarzaki|Capsaspora|Amibe vivant dans un escargot, utilisée pour comprendre l'origine des animaux.
+     G|Ministeria|Ministeria
+    c|Choanoflagellata|Choanoflagellés|Les plus proches parents unicellulaires des animaux : une cellule à collerette, comme celles des éponges.
+     S|Monosiga brevicollis|Monosiga
+     S|Salpingoeca rosetta|Salpingoeca|Forme des colonies en rosette, déclenchées par une bactérie.
+     S|Choanoeca flexa|Choanoeca|Colonies en coupe qui se retournent à la lumière.
+  c|Apusomonadida|Apusomonades|Petits flagellés glisseurs des sols et sédiments.
+   G|Apusomonas|Apusomonas
+   S|Thecamonas trahens|Thecamonas
+  c|Breviatea|Breviates|Amiboflagellés des milieux sans oxygène.
+   S|Breviata anathema|Breviata
+   S|Pygsuia biforma|Pygsuia
+ P|Amoebozoa|Amibozoaires|Amibes à pseudopodes lobés, dont les myxomycètes.
+  c|Tubulinea|Tubulinés
+   S|Amoeba proteus|Amibe protée|L'amibe des manuels scolaires.
+   S|Chaos carolinense|Amibe géante|Jusqu'à 5 mm, des centaines de noyaux.
+   c|Arcellinida|Thécamibes à coque
+    G|Arcella|Arcella
+    G|Difflugia|Difflugia|Construit sa coque avec des grains de sable.
+  c|Discosea|Discosés
+   S|Acanthamoeba castellanii|Acanthamibe|Kératites des porteurs de lentilles ; hôte des virus géants.
+   S|Balamuthia mandrillaris|Balamuthia
+   G|Vannella|Vannella
+  c|Evosea|Évosés
+   c|Archamoebae|Archamibes|Amibes sans mitochondries classiques.
+    S|Entamoeba histolytica|Amibe dysentérique|Responsable de l'amibiase.
+    S|Pelomyxa palustris|Pélomyxe|Amibe géante des vases, sans mitochondries.
+    G|Mastigamoeba|Mastigamoeba
+   c|Eumycetozoa|Mycétozoaires
+    C|Myxogastria|Myxomycètes|Plasmodes géants à milliers de noyaux, longtemps pris pour des champignons.
+     S|Physarum polycephalum|Blob|Résout des labyrinthes sans cerveau ; a voyagé dans l'ISS.
+     S|Fuligo septica|Fleur de tan|Masse jaune vif sur les copeaux de bois.
+     G|Stemonitis|Stémonite
+     S|Lycogala epidendrum|Lait de loup
+    C|Dictyostelia|Dictyostélides|Amibes sociales : des milliers de cellules forment une limace puis une tige.
+     S|Dictyostelium discoideum|Dictyostelium|Organisme modèle en biologie.
+    c|Protosporangiida|Protosporangiides
+     S|Ceratiomyxa fruticulosa|Cératiomyxe
+   c|Variosea|Variosés
+ c|CRuMs|CRuMs|Petits groupes de flagellés, parents proches d'Amorphea.
+  S|Collodictyon triciliatum|Collodictyon
+  G|Rigifila|Rigifila
+  G|Mantamonas|Mantamonas
+c|Diaphoretickes|Diaphoretickes|Lignées où la photosynthèse est apparue (par endosymbiose) ou a été empruntée plusieurs fois.
+ c|Archaeplastida|Archéplastides|Lignée issue de l'endosymbiose primaire d'une cyanobactérie. Ici, seules les formes unicellulaires sont détaillées.
+  P|Glaucophyta|Glaucophytes|Leur chloroplaste garde une paroi de peptidoglycane, comme une cyanobactérie.
+   S|Cyanophora paradoxa|Cyanophora
+   G|Glaucocystis|Glaucocystis
+   G|Gloeochaete|Gloeochaete
+  P|Rhodophyta|Algues rouges (unicellulaires)
+   C|Cyanidiophyceae|Cyanidiophycées|Algues rouges extrêmophiles des sources acides et chaudes.
+    S|Cyanidioschyzon merolae|Cyanidioschyzon|Un des plus petits génomes d'eucaryote photosynthétique.
+    S|Galdieria sulphuraria|Galdieria|Vit à pH 1 et 56 °C ; a emprunté des gènes aux bactéries.
+   C|Porphyridiophyceae|Porphyridiophycées
+    S|Porphyridium purpureum|Porphyridium
+   C|Rhodellophyceae|Rhodellophycées
+    G|Rhodella|Rhodella
+   x|Florideophyceae et Bangiophyceae|Algues rouges multicellulaires|Nori, corallines, Gracilaria… (végétal, non détaillé)
+  c|Rhodelphidia|Rhodelphides|Prédateurs non photosynthétiques, parents des algues rouges.
+   S|Rhodelphis limneticus|Rhodelphis
+  P|Picozoa|Picozoaires|Minuscules prédateurs marins, cousins des algues rouges.
+   S|Picomonas judraskeda|Picomonas
+  c|Viridiplantae|Lignée verte|Ici, seules les algues vertes unicellulaires sont détaillées.
+   P|Prasinodermophyta|Prasinodermophytes
+    S|Prasinoderma coloniale|Prasinoderma
+   P|Chlorophyta|Chlorophytes (unicellulaires)
+    C|Mamiellophyceae|Mamiellophycées
+     S|Ostreococcus tauri|Ostreococcus|Le plus petit eucaryote libre connu (~1 µm), découvert dans l'étang de Thau.
+     S|Micromonas pusilla|Micromonas
+     G|Bathycoccus|Bathycoccus
+    C|Pyramimonadophyceae|Pyramimonadophycées
+     G|Pyramimonas|Pyramimonas
+    C|Chlorodendrophyceae|Chlorodendrophycées
+     G|Tetraselmis|Tetraselmis|Partenaire photosynthétique du ver de Roscoff.
+    C|Trebouxiophyceae|Trébouxiophycées
+     S|Chlorella vulgaris|Chlorelle
+     G|Trebouxia|Trebouxia|L'algue la plus fréquente dans les lichens.
+     S|Botryococcus braunii|Botryococcus|Produit des hydrocarbures.
+    C|Chlorophyceae|Chlorophycées
+     S|Chlamydomonas reinhardtii|Chlamydomonas|Modèle pour l'étude des flagelles et de la photosynthèse.
+     S|Dunaliella salina|Dunaliella|Rend roses certains lacs salés (bêta-carotène).
+     S|Haematococcus lacustris|Haematococcus|Source d'astaxanthine.
+     x|Volvox et colonies|Algues vertes coloniales et multicellulaires|Volvox, ulves, Caulerpa… (non détaillées)
+   P|Streptophyta|Streptophytes (unicellulaires)
+    S|Mesostigma viride|Mesostigma|Flagellé, à la base de la lignée des plantes terrestres.
+    S|Chlorokybus atmophyticus|Chlorokybus
+    C|Zygnematophyceae|Desmidiées et conjuguées|Les plus proches parentes algales des plantes terrestres.
+     G|Closterium|Closterium|Cellule en croissant.
+     G|Cosmarium|Cosmarium|Cellule en deux moitiés symétriques.
+     G|Micrasterias|Micrasterias|Cellule étoilée découpée comme un flocon.
+    x|Embryophyta|Plantes terrestres|Mousses, fougères, conifères, plantes à fleurs… (végétal, non détaillé)
+ c|Cryptista|Cryptistes
+  C|Cryptophyceae|Cryptophytes|Algues dont le chloroplaste contient encore le noyau réduit (nucléomorphe) d'une algue rouge avalée.
+   S|Guillardia theta|Guillardia
+   G|Cryptomonas|Cryptomonas
+   G|Rhodomonas|Rhodomonas
+  c|Goniomonadida|Goniomonades
+   G|Goniomonas|Goniomonas
+  c|Katablepharidophyta|Katablépharides
+   G|Katablepharis|Katablepharis
+  S|Palpitomonas bilix|Palpitomonas
+ c|Haptista|Haptistes
+  P|Haptophyta|Haptophytes
+   C|Prymnesiophyceae|Prymnésiophycées
+    S|Gephyrocapsa huxleyi|Emiliania huxleyi|Coccolithophore dont les blooms se voient de l'espace ; ses plaques calcaires forment la craie.
+    S|Phaeocystis globosa|Phaeocystis|Forme la mousse des plages au printemps.
+    S|Prymnesium parvum|Prymnesium|Algue dorée toxique pour les poissons.
+    G|Coccolithus|Coccolithus
+   C|Pavlovophyceae|Pavlovophycées
+    G|Pavlova|Pavlova
+  c|Centroplasthelida|Centrohélidés|Héliozoaires aux longs bras rayonnants.
+   G|Acanthocystis|Acanthocystis
+   G|Raphidiophrys|Raphidiophrys
+ c|Provora|Provora|Prédateurs découverts en 2022.
+  G|Nibbleromonas|Nibbleromonas
+  S|Ancoracysta twista|Ancoracysta
+ c|TSAR|TSAR|Télonèmes, Straménopiles, Alvéolés et Rhizaria.
+  c|Telonemia|Télonèmes
+   S|Telonema subtile|Telonema
+  c|Stramenopiles|Straménopiles|Flagelle orné de poils tripartites. Comprend diatomées, oomycètes et algues brunes.
+   c|Bigyra|Bigyra
+    c|Opalinata|Opalines
+     G|Opalina|Opalina|Couverte de milliers de flagelles, vit dans l'intestin des grenouilles.
+     S|Blastocystis hominis|Blastocystis|Un des eucaryotes les plus fréquents de l'intestin humain.
+    c|Bicosoecida|Bicosoécides
+     S|Cafeteria roenbergensis|Cafeteria|Flagellé marin parasité par un virus géant.
+    C|Labyrinthulomycetes|Labyrinthulomycètes
+     G|Labyrinthula|Labyrinthula|Maladie de la zostère.
+     G|Aurantiochytrium|Aurantiochytrium|Produit des oméga-3 (DHA) industriels.
+   c|Pseudofungi|Pseudo-champignons
+    P|Oomycota|Oomycètes|Ressemblent à des champignons mais sont des straménopiles.
+     S|Phytophthora infestans|Mildiou de la pomme de terre|Cause de la Grande Famine irlandaise (1845).
+     S|Plasmopara viticola|Mildiou de la vigne
+     G|Saprolegnia|Saprolegnia|Moisissure des poissons d'aquarium.
+     G|Pythium|Pythium|Fonte des semis.
+    c|Hyphochytrea|Hyphochytridiomycètes
+     G|Hyphochytrium|Hyphochytrium
+   P|Ochrophyta|Ochrophytes|Straménopiles photosynthétiques.
+    C|Bacillariophyceae|Diatomées|Algues dans une boîte de verre (silice). Elles produisent environ 20 % de l'oxygène de la planète.
+     S|Thalassiosira pseudonana|Thalassiosira
+     S|Phaeodactylum tricornutum|Phaeodactylum
+     G|Coscinodiscus|Coscinodiscus
+     G|Navicula|Navicula
+     G|Pseudo-nitzschia|Pseudo-nitzschia|Produit l'acide domoïque (intoxication amnésiante).
+     S|Didymosphenia geminata|Didymo|« Morve de roche » des rivières.
+    C|Bolidophyceae|Bolidophycées
+    C|Chrysophyceae|Chrysophycées|Algues dorées d'eau douce.
+     G|Ochromonas|Ochromonas
+     G|Dinobryon|Dinobryon
+     G|Synura|Synura
+    C|Dictyochophyceae|Dictyochophycées|Silicoflagellés à squelette en étoile.
+     G|Dictyocha|Dictyocha
+    C|Pelagophyceae|Pélagophycées
+     S|Aureococcus anophagefferens|Aureococcus|Responsable des « marées brunes ».
+    C|Eustigmatophyceae|Eustigmatophycées
+     G|Nannochloropsis|Nannochloropsis|Microalgue cultivée pour les biocarburants.
+    C|Raphidophyceae|Raphidophycées
+     S|Heterosigma akashiwo|Heterosigma|Tue les poissons d'élevage.
+     G|Chattonella|Chattonella
+    C|Pinguiophyceae|Pinguiophycées
+    C|Xanthophyceae|Xanthophycées|Algues jaune-vert.
+     G|Botrydiopsis|Botrydiopsis
+     G|Vaucheria|Vauchérie|Un tube géant à milliers de noyaux, sans cloisons ; la limace Elysia lui vole ses chloroplastes.
+     G|Tribonema|Tribonema|Filaments d'eau douce.
+    C|Schizocladiophyceae|Schizocladiophycées|Plus proches parentes des algues brunes.
+     S|Schizocladia ischiensis|Schizocladia
+    C|Phaeophyceae|Algues brunes|Les seules grandes algues qui ne sont pas des végétaux : ce sont des straménopiles, cousines des diatomées. Leur multicellularité est apparue indépendamment de celle des plantes et des animaux. Environ 2 000 espèces.
+     O|Discosporangiales|Discosporangiales|La lignée la plus ancienne des algues brunes.
+     O|Ishigeales|Ishigeales
+     O|Dictyotales|Dictyotales
+      S|Dictyota dichotoma|Dictyote
+      S|Padina pavonica|Padine queue-de-paon|Une des rares algues brunes calcifiées.
+     O|Sphacelariales|Sphacélariales
+     O|Onslowiales|Onslowiales
+     O|Syringodermatales|Syringodermatales
+     O|Desmarestiales|Desmarestiales
+      G|Desmarestia|Desmarestia|Stocke de l'acide sulfurique dans ses cellules.
+     O|Sporochnales|Sporochnales
+     O|Tilopteridales|Tilopteridales
+     O|Ralfsiales|Ralfsiales|Algues en croûtes sur les rochers.
+     O|Scytothamnales|Scytothamnales
+     O|Ascoseirales|Ascoseirales
+     O|Nemodermatales|Nemodermatales
+     O|Ectocarpales|Ectocarpales
+      S|Ectocarpus siliculosus|Ectocarpus|Modèle génétique des algues brunes, étudié à Roscoff.
+      S|Scytosiphon lomentaria|Scytosiphon
+      S|Chorda filum|Corde de mer|Lanières de plusieurs mètres.
+     O|Laminariales|Laminaires|Les kelps : forment de véritables forêts sous-marines.
+      S|Macrocystis pyrifera|Kelp géant|La plus grande algue : plus de 45 m, pousse de 50 cm par jour.
+      S|Nereocystis luetkeana|Kelp à vessie
+      S|Laminaria digitata|Laminaire digitée|Récoltée en Bretagne pour les alginates.
+      S|Laminaria hyperborea|Laminaire rugueuse
+      S|Saccharina latissima|Laminaire sucrée
+      S|Saccharina japonica|Kombu|Source du goût umami (glutamate), identifié en 1908.
+      S|Undaria pinnatifida|Wakamé
+      S|Alaria esculenta|Alarie comestible
+      S|Lessonia nigrescens|Lessonia
+     O|Fucales|Fucales|Les algues brunes de l'estran.
+      S|Fucus vesiculosus|Fucus vésiculeux|Flotteurs remplis de gaz.
+      S|Fucus serratus|Fucus denté
+      S|Fucus spiralis|Fucus spiralé
+      S|Ascophyllum nodosum|Ascophylle noueuse
+      S|Pelvetia canaliculata|Pelvétie|Vit tout en haut de l'estran, à sec la plupart du temps.
+      S|Himanthalia elongata|Haricot de mer
+      S|Bifurcaria bifurcata|Bifurcaire
+      S|Sargassum natans|Sargasse flottante|Forme la mer des Sargasses et la « grande ceinture » de sargasses de l'Atlantique.
+      S|Sargassum muticum|Sargasse japonaise|Invasive sur les côtes françaises.
+      S|Durvillaea antarctica|Cochayuyo|Kelp austral massif, mangé au Chili.
+      G|Ericaria|Cystoseire
+  c|Alveolata|Alvéolés|Sacs aplatis (alvéoles) sous la membrane.
+   P|Ciliophora|Ciliés|Couverts de cils ; deux noyaux, un pour le quotidien, un pour la reproduction.
+    C|Heterotrichea|Hétérotriches
+     S|Stentor coeruleus|Stentor|Cellule en trompette de 2 mm, capable de se régénérer à partir d'un fragment.
+     S|Spirostomum ambiguum|Spirostome|Se contracte en quelques millisecondes.
+     G|Blepharisma|Blepharisma
+    C|Karyorelictea|Karyorelictés
+     G|Loxodes|Loxodes
+    C|Spirotrichea|Spirotriches
+     G|Euplotes|Euplotes|Marche sur des touffes de cils.
+     S|Oxytricha trifallax|Oxytricha|Découpe et réassemble son génome.
+     G|Stylonychia|Stylonychia
+     c|Tintinnida|Tintinnides|Vivent dans une logette en vase.
+    C|Oligohymenophorea|Oligohyménophores
+     S|Paramecium caudatum|Paramécie|Le cilié des cours de SVT.
+     S|Paramecium tetraurelia|Paramecium tetraurelia
+     S|Tetrahymena thermophila|Tetrahymena|A permis de découvrir les télomérases et les ribozymes (deux prix Nobel).
+     G|Vorticella|Vorticelle|Cloche sur un pédoncule ressort.
+     S|Ichthyophthirius multifiliis|Ichthyo|Maladie des points blancs des poissons.
+    C|Litostomatea|Litostomés
+     S|Didinium nasutum|Didinium|Avale des paramécies entières.
+     S|Balantioides coli|Balantidium|Seul cilié parasite de l'humain.
+     c|Entodiniomorphida|Ciliés de la panse|Des milliards dans le rumen des vaches.
+    C|Phyllopharyngea|Phyllopharyngés
+     c|Suctoria|Acinétiens|Capturent leurs proies avec des tentacules suceurs.
+    C|Colpodea|Colpodés
+     G|Colpoda|Colpoda
+    C|Prostomatea|Prostomés
+     G|Coleps|Coleps
+    C|Armophorea|Armophorés
+     G|Metopus|Metopus
+   c|Myzozoa|Myzozoaires
+    P|Apicomplexa|Apicomplexes|Parasites munis d'un complexe apical pour envahir les cellules.
+     c|Haemosporida|Hémosporidies
+      S|Plasmodium falciparum|Plasmodium falciparum|Forme la plus grave du paludisme ; plus de 600 000 morts par an.
+      S|Plasmodium vivax|Plasmodium vivax
+      S|Plasmodium malariae|Plasmodium malariae
+      S|Plasmodium knowlesi|Plasmodium knowlesi|Paludisme du macaque transmis à l'humain.
+     c|Piroplasmida|Piroplasmes
+      G|Babesia|Babesia|Transmis par les tiques.
+      G|Theileria|Theileria
+     c|Coccidia|Coccidies
+      S|Toxoplasma gondii|Toxoplasme|Infecte un tiers de l'humanité ; hôte final : le chat.
+      G|Eimeria|Eimeria|Coccidiose des volailles.
+      S|Neospora caninum|Neospora
+      S|Cyclospora cayetanensis|Cyclospora
+      G|Sarcocystis|Sarcocystis
+     c|Gregarinomorphea|Grégarines et cryptosporidies
+      G|Gregarina|Grégarine|Parasite intestinal des insectes.
+      S|Cryptosporidium parvum|Cryptosporidie
+    c|Chrompodellida|Chromérides et colpodelles|Parents photosynthétiques des apicomplexes.
+     S|Chromera velia|Chromera|Algue des coraux, parente du parasite du paludisme.
+     S|Vitrella brassicaformis|Vitrella
+     G|Colpodella|Colpodella
+    P|Perkinsozoa|Perkinsozoaires
+     S|Perkinsus marinus|Perkinsus|Parasite des huîtres.
+    P|Dinoflagellata|Dinoflagellés|Deux flagelles, dont un enroulé en ceinture. Génomes géants, chromosomes toujours condensés.
+     c|Syndiniales|Syndiniales|Parasites marins très abondants.
+      G|Amoebophrya|Amoebophrya
+      G|Hematodinium|Hematodinium|Parasite des crabes.
+     S|Oxyrrhis marina|Oxyrrhis
+     C|Dinophyceae|Dinophycées
+      S|Noctiluca scintillans|Noctiluque|Rend la mer lumineuse la nuit.
+      G|Pyrocystis|Pyrocystis|Bioluminescence bleue des baies.
+      c|Symbiodiniaceae|Zooxanthelles|Algues symbiotiques des coraux ; leur départ provoque le blanchissement.
+       G|Symbiodinium|Symbiodinium
+       G|Breviolum|Breviolum
+      S|Karenia brevis|Karenia|Marées rouges de Floride.
+      G|Alexandrium|Alexandrium|Toxines paralysantes dans les coquillages.
+      G|Gambierdiscus|Gambierdiscus|Cause de la ciguatera.
+      G|Dinophysis|Dinophysis|Toxines diarrhéiques des moules.
+      S|Lingulodinium polyedra|Lingulodinium
+      S|Tripos furca|Ceratium|Dinoflagellé à cornes (ex-Ceratium).
+      S|Pfiesteria piscicida|Pfiesteria
+   c|Colponemida|Colponémides
+    G|Colponema|Colponema
+  c|Rhizaria|Rhizaires|Amibes à pseudopodes filiformes, souvent dans une coque ou un squelette.
+   P|Cercozoa|Cercozoaires
+    c|Chlorarachniophyta|Chlorarachniophytes|Amibes qui ont avalé une algue verte, dont il reste un mini-noyau.
+     S|Bigelowiella natans|Bigelowiella
+    S|Paulinella chromatophora|Paulinella|Seul autre cas connu d'endosymbiose primaire d'une cyanobactérie (~100 Ma).
+    c|Euglyphida|Euglyphides
+     G|Euglypha|Euglypha|Coque en plaques de silice.
+    c|Cercomonadida|Cercomonades
+     G|Cercomonas|Cercomonas
+    c|Thaumatomonadida|Thaumatomonades
+   c|Endomyxa|Endomyxa
+    c|Vampyrellida|Vampyrellides
+     G|Vampyrella|Vampyrella|Perce les algues pour en aspirer le contenu.
+    C|Phytomyxea|Phytomyxés
+     S|Plasmodiophora brassicae|Hernie du chou
+    C|Ascetosporea|Ascétosporés|Parasites des mollusques.
+     G|Bonamia|Bonamia|Parasite de l'huître plate.
+     G|Marteilia|Marteilia
+     G|Haplosporidium|Haplosporidium
+    S|Gromia sphaerica|Gromia|Amibe de la taille d'un raisin, laisse des traces au fond de la mer.
+   P|Retaria|Rétariens
+    P|Foraminifera|Foraminifères|Coquilles calcaires ou agglutinées ; leurs fossiles datent les roches. Environ 10 000 espèces vivantes.
+     c|Monothalamea|Monothalamés
+      S|Allogromia laticollaris|Allogromia
+      c|Xenophyophorea|Xénophyophores|Cellules géantes des abysses.
+       S|Syringammina fragilissima|Syringammina|Une seule cellule de 20 cm de large.
+     O|Miliolida|Miliolides
+     O|Rotaliida|Rotaliides
+      S|Ammonia tepida|Ammonia
+      G|Elphidium|Elphidium
+      S|†Nummulites gizehensis|Nummulite|Les pierres des pyramides de Gizeh en sont pleines.
+     O|Globigerinida|Globigérines|Foraminifères planctoniques.
+      S|Globigerina bulloides|Globigérine
+     O|Textulariida|Textulariides
+    P|Radiolaria|Radiolaires|Squelettes de silice d'une géométrie spectaculaire (dessinés par Haeckel).
+     C|Polycystinea|Polycystines
+      O|Spumellaria|Spumellaires
+      O|Nassellaria|Nassellaires
+      O|Collodaria|Collodaires|Colonies gélatineuses de plusieurs mètres.
+     C|Acantharia|Acanthaires|Squelette de sulfate de strontium (célestine), unique dans le vivant.
+      G|Acanthometra|Acanthometra
+     c|Taxopodida|Taxopodes
+      S|Sticholonche zanclea|Sticholonche|Rame avec ses épines.
+c|Hemimastigophora|Hémimastigophores|Lignée profonde, découverte dans un sol canadien (2018).
+ S|Hemimastix kukwesjijk|Hemimastix
+ G|Spironema|Spironema
+c|Discoba|Discoba|Ancien groupe des « excavés ».
+ P|Euglenozoa|Euglénozoaires
+  c|Euglenida|Euglènes
+   S|Euglena gracilis|Euglène|Algue mobile à tache oculaire ; chloroplaste emprunté à une algue verte.
+   G|Phacus|Phacus
+   G|Trachelomonas|Trachelomonas
+   G|Peranema|Peranema|Euglène prédatrice sans chloroplaste.
+  C|Kinetoplastea|Kinétoplastidés|Un énorme ADN mitochondrial en réseau (kinétoplaste).
+   S|Trypanosoma brucei|Trypanosome africain|Maladie du sommeil, transmise par la mouche tsé-tsé.
+   S|Trypanosoma cruzi|Trypanosome de Chagas
+   S|Leishmania donovani|Leishmanie|Leishmaniose viscérale, transmise par les phlébotomes.
+   S|Leishmania major|Leishmania major
+   S|Bodo saltans|Bodo
+  C|Diplonemea|Diplonémides|Parmi les eucaryotes les plus diversifiés des océans profonds.
+   S|Diplonema papillatum|Diplonema
+  c|Symbiontida|Symbiontides
+ P|Heterolobosea|Hétérolobosés|Amibes qui peuvent se transformer en flagellés.
+  S|Naegleria fowleri|Amibe mangeuse de cerveau|Rare mais presque toujours mortelle.
+  S|Naegleria gruberi|Naegleria gruberi
+  S|Acrasis rosea|Acrasis|Amibe sociale apparue indépendamment des dictyostélides.
+ c|Jakobida|Jakobides
+  S|Andalucia godoyi|Andalucia|Possède l'ADN mitochondrial le plus « bactérien » connu.
+  S|Reclinomonas americana|Reclinomonas
+ c|Tsukubamonadida|Tsukubamonades
+  S|Tsukubamonas globosa|Tsukubamonas
+c|Metamonada|Métamonadines|Flagellés sans mitochondries classiques, des milieux sans oxygène.
+ c|Fornicata|Fornicates
+  c|Diplomonadida|Diplomonadines
+   S|Giardia intestinalis|Giardia|Parasite intestinal à deux noyaux, au « visage » souriant.
+   S|Spironucleus salmonicida|Spironucleus
+  c|Retortamonadida|Rétortamonades
+   G|Chilomastix|Chilomastix
+  G|Carpediemonas|Carpediemonas
+ c|Parabasalia|Parabasaliens
+  S|Trichomonas vaginalis|Trichomonas|L'IST non virale la plus fréquente.
+  S|Tritrichomonas foetus|Tritrichomonas
+  S|Histomonas meleagridis|Histomonas|Maladie de la tête noire des dindes.
+  S|Dientamoeba fragilis|Dientamoeba
+  G|Trichonympha|Trichonympha|Digère le bois dans l'intestin des termites.
+  S|Mixotricha paradoxa|Mixotricha|Se déplace grâce à des bactéries qui lui servent de cils.
+ c|Preaxostyla|Préaxostylés
+  S|Monocercomonoides exilis|Monocercomonoides|Premier eucaryote connu sans aucune mitochondrie (2016).
+  G|Pyrsonympha|Pyrsonympha
+  G|Paratrimastix|Paratrimastix
+c|Malawimonadida|Malawimonades
+ S|Malawimonas jakobiformis|Malawimonas
+c|Ancyromonadida|Ancyromonades|Lignée très ancienne, peut-être proche de la racine des eucaryotes.
+ S|Ancyromonas sigmoides|Ancyromonas
+ G|Fabomonas|Fabomonas
