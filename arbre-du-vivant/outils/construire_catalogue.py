@@ -127,6 +127,14 @@ def _chain(first, it):
     yield from it
 
 
+SOUS_GENRE = re.compile(r" \([^)]*\)")
+
+
+def sans_sg(nm):
+    """« Carabus (Chrysocarabus) auronitens » -> « Carabus auronitens »."""
+    return SOUS_GENRE.sub("", nm)
+
+
 def clean_name(nm):
     nm = nm.lstrip("†").strip()
     return ALIASES.get(nm, nm)
@@ -224,7 +232,7 @@ def main(src, ann_dir, out, base=None):
         print("depuis la version de base : noms français", len(fr), "éteints", len(extinct), file=sys.stderr)
     atlas_eteints = {nm for nm, ex, _ in atlas_especes if ex}
     for i, nm in name.items():
-        if nm in atlas_eteints:
+        if nm in atlas_eteints or sans_sg(nm) in atlas_eteints:
             extinct.add(i)
 
     # Rattache chaque taxon gardé à son plus proche ancêtre gardé (on saute sous-genres, sections…).
@@ -256,6 +264,8 @@ def main(src, ann_dir, out, base=None):
     par_nom = collections.defaultdict(list)
     for i in kept:
         par_nom[name[i]].append(i)
+        if "(" in name[i]:
+            par_nom[sans_sg(name[i])].append(i)
     def anc_noms(i):
         out_ = set()
         while i:
@@ -363,7 +373,7 @@ def main(src, ann_dir, out, base=None):
             c, nm, f, note = VIRT[i]
             return c, nm, f, note, "", ""
         nm = name[i]
-        a = ann.get(nm, ("", ""))
+        a = ann.get(nm) or ann.get(sans_sg(nm)) or ("", "")
         f = a[0] or fr.get(i, "") or (KINGDOM_FR.get(nm, "") if rank[i] == "kingdom" else "")
         note = a[1]
         if code(i) == "x":
