@@ -180,7 +180,7 @@ footer p { margin: 0 0 8px; }
   <main id="view"></main>
   <footer>
     <p>Classification phylogénétique simplifiée, d'après les synthèses récentes (arbre des eucaryotes de Burki et al. 2020 et mises à jour, noms de procaryotes LPSN/GTDB, ICTV pour les virus). Les nœuds « clade » n'ont pas de rang classique ; l'ordre des branches suit la phylogénie, pas l'alphabet.</p>
-    <p>Périmètre : tout le vivant sauf le monde végétal multicellulaire (plantes terrestres et grandes algues), qui reste signalé en pointillés. Toutes les lignées unicellulaires sont présentes, y compris les algues microscopiques. † = éteint.</p>
+    <p>Périmètre : tout le vivant sauf le végétal multicellulaire (plantes terrestres, algues rouges et vertes pluricellulaires), signalé en pointillés. Les algues brunes, qui ne sont pas des végétaux mais des straménopiles, sont incluses. Toutes les lignées unicellulaires et tous les grands groupes de pluricellulaires (embranchements, classes, ordres) sont présents ; les espèces sont une sélection. † = éteint.</p>
     <p id="count"></p>
   </footer>
 </div>
@@ -700,9 +700,55 @@ c|Diaphoretickes|Diaphoretickes|Lignées où la photosynthèse est apparue (par 
      S|Heterosigma akashiwo|Heterosigma|Tue les poissons d'élevage.
      G|Chattonella|Chattonella
     C|Pinguiophyceae|Pinguiophycées
-    C|Xanthophyceae|Xanthophycées (unicellulaires)
+    C|Xanthophyceae|Xanthophycées|Algues jaune-vert.
      G|Botrydiopsis|Botrydiopsis
-    x|Phaeophyceae|Algues brunes|Varech, laminaires, fucus, sargasses… (grandes algues, non détaillées)
+     G|Vaucheria|Vauchérie|Un tube géant à milliers de noyaux, sans cloisons ; la limace Elysia lui vole ses chloroplastes.
+     G|Tribonema|Tribonema|Filaments d'eau douce.
+    C|Schizocladiophyceae|Schizocladiophycées|Plus proches parentes des algues brunes.
+     S|Schizocladia ischiensis|Schizocladia
+    C|Phaeophyceae|Algues brunes|Les seules grandes algues qui ne sont pas des végétaux : ce sont des straménopiles, cousines des diatomées. Leur multicellularité est apparue indépendamment de celle des plantes et des animaux. Environ 2 000 espèces.
+     O|Discosporangiales|Discosporangiales|La lignée la plus ancienne des algues brunes.
+     O|Ishigeales|Ishigeales
+     O|Dictyotales|Dictyotales
+      S|Dictyota dichotoma|Dictyote
+      S|Padina pavonica|Padine queue-de-paon|Une des rares algues brunes calcifiées.
+     O|Sphacelariales|Sphacélariales
+     O|Onslowiales|Onslowiales
+     O|Syringodermatales|Syringodermatales
+     O|Desmarestiales|Desmarestiales
+      G|Desmarestia|Desmarestia|Stocke de l'acide sulfurique dans ses cellules.
+     O|Sporochnales|Sporochnales
+     O|Tilopteridales|Tilopteridales
+     O|Ralfsiales|Ralfsiales|Algues en croûtes sur les rochers.
+     O|Scytothamnales|Scytothamnales
+     O|Ascoseirales|Ascoseirales
+     O|Nemodermatales|Nemodermatales
+     O|Ectocarpales|Ectocarpales
+      S|Ectocarpus siliculosus|Ectocarpus|Modèle génétique des algues brunes, étudié à Roscoff.
+      S|Scytosiphon lomentaria|Scytosiphon
+      S|Chorda filum|Corde de mer|Lanières de plusieurs mètres.
+     O|Laminariales|Laminaires|Les kelps : forment de véritables forêts sous-marines.
+      S|Macrocystis pyrifera|Kelp géant|La plus grande algue : plus de 45 m, pousse de 50 cm par jour.
+      S|Nereocystis luetkeana|Kelp à vessie
+      S|Laminaria digitata|Laminaire digitée|Récoltée en Bretagne pour les alginates.
+      S|Laminaria hyperborea|Laminaire rugueuse
+      S|Saccharina latissima|Laminaire sucrée
+      S|Saccharina japonica|Kombu|Source du goût umami (glutamate), identifié en 1908.
+      S|Undaria pinnatifida|Wakamé
+      S|Alaria esculenta|Alarie comestible
+      S|Lessonia nigrescens|Lessonia
+     O|Fucales|Fucales|Les algues brunes de l'estran.
+      S|Fucus vesiculosus|Fucus vésiculeux|Flotteurs remplis de gaz.
+      S|Fucus serratus|Fucus denté
+      S|Fucus spiralis|Fucus spiralé
+      S|Ascophyllum nodosum|Ascophylle noueuse
+      S|Pelvetia canaliculata|Pelvétie|Vit tout en haut de l'estran, à sec la plupart du temps.
+      S|Himanthalia elongata|Haricot de mer
+      S|Bifurcaria bifurcata|Bifurcaire
+      S|Sargassum natans|Sargasse flottante|Forme la mer des Sargasses et la « grande ceinture » de sargasses de l'Atlantique.
+      S|Sargassum muticum|Sargasse japonaise|Invasive sur les côtes françaises.
+      S|Durvillaea antarctica|Cochayuyo|Kelp austral massif, mangé au Chili.
+      G|Ericaria|Cystoseire
   c|Alveolata|Alvéolés|Sacs aplatis (alvéoles) sous la membrane.
    P|Ciliophora|Ciliés|Couverts de cils ; deux noyaux, un pour le quotidien, un pour la reproduction.
     C|Heterotrichea|Hétérotriches
@@ -1226,12 +1272,28 @@ R|Metazoa|Animaux|Pluricellulaires hétérotrophes, issus d'un ancêtre proche d
       S|Symbion pandora|Symbion
      P|Entoprocta|Entoproctes
       G|Pedicellina|Pedicellina
-     P|Bryozoa|Bryozoaires|Colonies de minuscules animaux filtreurs.
-      S|Membranipora membranacea|Dentelle de mer
-      S|Bugula neritina|Bugula|Source de la bryostatine.
-      S|Cristatella mucedo|Cristatella
-     P|Nemertea|Némertes|Vers rubans à trompe évaginable.
-      S|Lineus longissimus|Ver lacet de botte|Peut-être l'animal le plus long : jusqu'à 30 m, voire plus.
+     P|Bryozoa|Bryozoaires|Colonies de minuscules animaux filtreurs. Environ 6 000 espèces.
+      C|Phylactolaemata|Bryozoaires d'eau douce
+       S|Cristatella mucedo|Cristatella|Colonie qui rampe lentement.
+       S|Pectinatella magnifica|Pectinatelle|Boules gélatineuses de 60 cm, invasives en Europe.
+       S|Plumatella repens|Plumatelle
+      C|Stenolaemata|Sténolèmes
+       G|Crisia|Crisia
+      C|Gymnolaemata|Gymnolèmes
+       S|Membranipora membranacea|Dentelle de mer
+       S|Bugula neritina|Bugula|Source de la bryostatine.
+       S|Flustra foliacea|Flustre|Ressemble à une algue.
+       S|Pentapora fascialis|Rose de mer
+     P|Nemertea|Némertes|Vers rubans à trompe évaginable. Environ 1 300 espèces.
+      C|Palaeonemertea|Paléonémertes
+       G|Tubulanus|Tubulanus
+      c|Pilidiophora|Pilidiophores
+       S|Lineus longissimus|Ver lacet de botte|Peut-être l'animal le plus long : jusqu'à 30 m, voire plus.
+       S|Lineus ruber|Lineus ruber
+       S|Cerebratulus marginatus|Cerebratulus
+      c|Hoplonemertea|Hoplonémertes|Trompe armée d'un stylet.
+       G|Prostoma|Prostoma|Némerte d'eau douce.
+       S|Geonemertes dendyi|Némerte terrestre
      P|Brachiopoda|Brachiopodes|Ressemblent à des coquillages mais n'en sont pas.
       S|Lingula anatina|Lingule|Quasiment inchangée depuis 500 millions d'années.
       G|Terebratulina|Terebratulina
@@ -1486,11 +1548,28 @@ Pb|Myriapoda|Myriapodes|Mille-pattes et apparentés. Environ 16 000 espèces.
   S|Scolopendra cingulata|Scolopendre méditerranéenne
   S|Scutigera coleoptrata|Scutigère véloce
   S|Lithobius forficatus|Lithobie
- C|Diplopoda|Diplopodes|Deux paires de pattes par segment.
-  S|Eumillipes persephone|Eumillipes|Premier vrai « mille-pattes » : 1 306 pattes (2021).
-  S|Illacme plenipes|Illacme|Jusqu'à 750 pattes.
-  S|Glomeris marginata|Gloméris|Se roule en boule.
-  S|Archispirostreptus gigas|Mille-pattes géant africain
+ C|Diplopoda|Diplopodes|Deux paires de pattes par segment. Environ 13 000 espèces.
+  O|Polyxenida|Polyxénides|Minuscules, couverts de soies.
+   S|Polyxenus lagurus|Polyxène
+  O|Glomerida|Gloméris|Se roulent en boule.
+   S|Glomeris marginata|Gloméris bordé
+  O|Sphaerotheriida|Mille-pattes boules géants
+   G|Zoosphaerium|Zoosphaerium|Boules de la taille d'une balle de golf, à Madagascar.
+  O|Polydesmida|Polydesmes|Certains libèrent du cyanure.
+   S|Polydesmus angustus|Polydesme
+   S|Apheloria virginiensis|Apheloria
+  O|Platydesmida|Platydesmides
+   S|Illacme plenipes|Illacme|Jusqu'à 750 pattes.
+  O|Polyzoniida|Polyzoniides
+   S|Eumillipes persephone|Eumillipes|Premier vrai « mille-pattes » : 1 306 pattes (2021), à 60 m sous terre.
+  O|Julida|Iules
+   S|Tachypodoiulus niger|Iule à pattes blanches
+   S|Ommatoiulus sabulosus|Iule des sables
+  O|Spirostreptida|Spirostreptides
+   S|Archispirostreptus gigas|Mille-pattes géant africain
+  O|Spirobolida|Spirobolides
+   G|Narceus|Narceus
+  S|†Arthropleura armata|Arthropleure|Mille-pattes géant du Carbonifère : 2,6 m.
  C|Pauropoda|Pauropodes
  C|Symphyla|Symphyles
   G|Scutigerella|Scutigerella
@@ -2113,10 +2192,18 @@ c|Ovalentaria|Ovalentaria
   S|Atherina presbyter|Prêtre
  O|Mugiliformes|Mulets
   S|Mugil cephalus|Mulet cabot
- O|Blenniiformes|Blennies et poissons-clowns
+ O|Blenniiformes|Blennies
   S|Parablennius gattorugine|Blennie gattorugine
+  S|Aidablennius sphynx|Blennie sphinx
+  S|Salaria fluviatilis|Blennie fluviatile
+ F|Pomacentridae|Demoiselles et poissons-clowns
   S|Amphiprion ocellaris|Poisson-clown|Change de sexe : le plus gros individu devient femelle.
-  G|Chromis|Castagnole
+  S|Amphiprion percula|Poisson-clown orange
+  S|Chromis chromis|Castagnole
+  S|Dascyllus aruanus|Demoiselle à trois bandes
+ O|Gobiesociformes|Porte-écuelles|Ventouse ventrale.
+  S|Lepadogaster lepadogaster|Porte-écuelle
+
 O|Anabantiformes|Anabantiformes
  S|Betta splendens|Combattant|Respire de l'air par un organe labyrinthe.
  S|Channa argus|Tête de serpent
@@ -3068,6 +3155,3071 @@ Cb|Theria|Thériens|Mammifères vivipares.
         S|Inia geoffrensis|Dauphin de l'Amazone
         S|Platanista gangetica|Dauphin du Gange
         S|†Lipotes vexillifer|Baiji|Dauphin du Yangtsé, déclaré fonctionnellement éteint en 2006.
+# Compléments pluricellulaires : invertébrés
+@@ Demospongiae
+S|Xestospongia muta|Éponge baril géante|Certaines auraient plus de 2 000 ans.
+S|Tethya aurantium|Orange de mer
+S|Aplysina aerophoba|Aplysine
+S|Halichondria panicea|Éponge mie de pain
+S|Chondrocladia lyra|Éponge harpe|Éponge carnivore des abysses.
+G|Callyspongia|Éponge tube
+@@ Hexactinellida
+S|Anoxycalyx joubini|Éponge géante antarctique|Croissance extrêmement lente, peut-être des millénaires.
+@@ Calcarea
+S|Clathrina coriacea|Clathrine
+@@ Ctenophora
+G|Velamen|Velamen|Ruban transparent apparenté à la ceinture de Vénus.
+S|Euplokamis dunlapae|Euplokamis
+@@ Hydrozoa
+O|Siphonophorae|Siphonophores|Colonies d'individus spécialisés qui forment un seul « animal » ; les plus longs organismes connus.
+ G|Apolemia|Apolemia|Une colonie d'environ 47 m a été filmée en 2020 au large de l'Australie.
+ S|Praya dubia|Praya|Colonies de 40 m dans les profondeurs.
+ G|Nanomia|Nanomia
+O|Anthoathecata|Anthoathécates|Polypes sans thèque.
+ G|Tubularia|Tubulaire
+ S|Porpita porpita|Porpite|Disque bleu flottant.
+O|Leptothecata|Leptothécates|Polypes protégés par une thèque.
+ S|Aequorea victoria|Aequorée|Source de la protéine fluorescente verte (GFP), Nobel 2008.
+O|Trachymedusae|Trachyméduses
+ G|Liriope|Liriope
+O|Narcomedusae|Narcoméduses
+ G|Solmissus|Solmissus
+O|Limnomedusae|Limnoméduses
+O|Actinulida|Actinulides|Hydrozoaires minuscules vivant entre les grains de sable.
+@@ Scyphozoa
+O|Coronatae|Méduses à couronne
+ S|Periphylla periphylla|Périphylle|Méduse rouge des profondeurs, lumineuse.
+O|Rhizostomeae|Rhizostomes
+ S|Rhopilema esculentum|Méduse comestible
+ S|Nemopilema nomurai|Méduse de Nomura|Jusqu'à 200 kg.
+ S|Cotylorhiza tuberculata|Méduse œuf au plat
+O|Semaeostomeae|Sémaéostomes
+ S|Stygiomedusa gigantea|Méduse fantôme géante|Bras de 10 m.
+ S|Chrysaora fuscescens|Ortie de mer du Pacifique
+@@ Cubozoa
+S|Carukia barnesi|Irukandji de Barnes|Méduse de 1 cm au venin redoutable.
+S|Tripedalia cystophora|Tripedalia|24 yeux, dont certains avec cristallin.
+@@ Hexacorallia
+O|Corallimorpharia|Corallimorphaires|Anémones-coraux sans squelette.
+@@ Scleractinia
+S|Desmophyllum pertusum|Corail blanc des eaux froides|Récifs profonds de l'Atlantique jusqu'à plus de 1 000 m.
+S|Cladocora caespitosa|Madrépore méditerranéen
+G|Montipora|Montipora
+@@ Actiniaria
+S|Metridium senile|Œillet de mer
+S|Stichodactyla gigantea|Anémone géante|Hôte des poissons-clowns.
+@@ Octocorallia
+S|Paramuricea clavata|Gorgone pourpre
+S|Veretillum cynomorium|Vérétille
+S|Paragorgia arborea|Corail chewing-gum|Grandes gorgones des eaux froides.
+@@ Myxozoa
+S|Kudoa septempunctata|Kudoa|Intoxications au poisson cru au Japon.
+@@ Acoela
+G|Convolutriloba|Convolutriloba|Se reproduit en bourgeonnant à l'envers.
+@@ Xenacoelomorpha
+S|Xenoturbella churro|Xenoturbella churro|Décrit en 2016, au nom inspiré du beignet.
+@@ Priapulida
+S|Priapulus abyssorum|Priapule des abysses
+S|†Ottoia prolifica|Ottoia|Priapulien de Burgess, 508 Ma.
+@@ Nematoda
+S|Trichuris trichiura|Trichocéphale
+S|Strongyloides stercoralis|Anguillule|Peut se multiplier dans son hôte.
+S|Bursaphelenchus xylophilus|Nématode du pin|Tue les pins, transporté par un longicorne.
+S|Xiphinema index|Xiphinème|Transmet le court-noué de la vigne.
+S|Heterodera glycines|Nématode à kystes du soja
+S|Globodera rostochiensis|Nématode doré de la pomme de terre
+S|Steinernema carpocapsae|Steinernema|Nématode tueur d'insectes utilisé en jardinage biologique.
+S|Pristionchus pacificus|Pristionchus|Modèle de la plasticité : prédateur ou mangeur de bactéries selon l'environnement.
+S|Haemonchus contortus|Ver du mouton
+S|Angiostrongylus cantonensis|Ver du poumon du rat|Peut provoquer des méningites.
+S|Placentonema gigantissima|Placentonema|Plus long nématode : 8 m, dans le placenta des cachalots.
+S|Panagrolaimus kolymaensis|Panagrolaimus de la Kolyma|Ranimé après 46 000 ans dans le pergélisol (2023).
+@@ Nematomorpha
+G|Nectonema|Nectonema|Seul nématomorphe marin.
+@@ Tardigrada
+C|Heterotardigrada|Hétérotardigrades
+ S|Echiniscus testudo|Echiniscus
+ S|Batillipes mirus|Batillipes|Tardigrade marin des sables.
+C|Eutardigrada|Eutardigrades
+ S|Paramacrobiotus richtersi|Paramacrobiotus|Certains brillent en bleu sous UV.
+@@ Onychophora
+S|Epiperipatus broadwayi|Péripate des Caraïbes
+@@ Rotifera
+S|Philodina roseola|Philodine
+S|Keratella cochlearis|Keratella
+@@ Acanthocephala
+S|Moniliformis moniliformis|Moniliformis
+S|Macracanthorhynchus hirudinaceus|Échinorhynque géant du porc
+@@ Gnathostomulida
+G|Gnathostomula|Gnathostomula
+@@ Chaetognatha
+G|Spadella|Spadella|Chétognathe benthique.
+S|Eukrohnia hamata|Eukrohnia
+@@ Platyhelminthes
+O|Macrostomorpha|Macrostomides
+ S|Macrostomum lignano|Macrostomum|Modèle de régénération et de reproduction.
+O|Prorhynchida|Prorhynchides
+O|Rhabdocoela|Rhabdocœles
+ G|Mesostoma|Mesostoma
+ S|Temnocephala chilensis|Temnocéphale|Vit sur les écrevisses.
+O|Proseriata|Prosériates
+O|Fecampiida|Fécampiides|Parasites de crustacés.
+@@ Tricladida
+S|Dugesia gonocephala|Planaire gonocéphale
+S|Polycelis felina|Polycelis
+S|Arthurdendyus triangulatus|Ver plat de Nouvelle-Zélande|Prédateur invasif des vers de terre.
+@@ Trematoda
+S|Schistosoma haematobium|Schistosome urinaire
+S|Clonorchis sinensis|Douve de Chine
+S|Paragonimus westermani|Douve du poumon
+S|Opisthorchis felineus|Douve du chat
+S|Diplostomum spathaceum|Diplostome|Rend les poissons aveugles.
+@@ Cestoda
+S|Echinococcus granulosus|Échinocoque du chien
+S|Hymenolepis nana|Ténia nain
+S|Dipylidium caninum|Ténia du chien
+S|Schistocephalus solidus|Schistocephalus|Pousse les épinoches vers la surface, où les oiseaux les mangent.
+S|Ligula intestinalis|Ligule
+@@ Monogenea
+S|Polystoma integerrimum|Polystome|Vit dans la vessie des grenouilles.
+G|Diplozoon|Diplozoon|Deux individus fusionnés à vie.
+@@ Gastrotricha
+G|Lepidodermella|Lepidodermella
+G|Turbanella|Turbanella
+@@ Entoprocta
+G|Loxosomella|Loxosomella
+G|Barentsia|Barentsia
+@@ Brachiopoda
+S|Novocrania anomala|Crania
+S|Magellania venosa|Magellania|Grand brachiopode des fjords chiliens.
+S|†Spirifer striatus|Spirifer|Brachiopode fossile très courant.
+@@ Phoronida
+S|Phoronopsis californica|Phoronopsis
+@@ Polyplacophora
+S|Cryptochiton stelleri|Chiton géant|Jusqu'à 33 cm.
+S|Lepidochitona cinerea|Chiton cendré
+@@ Solenogastres
+G|Neomenia|Neomenia
+@@ Caudofoveata
+G|Chaetoderma|Chaetoderma
+@@ Scaphopoda
+G|Cadulus|Cadulus
+@@ Caenogastropoda
+S|Bolinus brandaris|Murex épineux|Source de la pourpre de Tyr, le colorant des empereurs.
+S|Hexaplex trunculus|Murex fascié
+S|Nucella lapillus|Pourpre petite-pierre
+S|Ocenebra erinaceus|Bigorneau perceur
+S|Euspira catena|Natice|Perce les coquilles des bivalves.
+S|Viviparus viviparus|Paludine
+S|Tritia reticulata|Nasse réticulée
+S|Aporrhais pespelecani|Pied-de-pélican
+S|Carinaria cristata|Carinaire|Gastéropode nageur transparent.
+S|Conus textile|Cône textile
+@@ Vetigastropoda
+S|Steromphala umbilicalis|Gibbule ombiliquée
+S|Turbo marmoratus|Turbo marbré
+G|Pleurotomaria|Pleurotomaire|« Fossile vivant » des grandes profondeurs.
+@@ Nudibranchia
+S|Flabellina affinis|Flabelline mauve
+S|Dendrodoris limbata|Doris
+S|Chromodoris annae|Chromodoris d'Anne
+@@ Heterobranchia
+S|Tylodina perversa|Tylodine|Mange une éponge et prend sa couleur jaune.
+S|Bulla striata|Bulle striée
+@@ Stylommatophora
+S|Cepaea nemoralis|Escargot des haies|Coquilles de couleurs variées, modèle de génétique des populations.
+S|Deroceras reticulatum|Limace grise
+S|Euglandina rosea|Escargot loup|Prédateur introduit qui a fait disparaître de nombreux escargots d'îles.
+S|Rumina decollata|Bulime tronqué|Casse volontairement le haut de sa coquille.
+S|Testacella haliotidea|Testacelle|Limace prédatrice de vers de terre.
+S|Partula turgida|Partula|Escargot des îles de la Société ; éteint dans la nature.
+S|Achatinella mustelina|Achatinelle d'Oahu
+@@ Hygrophila
+S|Planorbarius corneus|Planorbe
+S|Physella acuta|Physe
+@@ Bivalvia
+S|Pholas dactylus|Pholade|Bivalve lumineux qui creuse la roche.
+S|Lithophaga lithophaga|Datte de mer|Creuse le calcaire ; sa récolte est interdite.
+S|Spondylus gaederopus|Spondyle pied-d'âne
+S|Glycymeris glycymeris|Amande de mer
+S|Mya arenaria|Mye des sables
+S|Venus verrucosa|Praire
+S|Donax trunculus|Telline
+S|Mercenaria mercenaria|Clam
+S|Unio crassus|Mulette épaisse
+S|Anodonta cygnea|Anodonte des étangs
+S|Corbicula fluminea|Corbicule asiatique
+S|Xylophaga dorsalis|Xylophage|Creuse le bois coulé au fond de la mer.
+S|Kuphus polythalamius|Taret géant|Ver de 1,5 m qui se nourrit grâce à des bactéries sulfureuses.
+S|Bathymodiolus azoricus|Moule des sources hydrothermales
+S|Solemya velum|Solemya|Bivalve sans tube digestif fonctionnel.
+@@ Octopoda
+S|Octopus cyanea|Poulpe de jour
+S|Amphioctopus marginatus|Poulpe veiné|Transporte des coques de noix de coco pour s'abriter.
+S|Eledone cirrhosa|Élédone
+S|Wunderpus photogenicus|Wunderpus
+S|Haliphron atlanticus|Poulpe à sept bras|Un des plus grands poulpes.
+@@ Sepiida
+S|Sepia apama|Seiche géante d'Australie
+@@ Oegopsida
+S|Todarodes sagittatus|Toutenon
+S|Taningia danae|Calmar de Dana|Organes lumineux grands comme des citrons.
+S|Histioteuthis heteropsis|Calmar à œil de biche
+S|Magnapinna pacifica|Calmar aux longs bras
+@@ Myopsida
+S|Sepioteuthis lessoniana|Calmar à grandes nageoires
+@@ Cephalopoda
+c|†Ammonoidea|Ammonites|Céphalopodes à coquille spiralée, éteints il y a 66 millions d'années.
+ S|†Parapuzosia seppenradensis|Ammonite géante|Coquille de près de 2 m.
+c|†Belemnitida|Bélemnites
+@@ Errantia
+S|Platynereis dumerilii|Platynereis|Modèle du développement et de l'évolution du cerveau.
+S|Hermodice carunculata|Ver de feu
+S|Glycera dibranchiata|Glycère|Mâchoires renforcées de cuivre.
+S|Nereis pelagica|Néréis pélagique
+S|Hesiocaeca methanicola|Ver de glace|Vit sur les hydrates de méthane.
+S|Odontosyllis enopla|Ver de feu des Bermudes|Parades lumineuses après la pleine lune.
+S|Paralvinella sulfincola|Paralvinella
+@@ Sedentaria
+S|Sabellaria alveolata|Hermelle|Construit des récifs de sable en baie du Mont-Saint-Michel.
+S|Chaetopterus variopedatus|Chétoptère
+S|Lanice conchilega|Lanice
+S|Terebella lapidaria|Térébelle
+G|Serpula|Serpule
+S|Owenia fusiformis|Owenia
+S|Capitella teleta|Capitella
+S|Pectinaria koreni|Pectinaire|Construit un tube conique de grains de sable.
+c|Myzostomida|Myzostomides|Parasites des crinoïdes.
+@@ Oligochaeta
+S|Aporrectodea caliginosa|Ver de terre gris
+S|Lumbricus rubellus|Ver rouge
+S|Amynthas agrestis|Ver sauteur|Ver asiatique invasif qui se tortille violemment.
+S|Enchytraeus albidus|Enchytrée
+S|Mesenchytraeus solifugus|Ver des glaciers
+G|Branchiobdella|Branchiobdelles|Petits vers qui vivent sur les écrevisses.
+@@ Hirudinea
+S|Hirudo verbana|Sangsue médicinale verte
+S|Haemopis sanguisuga|Fausse sangsue du cheval
+S|Helobdella robusta|Helobdella
+@@ Asteroidea
+S|Astropecten aranciacus|Étoile-peigne
+S|Echinaster sepositus|Étoile de mer rouge
+S|Linckia laevigata|Étoile de mer bleue
+S|Culcita novaeguineae|Étoile coussin
+S|Patiria miniata|Étoile chauve-souris
+S|Xyloplax medusiformis|Marguerite de mer|Étoile de mer en disque, vit sur le bois immergé.
+S|Labidiaster annulatus|Étoile de mer antarctique aux 50 bras
+@@ Ophiuroidea
+S|Ophiocomina nigra|Ophiure noire
+S|Ophiopholis aculeata|Ophiure épineuse
+@@ Echinoidea
+S|Echinus esculentus|Oursin comestible
+S|Psammechinus miliaris|Oursin vert
+S|Heterocentrotus mamillatus|Oursin crayon
+S|Arbacia lixula|Oursin noir
+S|Spatangus purpureus|Spatangue pourpre
+S|Toxopneustes pileolus|Oursin fleur|Pédicellaires venimeux.
+S|Lytechinus variegatus|Oursin varié
+@@ Holothuroidea
+S|Holothuria tubulosa|Holothurie tubuleuse
+S|Scotoplanes globosa|Cochon de mer|Holothurie des abysses à « pattes ».
+S|Psychropotes longicauda|Holothurie à queue
+S|Thelenota ananas|Holothurie ananas
+S|Synapta maculata|Synapte|Longue de 3 m, sans pieds.
+@@ Crinoidea
+S|Metacrinus rotundus|Lys de mer du Japon
+S|Florometra serratissima|Comatule du Pacifique
+@@ Enteropneusta
+S|Balanoglossus clavigerus|Balanoglosse
+@@ Pterobranchia
+G|Cephalodiscus|Cephalodiscus
+@@ Ascidiacea
+S|Didemnum vexillum|Didemnum|Ascidie coloniale invasive.
+S|Phallusia mammillata|Ascidie blanche
+S|Microcosmus sabatieri|Violet|Mangé en Provence.
+S|Styela clava|Ascidie japonaise
+@@ Thaliacea
+G|Doliolum|Doliolum
+@@ Cephalochordata
+S|Branchiostoma floridae|Amphioxus de Floride
+S|Asymmetron lucayanum|Asymmetron
+# Compléments pluricellulaires : arthropodes
+@@ Arthropoda
+c|†Radiodonta|Radiodontes|Grands prédateurs du Cambrien, à la base des arthropodes.
+ S|†Anomalocaris canadensis|Anomalocaris|Prédateur d'un mètre il y a 508 millions d'années.
+ S|†Aegirocassis benmoulai|Aegirocassis|Filtreur géant de 2 m.
+C|†Trilobita|Trilobites|Plus de 20 000 espèces fossiles, de –521 à –252 millions d'années.
+ S|†Elrathia kingii|Elrathia|Le trilobite fossile le plus vendu au monde.
+ G|†Paradoxides|Paradoxides
+ G|†Phacops|Phacops|Yeux à lentilles de calcite.
+ S|†Isotelus rex|Isotelus|Plus grand trilobite complet : 72 cm.
+@@ Chelicerata
+C|†Eurypterida|Euryptérides|« Scorpions de mer » du Paléozoïque.
+ S|†Jaekelopterus rhenaniae|Jaekelopterus|Le plus grand arthropode connu : environ 2,5 m.
+@@ Pycnogonida
+S|Colossendeis megalonyx|Pycnogonide géant antarctique
+@@ Mygalomorphae
+F|Ctenizidae|Araignées à trappe
+ S|Cteniza sauvagesi|Cténize de Sauvages|Ferme son terrier par une porte à charnière.
+F|Atypidae|Atypidés
+ S|Atypus affinis|Atype|Mygale de France qui vit dans un tube de soie.
+F|Nemesiidae|Némésiidés
+F|Hexathelidae|Hexathélidés
+@@ Theraphosidae
+S|Poecilotheria metallica|Mygale bleue de Gooty
+S|Grammostola rosea|Mygale du Chili
+@@ Araneomorphae
+F|Uloboridae|Uloboridés|Sans glandes à venin.
+ S|Uloborus walckenaerius|Ulobore
+F|Deinopidae|Araignées à filet
+ G|Deinopis|Deinopis|Lance un filet de soie sur ses proies ; yeux géants.
+F|Tetragnathidae|Tétragnathes
+ S|Tetragnatha extensa|Tétragnathe étirée
+ S|Metellina segmentata|Méta d'automne
+F|Eresidae|Érèses
+ S|Eresus kollari|Érèse coccinelle|Les mères se laissent manger par leurs petits.
+F|Oxyopidae|Araignées-lynx
+ S|Peucetia viridans|Araignée-lynx verte
+F|Scytodidae|Scytodes
+ S|Scytodes thoracica|Scytode|Crache un filet de glu venimeuse.
+F|Mimetidae|Araignées pirates|Mangent d'autres araignées.
+F|Gnaphosidae|Gnaphosidés
+F|Clubionidae|Clubionidés
+F|Zodariidae|Zodariidés|Chasseuses de fourmis.
+F|Oonopidae|Oonopidés|Araignées de 1 à 2 mm.
+F|Filistatidae|Filistatidés
+F|Hersiliidae|Hersiliidés
+F|Sparassidae|Araignées-crabes géantes
+ S|Heteropoda maxima|Heteropoda maxima|La plus grande envergure : 30 cm.
+ S|Cebrennus rechenbergi|Araignée roue|Se roule en roue pour fuir dans les dunes.
+F|Trechaleidae|Trechaleidés
+F|Segestriidae|Ségestries
+ S|Segestria florentina|Ségestrie florentine
+@@ Araneidae
+S|Trichonephila clavipes|Néphile dorée|Soie dorée.
+S|Gasteracantha cancriformis|Araignée épineuse
+S|Cyclosa conica|Cyclose|Décore sa toile avec ses débris.
+S|Mastophora hutchinsoni|Araignée bolas|Chasse les papillons avec une boule de glu parfumée.
+S|Larinioides sclopetarius|Épeire des ponts
+@@ Theridiidae
+S|Latrodectus hasselti|Veuve noire australienne
+S|Parasteatoda tepidariorum|Théridion des serres
+S|Argyrodes elevatus|Argyrode|Vole la nourriture dans les toiles des autres.
+@@ Lycosidae
+S|Pardosa amentata|Pardose
+S|Hogna radiata|Lycose radiée
+S|Hogna ingens|Lycose des Desertas|Grande lycose menacée de Madère.
+@@ Salticidae
+S|Phidippus regius|Saltique royale
+S|Portia fimbriata|Portia|Planifie des détours pour attaquer d'autres araignées.
+S|Toxeus magnus|Araignée sauteuse lactante|Nourrit ses petits avec une sorte de lait (2018).
+@@ Agelenidae
+S|Agelena labyrinthica|Agélène à labyrinthe
+S|Tegenaria domestica|Tégénaire domestique
+@@ Scorpiones
+S|Heterometrus spinifer|Scorpion géant de forêt
+S|Hadrurus arizonensis|Scorpion velu du désert
+S|Centruroides sculpturatus|Scorpion d'écorce d'Arizona
+S|Tityus serrulatus|Scorpion jaune du Brésil|Se reproduit sans mâle ; envahit les villes.
+S|Parabuthus transvaalicus|Parabuthus|Projette son venin.
+S|Microtityus minimus|Microtityus|Le plus petit scorpion : 11 mm.
+S|†Pulmonoscorpius kirktonensis|Scorpion géant du Carbonifère|70 cm.
+@@ Opiliones
+S|Leiobunum rotundum|Faucheux à pattes fines
+G|Trogulus|Trogule
+@@ Acari
+O|Opilioacarida|Opilioacariens
+O|Holothyrida|Holothyrides
+@@ Ixodida
+S|Rhipicephalus sanguineus|Tique brune du chien
+S|Dermacentor reticulatus|Dermacentor
+S|Ornithodoros moubata|Ornithodore|Tique molle, vecteur de la fièvre récurrente.
+S|Amblyomma americanum|Tique étoilée|Sa morsure peut rendre allergique à la viande rouge.
+@@ Trombidiformes
+S|Trombidium holosericeum|Trombidion soyeux
+S|Phytoptus avellanae|Phytopte du noisetier
+S|Paratarsotomus macropalpis|Paratarsotomus|Record de vitesse relative : 322 longueurs de corps par seconde.
+@@ Sarcoptiformes
+S|Archegozetes longisetosus|Archegozetes|Oribate modèle, aux mâchoires surpuissantes.
+S|Acarus siro|Acarien de la farine
+S|Psoroptes ovis|Psoropte du mouton
+@@ Mesostigmata
+S|Phytoseiulus persimilis|Phytoseiulus|Acarien prédateur utilisé en serre.
+S|Tropilaelaps clareae|Tropilaelaps
+@@ Chilopoda
+O|Geophilomorpha|Géophiles|Jusqu'à 191 paires de pattes, toujours en nombre impair.
+ S|Geophilus flavus|Géophile jaune
+ S|Strigamia maritima|Strigamia|Premier génome de myriapode séquencé.
+O|Craterostigmomorpha|Craterostigmomorphes
+S|Scolopendra subspinipes|Scolopendre géante d'Asie
+S|Ethmostigmus rubripes|Scolopendre géante d'Australie
+S|Scolopendra cataracta|Scolopendre amphibie|Chasse sous l'eau (décrite en 2016).
+@@ Pauropoda
+G|Pauropus|Pauropus
+@@ Thecostraca
+c|Facetotecta|Facétotectes|Connus seulement par leurs larves « y » ; adulte jamais observé.
+S|Semibalanus balanoides|Balane commune
+S|Coronula diadema|Balane des baleines
+S|Chthamalus stellatus|Chthamale
+@@ Copepoda
+O|Calanoida|Calanoïdes
+ S|Calanus glacialis|Calanus arctique
+ S|Eurytemora affinis|Eurytemora
+O|Cyclopoida|Cyclopoïdes
+ S|Oithona similis|Oithona|Peut-être l'animal multicellulaire le plus nombreux de la planète.
+O|Harpacticoida|Harpacticoïdes
+ S|Tigriopus californicus|Tigriopus
+O|Siphonostomatoida|Siphonostomatoïdes|Copépodes parasites.
+ S|Lepeophtheirus salmonis|Pou du saumon
+ S|Pennella balaenoptera|Pennelle|Plus grand copépode : 32 cm, parasite des baleines.
+@@ Ostracoda
+S|Gigantocypris muelleri|Ostracode géant|Grands yeux réflecteurs.
+S|Vargula hilgendorfii|Luciole de mer|Ostracode lumineux, poudre utilisée comme lampe par l'armée japonaise.
+G|Darwinula|Darwinula|Sans mâles depuis 200 millions d'années.
+@@ Branchiopoda
+O|Laevicaudata|Laevicaudata
+O|Spinicaudata|Spinicaudata|Crevettes à coquille bivalve des mares temporaires.
+@@ Anostraca
+S|Branchipus schaefferi|Branchipe
+S|Branchinecta gigas|Branchinecte géante
+@@ Diplostraca
+S|Leptodora kindtii|Leptodora|Grande puce d'eau prédatrice, transparente.
+S|Bythotrephes longimanus|Bythotrephes|Invasif dans les Grands Lacs.
+@@ Notostraca
+S|Lepidurus apus|Lépidure
+@@ Remipedia
+S|Xibalbanus tulumensis|Xibalbanus|Seul crustacé venimeux connu.
+@@ Cephalocarida
+S|Hutchinsoniella macracantha|Hutchinsoniella
+@@ Malacostraca
+O|Cumacea|Cumacés
+ S|Diastylis rathkei|Diastylis
+O|Tanaidacea|Tanaïdacés
+O|Lophogastrida|Lophogastrides
+ G|Gnathophausia|Gnathophausia
+O|Bathynellacea|Bathynelles|Crustacés aveugles des nappes souterraines.
+O|Thermosbaenacea|Thermosbénacés|Vivent dans des sources chaudes souterraines.
+O|Spelaeogriphacea|Spéléogriphacés|Crustacés de grottes, 4 espèces.
+@@ Mysida
+S|Neomysis integer|Mysis
+S|Mysis relicta|Mysis relicte
+@@ Euphausiacea
+S|Meganyctiphanes norvegica|Krill nordique
+S|Euphausia crystallorophias|Krill des glaces
+@@ Stomatopoda
+S|Lysiosquillina maculata|Squille zébrée|La plus grande crevette-mante : 40 cm.
+S|Gonodactylus smithii|Gonodactylus
+@@ Decapoda
+F|Scyllaridae|Cigales de mer
+ S|Scyllarides latus|Grande cigale de mer
+ S|Scyllarus arctus|Petite cigale de mer
+F|Polychelidae|Polychélidés|Homards aveugles des abysses.
+F|Parastacidae|Écrevisses australes
+ S|Astacopsis gouldi|Écrevisse géante de Tasmanie|Le plus grand invertébré d'eau douce : jusqu'à 5 kg.
+ S|Cherax quadricarinatus|Écrevisse à pinces rouges
+F|Kiwaidae|Crabes yétis
+ S|Kiwa hirsuta|Crabe yéti|Cultive des bactéries sur ses pinces velues.
+c|Dendrobranchiata|Crevettes pénéides et sergestes
+ S|Penaeus vannamei|Crevette à pattes blanches|La crevette la plus élevée au monde.
+ S|Penaeus japonicus|Crevette kuruma
+ S|Sergia lucens|Crevette sakura
+@@ Penaeidae
+S|Penaeus kerathurus|Caramote
+@@ Brachyura
+S|Necora puber|Étrille
+S|Pachygrapsus marmoratus|Crabe marbré
+S|Callinectes sapidus|Crabe bleu|Invasif en Méditerranée et sur les côtes françaises.
+S|Potamon fluviatile|Crabe de rivière
+S|Grapsus grapsus|Crabe rouge des rochers
+G|Ocypode|Crabe fantôme
+S|Lybia tessellata|Crabe boxeur|Porte une anémone dans chaque pince.
+S|Dromia personata|Dromie|Se coiffe d'une éponge.
+S|Pinnotheres pisum|Crabe petit pois|Vit dans les moules.
+S|Ranina ranina|Crabe grenouille
+S|Mictyris longicarpus|Crabe soldat
+S|Johngarthia lagostoma|Crabe terrestre de l'Ascension
+@@ Anomura
+S|Munida rugosa|Galathée
+S|Emerita talpoida|Crabe-taupe
+S|Coenobita clypeatus|Bernard-l'ermite terrestre
+S|Porcellana platycheles|Porcelaine velue
+S|Lithodes santolla|Centolla
+@@ Caridea
+S|Macrobrachium rosenbergii|Crevette géante d'eau douce
+S|Neocaridina davidi|Crevette cerise
+S|Rimicaris exoculata|Crevette des sources hydrothermales|Détecte la lueur des cheminées avec un œil dorsal.
+S|Pandalus borealis|Crevette nordique
+S|Atyaephyra desmarestii|Crevette d'eau douce européenne
+S|Stenopus hispidus|Crevette nettoyeuse baguée
+S|Hymenocera picta|Crevette arlequin|Ne mange que des étoiles de mer.
+S|Synalpheus regalis|Synalpheus|Première crevette eusociale découverte.
+@@ Isopoda
+S|Glyptonotus antarcticus|Isopode géant antarctique
+S|Eurydice pulchra|Eurydice
+S|Idotea balthica|Idotée
+S|Hemilepistus reaumuri|Cloporte du désert|Vit en famille dans un terrier.
+S|Trichoniscus pusillus|Trichoniscus
+S|Proasellus cavaticus|Aselle cavernicole
+S|Sphaeroma serratum|Sphérome
+@@ Amphipoda
+S|Niphargus virei|Niphargus|Amphipode aveugle des grottes.
+S|Phronima sedentaria|Phronime|Vit dans une salpe évidée ; inspiration de l'Alien.
+S|Orchestia gammarellus|Orchestie
+S|Dikerogammarus villosus|Gammare tueur|Invasif dans les rivières d'Europe.
+S|Alicella gigantea|Amphipode géant|Jusqu'à 34 cm dans les abysses.
+@@ Collembola
+S|Podura aquatica|Podure aquatique
+S|Hypogastrura nivicola|Puce des neiges
+S|Tetrodontophora bielanensis|Tetrodontophora|Collembole géant bleu de 9 mm.
+@@ Diplura
+G|Japyx|Japyx|Diploure à pinces.
+@@ Protura
+G|Acerentomon|Acerentomon
+# Compléments pluricellulaires : insectes
+@@ Archaeognatha
+S|Petrobius maritimus|Pétrobie maritime
+@@ Zygentoma
+S|Ctenolepisma longicaudatum|Lépisme argenté géant|Invasif dans les maisons d'Europe.
+@@ Pterygota
+O|†Meganisoptera|Méganisoptères|« Libellules » géantes du Carbonifère.
+ S|†Meganeuropsis permiana|Meganeuropsis|Le plus grand insecte connu : 71 cm d'envergure.
+O|†Palaeodictyoptera|Paléodictyoptères|Insectes primitifs à rostre et à trois paires d'ailes.
+@@ Ephemeroptera
+S|Ephoron virgo|Éphémère vierge|Émergences massives qui ressemblent à une tempête de neige.
+S|Baetis rhodani|Baetis
+S|Hexagenia limbata|Hexagénie|Nuées visibles au radar météo.
+@@ Anisoptera
+S|Cordulegaster boltonii|Cordulégastre annelé
+S|Sympetrum striolatum|Sympétrum strié
+S|Orthetrum cancellatum|Orthétrum réticulé
+S|Gomphus vulgatissimus|Gomphe vulgaire
+S|Petalura ingentissima|Pétalure géante|La plus grande libellule actuelle.
+@@ Zygoptera
+S|Megaloprepus caerulatus|Demoiselle géante|La plus grande envergure des odonates : 19 cm.
+S|Lestes viridis|Leste vert
+S|Platycnemis pennipes|Pennipatte bleuâtre
+S|Pyrrhosoma nymphula|Petite nymphe au corps de feu
+@@ Plecoptera
+S|Dinocras cephalotes|Dinocras
+G|Leuctra|Leuctra
+S|Diamphipnopsis samali|Plécoptère géant du Chili
+@@ Dermaptera
+S|Labidura riparia|Perce-oreille des rivages
+S|†Labidura herculeana|Perce-oreille géant de Sainte-Hélène|Déclaré éteint en 2014.
+G|Arixenia|Arixenia|Vit sur les chauves-souris.
+@@ Caelifera
+S|Oedipoda caerulescens|Œdipode turquoise|Ailes bleues révélées en vol.
+S|Calliptamus italicus|Criquet italien
+S|Psophus stridulus|Criquet à ailes rouges
+S|Tetrix undulata|Tétrix|Petit criquet qui nage.
+S|Romalea microptera|Criquet-sauteur de Floride
+S|Phymateus morbillosus|Criquet bouffon|Couleurs d'avertissement toxiques.
+@@ Ensifera
+S|Decticus verrucivorus|Dectique verrucivore
+S|Ephippiger diurnus|Éphippigère des vignes
+S|Pholidoptera griseoaptera|Decticelle cendrée
+S|Myrmecophilus acervorum|Grillon des fourmilières|Vit chez les fourmis.
+S|Oecanthus pellucens|Grillon d'Italie
+S|Nemobius sylvestris|Grillon des bois
+S|Troglophilus neglectus|Sauterelle des cavernes
+S|Saga pedo|Magicienne dentelée|Sauterelle prédatrice, uniquement femelle.
+S|Pseudophyllus titan|Sauterelle titan
+@@ Phasmatodea
+S|Bacillus rossius|Phasme de Rossi|Phasme sauvage du sud de la France.
+S|Clonopsis gallica|Phasme gaulois
+S|Extatosoma tiaratum|Phasme feuille épineux
+S|Heteropteryx dilatata|Phasme géant de Malaisie
+S|Timema cristinae|Timema|Modèle de spéciation.
+@@ Mantodea
+S|Iris oratoria|Mante iris
+S|Ameles decolor|Amèle décolorée
+S|Idolomantis diabolica|Mante fleur du diable
+S|Phyllocrania paradoxa|Mante feuille morte
+S|Deroplatys desiccata|Mante feuille morte géante
+S|Choeradodis rhombicollis|Mante bouclier
+@@ Blattodea
+S|Ectobius vittiventris|Blatte des bois|Vient du dehors et ne s'installe pas dans les maisons.
+S|Blatta orientalis|Blatte orientale
+S|Gromphadorhina portentosa|Blatte siffleuse de Madagascar
+S|Cryptocercus punctulatus|Cryptocercus|Blatte xylophage sociale, sœur des termites.
+S|Diploptera punctata|Diploptera|Nourrit ses embryons d'un « lait » protéiné.
+@@ Termitoidae
+S|Kalotermes flavicollis|Termite à cou jaune
+S|Coptotermes formosanus|Termite de Formose
+G|Nasutitermes|Termites à nez|Les soldats projettent de la glu par un nez en pointe.
+S|Odontotermes obesus|Odontotermes|Cultive le champignon Termitomyces.
+S|Zootermopsis nevadensis|Termite des bois humides
+@@ Embioptera
+S|Haploembia solieri|Embie de Solier
+@@ Zoraptera
+G|Zorotypus|Zorotypus
+@@ Grylloblattodea
+S|Grylloblatta campodeiformis|Grylloblatte
+@@ Mantophasmatodea
+S|Karoophasma biedouwense|Karoophasma
+@@ Psocodea
+S|Bovicola bovis|Pou du bétail
+S|Columbicola columbae|Pou du pigeon
+S|Trichodectes canis|Pou du chien
+S|Psococerastis gibbosa|Psoque
+@@ Thysanoptera
+S|Thrips tabaci|Thrips de l'oignon
+S|Heliothrips haemorrhoidalis|Thrips des serres
+@@ Heteroptera
+S|Nepa cinerea|Nèpe cendrée|Scorpion d'eau.
+S|Ranatra linearis|Ranatre
+S|Reduvius personatus|Réduve masqué
+S|Rhodnius prolixus|Rhodnius|Vecteur de Chagas, modèle de la physiologie des insectes.
+S|Palomena prasina|Punaise verte des bois
+S|Pentatoma rufipes|Punaise à pattes rousses
+S|Coreus marginatus|Corée marginée
+S|Halobates sericeus|Halobates|Seul insecte vivant en haute mer.
+S|Belostoma flumineum|Bélostome|Le mâle porte les œufs sur son dos.
+S|Corixa punctata|Corise
+S|Oncopeltus fasciatus|Punaise de l'asclépiade
+@@ Auchenorrhyncha
+S|Cercopis vulnerata|Cercope sanguin
+S|Centrotus cornutus|Centrote cornu
+S|Umbonia crassicornis|Membracide épine
+S|Scaphoideus titanus|Cicadelle de la flavescence dorée|Vecteur d'une maladie grave de la vigne.
+S|Cicadella viridis|Cicadelle verte
+S|Issus coleoptratus|Issus|Possède de vrais engrenages aux pattes.
+S|Pyrops candelaria|Fulgore porte-lanterne d'Asie
+S|Tibicina haematodes|Cigale rouge
+@@ Sternorrhyncha
+S|Planococcus citri|Cochenille farineuse
+S|Icerya purchasi|Cochenille australienne|Première lutte biologique réussie (1888).
+S|Trialeurodes vaporariorum|Aleurode des serres
+S|Eriosoma lanigerum|Puceron lanigère
+S|Aphis fabae|Puceron noir de la fève
+S|Cacopsylla pyri|Psylle du poirier
+S|Pemphigus spyrothecae|Pemphigus|Puceron à soldats qui réparent la galle.
+@@ Symphyta
+S|Cimbex femoratus|Cimbex
+S|Athalia rosae|Tenthrède de la rave
+F|Xyelidae|Xyélidés|La plus ancienne famille d'hyménoptères vivants.
+@@ Parasitica
+F|Cynipidae|Cynips|Font pousser des galles.
+ S|Biorhiza pallida|Cynips des galles-pommes
+ S|Andricus kollari|Cynips des galles du chêne
+ S|Diplolepis rosae|Bédégar
+ S|Dryocosmus kuriphilus|Cynips du châtaignier
+F|Evaniidae|Évanies|Parasites des oothèques de blattes.
+F|Gasteruptiidae|Gastéruptions
+F|Mymaridae|Mymaridés|Les plus petits insectes.
+ S|Kikiki huna|Kikiki huna|Insecte volant parmi les plus petits : 0,16 mm.
+F|Agaonidae|Agaonidés
+F|Platygastridae|Platygastridés
+F|Leucospidae|Leucospis
+@@ Ichneumonidae
+S|Rhyssa persuasoria|Rhysse|Perce le bois avec sa tarière pour atteindre les larves.
+S|Megarhyssa macrurus|Mégarhysse
+S|Ichneumon suspiciosus|Ichneumon
+@@ Braconidae
+S|Aphidius colemani|Aphidius|Parasitoïde de pucerons utilisé en serre.
+@@ Aculeata
+F|Scoliidae|Scolies
+ S|Megascolia maculata|Scolie des jardins|Le plus grand hyménoptère d'Europe.
+F|Sphecidae|Sphécidés
+ S|Ammophila sabulosa|Ammophile des sables
+ S|Sceliphron curvatum|Pélopée|Construit des nids en terre dans les maisons.
+F|Crabronidae|Crabronidés
+ S|Philanthus triangulum|Philanthe apivore|Chasse les abeilles.
+ S|Bembix rostrata|Bembex à rostre
+ S|Cerceris arenaria|Cercéris
+F|Tiphiidae|Tiphiidés
+F|Bethylidae|Béthylidés
+F|Dryinidae|Dryinidés|Les femelles attrapent les cicadelles avec des pinces.
+@@ Vespidae
+S|Dolichovespula media|Guêpe moyenne
+S|Eumenes coarctatus|Eumène|Guêpe potière solitaire.
+S|Vespa orientalis|Frelon oriental|Capte l'énergie solaire avec sa cuticule.
+S|Polybia occidentalis|Polybie
+@@ Formicidae
+S|Myrmica rubra|Myrmique rouge
+S|Tetramorium caespitum|Fourmi des gazons
+S|Polyergus rufescens|Fourmi amazone|Esclavagiste : vole les nymphes d'autres fourmis.
+S|Cataglyphis bombycina|Fourmi argentée du Sahara|Sort à 70 °C au sol grâce à ses poils réfléchissants.
+S|Cataglyphis fortis|Cataglyphe|Navigue en comptant ses pas.
+S|Dorylus wilverthi|Fourmi magnan|Reines de 5 cm, colonies de 20 millions.
+S|Harpegnathos saltator|Fourmi sauteuse de Jerdon|Une ouvrière peut devenir reine.
+S|Tapinoma magnum|Tapinoma|Fourmi invasive des villes françaises.
+S|Crematogaster scutellaris|Crématogastre
+S|Myrmecocystus mexicanus|Fourmi pot-de-miel
+S|Pheidole megacephala|Fourmi à grosse tête
+S|Wasmannia auropunctata|Petite fourmi de feu
+S|Colobopsis explodens|Fourmi kamikaze|Explose pour défendre la colonie.
+S|Odontomachus bauri|Fourmi à mâchoires-pièges|Ferme ses mâchoires à 230 km/h.
+S|Daceton armigerum|Daceton
+S|Formica fusca|Fourmi noir-cendré
+@@ Anthophila
+S|Anthidium manicatum|Anthidie à manchettes|Récolte le duvet des plantes pour son nid.
+S|Colletes hederae|Collète du lierre
+S|Dasypoda hirtipes|Dasypode à pattes hérissées
+S|Nomada goodeniana|Abeille coucou
+S|Lasioglossum calceatum|Halicte
+S|Bombus lapidarius|Bourdon des pierres
+S|Bombus pascuorum|Bourdon des champs
+S|Bombus dahlbomii|Bourdon géant de Patagonie
+S|Eucera longicornis|Eucère à longues antennes
+S|Megachile centuncularis|Mégachile|Découpe des disques dans les feuilles de rosier.
+S|Apis dorsata|Abeille géante
+S|Apis florea|Abeille naine
+S|Euglossa dilemma|Abeille à orchidée|Les mâles collectent des parfums.
+S|Tetragonula carbonaria|Abeille sans dard australienne
+S|Perdita minima|Perdita|Plus petite abeille : 2 mm.
+@@ Neuroptera
+S|Libelloides coccajus|Ascalaphe soufré
+S|Nemoptera sinuata|Némoptère
+S|Osmylus fulvicephalus|Osmyle
+S|Mantispa styriaca|Mantispe
+S|Sisyra nigra|Sisyra|Larve qui vit dans les éponges d'eau douce.
+@@ Megaloptera
+S|Corydalus cornutus|Corydale cornu|Mâchoires géantes chez le mâle.
+S|Acanthacorydalis fruhstorferi|Mégaloptère géant de Chine
+@@ Raphidioptera
+G|Raphidia|Raphidie
+@@ Coleoptera
+Ob|Archostemata|Archostémates|Le sous-ordre le plus ancien de coléoptères.
+ G|Tenomerga|Tenomerga
+ S|Micromalthus debilis|Micromalthus|Cycle de vie avec larves qui se reproduisent.
+Ob|Myxophaga|Myxophages|Minuscules coléoptères des algues humides.
+ G|Hydroscapha|Hydroscapha
+@@ Adephaga
+F|Haliplidae|Haliplidés
+F|Noteridae|Notéridés
+F|Rhysodidae|Rhysodidés
+@@ Carabidae
+S|Carabus violaceus|Carabe violet
+S|Carabus solieri|Carabe de Solier
+S|Calosoma sycophanta|Calosome sycophante|Mange les chenilles processionnaires.
+S|Pterostichus melanarius|Ptérostique
+S|Anthia sexmaculata|Anthia
+S|Mormolyce phyllodes|Mormolyce|Carabe-violon plat comme une feuille.
+@@ Dytiscidae
+S|Acilius sulcatus|Acilius
+S|Cybister lateralimarginalis|Cybister
+@@ Gyrinidae
+S|Gyrinus substriatus|Gyrin
+@@ Polyphaga
+F|Hydrophilidae|Hydrophiles
+ S|Hydrophilus piceus|Grand hydrophile
+F|Histeridae|Escarbots
+F|Lycidae|Lycidés
+F|Cantharidae|Téléphores
+ S|Rhagonycha fulva|Téléphore fauve
+ S|Cantharis rustica|Téléphore rustique
+F|Cleridae|Clérides
+ S|Trichodes apiarius|Clairon des abeilles
+F|Ptinidae|Vrillettes
+ S|Anobium punctatum|Petite vrillette|Les « vers » des meubles.
+ S|Xestobium rufovillosum|Horloge de la mort
+ S|Stegobium paniceum|Vrillette du pain
+F|Bostrichidae|Bostryches
+F|Nitidulidae|Nitidulidés
+ S|Aethina tumida|Petit coléoptère des ruches
+F|Erotylidae|Érotylidés
+F|Endomychidae|Endomychidés
+F|Mordellidae|Mordelles
+F|Oedemeridae|Œdémérides
+ S|Oedemera nobilis|Œdémère noble
+F|Pyrochroidae|Cardinaux
+ S|Pyrochroa coccinea|Cardinal écarlate
+F|Anthribidae|Anthribidés
+F|Attelabidae|Cigariers
+ S|Byctiscus betulae|Cigarier de la vigne
+ S|Trachelophorus giraffa|Charançon girafe
+F|Brentidae|Brentidés
+F|Passalidae|Passalidés|Les adultes élèvent leurs larves.
+F|Trogidae|Trogidés
+F|Elmidae|Elmidés|Coléoptères des torrents.
+F|Dryopidae|Dryopidés
+F|Hydraenidae|Hydrénidés
+F|Leiodidae|Léiodidés
+ S|Leptodirus hochenwartii|Leptodirus|Premier animal cavernicole décrit (1832).
+F|Phengodidae|Vers de chemin de fer|Larves lumineuses rouges et vertes.
+F|Rhipiceridae|Rhipicéridés
+F|Lymexylidae|Lymexylidés
+@@ Coccinellidae
+S|Psyllobora vigintiduopunctata|Coccinelle à 22 points
+S|Rodolia cardinalis|Coccinelle australienne|Introduite en 1888 contre la cochenille Icerya.
+S|Henosepilachna argus|Coccinelle de la bryone
+S|Anatis ocellata|Coccinelle des pins
+@@ Scarabaeidae
+S|Onthophagus taurus|Bousier taureau
+S|Kheper nigroaeneus|Kheper
+S|Megasoma actaeon|Mégasome
+S|Chalcosoma atlas|Atlas
+S|Trichius fasciatus|Trichie fasciée
+S|Oxythyrea funesta|Drap mortuaire
+S|Phyllopertha horticola|Hanneton horticole
+S|Amphimallon solstitiale|Hanneton de la Saint-Jean
+S|Copris lunaris|Copris lunaire
+S|Digitonthophagus gazella|Bousier gazelle
+@@ Lucanidae
+S|Dorcus parallelipipedus|Petite biche
+S|Platycerus caraboides|Platycère
+S|Phalacrognathus muelleri|Lucane arc-en-ciel
+@@ Geotrupidae
+S|Anoplotrupes stercorosus|Géotrupe des bois
+S|Typhaeus typhoeus|Minotaure
+@@ Buprestidae
+S|Agrilus planipennis|Agrile du frêne|Tue des centaines de millions de frênes en Amérique du Nord.
+S|Chrysochroa fulgidissima|Bupreste du Japon
+S|Melanophila acuminata|Bupreste des incendies|Détecte les forêts brûlées par infrarouge.
+@@ Elateridae
+S|Pyrophorus noctilucus|Cucujo|Taupin lumineux.
+S|Agriotes lineatus|Taupin des moissons
+S|Athous haemorrhoidalis|Taupin
+@@ Lampyridae
+S|Lamprohiza splendidula|Petit ver luisant
+S|Pteroptyx tener|Luciole synchrone|Des milliers clignotent en même temps.
+@@ Dermestidae
+S|Anthrenus verbasci|Anthrène des musées
+S|Dermestes lardarius|Dermeste du lard|Utilisé pour nettoyer les squelettes.
+@@ Tenebrionidae
+S|Blaps mucronata|Blaps
+S|Zophobas morio|Ver de farine géant
+S|Ulomoides dermestoides|Ténébrion des cacahuètes
+S|Phloeodes diabolicus|Coléoptère cuirassé diabolique|Résiste à une voiture qui lui roule dessus.
+@@ Meloidae
+S|Meloe proscarabaeus|Méloé printanier
+S|Mylabris variabilis|Mylabre
+@@ Cerambycidae
+S|Morimus asper|Morime rugueux
+S|Prionus coriarius|Prione tanneur
+S|Aromia moschata|Aromie musquée
+S|Rutpela maculata|Lepture tachetée
+S|Acrocinus longimanus|Arlequin de Cayenne
+S|Batocera rufomaculata|Batocère
+S|Monochamus galloprovincialis|Monochame|Vecteur du nématode du pin.
+@@ Chrysomelidae
+S|Lilioceris lilii|Criocère du lis
+S|Crioceris asparagi|Criocère de l'asperge
+S|Chrysolina americana|Chrysolina du romarin
+S|Bruchus pisorum|Bruche du pois
+S|Donacia crassipes|Donacie
+S|Cassida viridis|Casside verte
+S|Timarcha tenebricosa|Crache-sang
+S|Diamphidia nigroornata|Diamphidia|Ses larves fournissent le poison des flèches des San.
+@@ Curculionidae
+S|Curculio nucum|Balanin des noisettes
+S|Scolytus scolytus|Grand scolyte de l'orme|Transporte le champignon de la graphiose.
+S|Hypothenemus hampei|Scolyte du café
+S|Otiorhynchus sulcatus|Otiorhynque de la vigne
+S|Larinus turbinatus|Larin
+S|Lixus angustatus|Lixus
+S|Xylosandrus crassiusculus|Xylosandrus|Cultive des champignons dans le bois.
+S|Pachyrhynchus orbifer|Charançon irisé
+S|Lissorhoptrus oryzophilus|Charançon aquatique du riz
+@@ Strepsiptera
+S|Xenos vesparum|Xenos|Parasite des guêpes Polistes.
+@@ Trichoptera
+S|Limnephilus flavicornis|Limnéphile
+S|Hydropsyche angustipennis|Hydropsyche|Larve qui tisse un filet dans le courant.
+S|Rhyacophila dorsalis|Rhyacophile
+S|Enoicyla pusilla|Enoicyla|Larve terrestre, rare chez les trichoptères.
+@@ Hesperiidae
+S|Erynnis tages|Point de Hongrie
+S|Ochlodes sylvanus|Sylvaine
+@@ Lepidoptera
+F|Hepialidae|Hépiales
+ S|Hepialus humuli|Hépiale du houblon
+F|Zygaenidae|Zygènes|Contiennent du cyanure.
+ S|Zygaena filipendulae|Zygène de la filipendule
+F|Sesiidae|Sésies|Imitent des guêpes.
+ S|Sesia apiformis|Sésie du peuplier
+F|Cossidae|Cossus
+ S|Cossus cossus|Cossus gâte-bois
+ S|Zeuzera pyrina|Zeuzère
+F|Lasiocampidae|Bombyx
+ S|Lasiocampa quercus|Bombyx du chêne
+ S|Malacosoma neustria|Livrée des arbres
+ S|Gastropacha quercifolia|Feuille-morte du chêne
+F|Uraniidae|Uraniidés
+ S|Chrysiridia rhipheus|Uranie de Madagascar|Considéré comme l'un des plus beaux papillons.
+F|Riodinidae|Riodinidés
+ S|Hamearis lucina|Lucine
+F|Pterophoridae|Ptérophores
+ S|Pterophorus pentadactyla|Ptérophore blanc
+F|Alucitidae|Alucites
+ S|Alucita hexadactyla|Alucite|Ailes divisées en six plumes.
+F|Gracillariidae|Mineuses
+ S|Cameraria ohridella|Mineuse du marronnier
+F|Yponomeutidae|Hyponomeutes|Chenilles qui enveloppent les arbres de soie.
+ S|Yponomeuta evonymella|Hyponomeute du cerisier à grappes
+F|Psychidae|Psychés|Chenilles qui vivent dans un fourreau ; femelles souvent sans ailes.
+F|Castniidae|Castniidés
+ S|Paysandisia archon|Papillon palmivore|Invasif dans le sud de la France.
+F|Drepanidae|Drépanidés
+F|Limacodidae|Limacodidés|Chenilles-limaces.
+F|Megalopygidae|Mégalopygidés
+ S|Megalopyge opercularis|Chenille puss|Une des chenilles les plus urticantes.
+F|Adelidae|Adèles|Antennes immenses chez les mâles.
+ S|Adela reaumurella|Adèle de Réaumur
+F|Incurvariidae|Incurvariidés
+F|Hedylidae|Hédylidés|Papillons de jour nocturnes.
+@@ Papilionidae
+S|Zerynthia polyxena|Diane
+S|Papilio ulysses|Porte-queue Ulysse
+S|Graphium agamemnon|Voilier vert
+S|Troides helena|Ornithoptère Hélène
+S|Parnassius mnemosyne|Semi-Apollon
+@@ Pieridae
+S|Anthocharis cardamines|Aurore
+S|Colias crocea|Souci
+S|Aporia crataegi|Gazé
+S|Pieris rapae|Piéride de la rave
+S|Leptidea sinapis|Piéride de la moutarde
+@@ Lycaenidae
+S|Lycaena phlaeas|Cuivré commun
+S|Thecla betulae|Thécla du bouleau
+S|Celastrina argiolus|Azuré des nerpruns
+S|Liphyra brassolis|Papillon de la fourmi tisserande|Chenille qui mange les larves de fourmis.
+@@ Nymphalidae
+S|Apatura iris|Grand Mars changeant
+S|Limenitis camilla|Petit Sylvain
+S|Argynnis paphia|Tabac d'Espagne
+S|Pararge aegeria|Tircis
+S|Maniola jurtina|Myrtil
+S|Melanargia galathea|Demi-deuil
+S|Charaxes jasius|Pacha à deux queues
+S|Polygonia c-album|Robert-le-diable
+S|Nymphalis antiopa|Morio
+S|Caligo memnon|Papillon hibou
+S|Greta oto|Papillon de verre|Ailes transparentes.
+S|Kallima inachus|Papillon feuille morte
+S|Melitaea cinxia|Mélitée du plantain|Modèle de la dynamique des populations.
+S|Bicyclus anynana|Bicyclus
+@@ Geometridae
+S|Operophtera brumata|Phalène brumeuse|Femelles sans ailes, actives en hiver.
+S|Abraxas grossulariata|Zérène du groseillier
+S|Ourapteryx sambucaria|Phalène du sureau
+@@ Bombycidae
+S|Bombyx mandarina|Bombyx sauvage|Ancêtre sauvage du ver à soie.
+@@ Saturniidae
+S|Aglia tau|Hachette
+S|Antheraea polyphemus|Polyphème
+S|Hyalophora cecropia|Cécropia
+S|Coscinocera hercules|Papillon Hercule|La plus grande surface alaire des papillons.
+S|Gonimbrasia belina|Chenille mopane|Chenille comestible d'Afrique australe.
+@@ Sphingidae
+S|Deilephila elpenor|Grand sphinx de la vigne
+S|Hyles euphorbiae|Sphinx de l'euphorbe
+S|Smerinthus ocellata|Sphinx demi-paon
+S|Manduca sexta|Sphinx du tabac|Modèle de physiologie des insectes.
+S|Hemaris fuciformis|Sphinx gazé
+S|Proserpinus proserpina|Sphinx de l'épilobe
+@@ Notodontidae
+S|Cerura vinula|Grande queue-fourchue
+S|Stauropus fagi|Écureuil|Chenille qui imite une fourmi.
+S|Phalera bucephala|Bucéphale
+@@ Erebidae
+S|Calyptra thalictri|Papillon vampire|Certains mâles percent la peau pour boire du sang.
+S|Tyria jacobaeae|Goutte de sang
+S|Euplagia quadripunctaria|Écaille chinée
+S|Catocala nupta|Lichénée rouge
+S|Utetheisa ornatrix|Utetheisa
+S|Euproctis chrysorrhoea|Bombyx cul-brun
+S|Spilosoma lubricipeda|Écaille tigrée
+S|Ascalapha odorata|Sorcière noire
+S|Thysania agrippina|Thysania|Plus grande envergure des papillons : 30 cm.
+@@ Noctuidae
+S|Autographa gamma|Gamma|Migre en masse vers le nord chaque printemps.
+S|Agrotis ipsilon|Noctuelle ipsilon
+S|Spodoptera frugiperda|Légionnaire d'automne|Ravageur du maïs devenu mondial.
+S|Agrotis infusa|Bogong|Migre vers les grottes des Alpes australiennes.
+S|Acronicta psi|Psi
+@@ Crambidae
+S|Diatraea saccharalis|Pyrale de la canne à sucre
+S|Nymphula nitidulata|Nymphule|Chenille aquatique.
+@@ Tortricidae
+S|Lobesia botrana|Eudémis de la vigne
+S|Tortrix viridana|Tordeuse verte du chêne
+S|Cydia splendana|Carpocapse des châtaignes
+@@ Tineidae
+S|Tinea pellionella|Teigne des fourrures
+@@ Culicidae
+S|Anopheles stephensi|Anophèle urbain
+S|Culex quinquefasciatus|Moustique du Sud
+S|Toxorhynchites rutilus|Toxorhynchites|Moustique géant qui ne pique pas ; ses larves mangent d'autres larves.
+S|Wyeomyia smithii|Wyeomyia|Larves dans l'eau des plantes carnivores.
+@@ Nematocera
+F|Bibionidae|Bibions
+ S|Bibio marci|Mouche de Saint-Marc
+F|Sciaridae|Sciarides|Moucherons des pots de fleurs.
+F|Mycetophilidae|Mycétophiles
+F|Keroplatidae|Kéroplatidés
+ S|Arachnocampa luminosa|Ver luisant de Nouvelle-Zélande|Larves lumineuses qui pêchent avec des fils collants dans les grottes.
+F|Blephariceridae|Blépharicéridés|Larves à ventouses des torrents.
+F|Dixidae|Dixidés
+F|Ptychopteridae|Ptychoptères
+F|Anisopodidae|Anisopodes
+F|Deuterophlebiidae|Deutérophlébiidés|Adultes sans bouche, vivent 2 heures.
+@@ Chironomidae
+S|Chironomus plumosus|Chironome plumeux
+S|Polypedilum vanderplanki|Chironome dormeur|Larve qui survit à la dessiccation totale.
+S|Clunio marinus|Clunio|Émerge à heure fixe selon les marées.
+@@ Psychodidae
+S|Clogmia albipunctata|Papillon de salle de bain
+S|Lutzomyia longipalpis|Lutzomyia
+@@ Brachycera
+F|Stratiomyidae|Mouches soldats
+ S|Hermetia illucens|Mouche soldat noire|Élevée pour recycler les déchets en protéines.
+F|Rhagionidae|Rhagionidés
+F|Empididae|Empis|Le mâle offre une proie à la femelle.
+F|Dolichopodidae|Dolichopodes
+F|Phoridae|Phorides
+ S|Megaselia scalaris|Mouche bossue
+ G|Pseudacteon|Pseudacteon|Décapite les fourmis de feu.
+F|Conopidae|Conopidés
+F|Sciomyzidae|Sciomyzidés|Larves qui tuent les escargots.
+F|Ephydridae|Éphydres
+ S|Helaeomyia petrolei|Mouche du pétrole|Larves dans les mares de pétrole brut.
+ S|Ephydra hians|Mouche des alcalis|Plonge dans un lac salé dans une bulle d'air.
+F|Chloropidae|Chloropidés
+F|Agromyzidae|Mouches mineuses
+F|Anthomyiidae|Anthomyies
+ S|Delia radicum|Mouche du chou
+F|Fanniidae|Fannies
+ S|Fannia canicularis|Petite mouche domestique
+F|Sarcophagidae|Mouches à damier
+ S|Sarcophaga carnaria|Mouche à damier
+F|Nycteribiidae|Nyctéribiidés|Mouches sans ailes parasites des chauves-souris.
+F|Diopsidae|Mouches à yeux pédonculés
+ S|Teleopsis dalmanni|Teleopsis
+F|Micropezidae|Micropézidés
+F|Piophilidae|Piophilidés
+ S|Piophila casei|Mouche du fromage|Ses larves font le casu marzu sarde.
+F|Scathophagidae|Scathophages
+ S|Scathophaga stercoraria|Scatophage du fumier
+F|Rhinophoridae|Rhinophoridés
+F|Lonchopteridae|Lonchoptères
+F|Platystomatidae|Platystomatidés
+F|Coelopidae|Mouches des algues
+F|Mydidae|Mydidés
+ S|Gauromydas heros|Mydas géant|La plus grande mouche : 6 cm.
+F|Nemestrinidae|Némestrinidés
+F|Acroceridae|Acrocéridés|Larves parasites d'araignées.
+F|Braulidae|Poux des abeilles
+ S|Braula coeca|Pou des abeilles
+@@ Asilidae
+S|Asilus crabroniformis|Asile frelon
+S|Laphria flava|Laphrie jaune
+@@ Tabanidae
+S|Chrysops caecutiens|Chrysops aveuglant
+S|Haematopota pluvialis|Taon des pluies
+@@ Syrphidae
+S|Volucella zonaria|Volucelle zonée
+S|Microdon mutabilis|Microdon|Larves qui vivent chez les fourmis.
+S|Myathropa florea|Myathropa
+@@ Tachinidae
+S|Tachina fera|Tachine
+S|Ormia ochracea|Ormia|Repère les grillons au son, avec une oreille d'une précision unique.
+@@ Calliphoridae
+S|Lucilia caesar|Mouche verte commune
+S|Protocalliphora azurea|Protocalliphora
+@@ Oestridae
+S|Hypoderma bovis|Varron
+S|Oestrus ovis|Œstre du mouton
+S|Gasterophilus intestinalis|Gastérophile du cheval
+@@ Hippoboscidae
+S|Melophagus ovinus|Mélophage du mouton
+S|Hippobosca equina|Hippobosque
+S|Lipoptena cervi|Mouche du cerf
+@@ Drosophilidae
+S|Drosophila simulans|Drosophila simulans
+S|Drosophila sechellia|Drosophile des Seychelles|Ne se nourrit que du fruit du noni.
+S|Drosophila bifurca|Drosophila bifurca|Spermatozoïde de 5,8 cm, 20 fois la taille du mâle.
+@@ Tephritidae
+S|Rhagoletis pomonella|Mouche de la pomme|Modèle de spéciation en cours.
+S|Bactrocera dorsalis|Mouche orientale des fruits
+@@ Glossinidae
+S|Glossina morsitans|Tsé-tsé des savanes
+@@ Mecoptera
+S|Boreus hyemalis|Borée|Actif sur la neige en hiver.
+S|Bittacus italicus|Bittaque
+S|Panorpa germanica|Panorpe germanique
+@@ Siphonaptera
+S|Tunga penetrans|Chique|S'enfonce dans la peau des pieds.
+S|Ceratophyllus gallinae|Puce des poules
+S|Spilopsyllus cuniculi|Puce du lapin|Vecteur de la myxomatose.
+S|Archaeopsylla erinacei|Puce du hérisson
+# Compléments pluricellulaires : poissons, amphibiens, reptiles
+@@ Vertebrata
+c|†Ostracodermi|Ostracodermes|Poissons cuirassés sans mâchoires du Paléozoïque.
+ S|†Cephalaspis lyelli|Céphalaspis
+@@ Myxini
+S|Eptatretus stoutii|Myxine du Pacifique
+@@ Petromyzontida
+S|Geotria australis|Lamproie australe
+S|Entosphenus tridentatus|Lamproie du Pacifique
+@@ Gnathostomata
+C|†Placodermi|Placodermes|Poissons cuirassés à mâchoires, éteints il y a 359 millions d'années.
+ S|†Dunkleosteus terrelli|Dunkleosteus|Prédateur de plusieurs mètres à mâchoires tranchantes.
+ S|†Materpiscis attenboroughi|Materpiscis|Plus ancien exemple de viviparité connu.
+C|†Acanthodii|Acanthodiens|« Requins épineux » du Paléozoïque.
+@@ Holocephali
+S|Hydrolagus colliei|Chimère d'Amérique
+S|Rhinochimaera atlantica|Chimère à nez long
+@@ Selachimorpha
+O|Echinorhiniformes|Squales bouclés
+ S|Echinorhinus brucus|Squale bouclé
+@@ Orectolobiformes
+S|Orectolobus maculatus|Requin-tapis tacheté
+S|Chiloscyllium punctatum|Requin-chabot bambou
+S|Eucrossorhinus dasypogon|Requin-tapis barbu
+@@ Lamniformes
+S|Carcharias taurus|Requin-taureau|Cannibalisme dans l'utérus : le premier-né mange ses frères.
+S|Odontaspis ferox|Requin féroce
+S|Pseudocarcharias kamoharai|Requin crocodile
+S|Isurus paucus|Petit mako
+@@ Carcharhiniformes
+S|Galeorhinus galeus|Requin-hâ
+S|Negaprion brevirostris|Requin citron
+S|Triaenodon obesus|Requin à pointes blanches de récif
+S|Carcharhinus melanopterus|Requin à pointes noires
+S|Carcharhinus amblyrhynchos|Requin gris de récif
+S|Carcharhinus plumbeus|Requin gris
+S|Sphyrna lewini|Requin-marteau halicorne
+S|Sphyrna tiburo|Requin-marteau tiburo|Seul requin connu pour manger des plantes.
+S|Scyliorhinus stellaris|Grande roussette
+S|Cephaloscyllium ventriosum|Requin-gonfleur|Brille en vert sous la lumière bleue.
+S|Galeus melastomus|Chien espagnol
+S|Eusphyra blochii|Requin-marteau planeur
+@@ Squaliformes
+S|Dalatias licha|Squale liche|Le plus grand vertébré lumineux connu (2021).
+S|Etmopterus spinax|Sagre commun
+S|Centrophorus granulosus|Squale-chagrin
+S|Centroscymnus coelolepis|Pailona
+S|Oxynotus centrina|Centrine|Requin-cochon.
+@@ Squatiniformes
+S|Squatina californica|Ange de mer du Pacifique
+@@ Pristiophoriformes
+S|Pristiophorus cirratus|Requin-scie à long nez
+@@ Hexanchiformes
+S|Notorynchus cepedianus|Requin malais
+S|Heptranchias perlo|Requin perlon
+@@ Myliobatiformes
+S|Mobula alfredi|Raie manta de récif
+S|Mobula mobular|Mante de Méditerranée
+S|Myliobatis aquila|Aigle de mer commun
+S|Taeniura lymma|Raie pastenague à points bleus
+S|Urogymnus polylepis|Raie géante d'eau douce|Plus grand poisson d'eau douce mesuré : 300 kg (2022).
+S|Gymnura altavela|Raie-papillon épineuse
+S|Rhinoptera bonasus|Mourine américaine
+@@ Rajiformes
+S|Raja undulata|Raie brunette
+S|Leucoraja naevus|Raie fleurie
+S|Raja montagui|Raie douce
+S|Amblyraja radiata|Raie radiée
+@@ Torpediniformes
+S|Torpedo torpedo|Torpille ocellée
+S|Narcine brasiliensis|Narcine
+@@ Rhinopristiformes
+S|Rhynchobatus djiddensis|Poisson-guitare géant
+S|Rhinobatos rhinobatos|Poisson-guitare commun
+S|Anoxypristis cuspidata|Poisson-scie pointu
+@@ Elopomorpha
+O|Albuliformes|Bananes de mer
+ S|Albula vulpes|Banane de mer
+O|Notacanthiformes|Poissons-anguilles épineux|Poissons des grands fonds.
+ S|Notacanthus chemnitzii|Notacanthe
+@@ Anguilliformes
+S|Anguilla rostrata|Anguille d'Amérique
+S|Anguilla japonica|Anguille du Japon
+S|Gymnothorax javanicus|Murène javanaise
+S|Rhinomuraena quaesita|Murène ruban
+S|Heteroconger hassi|Anguille jardinière
+S|Saccopharynx ampullaceus|Avaleur
+@@ Osteoglossomorpha
+O|Hiodontiformes|Laquaiches
+ S|Hiodon tergisus|Laquaiche argentée
+S|Heterotis niloticus|Hétérotis
+S|Mormyrus kannume|Mormyre
+S|Chitala ornata|Poisson-couteau clown
+@@ Otomorpha
+O|Alepocephaliformes|Têtes lisses|Poissons des abysses.
+ S|Alepocephalus bairdii|Alépocéphale de Baird
+@@ Clupeiformes
+S|Sprattus sprattus|Sprat
+S|Alosa fallax|Alose feinte
+S|Sardinops sagax|Sardine du Pacifique
+S|Engraulis ringens|Anchois du Pérou|La pêche la plus importante au monde en tonnage.
+S|Tenualosa ilisha|Hilsa
+@@ Cypriniformes
+S|Squalius cephalus|Chevesne
+S|Leuciscus leuciscus|Vandoise
+S|Phoxinus phoxinus|Vairon
+S|Scardinius erythrophthalmus|Rotengle
+S|Abramis brama|Brème commune
+S|Gobio gobio|Goujon
+S|Rhodeus amarus|Bouvière|Pond ses œufs dans les moules d'eau douce.
+S|Alburnus alburnus|Ablette
+S|Chondrostoma nasus|Hotu
+S|Misgurnus fossilis|Loche d'étang
+S|Barbatula barbatula|Loche franche
+S|Hypophthalmichthys molitrix|Carpe argentée|Saute hors de l'eau au passage des bateaux.
+S|Catlocarpio siamensis|Carpe géante siamoise
+S|Labeo rohita|Rohu
+S|Tor putitora|Mahseer doré
+S|Gyrinocheilus aymonieri|Mangeur d'algues
+S|Pseudorasbora parva|Pseudorasbora
+@@ Characiformes
+S|Colossoma macropomum|Tambaqui
+S|Hoplias malabaricus|Traïra
+S|Serrasalmus rhombeus|Piranha noir
+S|Gasteropelecus sternicla|Poisson-hachette d'eau douce|Vole hors de l'eau en battant des nageoires.
+S|Distichodus sexfasciatus|Distichodus
+@@ Siluriformes
+S|Clarias gariepinus|Poisson-chat africain|Peut ramper hors de l'eau.
+S|Pterygoplichthys pardalis|Pléco
+S|Ictalurus punctatus|Barbue de rivière
+S|Synodontis nigriventris|Poisson-chat à l'envers
+S|Brachyplatystoma rousseauxii|Silure doré d'Amazonie|Plus longue migration en eau douce : 11 000 km.
+S|Plotosus lineatus|Poisson-chat rayé|Bancs en boule, épines venimeuses.
+S|Kryptopterus vitreolus|Poisson-chat de verre
+@@ Gymnotiformes
+S|Eigenmannia virescens|Eigenmannia
+@@ Euteleostei
+O|Lepidogalaxiiformes|Lepidogalaxias
+ S|Lepidogalaxias salamandroides|Galaxias salamandre|Survit enfoui dans la boue en été.
+O|Argentiniformes|Argentines
+ S|Argentina sphyraena|Petite argentine
+ S|Macropinna microstoma|Tête transparente|Yeux tubulaires sous un dôme transparent.
+ S|Dolichopteryx longipes|Revers-plat|Seul vertébré à yeux à miroirs.
+O|Galaxiiformes|Galaxies
+ S|Galaxias maculatus|Inanga
+O|Ateleopodiformes|Atélépodes
+O|Polymixiiformes|Barbudos
+ S|Polymixia nobilis|Barbudo
+O|Percopsiformes|Percopsiformes
+ S|Percopsis omiscomaycus|Omisco
+ S|Amblyopsis spelaea|Poisson aveugle des cavernes du Nord
+O|Stylephoriformes|Stylephore
+ S|Stylephorus chordatus|Stylephore|Bouche télescopique.
+O|Beryciformes|Béryx
+ S|Beryx decadactylus|Béryx commun
+ S|Anoplogaster cornuta|Ogre|Les plus grandes dents, en proportion, de tous les poissons.
+@@ Gadiformes
+S|Molva molva|Lingue
+S|Merlangius merlangus|Merlan
+S|Macrourus berglax|Grenadier
+S|Micromesistius poutassou|Merlan bleu
+S|Gadus chalcogrammus|Lieu de l'Alaska|Base du surimi et des bâtonnets de poisson.
+S|Trisopterus luscus|Tacaud
+S|Phycis phycis|Mostelle de roche
+@@ Aulopiformes
+S|Alepisaurus ferox|Cavalo
+G|Synodus|Poisson-lézard
+S|Harpadon nehereus|Bombay duck
+@@ Myctophiformes
+S|Benthosema glaciale|Lanterne glaciaire
+S|Myctophum punctatum|Lanterne ponctuée
+@@ Lampriformes
+S|Trachipterus trachypterus|Trachiptère
+S|Velifer hypselopterus|Vélifer
+@@ Stomiiformes
+S|Malacosteus niger|Dragon à lumière rouge|Voit et émet une lumière rouge invisible pour ses proies.
+S|Stomias boa|Stomias
+S|Idiacanthus atlanticus|Poisson-dragon noir
+@@ Salmoniformes
+S|Coregonus lavaretus|Lavaret
+S|Oncorhynchus tshawytscha|Saumon chinook
+S|Oncorhynchus kisutch|Saumon coho
+S|Salvelinus fontinalis|Omble de fontaine
+S|Salvelinus namaycush|Touladi
+S|Hucho taimen|Taïmen|Plus grand salmonidé : 2 m.
+@@ Esociformes
+S|Esox masquinongy|Maskinongé
+S|Umbra krameri|Umbre
+@@ Zeiformes
+S|Zenopsis conchifer|Saint-pierre argenté
+@@ Percomorpha
+O|Holocentriformes|Poissons-écureuils
+ S|Sargocentron spiniferum|Poisson-écureuil géant
+ S|Myripristis murdjan|Poisson-soldat
+O|Kurtiformes|Kurtiformes
+ S|Kurtus gulliveri|Kurtus|Le mâle porte les œufs sur un crochet du front.
+ S|Pterapogon kauderni|Poisson-cardinal de Banggai
+ S|Apogon imberbis|Roi des rougets
+O|Centrarchiformes|Centrarchiformes
+ S|Micropterus salmoides|Achigan à grande bouche|Black-bass.
+ S|Lepomis gibbosus|Perche-soleil|Invasive en France.
+ S|Pomoxis nigromaculatus|Marigane noire
+ S|Oplegnathus fasciatus|Poisson-perroquet rayé
+ S|Cirrhitichthys falco|Poisson-faucon
+ S|Kuhlia rupestris|Doule de roche
+O|Lutjaniformes|Vivaneaux
+ S|Lutjanus campechanus|Vivaneau rouge
+ S|Plectorhinchus vittatus|Diagramme oriental
+O|Lobotiformes|Croupias
+ S|Lobotes surinamensis|Croupia roche
+O|Ephippiformes|Platax
+ S|Platax teira|Platax à longues nageoires
+O|Gerreiformes|Blanches
+O|Uranoscopiformes|Uranoscopes
+ S|Uranoscopus scaber|Uranoscope|Yeux sur le dessus de la tête ; certains envoient des décharges.
+O|Pempheriformes|Poissons-hachettes de récif
+ S|Pempheris vanicolensis|Poisson-hachette de Vanikoro
+@@ Gobiiformes
+S|Neogobius melanostomus|Gobie à taches noires|Invasif dans les fleuves d'Europe.
+S|Sicyopterus japonicus|Gobie grimpeur
+S|Boleophthalmus pectinirostris|Périophtalme à bec
+S|Schindleria brevipinguis|Schindleria|Un des plus petits vertébrés : 7 mm.
+@@ Syngnathiformes
+S|Hippocampus bargibanti|Hippocampe pygmée
+S|Callionymus lyra|Dragonnet lyre
+S|Aeoliscus strigatus|Poisson-rasoir|Nage la tête en bas.
+S|Fistularia commersonii|Poisson-flûte
+S|Solenostomus paradoxus|Poisson-fantôme arlequin
+S|Phyllopteryx taeniolatus|Dragon de mer commun
+S|Macroramphosus scolopax|Bécasse de mer
+@@ Scombriformes
+S|Sarda sarda|Bonite à dos rayé
+S|Euthynnus alletteratus|Thonine
+S|Thunnus obesus|Thon obèse
+S|Thunnus alalunga|Germon
+S|Acanthocybium solandri|Thazard-bâtard
+S|Lepidocybium flavobrunneum|Escolier noir
+S|Brama brama|Grande castagnole
+@@ Carangiformes
+S|Naucrates ductor|Poisson-pilote
+S|Caranx ignobilis|Carangue géante|Saute pour attraper les oiseaux en vol.
+S|Rachycentron canadum|Cobia
+@@ Pleuronectiformes
+S|Platichthys flesus|Flet
+S|Limanda limanda|Limande
+S|Lepidorhombus whiffiagonis|Cardine franche
+S|Reinhardtius hippoglossoides|Flétan noir
+S|Pegusa lascaris|Sole-pole
+S|Psettodes erumei|Psettode|Poisson plat primitif.
+@@ Cichliformes
+S|Cichla ocellaris|Peacock bass
+S|Amphilophus citrinellus|Cichlidé citron
+S|Neolamprologus multifasciatus|Cichlidé à coquilles|Vit dans des coquilles d'escargots vides.
+S|Haplochromis nubilus|Haplochromis bleu
+S|Crenicichla lepidota|Crénicichla
+@@ Cyprinodontiformes
+S|Aphanius fasciatus|Aphanius de Corse
+S|Fundulus heteroclitus|Choquemort|Supporte des eaux très polluées.
+S|Anableps anableps|Quatre-yeux|Yeux divisés pour voir dans l'air et dans l'eau.
+S|Poecilia formosa|Molly amazone|Espèce uniquement femelle.
+S|Aplocheilus lineatus|Panchax rayé
+@@ Beloniformes
+S|Hemiramphus far|Demi-bec
+S|Cololabis saira|Balaou du Japon
+S|Cheilopogon heterurus|Exocet de Méditerranée
+@@ Atheriniformes
+S|Melanotaenia boesemani|Poisson arc-en-ciel de Boeseman
+S|Leuresthes tenuis|Grunion|Pond sur la plage aux grandes marées.
+@@ Mugiliformes
+S|Chelon labrosus|Mulet lippu
+S|Liza ramada|Mulet porc
+@@ Anabantiformes
+S|Anabas testudineus|Perche grimpeuse
+S|Osphronemus goramy|Gourami géant
+S|Trichogaster lalius|Gourami nain
+S|Helostoma temminckii|Gourami embrasseur
+S|Nandus nandus|Poisson-feuille
+@@ Synbranchiformes
+S|Mastacembelus armatus|Anguille épineuse
+@@ Labriformes
+S|Labrus bergylta|Vieille commune
+S|Symphodus tinca|Crénilabre paon
+S|Coris julis|Girelle
+S|Thalassoma pavo|Girelle-paon
+S|Bolbometopon muricatum|Perroquet à bosse|Le plus grand poisson-perroquet ; mange le corail.
+S|Sparisoma cretense|Perroquet de Méditerranée
+@@ Acanthuriformes
+S|Zanclus cornutus|Idole des Maures
+S|Acanthurus triostegus|Chirurgien bagnard
+S|Naso unicornis|Nason à éperons bleus
+S|Chaetodon auriga|Poisson-papillon cocher
+S|Siganus luridus|Sigan brun
+S|Sciaena umbra|Corb
+S|Umbrina cirrosa|Ombrine
+S|Totoaba macdonaldi|Totoaba|Sa vessie natatoire, braconnée, menace aussi le vaquita.
+@@ Spariformes
+S|Pagellus erythrinus|Pageot commun
+S|Dentex dentex|Denté
+S|Spondyliosoma cantharus|Griset
+S|Oblada melanura|Oblade
+S|Sarpa salpa|Saupe|Peut provoquer des hallucinations quand on la mange.
+S|Boops boops|Bogue
+S|Lithognathus mormyrus|Marbré
+@@ Lophiiformes
+S|Lophius budegassa|Baudroie rousse
+S|Ogcocephalus darwini|Poisson chauve-souris à lèvres rouges
+S|Histrio histrio|Poisson des sargasses
+S|Brachionichthys hirsutus|Poisson-main tacheté|Marche sur ses nageoires.
+@@ Tetraodontiformes
+S|Aluterus scriptus|Bourse écriture
+S|Arothron hispidus|Poisson-ballon à taches blanches
+S|Lactoria cornuta|Poisson-vache à longues cornes
+S|Rhinecanthus aculeatus|Baliste Picasso
+S|Mola alexandrini|Poisson-lune à tête bosselée|Le poisson osseux le plus lourd : 2,7 tonnes.
+S|Ranzania laevis|Môle lancéolé
+S|Lagocephalus sceleratus|Compère à bandes argentées|Toxique, invasif en Méditerranée.
+@@ Perciformes
+S|Trachinus draco|Grande vive|Épines venimeuses : piqûres fréquentes sur les plages.
+S|Gymnocephalus cernua|Grémille
+S|Zingel asper|Apron du Rhône|Un des poissons les plus menacés d'Europe.
+S|Sebastes norvegicus|Sébaste
+S|Chelidonichthys lucerna|Grondin perlon|« Marche » sur ses rayons de nageoires.
+S|Zoarces viviparus|Loquette d'Europe|Poisson vivipare.
+S|Ammodytes tobianus|Lançon
+S|Pholis gunnellus|Gonelle
+S|Eumicrotremus orbis|Lompe ronde
+S|Serranus scriba|Serran écriture
+S|Anthias anthias|Barbier
+S|Epinephelus lanceolatus|Mérou géant
+S|Plectropomus leopardus|Saumonée léopard
+S|Taurulus bubalis|Chaboisseau à longues épines
+S|Agonus cataphractus|Souris de mer
+S|Comephorus baikalensis|Golomianka|Poisson translucide et vivipare du lac Baïkal.
+S|Pseudoliparis belyaevi|Limace de mer d'Izu-Ogasawara|Filmé à 8 336 m (2022) : record de profondeur pour un poisson.
+@@ Notothenioidei
+S|Pagothenia borchgrevinki|Poisson des glaces de la banquise
+S|Dissostichus eleginoides|Légine australe
+@@ Batrachoidiformes
+S|Porichthys notatus|Poisson-chanteur|Le mâle bourdonne toute la nuit.
+S|Thalassophryne amazonica|Thalassophryne
+@@ Ophidiiformes
+S|Ophidion barbatum|Donzelle
+S|Carapus acus|Aurin|Vit dans le corps des holothuries.
+@@ Dipnoi
+S|Protopterus aethiopicus|Protoptère éthiopien|Génome géant : 130 milliards de paires de bases.
+S|Protopterus dolloi|Protoptère de Dollo
+@@ Tetrapoda
+S|†Acanthostega gunnari|Acanthostega|Tétrapode à huit doigts, encore aquatique.
+S|†Ichthyostega stensioei|Ichthyostega
+c|†Temnospondyli|Temnospondyles|Grands amphibiens du Paléozoïque et du Trias.
+ S|†Eryops megacephalus|Eryops
+ S|†Prionosuchus plummeri|Prionosuchus|Amphibien de 9 m, semblable à un crocodile.
+@@ Alytidae
+S|Discoglossus pictus|Discoglosse peint
+S|Alytes cisternasii|Alyte de Cisternas
+@@ Anura
+F|Pelodytidae|Pélodytes
+ S|Pelodytes punctatus|Pélodyte ponctué
+F|Scaphiopodidae|Crapauds pieds-en-bêche
+ S|Scaphiopus couchii|Crapaud à pieds en bêche|Têtards qui se métamorphosent en 8 jours.
+F|Rhinophrynidae|Crapaud fouisseur du Mexique
+ S|Rhinophrynus dorsalis|Crapaud fouisseur
+F|Nasikabatrachidae|Grenouilles violettes
+ S|Nasikabatrachus sahyadrensis|Grenouille violette|Sort de terre un jour par an pour se reproduire.
+F|Megophryidae|Grenouilles cornues d'Asie
+ S|Megophrys nasuta|Grenouille cornue de Malaisie
+F|Calyptocephalellidae|Calyptocéphalellidés
+ S|Calyptocephalella gayi|Grenouille casquée du Chili
+F|Hemiphractidae|Rainettes marsupiales
+ G|Gastrotheca|Gastrotheca|Les œufs se développent dans une poche dorsale.
+F|Eleutherodactylidae|Eleutherodactylidés|Développement direct, sans têtard.
+ S|Eleutherodactylus coqui|Coquí
+ S|Eleutherodactylus iberia|Eleutherodactylus iberia|Une des plus petites grenouilles : 10 mm.
+F|Leptodactylidae|Leptodactylidés
+ S|Leptodactylus fallax|Poulet de montagne
+F|Ceratophryidae|Grenouilles Pac-Man
+ S|Ceratophrys cornuta|Grenouille cornue d'Amazonie
+F|Telmatobiidae|Telmatobiidés
+ S|Telmatobius culeus|Grenouille du lac Titicaca|Peau très plissée pour respirer sous l'eau.
+F|Brachycephalidae|Brachycéphalidés
+ S|Brachycephalus ephippium|Grenouille citrouille|Os fluorescents visibles à travers la peau.
+F|Arthroleptidae|Arthroleptidés
+ S|Trichobatrachus robustus|Grenouille poilue|Les mâles ont des « poils » de peau ; se fait sortir des griffes en cassant ses os.
+F|Hyperoliidae|Rainettes africaines
+ S|Hyperolius viridiflavus|Rainette des roseaux
+F|Mantellidae|Mantellidés
+ S|Mantella aurantiaca|Mantelle dorée
+F|Dicroglossidae|Dicroglossidés
+ S|Hoplobatrachus tigerinus|Grenouille-tigre indienne
+F|Rhinodermatidae|Rhinodermes
+ S|Rhinoderma darwinii|Grenouille de Darwin|Le mâle couve les têtards dans son sac vocal.
+F|Pyxicephalidae|Pyxicéphalidés
+ S|Pyxicephalus adspersus|Grenouille-taureau africaine
+F|Heleophrynidae|Héléophrynidés
+F|Sooglossidae|Sooglossidés
+ S|Sechellophryne gardineri|Grenouille de Gardiner|Une des plus petites grenouilles : 11 mm, aux Seychelles.
+@@ Bufonidae
+S|Bufotes viridis|Crapaud vert
+S|Bufo spinosus|Crapaud épineux
+G|Atelopus|Atélopes|Grenouilles arlequins, décimées par le chytride.
+S|Nimbaphrynoides occidentalis|Crapaud vivipare du Nimba
+@@ Hylidae
+S|Phyllomedusa bicolor|Phyllomédusa géante
+S|Dryophytes versicolor|Rainette versicolore|Supporte le gel.
+S|Pseudacris crucifer|Rainette crucifère
+S|Boana faber|Rainette forgeron
+S|Cyclorana platycephala|Grenouille réservoir|Survit des années enterrée dans un cocon.
+@@ Ranidae
+S|Rana dalmatina|Grenouille agile
+S|Pelophylax ridibundus|Grenouille rieuse
+S|Pelophylax lessonae|Grenouille de Lessona
+S|Odorrana tormota|Grenouille aux oreilles concaves|Communique par ultrasons.
+S|Lithobates pipiens|Grenouille léopard
+@@ Dendrobatidae
+S|Ranitomeya imitator|Dendrobate imitatrice
+S|Allobates femoralis|Allobates
+@@ Microhylidae
+S|Kaloula pulchra|Grenouille-bœuf asiatique
+S|Dyscophus antongilii|Grenouille tomate
+@@ Rhacophoridae
+S|Chiromantis xerampelina|Grenouille à nid d'écume
+@@ Caudata
+F|Rhyacotritonidae|Salamandres des torrents
+ S|Rhyacotriton olympicus|Rhyacotriton
+F|Dicamptodontidae|Salamandres géantes du Pacifique
+ S|Dicamptodon tenebrosus|Dicamptodon
+F|Amphiumidae|Amphiumes
+ S|Amphiuma means|Amphiume à deux doigts
+@@ Hynobiidae
+S|Salamandrella keyserlingii|Salamandre de Sibérie|Survit congelée à –35 °C.
+S|Ranodon sibiricus|Salamandre des torrents de Semiretchie
+@@ Salamandridae
+S|Calotriton asper|Euprocte des Pyrénées
+S|Euproctus montanus|Euprocte de Corse
+S|Triturus marmoratus|Triton marbré
+S|Salamandra lanzai|Salamandre de Lanza
+S|Salamandrina perspicillata|Salamandrine à lunettes
+S|Taricha granulosa|Triton à peau rude|Assez de tétrodotoxine pour tuer plusieurs humains.
+S|Tylototriton verrucosus|Triton crocodile
+S|Cynops orientalis|Triton à ventre de feu
+@@ Plethodontidae
+S|Hydromantes platycephalus|Hydromante du mont Lyell
+S|Thorius pennatulus|Thorius|Parmi les plus petites salamandres : 2 cm.
+S|Ensatina eschscholtzii|Ensatina|Espèce en anneau autour de la vallée centrale de Californie.
+S|Plethodon cinereus|Salamandre rayée
+S|Eurycea rathbuni|Salamandre aveugle du Texas
+S|Aneides vagrans|Salamandre vagabonde|Saute en parachute depuis les séquoias.
+@@ Sirenidae
+S|Pseudobranchus striatus|Sirène naine
+@@ Proteidae
+S|Necturus beyeri|Necture du golfe
+@@ Gymnophiona
+F|Rhinatrematidae|Rhinatrématidés
+F|Caeciliidae|Caeciliidés
+ S|Caecilia thompsoni|Cécilie de Thompson|La plus grande cécilie : 1,5 m.
+F|Siphonopidae|Siphonopidés
+ S|Siphonops annulatus|Siphonops annelé|Les femelles nourrissent leurs petits d'une sorte de lait (2024).
+F|Dermophiidae|Dermophiidés
+ S|Dermophis mexicanus|Cécilie du Mexique
+F|Scolecomorphidae|Scolécomorphidés|Leurs tentacules portent les yeux.
+@@ Sauropsida
+c|†Ichthyosauria|Ichtyosaures|Reptiles marins en forme de dauphin, éteints il y a 90 millions d'années.
+ S|†Ichthyosaurus communis|Ichthyosaure
+ S|†Shastasaurus sikanniensis|Shastasaurus|Reptile marin de 21 m.
+c|†Sauropterygia|Plésiosaures et apparentés
+ S|†Plesiosaurus dolichodeirus|Plésiosaure|Découvert par Mary Anning en 1823.
+ S|†Elasmosaurus platyurus|Élasmosaure|Cou de 71 vertèbres.
+ S|†Kronosaurus queenslandicus|Kronosaure
+ S|†Nothosaurus mirabilis|Nothosaure
+@@ Gekkota
+S|Correlophus ciliatus|Gecko à crête|Cru éteint, redécouvert en 1994.
+S|Rhacodactylus leachianus|Gecko géant de Nouvelle-Calédonie
+S|Phelsuma madagascariensis|Phelsume de Madagascar
+S|Hemidactylus turcicus|Hémidactyle verruqueux
+S|Ptychozoon kuhli|Gecko volant
+S|Lialis burtonis|Lézard sans pattes de Burton|Pygopode qui mange d'autres lézards.
+S|Coleonyx variegatus|Gecko à bandes
+S|Lepidodactylus lugubris|Gecko deuil|Espèce uniquement femelle.
+S|Euleptes europaea|Phyllodactyle d'Europe
+S|†Hoplodactylus delcourti|Gecko géant de Delcourt|Le plus grand gecko connu, 60 cm, connu par un seul spécimen à Marseille.
+@@ Scincoidea
+S|Egernia stokesii|Scinque épineux
+S|Ouroborus cataphractus|Lézard tatou|Se roule en se mordant la queue.
+S|Gerrhosaurus major|Gerrhosaure
+S|Xantusia vigilis|Lézard nocturne du désert
+S|Tiliqua rugosa|Scinque à queue courte|Couples fidèles des années.
+S|Trachylepis maculilabris|Mabuya
+S|Chalcides ocellatus|Seps ocellé
+S|Emoia cyanura|Scinque à queue bleue
+@@ Lacertidae
+S|Gallotia simonyi|Lézard géant d'El Hierro
+S|Psammodromus algirus|Psammodrome algire
+S|Iberolacerta aranica|Lézard du Val d'Aran
+S|Podarcis siculus|Lézard sicilien
+S|Lacerta agilis|Lézard des souches
+S|Holaspis guentheri|Lézard plané d'Afrique
+@@ Teiidae
+S|Ameiva ameiva|Améive
+S|Tupinambis teguixin|Tégu doré
+S|Dracaena guianensis|Lézard caïman
+@@ Anguimorpha
+S|Pseudopus apodus|Scheltopusik
+S|Shinisaurus crocodilurus|Lézard crocodile chinois
+S|Xenosaurus grandis|Xénosaure
+S|Varanus salvator|Varan malais
+S|Varanus giganteus|Perentie
+S|Varanus prasinus|Varan émeraude
+S|†Varanus priscus|Mégalania|Varan géant d'Australie, 5 à 7 m.
+S|Heloderma horridum|Lézard perlé
+S|Elgaria multicarinata|Lézard alligator
+c|†Mosasauridae|Mosasaures|Lézards marins géants, cousins des varans et des serpents.
+ S|†Mosasaurus hoffmannii|Mosasaure|Découvert près de Maastricht au XVIIIe siècle.
+@@ Iguania
+S|Ctenosaura similis|Iguane noir|Le plus rapide des lézards.
+S|Cyclura cornuta|Iguane rhinocéros
+S|Sauromalus ater|Chuckwalla
+S|Conolophus subcristatus|Iguane terrestre des Galápagos
+S|Brachylophus fasciatus|Iguane à bandes des Fidji
+S|Agama agama|Agame des colons
+S|Uromastyx acanthinura|Fouette-queue
+S|Physignathus cocincinus|Dragon d'eau
+S|Calumma parsonii|Caméléon de Parson
+S|Chamaeleo jacksonii|Caméléon de Jackson
+S|Rieppeleon brevicaudatus|Caméléon nain à barbe
+S|Furcifer labordi|Caméléon de Labord|Vit 4 à 5 mois : la plus courte vie d'un tétrapode.
+S|Sceloporus occidentalis|Lézard-palissade de l'Ouest
+S|Crotaphytus collaris|Lézard à collier
+S|Corytophanes cristatus|Corytophane casqué
+S|Hydrosaurus amboinensis|Hydrosaure
+@@ Serpentes
+F|Leptotyphlopidae|Serpents-fils
+ S|Tetracheilostoma carlae|Serpent-fil de la Barbade|Le plus petit serpent : 10 cm.
+F|Aniliidae|Faux serpents corail
+ S|Anilius scytale|Anilius
+F|Uropeltidae|Serpents à queue en bouclier
+F|Xenopeltidae|Serpents arc-en-ciel
+ S|Xenopeltis unicolor|Serpent soleil
+F|Tropidophiidae|Boas nains
+F|Bolyeriidae|Bolyériidés|Seuls vertébrés à mâchoire supérieure articulée en deux.
+F|Homalopsidae|Serpents d'eau asiatiques
+ S|Erpeton tentaculatum|Serpent à tentacules
+F|Pareidae|Mangeurs d'escargots asiatiques
+F|Lamprophiidae|Lamprophiidés
+ S|Boaedon fuliginosus|Serpent des maisons africain
+F|Atractaspididae|Vipères fouisseuses
+ G|Atractaspis|Atractaspis|Mord de côté avec un crochet sorti de la bouche fermée.
+F|Dipsadidae|Dipsadidés
+ S|Heterodon platirhinos|Serpent à groin|Fait le mort de façon spectaculaire.
+ S|Dipsas catesbyi|Mangeur d'escargots de Catesby
+S|†Titanoboa cerrejonensis|Titanoboa|Serpent de 13 m, il y a 60 millions d'années.
+S|†Vasuki indicus|Vasuki|Serpent géant de 11 à 15 m décrit en Inde (2024).
+@@ Boidae
+S|Eryx jaculus|Boa des sables
+S|Eunectes notaeus|Anaconda jaune
+S|Corallus caninus|Boa émeraude
+S|Candoia aspera|Boa de Nouvelle-Guinée
+S|Chilabothrus inornatus|Boa de Porto Rico
+@@ Pythonidae
+S|Morelia viridis|Python vert arboricole
+S|Python sebae|Python de Seba
+S|Antaresia perthensis|Python pygmée|Le plus petit python : 60 cm.
+S|Morelia spilota|Python tapis
+@@ Viperidae
+S|Vipera ursinii|Vipère d'Orsini
+S|Vipera seoanei|Vipère de Seoane
+S|Vipera latastei|Vipère de Lataste
+S|Atheris squamigera|Vipère arboricole
+S|Trimeresurus albolabris|Vipère verte à lèvres blanches
+S|Agkistrodon piscivorus|Mocassin d'eau
+S|Crotalus horridus|Crotale des bois
+S|Crotalus cerastes|Crotale cornu|Se déplace de côté sur le sable.
+S|Bothrops atrox|Fer-de-lance
+S|Daboia russelii|Vipère de Russell
+S|Pseudocerastes urarachnoides|Vipère à queue d'araignée|Le bout de sa queue imite une araignée.
+S|Causus rhombeatus|Vipère nocturne
+@@ Elapidae
+S|Naja nigricollis|Cobra cracheur à cou noir
+S|Hemachatus haemachatus|Cobra cracheur à collier
+S|Bungarus caeruleus|Bongare indien
+S|Acanthophis antarcticus|Vipère de la mort
+S|Dendroaspis angusticeps|Mamba vert de l'Est
+S|Notechis scutatus|Serpent-tigre
+S|Aipysurus laevis|Serpent marin olive
+S|Calliophis bivirgatus|Serpent corail bleu|Glandes à venin longues d'un quart du corps.
+S|Oxyuranus scutellatus|Taïpan côtier
+@@ Colubridae
+S|Coronella austriaca|Coronelle lisse
+S|Natrix maura|Couleuvre vipérine
+S|Natrix natrix|Couleuvre à collier
+S|Elaphe quatuorlineata|Couleuvre à quatre raies
+S|Rhinechis scalaris|Couleuvre à échelons
+S|Dasypeltis scabra|Mangeur d'œufs
+S|Lampropeltis getula|Serpent-roi
+S|Thamnophis sirtalis|Couleuvre rayée|Tolère le poison du triton à peau rude.
+S|Ahaetulla nasuta|Serpent-liane
+S|Boiga irregularis|Serpent brun arboricole|A exterminé presque tous les oiseaux de Guam.
+S|Telescopus fallax|Couleuvre chat
+S|Coronella girondica|Coronelle girondine
+@@ Pleurodira
+F|Pelomedusidae|Péloméduses
+ S|Pelomedusa subrufa|Péloméduse roussâtre
+S|Chelodina longicollis|Tortue à long cou
+S|Elseya irwini|Tortue d'Irwin
+S|Elusor macrurus|Tortue de la rivière Mary|Respire par le cloaque ; « crête » d'algues.
+@@ Cryptodira
+F|Kinosternidae|Tortues musquées
+ S|Sternotherus odoratus|Tortue musquée
+F|Carettochelyidae|Tortue à nez de cochon
+ S|Carettochelys insculpta|Tortue à nez de cochon
+F|Platysternidae|Tortue à grosse tête
+ S|Platysternon megacephalum|Tortue à grosse tête
+F|Geoemydidae|Géoémydidés
+ S|Mauremys leprosa|Émyde lépreuse
+ S|Cuora amboinensis|Tortue-boîte d'Amboine
+@@ Testudinidae
+S|Testudo graeca|Tortue mauresque
+S|Astrochelys radiata|Tortue radiée
+S|Gopherus agassizii|Tortue du désert
+S|Malacochersus tornieri|Tortue crêpe|Carapace souple pour se glisser dans les fissures.
+S|Chersobius signatus|Tortue de Speke|La plus petite tortue terrestre.
+@@ Cheloniidae
+S|Lepidochelys kempii|Tortue de Kemp
+S|Lepidochelys olivacea|Tortue olivâtre|Pontes synchronisées de milliers de femelles (arribadas).
+S|Natator depressus|Tortue à dos plat
+@@ Trionychidae
+S|Pelodiscus sinensis|Trionyx de Chine
+S|Apalone spinifera|Tortue molle à épines
+@@ Emydidae
+S|Terrapene carolina|Tortue-boîte de Caroline
+S|Chrysemys picta|Tortue peinte|Les petits survivent congelés dans le nid.
+S|Malaclemys terrapin|Tortue à dos diamanté
+@@ Testudines
+S|†Archelon ischyros|Archelon|Tortue marine de 4,6 m du Crétacé.
+S|†Stupendemys geographica|Stupendemys|Tortue d'eau douce géante : carapace de 3 m.
+@@ Crocodylia
+S|Crocodylus palustris|Crocodile des marais
+S|Crocodylus siamensis|Crocodile du Siam
+S|Crocodylus rhombifer|Crocodile de Cuba
+S|Crocodylus johnstoni|Crocodile de Johnston|Galope.
+S|Osteolaemus tetraspis|Crocodile nain
+S|Mecistops cataphractus|Faux-gavial d'Afrique
+S|Paleosuchus palpebrosus|Caïman nain de Cuvier
+S|Caiman latirostris|Caïman à museau large
+S|†Sarcosuchus imperator|Sarcosuchus|« Super-croco » de 12 m du Crétacé.
+S|†Deinosuchus riograndensis|Deinosuchus
+@@ †Pterosauria
+S|†Rhamphorhynchus muensteri|Rhamphorhynchus
+S|†Hatzegopteryx thambema|Hatzegopteryx
+@@ †Ornithischia
+S|†Pachycephalosaurus wyomingensis|Pachycéphalosaure
+S|†Edmontosaurus regalis|Edmontosaure
+S|†Psittacosaurus mongoliensis|Psittacosaure
+S|†Maiasaura peeblesorum|Maiasaura|« Bonne mère lézard » : nids et soins aux petits.
+S|†Kulindadromeus zabaikalicus|Kulindadromeus|Ornithischien à plumes.
+S|†Borealopelta markmitchelli|Borealopelta|Momifié avec sa couleur.
+@@ †Sauropodomorpha
+S|†Plateosaurus trossingensis|Plateosaurus
+S|†Argentinosaurus huinculensis|Argentinosaurus
+S|†Apatosaurus ajax|Apatosaure
+S|†Dreadnoughtus schrani|Dreadnoughtus
+S|†Mamenchisaurus sinocanadorum|Mamenchisaure|Cou de 15 m.
+@@ Theropoda
+S|†Giganotosaurus carolinii|Giganotosaure
+S|†Carnotaurus sastrei|Carnotaure
+S|†Deinonychus antirrhopus|Deinonychus
+S|†Oviraptor philoceratops|Oviraptor
+S|†Microraptor gui|Microraptor|Dinosaure à quatre ailes.
+S|†Yutyrannus huali|Yutyrannus|Grand tyrannosauroïde à plumes.
+S|†Compsognathus longipes|Compsognathus
+S|†Therizinosaurus cheloniformis|Thérizinosaure|Griffes de 1 m.
+S|†Ceratosaurus nasicornis|Cératosaure
+S|†Baryonyx walkeri|Baryonyx
+# Compléments pluricellulaires : oiseaux et mammifères
+@@ Aves
+S|†Hesperornis regalis|Hesperornis|Oiseau plongeur à dents du Crétacé.
+@@ Galliformes
+S|Lyrurus tetrix|Tétras lyre
+S|Bonasa bonasia|Gélinotte des bois
+S|Perdix perdix|Perdrix grise
+S|Chrysolophus pictus|Faisan doré
+S|Argusianus argus|Argus géant
+S|Crax rubra|Grand hocco
+S|Leipoa ocellata|Léipoa ocellé|Le mâle règle la température du tas de compost en y plongeant le bec.
+S|Tragopan temminckii|Tragopan de Temminck
+S|Afropavo congensis|Paon du Congo
+@@ Anseriformes
+S|Tadorna tadorna|Tadorne de Belon
+S|Mergus merganser|Harle bièvre
+S|Aythya ferina|Fuligule milouin
+S|Anas crecca|Sarcelle d'hiver
+S|Branta leucopsis|Bernache nonnette|Les oisons sautent de falaises de 100 m.
+S|Anser indicus|Oie à tête barrée|Survole l'Himalaya.
+S|Cygnus atratus|Cygne noir
+S|Cygnus cygnus|Cygne chanteur
+S|Dendrocygna viduata|Dendrocygne veuf
+S|Oxyura leucocephala|Érismature à tête blanche
+S|Cairina moschata|Canard de Barbarie
+S|Merganetta armata|Canard des torrents
+@@ Palaeognathae
+S|Apteryx haastii|Grand kiwi tacheté
+S|Casuarius unappendiculatus|Casoar unicaronculé
+S|Rhea pennata|Nandou de Darwin
+S|Eudromia elegans|Tinamou élégant
+@@ Columbiformes
+S|Columba palumbus|Pigeon ramier
+S|Streptopelia turtur|Tourterelle des bois
+S|Caloenas nicobarica|Pigeon de Nicobar|Le plus proche parent vivant du dodo.
+S|Didunculus strigirostris|Diduncule
+S|Treron vernans|Colombar à tête grise
+S|Ptilinopus magnificus|Ptilope magnifique
+@@ Musophagiformes
+S|Tauraco erythrolophus|Touraco à huppe rouge|Pigment vert et rouge uniques chez les oiseaux.
+S|Corythaeola cristata|Touraco géant
+@@ Coliiformes
+S|Colius striatus|Coliou rayé
+@@ Mesitornithiformes
+S|Mesitornis variegatus|Mésite variée
+@@ Pterocliformes
+S|Pterocles alchata|Ganga cata
+S|Syrrhaptes paradoxus|Syrrhapte paradoxal
+@@ Phaethontiformes
+S|Phaethon aethereus|Phaéton à bec rouge
+S|Phaethon lepturus|Phaéton à bec jaune
+@@ Cuculiformes
+S|Clamator glandarius|Coucou geai
+S|Crotophaga ani|Ani à bec lisse
+S|Centropus sinensis|Grand coucal
+S|Chrysococcyx caprius|Coucou didric
+@@ Otidiformes
+S|Tetrax tetrax|Outarde canepetière
+S|Ardeotis kori|Outarde kori
+@@ Caprimulgiformes
+S|Phalaenoptilus nuttallii|Engoulevent de Nuttall|Seul oiseau qui hiberne.
+S|Podargus strigoides|Podarge gris
+@@ Apodiformes
+S|Tachymarptis melba|Martinet à ventre blanc
+S|Aerodramus fuciphagus|Salangane à nid blanc|Son nid de salive est le « nid d'hirondelle » de la cuisine chinoise.
+S|Hemiprocne longipennis|Hémiprocné
+S|Calypte anna|Colibri d'Anna|Plongée nuptiale à 385 longueurs de corps par seconde.
+S|Ensifera ensifera|Colibri porte-épée|Bec plus long que le corps.
+S|Selasphorus rufus|Colibri roux|Migration de 6 000 km.
+@@ Gruiformes
+S|Balearica regulorum|Grue royale
+S|Grus americana|Grue blanche
+S|Antigone canadensis|Grue du Canada
+S|Crex crex|Râle des genêts
+S|Gallirallus australis|Weka
+S|Porphyrio porphyrio|Talève sultane
+S|Psophia crepitans|Agami trompette
+S|Heliornis fulica|Grébifoulque d'Amérique
+S|Aramus guarauna|Courlan
+S|Atlantisia rogersi|Râle atlantis|Le plus petit oiseau inapte au vol.
+S|Hypotaenidia okinawae|Râle d'Okinawa
+@@ Charadriiformes
+S|Burhinus oedicnemus|Œdicnème criard
+S|Glareola pratincola|Glaréole à collier
+S|Numenius arquata|Courlis cendré
+S|Arenaria interpres|Tournepierre à collier
+S|Rynchops niger|Bec-en-ciseaux noir
+S|Uria aalge|Guillemot de Troïl
+S|Actophilornis africanus|Jacana à poitrine dorée
+S|Chionis albus|Chionis blanc
+S|Larus marinus|Goéland marin
+S|Rissa tridactyla|Mouette tridactyle
+S|Sternula albifrons|Sterne naine
+S|Phalaropus lobatus|Phalarope à bec étroit|Les femelles sont colorées et les mâles couvent.
+S|Calidris pugnax|Combattant varié|Trois types de mâles génétiquement distincts.
+S|Pluvialis apricaria|Pluvier doré
+S|Charadrius dubius|Petit gravelot
+S|Gallinago gallinago|Bécassine des marais
+S|Dromas ardeola|Drome ardéole
+S|Pagophila eburnea|Mouette ivoire
+S|Thinocorus rumicivorus|Thinocore de d'Orbigny
+S|Pedionomus torquatus|Pédionome errant
+S|Eudromias morinellus|Pluvier guignard
+S|Himantopus himantopus|Échasse blanche
+@@ Gaviiformes
+S|Gavia stellata|Plongeon catmarin
+S|Gavia arctica|Plongeon arctique
+@@ Podicipediformes
+S|Tachybaptus ruficollis|Grèbe castagneux
+S|Aechmophorus occidentalis|Grèbe élégant|Parade où le couple court sur l'eau.
+S|Podiceps nigricollis|Grèbe à cou noir
+@@ Phoenicopteriformes
+S|Phoeniconaias minor|Flamant nain
+S|Phoenicoparrus jamesi|Flamant de James
+@@ Sphenisciformes
+S|Eudyptes chrysocome|Gorfou sauteur
+S|Spheniscus mendiculus|Manchot des Galápagos
+S|Megadyptes antipodes|Manchot antipode
+S|Pygoscelis papua|Manchot papou|Le plus rapide des manchots sous l'eau.
+S|Pygoscelis antarcticus|Manchot à jugulaire
+S|†Kumimanu fordycei|Manchot géant fossile|150 kg, il y a 57 millions d'années.
+@@ Procellariiformes
+S|Macronectes giganteus|Pétrel géant
+S|Calonectris diomedea|Puffin de Scopoli
+S|Thalassarche melanophris|Albatros à sourcils noirs
+S|Pelecanoides urinatrix|Puffinure plongeur
+S|Puffinus tenuirostris|Puffin à bec grêle|Migration de 30 000 km autour du Pacifique.
+S|Pterodroma madeira|Pétrel de Madère
+S|Oceanites oceanicus|Océanite de Wilson
+@@ Ciconiiformes
+S|Jabiru mycteria|Jabiru d'Amérique
+S|Anastomus lamelligerus|Bec-ouvert africain
+S|Mycteria ibis|Tantale ibis
+@@ Suliformes
+S|Anhinga anhinga|Anhinga d'Amérique
+S|Gulosus aristotelis|Cormoran huppé
+S|Nannopterum harrisi|Cormoran aptère|Seul cormoran incapable de voler, aux Galápagos.
+S|Sula leucogaster|Fou brun
+S|Fregata minor|Frégate du Pacifique|Peut voler des semaines sans se poser.
+@@ Pelecaniformes
+S|Pelecanus occidentalis|Pélican brun
+S|Pelecanus crispus|Pélican frisé
+S|Nycticorax nycticorax|Bihoreau gris
+S|Bubulcus ibis|Héron garde-bœufs
+S|Ardea purpurea|Héron pourpré
+S|Ardea goliath|Héron goliath
+S|Geronticus eremita|Ibis chauve|Réintroduit en Europe : des ULM guident ses migrations.
+S|Ixobrychus minutus|Blongios nain
+S|Egretta ardesiaca|Aigrette ardoisée|Pêche en formant une ombrelle avec ses ailes.
+S|Butorides striata|Héron strié|Pêche avec un appât.
+S|Plegadis falcinellus|Ibis falcinelle
+@@ Cathartiformes
+S|Coragyps atratus|Urubu noir
+S|Sarcoramphus papa|Sarcoramphe roi
+@@ Accipitriformes
+S|Aegypius monachus|Vautour moine
+S|Neophron percnopterus|Vautour percnoptère|Casse les œufs d'autruche avec des pierres.
+S|Circus aeruginosus|Busard des roseaux
+S|Circus cyaneus|Busard Saint-Martin
+S|Astur gentilis|Autour des palombes
+S|Hieraaetus pennatus|Aigle botté
+S|Aquila fasciata|Aigle de Bonelli
+S|Haliaeetus albicilla|Pygargue à queue blanche
+S|Elanus caeruleus|Élanion blanc
+S|Pernis apivorus|Bondrée apivore|Déterre les nids de guêpes.
+S|Terathopius ecaudatus|Bateleur des savanes
+S|Haliastur indus|Milan sacré
+S|Stephanoaetus coronatus|Aigle couronné
+S|Milvus migrans|Milan noir
+S|Aquila heliaca|Aigle impérial
+S|Torgos tracheliotos|Vautour oricou
+S|†Hieraaetus moorei|Aigle de Haast|Chassait les moas en Nouvelle-Zélande.
+@@ Strigiformes
+S|Otus scops|Petit-duc scops
+S|Aegolius funereus|Chouette de Tengmalm
+S|Strix nebulosa|Chouette lapone
+S|Strix uralensis|Chouette de l'Oural
+S|Surnia ulula|Chouette épervière
+S|Bubo blakistoni|Grand-duc de Blakiston|Le plus grand hibou, pêcheur de saumons.
+S|Athene cunicularia|Chevêche des terriers|Imite le bruit d'un serpent à sonnette.
+S|Micrathene whitneyi|Chevêchette des saguaros|La plus petite chouette.
+S|Asio flammeus|Hibou des marais
+S|Ninox novaeseelandiae|Ninoxe boubouk
+S|Phodilus badius|Phodile calong
+@@ Trogoniformes
+S|Trogon elegans|Trogon élégant
+S|Apaloderma narina|Trogon narina
+@@ Bucerotiformes
+S|Buceros rhinoceros|Calao rhinocéros
+S|Rhinoplax vigil|Calao à casque rond|Casque massif, braconné comme « ivoire ».
+S|Tockus erythrorhynchus|Calao à bec rouge
+S|Phoeniculus purpureus|Irrisor moqueur
+@@ Coraciiformes
+S|Momotus momota|Motmot houtouc
+S|Todus multicolor|Todier de Cuba
+S|Ceyx erithaca|Martin-pêcheur pourpré
+S|Megaceryle alcyon|Martin-pêcheur d'Amérique
+S|Ceryle rudis|Martin-pêcheur pie|Fait du sur-place au-dessus de l'eau.
+S|Merops nubicus|Guêpier écarlate
+S|Brachypteracias leptosomus|Brachyptérolle leptosome
+@@ Piciformes
+S|Dendrocoptes medius|Pic mar
+S|Picoides tridactylus|Pic tridactyle
+S|Dryobates minor|Pic épeichette
+S|Campephilus principalis|Pic à bec ivoire|Probablement éteint ; dernières observations contestées.
+S|Melanerpes formicivorus|Pic glandivore|Stocke des milliers de glands dans des arbres-greniers.
+S|Galbula ruficauda|Jacamar à queue rousse
+S|Psilopogon haemacephalus|Barbu à plastron rouge
+S|Pteroglossus castanotis|Araçari à oreillons roux
+S|Bucco capensis|Tamatia à collier
+S|Picumnus cirratus|Picumne frangé
+@@ Falconiformes
+S|Falco eleonorae|Faucon d'Éléonore|Niche en automne pour chasser les petits migrateurs.
+S|Falco subbuteo|Faucon hobereau
+S|Falco naumanni|Faucon crécerellette
+S|Falco columbarius|Faucon émerillon
+S|Falco cherrug|Faucon sacre
+S|Falco biarmicus|Faucon lanier
+S|Microhierax caerulescens|Fauconnet à collier|Le plus petit rapace diurne.
+S|Herpetotheres cachinnans|Macagua rieur
+S|Phalcoboenus australis|Caracara austral
+@@ Psittaciformes
+S|Psittrichas fulgidus|Perroquet de Pesquet
+S|Trichoglossus moluccanus|Loriquet arc-en-ciel
+S|Eolophus roseicapilla|Cacatoès rosalbin
+S|Probosciger aterrimus|Microglosse noir|Tambourine avec un bâton : un des rares usages d'outils rythmiques.
+S|Agapornis roseicollis|Inséparable rosegorge
+S|Myiopsitta monachus|Conure veuve|Construit des nids collectifs ; s'installe dans les villes européennes.
+S|Cyanopsitta spixii|Ara de Spix|Éteint dans la nature en 2000, réintroduit au Brésil en 2022.
+S|†Conuropsis carolinensis|Conure de Caroline|Seul perroquet des États-Unis, éteint en 1918.
+S|Amazona aestiva|Amazone à front bleu
+S|Pezoporus occidentalis|Perruche nocturne|Redécouverte vivante en 2013.
+S|Loriculus vernalis|Coryllis vernal|Dort la tête en bas.
+S|Ara chloropterus|Ara chloroptère
+@@ Tyranni
+F|Thamnophilidae|Fourmiliers|Suivent les colonnes de fourmis légionnaires.
+F|Formicariidae|Tétémas
+F|Rhinocryptidae|Tapaculos
+F|Tityridae|Tityridés
+F|Eurylaimidae|Eurylaimes
+ S|Cymbirhynchus macrorhynchos|Eurylaime rouge et noir
+F|Philepittidae|Philépittes
+@@ Tyrannidae
+S|Tyrannus tyrannus|Tyran tritri
+S|Pyrocephalus rubinus|Moucherolle vermillon
+@@ Pipridae
+S|Machaeropterus deliciosus|Manakin à ailes de massue|Chante en frottant ses plumes d'ailes.
+S|Ceratopipra mentalis|Manakin à cuisses jaunes|Fait le moonwalk.
+@@ Cotingidae
+S|Procnias albus|Araponga blanc|Le cri le plus fort mesuré chez un oiseau : 125 dB.
+S|Cephalopterus ornatus|Céphaloptère orné
+@@ Pittidae
+S|Pitta moluccensis|Brève à capuchon
+@@ Furnariidae
+S|Sclerurus mexicanus|Sclérure à gorge rousse
+@@ Passeri
+F|Callaeidae|Callaeidés
+ S|Callaeas wilsoni|Kokako de l'île du Nord
+ S|†Heteralocha acutirostris|Huia|Mâle et femelle avaient des becs de formes différentes.
+F|Notiomystidae|Hihi
+ S|Notiomystis cincta|Hihi
+F|Cracticidae|Cassicans
+ S|Gymnorhina tibicen|Cassican flûteur|Attaque les cyclistes au printemps en Australie.
+F|Dicruridae|Drongos
+ S|Dicrurus adsimilis|Drongo brillant|Imite les cris d'alarme d'autres espèces pour voler leur nourriture.
+F|Monarchidae|Monarques
+F|Rhipiduridae|Rhipidures
+ S|Rhipidura leucophrys|Rhipidure hochequeue
+F|Pachycephalidae|Siffleurs
+F|Pitohuidae|Pitohuis
+ S|Pitohui dichrous|Pitohui bicolore|Plumes toxiques (batrachotoxine).
+F|Vireonidae|Viréos
+ S|Vireo olivaceus|Viréo aux yeux rouges
+F|Campephagidae|Échenilleurs
+F|Picathartidae|Picatharte
+ S|Picathartes gymnocephalus|Picatharte chauve
+F|Petroicidae|Miros
+ S|Petroica australis|Miro de Nouvelle-Zélande
+F|Panuridae|Panure
+ S|Panurus biarmicus|Panure à moustaches
+F|Cisticolidae|Cisticoles
+ S|Cisticola juncidis|Cisticole des joncs
+ S|Orthotomus sutorius|Couturière à longue queue|Coud des feuilles pour faire son nid.
+F|Locustellidae|Locustelles
+ S|Locustella naevia|Locustelle tachetée
+F|Pycnonotidae|Bulbuls
+ S|Pycnonotus barbatus|Bulbul des jardins
+F|Leiothrichidae|Garrulaxes
+ S|Leiothrix lutea|Léiothrix jaune
+F|Zosteropidae|Zostérops
+ S|Zosterops japonicus|Zostérops du Japon
+F|Tichodromidae|Tichodrome
+ S|Tichodroma muraria|Tichodrome échelette|Grimpe aux falaises en ouvrant ses ailes rouges.
+F|Certhiidae|Grimpereaux
+ S|Certhia brachydactyla|Grimpereau des jardins
+F|Polioptilidae|Gobemoucherons
+F|Buphagidae|Piqueboeufs
+ S|Buphagus erythrorynchus|Piqueboeuf à bec rouge
+F|Nectariniidae|Souimangas
+ S|Cinnyris asiaticus|Souimanga asiatique
+F|Prunellidae|Accenteurs
+ S|Prunella modularis|Accenteur mouchet
+F|Viduidae|Veuves|Parasites de nids d'astrilds, dont elles imitent le chant.
+ S|Vidua macroura|Veuve dominicaine
+F|Calcariidae|Bruants des neiges
+ S|Plectrophenax nivalis|Bruant des neiges
+F|Passerellidae|Bruants américains
+ S|Zonotrichia leucophrys|Bruant à couronne blanche
+F|Icteridae|Ictéridés
+ S|Molothrus ater|Vacher à tête brune|Pond dans les nids d'autres oiseaux.
+ S|Agelaius phoeniceus|Carouge à épaulettes
+ S|Icterus galbula|Oriole de Baltimore
+F|Acanthizidae|Acanthizidés
+F|Pardalotidae|Pardalotes
+F|Climacteridae|Échelets
+F|Atrichornithidae|Atrichornes
+F|Hypocoliidae|Hypocolius
+F|Remizidae|Rémiz
+ S|Remiz pendulinus|Rémiz penduline|Nid suspendu en forme de bourse.
+F|Ptiliogonatidae|Ptilogons
+F|Dulidae|Esclave palmiste
+ S|Dulus dominicus|Esclave palmiste
+F|Promeropidae|Promérops
+F|Irenidae|Irènes
+F|Chloropseidae|Verdins
+F|Dicaeidae|Dicées
+F|Peucedramidae|Fauvette olive
+F|Mohoidae|†Mohos|Oiseaux d'Hawaï tous éteints.
+@@ Corvidae
+S|Corvus monedula|Choucas des tours
+S|Pyrrhocorax graculus|Chocard à bec jaune
+S|Pyrrhocorax pyrrhocorax|Crave à bec rouge
+S|Perisoreus infaustus|Mésangeai imitateur
+S|Cyanopica cooki|Pie bleue ibérique
+S|Cyanocitta cristata|Geai bleu
+S|Aphelocoma californica|Geai buissonnier|Cache sa nourriture en tenant compte des voleurs.
+S|Corvus brachyrhynchos|Corneille d'Amérique
+@@ Paridae
+S|Poecile palustris|Mésange nonnette
+S|Periparus ater|Mésange noire
+S|Lophophanes cristatus|Mésange huppée
+S|Poecile atricapillus|Mésange à tête noire
+@@ Hirundinidae
+S|Riparia riparia|Hirondelle de rivage
+S|Ptyonoprogne rupestris|Hirondelle de rochers
+S|Progne subis|Hirondelle noire
+@@ Muscicapidae
+S|Ficedula hypoleuca|Gobemouche noir
+S|Saxicola rubicola|Tarier pâtre
+S|Oenanthe oenanthe|Traquet motteux|Certains migrent de l'Alaska à l'Afrique.
+S|Monticola solitarius|Monticole bleu
+S|Luscinia svecica|Gorgebleue à miroir
+S|Muscicapa striata|Gobemouche gris
+S|Copsychus malabaricus|Shama à croupion blanc
+@@ Turdidae
+S|Turdus pilaris|Grive litorne
+S|Turdus viscivorus|Grive draine
+S|Turdus migratorius|Merle d'Amérique
+S|Sialia sialis|Merlebleu de l'Est
+S|Myadestes myadestinus|Solitaire de Kauai
+@@ Sylviidae
+S|Curruca communis|Fauvette grisette
+S|Curruca melanocephala|Fauvette mélanocéphale
+S|Curruca undata|Fauvette pitchou
+@@ Fringillidae
+S|Chloris chloris|Verdier d'Europe
+S|Linaria cannabina|Linotte mélodieuse
+S|Spinus spinus|Tarin des aulnes
+S|Coccothraustes coccothraustes|Grosbec casse-noyaux|Casse les noyaux de cerise.
+S|Serinus serinus|Serin cini
+S|Fringilla montifringilla|Pinson du Nord|Dortoirs de millions d'oiseaux.
+S|Vestiaria coccinea|Iiwi|Bec courbé adapté aux fleurs d'Hawaï.
+S|Pinicola enucleator|Durbec des sapins
+S|Loxops caeruleirostris|Akekee|Ces passereaux d'Hawaï descendent de roselins.
+@@ Emberizidae
+S|Emberiza hortulana|Bruant ortolan
+S|Emberiza cirlus|Bruant zizi
+S|Emberiza schoeniclus|Bruant des roseaux
+S|Emberiza calandra|Bruant proyer
+@@ Motacillidae
+S|Anthus pratensis|Pipit farlouse
+S|Motacilla flava|Bergeronnette printanière
+S|Motacilla cinerea|Bergeronnette des ruisseaux
+@@ Alaudidae
+S|Galerida cristata|Cochevis huppé
+S|Lullula arborea|Alouette lulu
+S|Eremophila alpestris|Alouette hausse-col
+@@ Laniidae
+S|Lanius excubitor|Pie-grièche grise
+S|Lanius senator|Pie-grièche à tête rousse
+@@ Sturnidae
+S|Acridotheres tristis|Martin triste|Un des oiseaux les plus invasifs.
+S|Lamprotornis superbus|Choucador superbe
+S|Pastor roseus|Étourneau roselin
+S|Sturnus unicolor|Étourneau unicolore
+@@ Paradisaeidae
+S|Cicinnurus regius|Paradisier royal
+S|Parotia lawesii|Parotie de Lawes|Danse en ballerine.
+S|Pteridophora alberti|Paradisier du roi de Saxe
+S|Seleucidis melanoleucus|Paradisier multifil
+@@ Meliphagidae
+S|Prosthemadera novaeseelandiae|Tui
+S|Anthornis melanura|Méliphage carillonneur
+@@ Ploceidae
+S|Philetairus socius|Républicain social|Nids géants collectifs de plusieurs centaines d'oiseaux.
+S|Euplectes progne|Euplecte à longue queue
+@@ Estrildidae
+S|Chloebia gouldiae|Diamant de Gould
+S|Padda oryzivora|Padda de Java
+S|Lonchura striata|Capucin domino
+@@ Thraupidae
+S|Coereba flaveola|Sucrier à ventre jaune
+S|Tangara chilensis|Calliste septicolore
+S|Geospiza magnirostris|Géospize à gros bec
+S|Certhidea olivacea|Pinson-fauvette
+S|Camarhynchus pallidus|Pinson pic|Utilise des épines pour extraire les larves.
+S|Sporophila caerulescens|Sporophile bouveron
+@@ Cardinalidae
+S|Passerina ciris|Passerin nonpareil
+S|Piranga olivacea|Piranga écarlate
+@@ Parulidae
+S|Setophaga striata|Paruline rayée|Traverse l'Atlantique d'une traite en automne.
+S|Setophaga petechia|Paruline jaune
+S|Mniotilta varia|Paruline noir et blanc
+@@ Mimidae
+S|Toxostoma rufum|Moqueur roux|Plus de 1 100 types de chants.
+@@ Troglodytidae
+S|Campylorhynchus brunneicapillus|Troglodyte des cactus
+S|Cyphorhinus aradus|Troglodyte musicien
+@@ Menuridae
+S|Menura alberti|Ménure d'Albert
+@@ Ptilonorhynchidae
+S|Chlamydera nuchalis|Jardinier à nuque rose|Crée une illusion de perspective dans sa tonnelle.
+S|Amblyornis inornata|Jardinier brun
+@@ Maluridae
+S|Malurus splendens|Mérion splendide
+@@ Bombycillidae
+S|Bombycilla cedrorum|Jaseur d'Amérique
+@@ Monotremata
+S|Zaglossus bruijnii|Échidné à nez long de Bruijn
+S|†Steropodon galmani|Steropodon|Monotrème fossile du Crétacé australien.
+@@ Didelphimorphia
+S|Chironectes minimus|Yapock|Seul marsupial aquatique ; le mâle a aussi une poche.
+S|Monodelphis domestica|Opossum gris à queue courte|Premier génome de marsupial séquencé.
+S|Caluromys philander|Opossum laineux
+S|Marmosa robinsoni|Marmose de Robinson
+@@ Paucituberculata
+S|Caenolestes fuliginosus|Opossum-musaraigne cendré
+@@ Dasyuromorphia
+S|Antechinus stuartii|Antechinus brun|Les mâles meurent d'épuisement après la saison des amours.
+S|Sminthopsis crassicaudata|Souris marsupiale à queue grasse
+S|Planigale ingrami|Planigale à longue queue|Un des plus petits marsupiaux : 4 g.
+S|Dasyurus maculatus|Quoll à queue tachetée
+S|Dasycercus cristicauda|Mulgara
+@@ Peramelemorphia
+S|Perameles nasuta|Bandicoot à long nez
+S|Isoodon obesulus|Bandicoot brun du Sud
+S|†Chaeropus ecaudatus|Bandicoot à pieds de porc|Éteint vers 1950.
+@@ Diprotodontia
+S|Notamacropus rufogriseus|Wallaby de Bennett|Une population sauvage vit en forêt de Rambouillet.
+S|Lasiorhinus latifrons|Wombat à nez poilu
+S|Spilocuscus maculatus|Couscous tacheté
+S|Acrobates pygmaeus|Acrobate pygmée|Le plus petit marsupial planeur.
+S|Burramys parvus|Opossum pygmée des montagnes|Hiberne sous la neige.
+S|Dactylopsila trivirgata|Phalanger rayé
+S|Hypsiprymnodon moschatus|Rat-kangourou musqué|Le plus primitif des kangourous.
+S|Potorous tridactylus|Potoroo à long nez
+S|Petauroides volans|Grand phalanger volant
+S|Lagorchestes hirsutus|Wallaby-lièvre roux
+S|Wallabia bicolor|Wallaby bicolore
+S|†Diprotodon optatum|Diprotodon|Le plus grand marsupial ayant existé : 2,7 tonnes.
+S|†Thylacoleo carnifex|Lion marsupial
+S|†Procoptodon goliah|Kangourou géant à face courte
+@@ Afrosoricida
+S|Potamogale velox|Potamogale
+S|Hemicentetes semispinosus|Tenrec rayé|Communique en frottant ses piquants.
+S|Chrysospalax trevelyani|Taupe dorée géante
+S|Eremitalpa granti|Taupe dorée du désert|« Nage » dans le sable.
+S|Microgale longicaudata|Microgale à longue queue
+S|Setifer setosus|Grand tenrec-hérisson
+@@ Macroscelidea
+S|Elephantulus rufescens|Rat à trompe roux
+S|Rhynchocyon udzungwensis|Rat à trompe géant d'Udzungwa|Décrit en 2008.
+@@ Hyracoidea
+S|Dendrohyrax arboreus|Daman des arbres|Cris nocturnes stridents.
+S|Heterohyrax brucei|Daman de Bruce
+@@ Proboscidea
+S|†Mammut americanum|Mastodonte américain
+S|†Deinotherium giganteum|Deinotherium|Défenses tournées vers le bas.
+S|†Palaeoloxodon antiquus|Éléphant à défenses droites|Vivait en Europe, jusqu'à 4 m au garrot.
+S|†Palaeoloxodon falconeri|Éléphant nain de Sicile|Un mètre au garrot.
+@@ Sirenia
+S|Trichechus senegalensis|Lamantin d'Afrique
+S|Trichechus inunguis|Lamantin d'Amazonie
+@@ Cingulata
+S|Tolypeutes tricinctus|Tatou à trois bandes|Se roule complètement en boule.
+S|Zaedyus pichiy|Pichi
+S|Cabassous unicinctus|Tatou à queue nue
+S|Chaetophractus villosus|Tatou velu
+S|†Doedicurus clavicaudatus|Doedicurus|Glyptodonte à queue en massue.
+@@ Pilosa
+S|Bradypus pygmaeus|Paresseux nain|Vit uniquement sur une petite île du Panama.
+S|Bradypus torquatus|Paresseux à crinière
+S|Choloepus hoffmanni|Paresseux d'Hoffmann
+S|†Eremotherium laurillardi|Eremotherium
+S|†Thalassocnus natans|Paresseux marin|Paresseux qui broutait les algues au Pérou.
+@@ Lagomorpha
+S|Sylvilagus floridanus|Lapin à queue blanche
+S|Lepus americanus|Lièvre d'Amérique|Cycle de population de 10 ans lié au lynx.
+S|Lepus arcticus|Lièvre arctique
+S|Lepus californicus|Lièvre de Californie
+S|Pentalagus furnessi|Lapin d'Amami
+S|Brachylagus idahoensis|Lapin pygmée
+S|Romerolagus diazi|Lapin des volcans
+S|Ochotona curzoniae|Pika à lèvres noires
+S|Ochotona iliensis|Pika de l'Ili|Redécouvert en 2014.
+S|Nesolagus netscheri|Lapin rayé de Sumatra
+S|†Prolagus sardus|Lapin-rat de Sardaigne|Éteint vers le XVIIIe siècle.
+@@ Sciuromorpha
+S|Sciurus carolinensis|Écureuil gris|Invasif en Grande-Bretagne et en Italie.
+S|Spermophilus citellus|Spermophile d'Europe
+S|Petaurista petaurista|Écureuil volant géant rouge
+S|Pteromys volans|Polatouche de Sibérie
+S|Xerus inauris|Écureuil fouisseur du Cap
+S|Ratufa indica|Écureuil géant de l'Inde
+S|Eliomys quercinus|Lérot
+S|Aplodontia rufa|Castor de montagne|Le plus ancien lignage de rongeurs vivants.
+S|Callosciurus erythraeus|Écureuil à ventre rouge|Invasif sur la Côte d'Azur.
+S|Urocitellus parryii|Spermophile arctique|Sa température corporelle descend à –3 °C en hibernation.
+S|Glaucomys volans|Polatouche du Sud
+S|Graphiurus murinus|Loir africain
+S|Marmota monax|Marmotte commune
+@@ Castorimorpha
+S|Thomomys bottae|Gaufre de Botta
+S|Perognathus longimembris|Souris à abajoues
+S|Heteromys anomalus|Rat à abajoues épineux
+@@ Myomorpha
+S|Apodemus sylvaticus|Mulot sylvestre
+S|Apodemus flavicollis|Mulot à collier
+S|Micromys minutus|Rat des moissons|Tisse un nid sphérique dans les tiges.
+S|Myodes glareolus|Campagnol roussâtre
+S|Arvicola amphibius|Campagnol amphibie
+S|Peromyscus maniculatus|Souris sylvestre d'Amérique
+S|Phodopus sungorus|Hamster russe
+S|Sicista betulina|Siciste des bouleaux
+S|Euchoreutes naso|Gerboise à longues oreilles
+S|Notomys alexis|Souris sauteuse d'Australie|Produit l'urine la plus concentrée des mammifères.
+S|Hydromys chrysogaster|Rat d'eau australien
+S|Acomys cahirinus|Souris épineuse|Régénère sa peau sans cicatrice.
+S|Mastomys natalensis|Mastomys|Réservoir du virus de Lassa.
+S|Cricetomys ansorgei|Rat géant d'Afrique|Dressé pour détecter les mines et la tuberculose.
+S|Lophiomys imhausi|Rat à crinière|Enduit ses poils d'un poison végétal.
+S|Neotoma cinerea|Rat des bois à queue touffue|Collectionne des objets brillants.
+S|Onychomys torridus|Souris-sauterelle|Immunisée contre le venin des scorpions ; hurle comme un loup.
+S|Microtus ochrogaster|Campagnol des prairies|Couples monogames, modèle de l'attachement.
+S|Ellobius lutescens|Ellobius|Mâles sans chromosome Y.
+S|Nannospalax ehrenbergi|Rat-taupe de Palestine
+S|Rhombomys opimus|Grande gerbille
+G|Hylopetes|Polatouches nains
+S|Mus spretus|Souris à queue courte
+S|Rattus exulans|Rat polynésien
+S|Melomys rubicola|Melomys de Bramble Cay|Premier mammifère déclaré éteint à cause du réchauffement climatique (2016).
+@@ Anomaluromorpha
+S|Anomalurus derbianus|Anomalure de Derby
+S|Idiurus zenkeri|Anomalure nain
+@@ Hystricomorpha
+S|Dasyprocta leporina|Agouti doré
+S|Cuniculus paca|Paca
+S|Octodon degus|Octodon dègue
+S|Ctenomys magellanicus|Tuco-tuco de Magellan
+S|Fukomys damarensis|Rat-taupe de Damara|Colonie eusociale avec une seule reine.
+S|Thryonomys swinderianus|Aulacode
+S|Dinomys branickii|Pacarana
+S|Lagostomus maximus|Viscache des plaines
+S|Capromys pilorides|Hutia de Desmarest
+S|Ctenodactylus gundi|Goundi
+S|Petromus typicus|Rat des rochers
+S|Coendou prehensilis|Coendou à queue préhensile
+S|Atherurus africanus|Athérure africain
+S|Kerodon rupestris|Mocó
+S|†Josephoartigasia monesi|Rongeur géant d'Uruguay|Environ une tonne : le plus grand rongeur connu.
+S|†Phoberomys pattersoni|Phoberomys
+@@ Scandentia
+S|Ptilocercus lowii|Toupaye à queue plumeuse|Boit du nectar fermenté sans s'enivrer.
+@@ Strepsirrhini
+S|Varecia variegata|Vari noir et blanc
+S|Eulemur fulvus|Lémur brun
+S|Cheirogaleus medius|Chirogale moyen|Seul primate qui hiberne.
+S|Perodicticus potto|Potto de Bosman
+S|Loris tardigradus|Loris grêle
+S|Hapalemur griseus|Hapalémur gris
+S|Lepilemur ruficaudatus|Lépilémur à queue rousse
+S|Avahi laniger|Avahi laineux
+S|Euoticus elegantulus|Galago élégant
+S|†Archaeoindris fontoynontii|Archaeoindris|Lémurien géant de la taille d'un gorille, éteint.
+S|†Megaladapis edwardsi|Mégaladapis
+@@ Tarsiiformes
+S|Tarsius tarsier|Tarsier spectral
+S|Cephalopachus bancanus|Tarsier de Horsfield
+@@ Platyrrhini
+S|Plecturocebus moloch|Titi
+S|Pithecia pithecia|Saki à face blanche
+S|Brachyteles arachnoides|Muriqui
+S|Lagothrix lagothricha|Singe laineux
+S|Saguinus imperator|Tamarin empereur
+S|Callimico goeldii|Tamarin de Goeldi
+S|Alouatta seniculus|Hurleur roux
+S|Ateles geoffroyi|Atèle de Geoffroy
+S|Cebus capucinus|Capucin à face blanche
+S|Sapajus libidinosus|Capucin barbu|Casse des noix avec des pierres depuis 3 000 ans.
+S|Chiropotes satanas|Saki noir
+@@ Cercopithecidae
+S|Erythrocebus patas|Patas|Le plus rapide des primates.
+S|Chlorocebus sabaeus|Singe vert
+S|Macaca fascicularis|Macaque crabier
+S|Macaca nigra|Macaque noir de Célèbes
+S|Papio hamadryas|Hamadryas
+S|Papio ursinus|Chacma
+S|Pygathrix nemaeus|Douc
+S|Semnopithecus entellus|Entelle
+S|Cercopithecus diana|Cercopithèque diane
+S|Cercopithecus neglectus|Singe de Brazza
+S|Allenopithecus nigroviridis|Singe des marais
+S|Miopithecus talapoin|Talapoin|Le plus petit singe de l'Ancien Monde.
+S|Lophocebus albigena|Mangabey à joues grises
+S|Cercocebus atys|Mangabey enfumé
+S|Trachypithecus francoisi|Langur de François
+S|Rhinopithecus bieti|Rhinopithèque du Yunnan|Vit jusqu'à 4 700 m d'altitude.
+S|Piliocolobus badius|Colobe bai
+@@ Hylobatidae
+S|Hoolock hoolock|Hoolock occidental
+S|Nomascus concolor|Gibbon noir
+S|Nomascus hainanus|Gibbon de Hainan|Le primate le plus rare : une quarantaine d'individus.
+S|Hylobates moloch|Gibbon cendré
+@@ Ponginae
+S|†Gigantopithecus blacki|Gigantopithèque|Grand singe de 3 m, éteint il y a environ 250 000 ans.
+@@ Hominina
+S|†Australopithecus africanus|Australopithèque africain|Enfant de Taung (1924).
+S|†Australopithecus sediba|Australopithecus sediba
+S|†Orrorin tugenensis|Orrorin|6 millions d'années, Kenya.
+S|†Kenyanthropus platyops|Kenyanthropus
+@@ Homo
+S|†Homo heidelbergensis|Homme de Heidelberg
+S|†Homo antecessor|Homo antecessor
+S|†Homo luzonensis|Homme de Luçon
+S|†Homo ergaster|Homo ergaster
+S|†Homo rudolfensis|Homo rudolfensis
+@@ Eulipotyphla
+S|Hemiechinus auritus|Hérisson à grandes oreilles
+S|Atelerix albiventris|Hérisson à ventre blanc
+S|Crocidura russula|Crocidure musette
+S|Sorex minutus|Musaraigne pygmée
+S|Scalopus aquaticus|Taupe à museau plat
+S|Desmana moschata|Desman russe
+S|Echinosorex gymnura|Gymnure|Le « rat lunaire », qui sent l'ammoniac.
+S|Scutisorex somereni|Musaraigne héroïque|Colonne vertébrale si solide qu'un humain peut lui marcher dessus.
+S|Blarina brevicauda|Grande musaraigne|Salive venimeuse.
+S|Talpa occidentalis|Taupe ibérique
+S|Uropsilus soricipes|Taupe-musaraigne de Chine
+S|Solenodon cubanus|Solénodon de Cuba
+S|Sorex alpinus|Musaraigne alpine
+S|Neomys anomalus|Crossope de Miller
+@@ Yinpterochiroptera
+S|Eidolon helvum|Roussette paillée africaine|Migration de 10 millions d'individus en Zambie.
+S|Hypsignathus monstrosus|Hypsignathe monstrueux
+S|Nyctimene robinsoni|Roussette à nez tubulaire
+S|Megaderma lyra|Faux-vampire lyre
+S|Cardioderma cor|Cardioderme
+S|Rhinopoma microphyllum|Rhinopome
+S|Rhinolophus hipposideros|Petit rhinolophe
+S|Hipposideros commersoni|Phyllorhine de Commerson
+S|Macroderma gigas|Faux-vampire australien
+S|Pteropus giganteus|Roussette géante indienne
+S|Dobsonia moluccensis|Roussette à dos nu
+S|Rhinonicteris aurantia|Rhinonyctère orange
+@@ Yangochiroptera
+S|Barbastella barbastellus|Barbastelle d'Europe
+S|Miniopterus schreibersii|Minioptère de Schreibers
+S|Eptesicus serotinus|Sérotine commune
+S|Myotis daubentonii|Murin de Daubenton|Chasse au ras de l'eau.
+S|Myotis lucifugus|Petite chauve-souris brune|Décimée par le syndrome du museau blanc.
+S|Myotis brandtii|Murin de Brandt|Vit plus de 40 ans pour 7 g.
+S|Pipistrellus kuhlii|Pipistrelle de Kuhl
+S|Pipistrellus pygmaeus|Pipistrelle pygmée
+S|Euderma maculatum|Oreillard maculé
+S|Ectophylla alba|Chauve-souris blanche du Honduras|Plie des feuilles en tente.
+S|Thyroptera tricolor|Thyroptère à ventouses
+S|Mystacina tuberculata|Chauve-souris à queue courte de Nouvelle-Zélande|Chasse en marchant au sol.
+S|Diclidurus albus|Chauve-souris fantôme
+S|Lasiurus cinereus|Chauve-souris cendrée
+S|Lasiurus borealis|Chauve-souris rousse
+S|Vampyrum spectrum|Faux-vampire spectre|La plus grande chauve-souris d'Amérique, carnivore.
+S|Artibeus jamaicensis|Chauve-souris frugivore de la Jamaïque
+S|Diphylla ecaudata|Vampire à pattes velues
+S|Diaemus youngii|Vampire à ailes blanches
+S|Anoura fistulata|Chauve-souris à langue tubulaire|Langue une fois et demie plus longue que le corps.
+S|Nyctalus lasiopterus|Grande noctule|Attrape des oiseaux migrateurs en vol, la nuit.
+S|Tadarida teniotis|Molosse de Cestoni
+S|Cheiromeles torquatus|Chauve-souris nue
+S|Mormoops megalophylla|Chauve-souris à face de fantôme
+S|Natalus stramineus|Natalide
+S|Myzopoda aurita|Myzopode à ventouses
+S|Cloeotis percivali|Chauve-souris à trident
+@@ Pholidota
+S|Phataginus tricuspis|Pangolin à écailles tricuspides
+S|Smutsia temminckii|Pangolin de Temminck
+S|Manis crassicaudata|Pangolin indien
+S|Phataginus tetradactyla|Pangolin à longue queue
+@@ Felidae
+S|Felis margarita|Chat des sables
+S|Felis nigripes|Chat à pieds noirs|Le félin qui réussit le mieux ses chasses : 60 %.
+S|Otocolobus manul|Manul
+S|Leopardus pardalis|Ocelot
+S|Leopardus wiedii|Margay
+S|Leopardus guigna|Kodkod
+S|Prionailurus viverrinus|Chat pêcheur
+S|Prionailurus bengalensis|Chat léopard
+S|Lynx canadensis|Lynx du Canada
+S|Lynx rufus|Lynx roux
+S|Neofelis nebulosa|Panthère nébuleuse|Canines les plus longues en proportion.
+S|Pardofelis marmorata|Chat marbré
+S|Catopuma temminckii|Chat doré d'Asie
+S|Herpailurus yagouaroundi|Jaguarondi
+S|Felis chaus|Chat des marais
+S|Profelis aurata|Chat doré africain
+S|Leopardus colocola|Chat des pampas
+S|Felis lybica|Chat sauvage d'Afrique|Ancêtre du chat domestique.
+S|†Panthera spelaea|Lion des cavernes
+S|†Homotherium latidens|Homotherium
+@@ Hyaenidae
+S|Parahyaena brunnea|Hyène brune
+@@ Herpestidae
+S|Mungos mungo|Mangue rayée
+S|Helogale parvula|Mangouste naine
+S|Urva auropunctata|Petite mangouste indienne|Invasive dans les îles, dont les Antilles.
+S|Cynictis penicillata|Mangouste jaune
+S|Ichneumia albicauda|Mangouste à queue blanche
+@@ Viverridae
+S|Civettictis civetta|Civette africaine
+S|Viverra zibetha|Grande civette de l'Inde
+S|Hemigalus derbyanus|Civette à bandes
+S|Cynogale bennettii|Civette-loutre
+@@ Feliformia
+F|Prionodontidae|Linsangs
+ S|Prionodon linsang|Linsang rayé
+F|Nandiniidae|Nandinie
+ S|Nandinia binotata|Nandinie|La lignée la plus ancienne des féliformes.
+@@ Eupleridae
+S|Fossa fossana|Fossane
+S|Galidia elegans|Galidie élégante
+@@ Canidae
+S|Canis lupaster|Loup doré africain
+S|Vulpes corsac|Renard corsac
+S|Otocyon megalotis|Otocyon|48 dents, record des canidés.
+S|Speothos venaticus|Chien des buissons
+S|Urocyon cinereoargenteus|Renard gris|Grimpe aux arbres.
+S|Lycalopex culpaeus|Renard de Magellan
+S|Canis dingo|Dingo
+S|Vulpes macrotis|Renard nain
+S|Vulpes velox|Renard véloce
+S|Vulpes rueppellii|Renard de Rüppell
+S|Atelocynus microtis|Chien des bois à petites oreilles
+S|Canis rufus|Loup roux
+S|†Aenocyon dirus|Loup géant|Éteint il y a 13 000 ans.
+S|†Dusicyon australis|Loup des Malouines|Éteint en 1876.
+@@ Ursidae
+S|Ursus thibetanus|Ours à collier
+S|†Ursus spelaeus|Ours des cavernes
+S|†Arctodus simus|Ours à face courte|Un des plus grands carnivores terrestres de l'ère glaciaire.
+@@ Otariidae
+S|Arctocephalus pusillus|Otarie à fourrure d'Afrique du Sud
+S|Callorhinus ursinus|Otarie à fourrure du Nord
+S|Otaria flavescens|Lion de mer d'Amérique du Sud
+S|Arctocephalus gazella|Otarie à fourrure antarctique
+S|Zalophus wollebaeki|Otarie des Galápagos
+S|Neophoca cinerea|Otarie d'Australie
+@@ Phocidae
+S|Mirounga angustirostris|Éléphant de mer du Nord
+S|Cystophora cristata|Phoque à capuchon
+S|Erignathus barbatus|Phoque barbu
+S|Pagophilus groenlandicus|Phoque du Groenland
+S|Pusa hispida|Phoque annelé
+S|Lobodon carcinophaga|Phoque crabier|Le phoque le plus nombreux, mange du krill.
+S|Ommatophoca rossii|Phoque de Ross
+S|Neomonachus schauinslandi|Phoque moine d'Hawaï
+S|†Neomonachus tropicalis|Phoque moine des Caraïbes|Éteint dans les années 1950.
+S|Pusa caspica|Phoque de la Caspienne
+S|Histriophoca fasciata|Phoque à rubans
+@@ Mephitidae
+S|Spilogale gracilis|Mouffette tachetée|Fait le poirier avant d'asperger.
+S|Mydaus javanensis|Blaireau puant de Java
+S|Conepatus chinga|Mouffette des Andes
+@@ Procyonidae
+S|Bassariscus astutus|Bassaris rusé
+S|Procyon cancrivorus|Raton crabier
+S|Bassaricyon neblina|Olinguito|Décrit en 2013, dernier carnivore découvert sur le continent américain.
+S|Nasua narica|Coati à nez blanc
+@@ Mustelidae
+S|Mustela lutreola|Vison d'Europe|Un des mammifères les plus menacés d'Europe.
+S|Mustela putorius|Putois
+S|Taxidea taxus|Blaireau d'Amérique
+S|Eira barbara|Tayra
+S|Ictonyx striatus|Zorille
+S|Aonyx cinereus|Loutre cendrée
+S|Aonyx capensis|Loutre à joues blanches
+S|Lontra canadensis|Loutre de rivière
+S|Lontra felina|Loutre de mer du Chili
+S|Martes zibellina|Zibeline
+S|Pekania pennanti|Pékan
+S|Arctonyx collaris|Blaireau à gorge blanche
+S|Neogale vison|Vison d'Amérique
+S|Mustela nigripes|Putois d'Amérique|Sauvé de l'extinction ; un individu a été cloné en 2020.
+S|Melogale moschata|Blaireau-furet de Chine
+S|Hydrictis maculicollis|Loutre à cou tacheté
+S|Vormela peregusna|Putois marbré
+S|Galictis vittata|Grand grison
+@@ Equidae
+S|Equus kiang|Kiang
+S|Equus zebra|Zèbre de montagne
+S|Equus africanus|Âne sauvage d'Afrique|Ancêtre de l'âne.
+S|†Hippidion saldiasi|Hippidion
+@@ Rhinocerotidae
+S|†Elasmotherium sibiricum|Elasmotherium|Rhinocéros géant à une corne, contemporain des humains.
+@@ Tapiridae
+S|Tapirus bairdii|Tapir de Baird
+S|Tapirus pinchaque|Tapir des montagnes
+@@ Perissodactyla
+S|†Paraceratherium transouralicum|Paraceratherium|Le plus grand mammifère terrestre connu : 15 à 20 tonnes.
+@@ Tylopoda
+S|Camelus ferus|Chameau sauvage de Bactriane|Boit de l'eau salée.
+S|Lama guanicoe|Guanaco
+S|†Camelops hesternus|Chameau de l'Ouest
+@@ Suina
+S|Potamochoerus porcus|Potamochère roux
+S|Sus barbatus|Sanglier à barbe
+S|Tayassu pecari|Pécari à lèvres blanches
+S|Catagonus wagneri|Pécari du Chaco|Connu comme fossile, découvert vivant en 1975.
+S|Sus cebifrons|Sanglier des Visayas
+S|Porcula salvania|Sanglier nain
+@@ Ruminantia
+S|Hyemoschus aquaticus|Chevrotain aquatique|Plonge sous l'eau pour échapper aux prédateurs.
+@@ Giraffidae
+S|†Sivatherium giganteum|Sivatherium|Girafidé massif à cornes ramifiées.
+@@ Moschidae
+S|Moschus moschiferus|Porte-musc de Sibérie
+S|Moschus berezovskii|Porte-musc nain
+@@ Cervidae
+S|Odocoileus virginianus|Cerf de Virginie
+S|Odocoileus hemionus|Cerf mulet
+S|Cervus nippon|Cerf sika
+S|Cervus canadensis|Wapiti
+S|Elaphurus davidianus|Cerf du père David|Disparu à l'état sauvage, sauvé grâce aux parcs européens.
+S|Muntiacus reevesi|Muntjac de Reeves|Aboie.
+S|Muntiacus muntjak|Muntjac indien|Seulement 6 ou 7 chromosomes chez la femelle.
+S|Rucervus duvaucelii|Barasingha
+S|Axis axis|Cerf axis
+S|Rusa unicolor|Sambar
+S|Hippocamelus bisulcus|Huemul
+S|Mazama americana|Daguet rouge
+S|Blastocerus dichotomus|Cerf des marais
+S|Elaphodus cephalophus|Élaphode
+S|Pudu mephistophiles|Pudu du Nord
+S|Ozotoceros bezoarticus|Cerf des pampas
+@@ Bovidae
+S|Bos gaurus|Gaur
+S|Bos javanicus|Banteng
+S|Bos mutus|Yack sauvage
+S|Pseudoryx nghetinhensis|Saola|La « licorne asiatique », découverte en 1992, presque jamais observée.
+S|Bubalus depressicornis|Anoa des plaines
+S|Bubalus mindorensis|Tamarau
+S|Tragelaphus spekii|Sitatunga
+S|Tragelaphus eurycerus|Bongo
+S|Tragelaphus scriptus|Guib harnaché
+S|Tragelaphus angasii|Nyala
+S|Boselaphus tragocamelus|Nilgaut
+S|Tetracerus quadricornis|Tétracère|Seul bovidé sauvage à quatre cornes.
+S|Hippotragus niger|Hippotrague noir
+S|Hippotragus equinus|Hippotrague
+S|Oryx leucoryx|Oryx d'Arabie|Éteint à l'état sauvage en 1972, réintroduit.
+S|Oryx dammah|Oryx algazelle
+S|Oryx beisa|Oryx beisa
+S|Addax nasomaculatus|Addax
+S|Damaliscus pygargus|Bontebok
+S|Damaliscus lunatus|Topi
+S|Alcelaphus buselaphus|Bubale
+S|Connochaetes gnou|Gnou à queue blanche
+S|Kobus kob|Cobe de Buffon
+S|Kobus leche|Cobe lechwe
+S|Redunca arundinum|Cobe des roseaux
+S|Raphicerus campestris|Steenbok
+S|Oreotragus oreotragus|Oréotrague|Saute de rocher en rocher sur la pointe des sabots.
+S|Neotragus pygmaeus|Antilope royale|La plus petite antilope : 2,5 kg.
+S|Madoqua kirkii|Dik-dik de Kirk
+S|Philantomba monticola|Céphalophe bleu
+S|Cephalophus zebra|Céphalophe zébré
+S|Sylvicapra grimmia|Céphalophe de Grimm
+S|Antidorcas marsupialis|Springbok|Bondit à la verticale (« pronking »).
+S|Eudorcas thomsonii|Gazelle de Thomson
+S|Nanger dama|Gazelle dama
+S|Litocranius walleri|Gazelle-girafe|Broute debout sur ses pattes arrière.
+S|Gazella gazella|Gazelle de montagne
+S|Procapra gutturosa|Gazelle de Mongolie
+S|Antilope cervicapra|Antilope cervicapre
+S|Pantholops hodgsonii|Chiru|Sa laine, le shahtoosh, a failli causer son extinction.
+S|Capra pyrenaica|Bouquetin ibérique
+S|Capra falconeri|Markhor
+S|Capra sibirica|Bouquetin de Sibérie
+S|Capra nubiana|Bouquetin de Nubie
+S|Capra aegagrus|Chèvre sauvage|Ancêtre de la chèvre domestique.
+S|Hemitragus jemlahicus|Tahr de l'Himalaya
+S|Oreamnos americanus|Chèvre des montagnes Rocheuses
+S|Budorcas taxicolor|Takin
+S|Ammotragus lervia|Mouflon à manchettes
+S|Ovis canadensis|Mouflon canadien
+S|Ovis dalli|Mouflon de Dall
+S|Rupicapra pyrenaica|Isard
+S|Naemorhedus goral|Goral
+S|Capricornis crispus|Serow du Japon
+S|Pseudois nayaur|Bharal
+S|†Myotragus balearicus|Myotragus|Petite chèvre des Baléares, éteinte il y a ~4 500 ans.
+@@ Mysticeti
+S|Balaenoptera borealis|Rorqual boréal
+S|Balaenoptera edeni|Rorqual de Bryde
+S|Balaenoptera ricei|Rorqual de Rice|Décrit en 2021 ; moins de 100 individus.
+S|Balaenoptera omurai|Rorqual d'Omura
+S|Eubalaena australis|Baleine franche australe
+S|Eubalaena japonica|Baleine franche du Pacifique Nord
+S|Balaenoptera bonaerensis|Petit rorqual de l'Antarctique
+@@ Odontoceti
+S|Hyperoodon ampullatus|Hyperoodon boréal
+S|Berardius bairdii|Béradien de Baird
+S|Mesoplodon densirostris|Baleine à bec de Blainville
+S|Mesoplodon traversii|Baleine à bec de Travers|La baleine la plus rare : jamais vue vivante avant 2024.
+S|Pseudorca crassidens|Fausse orque
+S|Feresa attenuata|Orque pygmée
+S|Peponocephala electra|Péponocéphale
+S|Globicephala macrorhynchus|Globicéphale tropical
+S|Lagenorhynchus albirostris|Dauphin à bec blanc
+S|Lagenorhynchus acutus|Dauphin à flancs blancs
+S|Lagenorhynchus obscurus|Dauphin sombre
+S|Cephalorhynchus hectori|Dauphin d'Hector|Un des plus petits dauphins.
+S|Cephalorhynchus commersonii|Dauphin de Commerson
+S|Sotalia fluviatilis|Tucuxi
+S|Orcaella brevirostris|Dauphin de l'Irrawaddy
+S|Neophocaena phocaenoides|Marsouin aptère
+S|Phocoenoides dalli|Marsouin de Dall
+S|Stenella longirostris|Dauphin à long bec|Fait des vrilles hors de l'eau.
+S|Stenella frontalis|Dauphin tacheté de l'Atlantique
+S|Steno bredanensis|Sténo
+S|Sousa chinensis|Dauphin à bosse de l'Indo-Pacifique|Rose à l'âge adulte.
+S|Lissodelphis borealis|Dauphin aptère boréal
+S|Pontoporia blainvillei|Dauphin de La Plata
+S|Kogia sima|Cachalot nain|Libère un nuage d'encre rouge pour fuir.
+S|Lagenodelphis hosei|Dauphin de Fraser
+S|Inia boliviensis|Dauphin de Bolivie
+@@ Cetacea
+c|†Archaeoceti|Archéocètes|Cétacés primitifs, encore à pattes pour les plus anciens.
+ S|†Pakicetus attocki|Pakicetus|Ancêtre terrestre des baleines, il y a 50 millions d'années.
+ S|†Ambulocetus natans|Ambulocetus|« Baleine qui marche ».
+ S|†Basilosaurus isis|Basilosaure|Longue de 18 m, avec de minuscules pattes arrière.
+ S|†Perucetus colossus|Perucetus|Peut-être aussi lourd que la baleine bleue (2023).
+S|†Livyatan melvillei|Livyatan|Cachalot fossile aux dents de 36 cm.
+@@ Mammalia
+c|†Synapsides basaux|« Reptiles mammaliens »|Ancêtres des mammifères au Permien.
+ S|†Dimetrodon limbatus|Dimétrodon|Voile dorsale ; plus proche de nous que des dinosaures.
+ S|†Lystrosaurus murrayi|Lystrosaurus|A dominé la Terre après la grande extinction du Permien.
+ S|†Thrinaxodon liorhinus|Thrinaxodon
+# Compléments pluricellulaires : champignons
+@@ Microsporidia
+S|Nosema bombycis|Pébrine du ver à soie|Pasteur a sauvé la sériciculture française en l'étudiant.
+S|Vavraia culicis|Vavraia
+@@ Chytridiomycota
+O|Chytridiales|Chytridiales
+O|Rhizophydiales|Rhizophydiales|Parasites du phytoplancton.
+O|Spizellomycetales|Spizellomycétales
+ S|Spizellomyces punctatus|Spizellomyces
+O|Cladochytriales|Cladochytriales
+O|Lobulomycetales|Lobulomycétales
+@@ Monoblepharidomycetes
+G|Monoblepharis|Monoblepharis
+@@ Mucoromycotina
+S|Pilobolus crystallinus|Pilobole|Canon à spores qui vise la lumière à 2,5 m.
+S|Mucor circinelloides|Mucor circinelloides
+S|Rhizopus microsporus|Rhizopus microsporus|Sa toxine est en fait produite par une bactérie qui vit dans ses filaments.
+S|Syncephalastrum racemosum|Syncephalastrum
+@@ Glomeromycotina
+S|Gigaspora margarita|Gigaspora
+S|Funneliformis mosseae|Funneliformis
+@@ Entomophthoromycotina
+S|Massospora cicadina|Massospora|Fait tomber l'abdomen des cigales, qui continuent de s'accoupler.
+S|Conidiobolus coronatus|Conidiobolus
+S|Pandora neoaphidis|Pandora|Tue les pucerons.
+@@ Zoopagomycotina
+G|Piptocephalis|Piptocephalis
+@@ Kickxellomycotina
+G|Coemansia|Coemansia
+c|Harpellales|Harpellales|Vivent dans l'intestin des larves aquatiques d'insectes.
+@@ Taphrinomycotina
+C|Archaeorhizomycetes|Archaeorhizomycètes|Champignons du sol très répandus, connus surtout par leur ADN.
+S|Taphrina betulina|Balai de sorcière du bouleau
+@@ Saccharomycotina
+S|Saccharomyces pastorianus|Levure de bière blonde|Hybride né dans les caves bavaroises.
+S|Hanseniaspora uvarum|Hanseniaspora
+S|Metschnikowia pulcherrima|Metschnikowia
+S|Torulaspora delbrueckii|Torulaspora
+S|Wickerhamomyces anomalus|Wickerhamomyces
+S|Starmerella bombicola|Starmerella|Vit dans les fleurs et l'intestin des bourdons.
+S|Debaryomyces hansenii|Debaryomyces|Levure des saumures et des fromages.
+S|Geotrichum candidum|Géotrichum|Croûte des fromages de chèvre.
+@@ Pezizomycotina
+C|Arthoniomycetes|Arthoniomycètes|Lichens crustacés.
+ S|Roccella tinctoria|Orseille|Lichen dont on tirait la teinture violette et le tournesol.
+ S|Arthonia radiata|Arthonia
+C|Lichinomycetes|Lichinomycètes|Petits lichens à cyanobactéries.
+C|Geoglossomycetes|Langues de terre
+ G|Geoglossum|Géoglosse
+C|Xylonomycetes|Xylonomycètes
+C|Coniocybomycetes|Coniocybomycètes|Lichens à épingles.
+ G|Chaenotheca|Chaenotheca
+@@ Pezizomycetes
+S|Gyromitra esculenta|Gyromitre|Mortel cru ; longtemps consommé en Scandinavie.
+S|Helvella crispa|Helvelle crépue
+S|Aleuria aurantia|Pézize orangée
+S|Tuber aestivum|Truffe d'été|Truffe de Bourgogne.
+S|Tuber borchii|Truffe blanche de printemps
+S|Terfezia boudieri|Terfez|Truffe du désert d'Afrique du Nord.
+S|Urnula craterium|Urne du diable
+S|Morchella elata|Morille élevée
+S|Verpa bohemica|Verpe de Bohême
+S|Sarcosphaera coronaria|Pézize couronnée
+S|Pyronema omphalodes|Pyronema|Pousse sur le sol brûlé.
+@@ Eurotiomycetes
+S|Aspergillus oryzae|Kōji|Sert à fabriquer le saké, le miso et la sauce soja.
+S|Aspergillus nidulans|Aspergillus nidulans|Modèle de génétique.
+S|Talaromyces marneffei|Talaromyces
+S|Coccidioides immitis|Coccidioides|Fièvre de la vallée de San Joaquin.
+S|Penicillium digitatum|Pourriture verte des agrumes
+S|Penicillium nalgiovense|Fleur du saucisson
+S|Penicillium expansum|Pourriture bleue des pommes
+S|Exophiala dermatitidis|Levure noire des lave-vaisselle
+S|Microsporum canis|Teigne du chat
+S|Blastomyces dermatitidis|Blastomyces
+S|Verrucaria maura|Lichen noir des rochers marins|Ligne noire en haut des rochers du littoral.
+S|Byssochlamys fulva|Byssochlamys|Résiste à la pasteurisation des jus de fruits.
+S|Xeromyces bisporus|Xeromyces|Pousse dans le milieu le plus sec connu pour la vie.
+@@ Sordariomycetes
+S|Podospora anserina|Podospora|Modèle du vieillissement.
+S|Chaetomium globosum|Chaetomium
+S|Daldinia concentrica|Boule de charbon|Brûle comme de l'amadou.
+S|Nectria cinnabarina|Nectrie cinabre
+S|Hypomyces lactifluorum|Champignon homard|Parasite qui transforme un lactaire en mets orange.
+S|Epichloë festucae|Epichloë|Vit dans les graminées et les protège des herbivores.
+S|Cryphonectria parasitica|Chancre du châtaignier|A tué 4 milliards de châtaigniers américains.
+S|Verticillium dahliae|Verticilliose
+S|Ophiocordyceps sinensis|Cordyceps chinois|Vendu plus cher que l'or au Tibet.
+S|Xylaria polymorpha|Doigts de mort
+S|Ceratocystis platani|Chancre coloré du platane|Tue les platanes du canal du Midi.
+S|Fusarium venenatum|Fusarium du Quorn|Source de mycoprotéine alimentaire.
+S|Metarhizium anisopliae|Muscardine verte|Insecticide biologique.
+S|Tolypocladium inflatum|Tolypocladium|Produit la ciclosporine, qui permet les greffes d'organes.
+S|Trichoderma harzianum|Trichoderma harzianum
+S|Ustulina deusta|Ustuline
+S|Hypoxylon fragiforme|Hypoxylon fraise
+S|Clonostachys rosea|Clonostachys
+@@ Leotiomycetes
+S|Chlorociboria aeruginascens|Pézize turquoise|Colore le bois en vert, utilisé en marqueterie.
+S|Monilinia fructigena|Moniliose
+S|Rhytisma acerinum|Taches goudronneuses de l'érable
+S|Leotia lubrica|Léotie lubrique
+S|Pseudogymnoascus destructans|Syndrome du museau blanc|A tué des millions de chauves-souris en Amérique du Nord.
+S|Sclerotinia sclerotiorum|Sclérotinia
+S|Bulgaria inquinans|Bulgarie salissante
+S|Mitrula paludosa|Mitrule des marais
+@@ Dothideomycetes
+S|Pseudocercospora fijiensis|Cercosporiose noire du bananier
+S|Hortaea werneckii|Hortaea|Levure noire des salines.
+S|Cenococcum geophilum|Cenococcum|Un des champignons mycorhiziens les plus répandus.
+S|Parastagonospora nodorum|Septoriose des glumes
+S|Leptosphaeria maculans|Phoma du colza
+S|Cladosporium sphaerospermum|Cladosporium de Tchernobyl|Pousse sur les murs radioactifs, peut-être grâce à la mélanine.
+S|Hysterium angustatum|Hysterium
+@@ Lecanoromycetes
+S|Rhizocarpon geographicum|Lichen géographique|Si lent qu'on l'utilise pour dater les moraines.
+S|Physcia adscendens|Physcie ascendante
+S|Parmelia sulcata|Parmélie sillonnée
+S|Ramalina farinacea|Ramaline farineuse
+S|Graphis scripta|Lichen écriture
+S|Letharia vulpina|Lichen-loup|Servait à empoisonner les loups.
+S|Umbilicaria esculenta|Tripe de roche|Lichen comestible au Japon et en Corée.
+S|Cetraria islandica|Lichen d'Islande
+S|Pseudevernia furfuracea|Pseudévernie
+S|Hypogymnia physodes|Hypogymnie
+S|Lecanora muralis|Lécanore des murs
+S|Cladonia fimbriata|Cladonie en trompette
+S|Cladonia cristatella|Soldats britanniques
+S|Peltigera canina|Peltigère canine
+S|Sticta fuliginosa|Sticta
+S|Lecidea fuscoatra|Lécidée
+S|Ochrolechia parella|Ochrolechia
+@@ Laboulbeniomycetes
+S|Hesperomyces virescens|Hesperomyces|Pousse sur les coccinelles asiatiques.
+@@ Pucciniomycotina
+C|Microbotryomycetes|Microbotryomycètes
+ S|Microbotryum violaceum|Charbon des anthères|Fait produire des spores à la place du pollen.
+C|Pucciniomycetes|Pucciniomycètes|La plupart des rouilles.
+C|Agaricostilbomycetes|Agaricostilbomycètes
+C|Atractiellomycetes|Atractiellomycètes
+C|Cystobasidiomycetes|Cystobasidiomycètes
+C|Mixiomycetes|Mixiomycètes
+C|Classiculomycetes|Classiculomycètes
+C|Cryptomycocolacomycetes|Cryptomycocolacomycètes
+C|Spiculogloeomycetes|Spiculogloeomycètes
+C|Tritirachiomycetes|Tritirachiomycètes
+S|Gymnosporangium sabinae|Rouille grillagée du poirier|Alterne entre poirier et genévrier.
+S|Melampsora larici-populina|Rouille du peuplier
+S|Cronartium ribicola|Rouille vésiculeuse du pin blanc
+S|Puccinia striiformis|Rouille jaune du blé
+S|Puccinia triticina|Rouille brune du blé
+S|Austropuccinia psidii|Rouille des myrtacées
+S|Uromyces appendiculatus|Rouille du haricot
+@@ Ustilaginomycotina
+C|Ustilaginomycetes|Ustilaginomycètes
+C|Exobasidiomycetes|Exobasidiomycètes
+ S|Exobasidium vaccinii|Exobasidium de l'airelle
+C|Malasseziomycetes|Malasseziomycètes
+C|Moniliellomycetes|Moniliellomycètes
+S|Sporisorium reilianum|Charbon des panicules
+S|Ustilago nuda|Charbon nu de l'orge
+S|Moesziomyces antarcticus|Moesziomyces|Source d'une lipase industrielle.
+S|Malassezia globosa|Malassezia globosa
+@@ Tremellomycetes
+S|Cryptococcus gattii|Cryptococcus gattii
+S|Phaeotremella foliacea|Trémelle foliacée
+S|Naematelia encephala|Trémelle cérébriforme
+@@ Dacrymycetes
+S|Calocera viscosa|Calocère visqueuse
+S|Dacrymyces chrysospermus|Dacrymyces orangé
+@@ Agaricomycetes
+O|Sebacinales|Sébacinales
+ S|Serendipita indica|Serendipita|Champignon endophyte qui stimule la croissance des plantes.
+O|Trechisporales|Tréchisporales
+O|Corticiales|Corticiales
+O|Gloeophyllales|Gloeophyllales
+ S|Gloeophyllum sepiarium|Lenzite des clôtures
+O|Jaapiales|Jaapiales
+O|Atheliales|Athéliales
+O|Amylocorticiales|Amylocorticiales
+O|Lepidostromatales|Lépidostromatales|Lichens basidiomycètes.
+O|Hysterangiales|Hystérangiales|Fausses truffes.
+O|Tremellodendropsidales|Trémellodendropsidales
+O|Stereopsidales|Stéréopsidales
+@@ Agaricales
+S|Amanita pantherina|Amanite panthère
+S|Amanita rubescens|Golmotte|Amanite rougissante, comestible cuite.
+S|Amanita ocreata|Ange destructeur
+S|Amanita citrina|Amanite citrine
+S|Galerina marginata|Galère marginée|Mortelle, confondue avec la pholiote changeante.
+S|Lepiota brunneoincarnata|Lépiote brun-incarnat|Petite lépiote mortelle.
+S|Clitocybe dealbata|Clitocybe blanchi
+S|Paralepistopsis amoenolens|Clitocybe à bonne odeur|Provoque des brûlures intenses aux mains et aux pieds pendant des semaines.
+S|Tricholoma equestre|Tricholome équestre|Longtemps comestible, il peut détruire les muscles.
+S|Tricholoma terreum|Petit-gris des pins
+S|Calocybe gambosa|Mousseron de la Saint-Georges
+S|Hygrocybe coccinea|Hygrophore écarlate
+S|Volvariella volvacea|Volvaire comestible
+S|Pleurotus eryngii|Pleurote du panicaut
+S|Agaricus xanthodermus|Agaric jaunissant
+S|Agaricus augustus|Agaric auguste
+S|Coprinellus micaceus|Coprin micacé
+S|Coprinopsis atramentaria|Coprin noir d'encre|Toxique avec l'alcool.
+S|Coprinopsis cinerea|Coprin cendré|Modèle de génétique des champignons.
+S|Gymnopilus junonius|Gymnopile remarquable
+S|Pholiota squarrosa|Pholiote écailleuse
+S|Kuehneromyces mutabilis|Pholiote changeante
+S|Stropharia rugosoannulata|Strophaire à anneau rugueux
+S|Hebeloma crustuliniforme|Hébélome échaudé
+S|Inocybe erubescens|Inocybe de Patouillard
+S|Entoloma sinuatum|Entolome livide
+S|Clitopilus prunulus|Meunier
+S|Mycena pura|Mycène pure
+S|Marasmius rotula|Marasme petite roue
+S|Armillaria mellea|Armillaire couleur de miel
+S|Mucidula mucida|Collybie mucide
+S|Cyathus striatus|Cyathe strié|Ressemble à un nid d'oiseau rempli d'œufs.
+S|Bovista plumbea|Boviste plombé
+S|Leucoagaricus gongylophorus|Champignon des fourmis coupe-feuilles|Cultivé par les fourmis depuis des millions d'années.
+S|Termitomyces titanicus|Termitomyces géant|Le plus grand champignon comestible : chapeau d'un mètre.
+S|Pleurotus djamor|Pleurote rose
+S|Hypsizygus tessellatus|Shimeji
+S|Cortinarius rubellus|Cortinaire couleur de rocou
+S|Cortinarius violaceus|Cortinaire violet
+S|Laccaria bicolor|Laccaire bicolore|Modèle de la symbiose mycorhizienne.
+S|Pluteus cervinus|Plutée couleur de cerf
+S|Asterophora lycoperdoides|Nyctalis|Pousse sur d'autres champignons.
+S|Chlorophyllum molybdites|Lépiote à spores vertes|Cause fréquente d'intoxication en Amérique.
+S|Leucocoprinus birnbaumii|Lépiote jaune des pots de fleurs
+S|Clitocybe nebularis|Clitocybe nébuleux
+S|Infundibulicybe geotropa|Tête de moine
+S|Hygrophorus marzuolus|Hygrophore de mars
+S|Cuphophyllus pratensis|Hygrophore des prés
+S|Panaeolus semiovatus|Panéole
+S|Conocybe filaris|Conocybe filaris
+S|Lepista personata|Pied-violet
+S|Agrocybe aegerita|Pholiote du peuplier
+S|Mycena interrupta|Mycène bleue
+S|Roridomyces phyllostachydis|Mycène lumineuse du bambou
+S|Gymnopus dryophilus|Collybie des chênes
+S|Macrolepiota rhacodes|Lépiote déguenillée
+S|Lycoperdon pyriforme|Vesse-de-loup en poire
+S|Nidularia deformis|Nidulaire
+@@ Boletales
+S|Boletus pinophilus|Cèpe des pins
+S|Boletus reticulatus|Cèpe d'été
+S|Leccinum scabrum|Bolet rude
+S|Leccinum versipelle|Bolet orangé des bouleaux
+S|Xerocomellus chrysenteron|Bolet à chair jaune
+S|Suillus grevillei|Bolet élégant
+S|Suillus bovinus|Bolet des bouviers
+S|Gyroporus cyanescens|Bolet indigotier|Bleuit instantanément.
+S|Tylopilus felleus|Bolet amer
+S|Caloboletus calopus|Bolet à beau pied
+S|Neoboletus erythropus|Bolet à pied rouge
+S|Hygrophoropsis aurantiaca|Fausse girolle
+S|Pisolithus arhizus|Pisolithe|Utilisé pour aider les arbres à pousser sur les terres dégradées.
+S|Coniophora puteana|Coniophore des caves
+S|Chalciporus piperatus|Bolet poivré
+S|Strobilomyces strobilaceus|Bolet pomme de pin
+S|Astraeus hygrometricus|Astrée hygrométrique|S'ouvre et se ferme selon l'humidité.
+S|Gomphidius glutinosus|Gomphide glutineux
+S|Chroogomphus rutilus|Gomphide rutilant
+S|Rhizopogon roseolus|Rhizopogon rougissant
+S|Boletus barrowsii|Cèpe blanc
+@@ Russulales
+S|Russula cyanoxantha|Charbonnier
+S|Russula virescens|Palomet
+S|Russula emetica|Russule émétique
+S|Russula vesca|Russule comestible
+S|Lactarius torminosus|Lactaire à toison
+S|Lactarius indigo|Lactaire indigo|Lait bleu.
+S|Lactifluus volemus|Lactaire à lait abondant
+S|Lactarius sanguifluus|Lactaire sanguin
+S|Lactarius quietus|Lactaire tranquille
+S|Lactifluus piperatus|Lactaire poivré
+S|Auriscalpium vulgare|Cure-oreille
+S|Stereum hirsutum|Stérée hirsute
+S|Hericium coralloides|Hydne corail
+S|Bondarzewia mesenterica|Polypore des montagnes
+S|Peniophora quercina|Peniophora du chêne
+@@ Cantharellales
+S|Craterellus lutescens|Chanterelle jaunissante
+S|Craterellus tubaeformis|Chanterelle en tube
+S|Hydnum rufescens|Pied-de-mouton roux
+S|Clavulina coralloides|Clavaire à crête
+S|Rhizoctonia solani|Rhizoctone brun|Pathogène de nombreuses cultures.
+S|Cantharellus amethysteus|Girolle améthyste
+S|Cantharellus cinnabarinus|Chanterelle cinabre
+@@ Polyporales
+S|Fomitopsis betulina|Polypore du bouleau|Ötzi en avait aussi, peut-être comme remède.
+S|Fomitopsis pinicola|Polypore marginé
+S|Trametes gibbosa|Tramète bossue
+S|Daedalea quercina|Dédale du chêne
+S|Cerioporus squamosus|Polypore écailleux
+S|Pycnoporus cinnabarinus|Polypore cinabre
+S|Bjerkandera adusta|Bjerkandera brûlé
+S|Wolfiporia cocos|Poria|Sclérote utilisé en médecine chinoise.
+S|Ganoderma applanatum|Ganoderme aplani|On peut dessiner sur sa face inférieure.
+S|Meripilus giganteus|Polypore géant
+S|Lentinus tigrinus|Lentin tigré
+S|Hapalopilus rutilans|Polypore rutilant|Devient violet à l'ammoniaque.
+S|Postia ptychogaster|Postia
+S|Irpex lacteus|Irpex laiteux
+S|Phlebia radiata|Phlébie rayonnante
+@@ Hymenochaetales
+S|Phellinus igniarius|Phellin du saule
+S|Fomitiporia mediterranea|Esca de la vigne
+S|Coltricia perennis|Polypore vivace
+S|Inonotus hispidus|Polypore hérissé
+S|Fomitiporia ellipsoidea|Fomitiporia ellipsoidea|Le plus grand carpophore connu : près de 11 m de long, environ 500 kg, en Chine.
+S|Hymenochaete rubiginosa|Hyménochète rouillée
+S|Trichaptum abietinum|Polypore du sapin
+@@ Phallales
+S|Phallus indusiatus|Dame voilée
+S|Mutinus caninus|Phallus du chien
+S|Aseroe rubra|Champignon étoile de mer
+S|Pseudocolus fusiformis|Pseudocolus
+S|Ileodictyon cibarium|Panier
+@@ Geastrales
+S|Geastrum fimbriatum|Géastre frangé
+S|Myriostoma coliforme|Géastre à plusieurs bouches
+@@ Auriculariales
+S|Exidia glandulosa|Exidie glanduleuse
+S|Pseudohydnum gelatinosum|Trémelle gélatineuse
+S|Auricularia polytricha|Oreille de bois chinoise
+@@ Gomphales
+S|Ramaria formosa|Clavaire élégante|Toxique.
+S|Ramaria botrytis|Clavaire chou-fleur
+S|Gomphus clavatus|Gomphe en massue
+@@ Thelephorales
+S|Thelephora terrestris|Théléphore terrestre
+S|Hydnellum peckii|Hydne de Peck|Exsude des gouttes rouge sang.
+S|Thelephora ganbajun|Ganbajun|Champignon de luxe du Yunnan.
+@@ Cantharellales
+S|Botryobasidium subcoronatum|Botryobasidium
 </script>
 <script>
 (function () {
