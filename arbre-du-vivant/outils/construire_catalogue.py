@@ -425,6 +425,9 @@ def main(src, ann_dir, out, base=None):
         if cc == "x": continue
         k = norm(nm)
         if k: entries.append((k, ident[i], cc, nm, f, ex))
+        if "(" in nm:  # trouvable aussi sans le sous-genre
+            k2 = norm(sans_sg(nm))
+            if k2 and k2 != k: entries.append((k2, ident[i], cc, nm, f, ex))
         if f:
             words = norm(f).split()
             for w in range(len(words)):
