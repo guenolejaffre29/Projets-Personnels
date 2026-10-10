@@ -4,7 +4,7 @@
       <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
     <div class="search">
-      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Renard, Vulpes, Plasmodium…" aria-label="Chercher une espèce ou un groupe">
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Renard, Vulpes, diatomée…" aria-label="Chercher une espèce ou un groupe">
       <button class="clear" id="clear" aria-label="Effacer la recherche" hidden>×</button>
     </div>
     <button class="iconbtn" id="rand" aria-label="Aller à une espèce au hasard">
@@ -58,6 +58,7 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const fmt = x => x.toLocaleString("fr-FR");
   const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const cap = s => s ? s[0].toUpperCase() + s.slice(1) : "";
   const chev = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
 
   // ---------- Chargement des données ----------
@@ -85,7 +86,7 @@
   }
   function loadChunk(k) {
     if (!chunks.has(k)) {
-      const p = loadText(`d/t/${k}.gz`).then(txt => {
+      const p = loadText(`d/t/${k}.${meta.ext || "gz"}`).then(txt => {
         const m = new Map();
         for (const part of txt.split("\n#")) {
           const nl = part.indexOf("\n");
@@ -112,9 +113,9 @@
       const f = line.split("\t");
       if (line[0] === "~" || line[0] === "!") {
         const nm = line[0] === "~" ? n.name + " " + f[0].slice(1) : f[0].slice(1);
-        c = { id, code: "S", name: nm, auth: f[1] || "", fr: f[2] || "", note: f[3] || "", ext: f[4] === "1", size: 0, nsp: 1 };
+        c = { id, code: "S", name: nm, auth: f[1] || "", fr: cap(f[2]), note: f[3] || "", ext: f[4] === "1", size: 0, nsp: 1 };
       } else {
-        c = { id, code: f[0], name: f[1], size: +f[2], nsp: +f[3], fr: f[4] || "", note: f[5] || "", auth: f[6] || "", ext: f[7] === "1" };
+        c = { id, code: f[0], name: f[1], size: +f[2], nsp: +f[3], fr: cap(f[4]), note: f[5] || "", auth: f[6] || "", ext: f[7] === "1" };
       }
       c.parent = n;
       c.group = GROUPS[c.name] ? c.name : n.group;
@@ -179,7 +180,7 @@
       ${n.note ? `<p class="note">${esc(n.note)}</p>` : ""}
       ${n.code === "x" ? `<div class="excl-banner">Branche végétale multicellulaire : signalée pour situer l'arbre, mais pas détaillée ici.</div>` : ""}`;
     if (n.size) {
-      h += `<div class="stats"><span><b>${fmt(n.nsp)}</b> espèce${n.nsp > 1 ? "s" : ""}</span><span><b>${fmt(n.size)}</b> taxons en dessous</span></div>`;
+      h += `<div class="stats"><span><b>${fmt(n.nsp)}</b> espèce${n.nsp > 1 ? "s" : ""}</span>${n.size !== n.nsp ? `<span><b>${fmt(n.size)}</b> taxons en dessous</span>` : ""}</div>`;
     }
     if (n === ROOT && meta) {
       h += `<div class="legend">${["Bacteria", "Archaea", "Protozoa", "Chromista", "Plantae", "Fungi", "Animalia", "Viruses"].filter(k => k in meta.counts).map(k => [k, meta.counts[k]]).map(([k, v]) => GROUPS[k] ? `<span><span class="dot" style="--c:var(${GROUPS[k][0]})"></span>${GROUPS[k][1]} <b class="num">${fmt(v)}</b></span>` : "").join("")}</div>`;
@@ -277,7 +278,7 @@
   }
   function loadShard(i) {
     if (!shards.has(i)) {
-      const p = loadText(`d/s/${i}.gz`).then(t => t.split("\n"));
+      const p = loadText(`d/s/${i}.${meta.ext || "gz"}`).then(t => t.split("\n"));
       p.catch(() => shards.delete(i));
       shards.set(i, p);
     }
@@ -310,9 +311,13 @@
       const id = +f[1];
       if (seen.has(id)) continue;
       seen.add(id); total++;
-      if (hits.length < 2000) hits.push({ key: f[0], id, code: f[2], name: f[3], fr: f[4] || "", ext: f[5] === "1" });
+      if (hits.length < 2000) {
+        const fr = cap(f[4]), isFr = !!fr && norm(fr).startsWith(k), full = isFr || norm(f[3]).startsWith(k);
+        // 0 : nom exact ; 1 : début du nom ; 2 : mot à l'intérieur d'un nom français.
+        hits.push({ key: f[0], id, code: f[2], name: f[3], fr, ext: f[5] === "1", isFr, score: !full ? 2 : (f[0] === k ? 0 : 1) });
+      }
     }
-    hits.sort((a, b) => (a.key === k ? 0 : 1) - (b.key === k ? 0 : 1) || RANK_ORDER[a.code] - RANK_ORDER[b.code] || a.key.localeCompare(b.key));
+    hits.sort((a, b) => a.score - b.score || (b.isFr - a.isFr) || RANK_ORDER[a.code] - RANK_ORDER[b.code] || a.key.localeCompare(b.key));
     const shown = hits.slice(0, 100);
     const hl = n => {
       const text = n.fr && norm(n.fr).split(" ").some(w => w.startsWith(k.split(" ")[0])) ? n.fr : n.name;
