@@ -81,6 +81,48 @@ def rows(fh):
         yield lambda k, row=row: row[idx[k]] if k in idx and idx[k] < len(row) else ""
 
 
+def usages(src):
+    """Produit (id, parent, statut, rang, nom, auteur) quel que soit le format d'export."""
+    fh = open_tsv(src, "NameUsage.tsv")
+    if fh is not None:
+        print("format : ColDP NameUsage", file=sys.stderr)
+        for g in rows(fh):
+            yield g("ID"), g("parentID"), g("status") or "accepted", g("rank"), g("scientificName"), g("authorship")
+        return
+    fh = open_tsv(src, "Taxon.tsv")
+    if fh is None:
+        sys.exit("Ni NameUsage.tsv ni Taxon.tsv dans l'export")
+    it = rows(fh)
+    first = next(it, None)
+    if first is None:
+        return
+    if first("taxonID"):
+        print("format : Darwin Core", file=sys.stderr)
+        for g in _chain(first, it):
+            yield (g("taxonID"), g("parentNameUsageID"), g("taxonomicStatus") or "accepted", g("taxonRank"),
+                   g("scientificName"), g("scientificNameAuthorship"))
+        return
+    print("format : ColDP Taxon + Name", file=sys.stderr)
+    taxa = []
+    for g in _chain(first, it):
+        st = "provisionally accepted" if g("provisional").lower() == "true" else "accepted"
+        taxa.append((g("ID"), g("parentID"), st, g("nameID")))
+    need = {t[3] for t in taxa}
+    names = {}
+    nh = open_tsv(src, "Name.tsv")
+    for g in rows(nh):
+        if g("ID") in need:
+            names[g("ID")] = (g("rank"), g("scientificName"), g("authorship"))
+    for i, p, st, nid in taxa:
+        rk, nm, au = names.get(nid, ("", "", ""))
+        yield i, p, st, rk, nm, au
+
+
+def _chain(first, it):
+    yield first
+    yield from it
+
+
 def load_annotations(folder):
     ann = {}
     if not folder or not os.path.isdir(folder):
@@ -106,27 +148,30 @@ def main(src, ann_dir, out):
     print("annotations", len(ann), file=sys.stderr)
 
     parent, rank, name, auth = {}, {}, {}, {}
-    fh = open_tsv(src, "NameUsage.tsv")
-    if fh is None:
-        sys.exit("NameUsage.tsv introuvable")
+    seen_ranks = collections.Counter()
     n = 0
-    for g in rows(fh):
+    for i, p, st, rk, nm, au in usages(src):
         n += 1
-        if g("status").lower() not in ACCEPTED:
+        if st.lower() not in ACCEPTED:
             continue
-        i = g("ID")
-        parent[i] = g("parentID")
-        rank[i] = g("rank").lower()
-        name[i] = g("scientificName")
-        auth[i] = g("authorship")
+        if au and nm.endswith(" " + au):
+            nm = nm[: -len(au) - 1]
+        parent[i] = p
+        rank[i] = rk.lower()
+        name[i] = nm
+        auth[i] = au
+        seen_ranks[rank[i]] += 1
     print("lignes", n, "acceptées", len(parent), file=sys.stderr)
+    print("rangs", seen_ranks.most_common(40), file=sys.stderr)
 
     fr = {}
     vh = open_tsv(src, "VernacularName.tsv")
     if vh is not None:
         for g in rows(vh):
-            if g("language").lower() in ("fra", "fre", "fr") and g("taxonID") in parent:
-                fr.setdefault(g("taxonID"), g("name").strip())
+            lang = g("language").lower()
+            tid = g("taxonID")
+            if lang in ("fra", "fre", "fr") and tid in parent:
+                fr.setdefault(tid, (g("name") or g("vernacularName")).strip())
     print("noms français COL", len(fr), file=sys.stderr)
 
     # Rattache chaque taxon gardé à son plus proche ancêtre gardé (on saute sous-genres, sections…).
@@ -300,6 +345,11 @@ def main(src, ann_dir, out):
         json.dump(meta, w, ensure_ascii=False, separators=(",", ":"))
     print(json.dumps({k: v for k, v in meta.items() if k not in ("chunks", "shards")}, ensure_ascii=False), file=sys.stderr)
     print("morceaux", len(chunks), "index", len(names), file=sys.stderr)
+    try:
+        import resource
+        print("mémoire max (Mo)", resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024, file=sys.stderr)
+    except ImportError:
+        pass
 
 
 if __name__ == "__main__":

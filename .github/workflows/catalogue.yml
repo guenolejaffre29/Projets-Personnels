@@ -1,0 +1,84 @@
+name: Catalogue du vivant (données)
+
+# Télécharge le Catalogue of Life, construit les données du catalogue
+# (arbre-du-vivant/d/) et les enregistre sur la branche.
+on:
+  push:
+    paths:
+      - .github/workflows/catalogue.yml
+      - arbre-du-vivant/outils/construire_catalogue.py
+      - arbre-du-vivant/outils/atlas/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogue-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  donnees:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Télécharger le Catalogue of Life
+        run: |
+          mkdir -p /tmp/col
+          echo "::group::Version publiée (dataset 3LR)"
+          curl -sS https://api.checklistbank.org/dataset/3LR | head -c 3000 || true
+          echo; echo "::endgroup::"
+          essayer() {
+            echo "Essai : $1"
+            rm -f /tmp/col/col.zip
+            if curl -fsSL --retry 3 --retry-delay 10 -o /tmp/col/col.zip "$1" && unzip -tq /tmp/col/col.zip >/dev/null 2>&1; then
+              echo "Téléchargé depuis $1"; return 0
+            fi
+            echo "Échec : $1"; rm -f /tmp/col/col.zip; return 1
+          }
+          essayer "https://download.checklistbank.org/col/latest_coldp.zip" \
+          || essayer "https://api.checklistbank.org/dataset/3LR/export.zip?format=ColDP" \
+          || {
+            echo "::group::Répertoire des versions mensuelles"
+            curl -fsSL https://download.checklistbank.org/col/monthly/ | grep -oE '[0-9][0-9_-]*_(coldp|dwca)\.zip' | sort -u | tail -20 || true
+            echo "::endgroup::"
+            f=$(curl -fsSL https://download.checklistbank.org/col/monthly/ | grep -oE '[0-9][0-9_-]*_coldp\.zip' | sort -u | tail -1)
+            [ -n "$f" ] && essayer "https://download.checklistbank.org/col/monthly/$f"
+          } \
+          || essayer "https://download.checklistbank.org/col/latest_dwca.zip"
+          test -f /tmp/col/col.zip
+          ls -la /tmp/col
+          unzip -l /tmp/col/col.zip | head -40
+
+      - name: Construire les données
+        shell: bash
+        run: |
+          set -eo pipefail
+          rm -rf arbre-du-vivant/d
+          python3 arbre-du-vivant/outils/construire_catalogue.py \
+            /tmp/col/col.zip arbre-du-vivant/outils/atlas arbre-du-vivant/d 2>&1 | tee /tmp/construction.log
+          du -sh arbre-du-vivant/d arbre-du-vivant/d/t arbre-du-vivant/d/s
+          ls arbre-du-vivant/d/t | wc -l
+          ls arbre-du-vivant/d/s | wc -l
+          echo "### Catalogue du vivant" >> "$GITHUB_STEP_SUMMARY"
+          grep -E '^(format|lignes|nœuds|morceaux|\{)' /tmp/construction.log >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Enregistrer sur la branche
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A arbre-du-vivant/d
+          if git diff --cached --quiet; then echo "Rien de nouveau"; exit 0; fi
+          git commit -q -m "Catalogue du vivant : données générées depuis le Catalogue of Life" \
+            -m "Généré par le workflow catalogue.yml (run ${GITHUB_RUN_ID})."
+          for i in 1 2 3 4; do
+            git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
