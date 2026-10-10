@@ -238,7 +238,7 @@ def main(src, ann_dir, out):
         return RANKS[rank[i]]
 
     def sort_key(i):
-        return (ORDER[code(i)], (name[i] if i not in VIRT else "").lower())
+        return (ORDER[code(i)], (VIRT[i][1] if i in VIRT else name[i]).lower())
 
     # Parcours en profondeur itératif : identifiants, tailles, nombre d'espèces.
     order, ident = [], {}
@@ -247,7 +247,7 @@ def main(src, ann_dir, out):
         i = stack.pop()
         ident[i] = len(order)
         order.append(i)
-        ch = kids.get(i, []) if i in VIRT else sorted(kids.get(i, []), key=sort_key)
+        ch = kids.get(i, []) if i == "__vie" else sorted(kids.get(i, []), key=sort_key)
         kids[i] = ch
         stack.extend(reversed(ch))
     size, nsp = {}, {}
@@ -324,7 +324,9 @@ def main(src, ann_dir, out):
 
     # Tranches contiguës d'environ 1 Mo ; une même clé n'est jamais coupée en deux.
     SHARD = 1_000_000
-    def line(e): return f"{e[0]}\t{e[1]}\t{e[2]}\t{clean(e[3])}\t{clean(e[4])}\t{e[5]}".rstrip("\t") + "\n"
+    def line(e):
+        nm = "" if e[3] == e[0][:1].upper() + e[0][1:] else clean(e[3])  # nom déductible de la clé
+        return f"{e[0]}\t{e[1]}\t{e[2]}\t{nm}\t{clean(e[4])}\t{e[5]}".rstrip("\t") + "\n"
     names, buf, cur, last = [], [], 0, None
     def flush_shard():
         with gzip.open(os.path.join(out, "s", f"{len(names) - 1}.gz"), "wt", encoding="utf-8", compresslevel=9) as w:

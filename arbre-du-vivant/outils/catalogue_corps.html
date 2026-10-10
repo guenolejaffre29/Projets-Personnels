@@ -24,7 +24,7 @@
   </main>
   <footer>
     <p id="count"></p>
-    <p>Données : <a href="https://www.catalogueoflife.org/" target="_blank" rel="noopener">Catalogue of Life</a> (ChecklistBank, licence CC BY 4.0). Seules les espèces acceptées sont listées, sans synonymes ni sous-espèces. Les rangs suivent la classification du Catalogue of Life ; noms français et anecdotes viennent de l'atlas commenté quand ils existent.</p>
+    <p>Données : <a href="https://www.catalogueoflife.org/" target="_blank" rel="noopener">Catalogue of Life</a>, version étendue (eXtended Release, ChecklistBank, licence CC BY 4.0). Elle complète la version de base avec d'autres bases (organismes marins, fossiles, algues…), dont certains noms sont moins vérifiés. Seules les espèces acceptées sont listées, sans synonymes ni sous-espèces. Les rangs suivent la classification du Catalogue of Life ; noms français et anecdotes viennent de l'atlas commenté quand ils existent.</p>
     <p>Périmètre : tout le vivant sauf le végétal multicellulaire (plantes terrestres, algues rouges et vertes pluricellulaires), signalé en pointillés. Les algues unicellulaires et les algues brunes sont incluses.</p>
     <p><a href="atlas.html">Ouvrir l'atlas commenté</a> : arbre phylogénétique illustré de ~5 500 groupes, avec anecdotes.</p>
   </footer>
@@ -312,9 +312,10 @@
       if (seen.has(id)) continue;
       seen.add(id); total++;
       if (hits.length < 2000) {
-        const fr = cap(f[4]), isFr = !!fr && norm(fr).startsWith(k), full = isFr || norm(f[3]).startsWith(k);
+        const name = f[3] || cap(f[0]); // nom omis quand il se déduit de la clé
+        const fr = cap(f[4]), isFr = !!fr && norm(fr).startsWith(k), full = isFr || norm(name).startsWith(k);
         // 0 : nom exact ; 1 : début du nom ; 2 : mot à l'intérieur d'un nom français.
-        hits.push({ key: f[0], id, code: f[2], name: f[3], fr, ext: f[5] === "1", isFr, score: !full ? 2 : (f[0] === k ? 0 : 1) });
+        hits.push({ key: f[0], id, code: f[2], name, fr, ext: f[5] === "1", isFr, score: !full ? 2 : (f[0] === k ? 0 : 1) });
       }
     }
     hits.sort((a, b) => a.score - b.score || (b.isFr - a.isFr) || RANK_ORDER[a.code] - RANK_ORDER[b.code] || a.key.localeCompare(b.key));
@@ -338,7 +339,7 @@
       view.innerHTML = `<section class="card"><h1>Le vivant</h1><p class="note">Les données du catalogue n'ont pas pu être chargées. Vérifiez la connexion puis rechargez la page.</p></section>`;
       return;
     }
-    ROOT = { id: 0, code: "c", name: "Vie", fr: "Le vivant", note: "Catalogue complet des espèces décrites, d'après le Catalogue of Life : chaque espèce acceptée y figure, rangée dans sa classification.", auth: "", size: meta.nodes - 1, nsp: meta.species, parent: null, group: null };
+    ROOT = { id: 0, code: "c", name: "Vie", fr: "Le vivant", note: "Catalogue des espèces décrites, d'après la version étendue du Catalogue of Life : chaque espèce acceptée y figure, rangée dans sa classification.", auth: "", size: meta.nodes - 1, nsp: meta.species, parent: null, group: null };
     nodes.set(0, ROOT);
     $("count").textContent = `${fmt(meta.species)} espèces et ${fmt(meta.nodes)} taxons au total (version du ${meta.built}).`;
     try { history.replaceState({ id: 0 }, ""); } catch (e) {}

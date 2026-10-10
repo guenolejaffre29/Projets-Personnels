@@ -28,11 +28,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Télécharger le Catalogue of Life
+      - name: Télécharger le Catalogue of Life (version étendue XR)
         run: |
           mkdir -p /tmp/col
-          echo "::group::Version publiée (dataset 3LR)"
-          curl -sS https://api.checklistbank.org/dataset/3LR | head -c 3000 || true
+          echo "::group::Version étendue publiée (dataset 3LXR)"
+          curl -sS https://api.checklistbank.org/dataset/3LXR | head -c 3000 || true
           echo; echo "::endgroup::"
           essayer() {
             echo "Essai : $1"
@@ -42,19 +42,23 @@ jobs:
             fi
             echo "Échec : $1"; rm -f /tmp/col/col.zip; return 1
           }
-          essayer "https://download.checklistbank.org/col/latest_coldp.zip" \
-          || essayer "https://api.checklistbank.org/dataset/3LR/export.zip?format=ColDP" \
-          || {
-            echo "::group::Répertoire des versions mensuelles"
-            curl -fsSL https://download.checklistbank.org/col/monthly/ | grep -oE '[0-9][0-9_-]*_(coldp|dwca)\.zip' | sort -u | tail -20 || true
+          lister() {
+            echo "::group::Contenu de $1"
+            curl -fsSL "$1" | grep -oE 'href="[^"]+"' | sed 's/href=//;s/"//g' | tail -60 || true
             echo "::endgroup::"
-            f=$(curl -fsSL https://download.checklistbank.org/col/monthly/ | grep -oE '[0-9][0-9_-]*_coldp\.zip' | sort -u | tail -1)
+          }
+          essayer "https://download.checklistbank.org/col/latest_xr_coldp.zip" \
+          || essayer "https://download.checklistbank.org/col/xr/latest_coldp.zip" \
+          || essayer "https://api.checklistbank.org/dataset/3LXR/export.zip?format=ColDP" \
+          || {
+            lister https://download.checklistbank.org/col/
+            lister https://download.checklistbank.org/col/monthly/
+            f=$(curl -fsSL https://download.checklistbank.org/col/monthly/ | grep -oE '[0-9][0-9_-]*_?xr_coldp\.zip' | sort -u | tail -1)
             [ -n "$f" ] && essayer "https://download.checklistbank.org/col/monthly/$f"
-          } \
-          || essayer "https://download.checklistbank.org/col/latest_dwca.zip"
+          }
           test -f /tmp/col/col.zip
           ls -la /tmp/col
-          unzip -l /tmp/col/col.zip | head -40
+          unzip -l /tmp/col/col.zip | grep -vi '/source/' | head -30
 
       - name: Construire les données
         shell: bash
