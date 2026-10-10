@@ -32,6 +32,8 @@ ACCEPTED = {"accepted", "provisionally accepted"}
 
 # Végétal multicellulaire exclu ; les lignées unicellulaires de Plantae sont gardées.
 EXCLUDE = {
+    "Pteridobiotina": "Plantes vasculaires (fougères, conifères, plantes à fleurs…)",
+    "Bryobiotina": "Mousses, hépatiques et anthocérotes, avec leurs fossiles",
     "Tracheophyta": "Plantes vasculaires",
     "Bryophyta": "Mousses",
     "Marchantiophyta": "Hépatiques",
@@ -87,7 +89,7 @@ def usages(src):
     if fh is not None:
         print("format : ColDP NameUsage", file=sys.stderr)
         for g in rows(fh):
-            yield g("ID"), g("parentID"), g("status") or "accepted", g("rank"), g("scientificName"), g("authorship")
+            yield g("ID"), g("parentID"), g("status") or "accepted", g("rank"), g("scientificName"), g("authorship"), g("extinct")
         return
     fh = open_tsv(src, "Taxon.tsv")
     if fh is None:
@@ -100,22 +102,22 @@ def usages(src):
         print("format : Darwin Core", file=sys.stderr)
         for g in _chain(first, it):
             yield (g("taxonID"), g("parentNameUsageID"), g("taxonomicStatus") or "accepted", g("taxonRank"),
-                   g("scientificName"), g("scientificNameAuthorship"))
+                   g("scientificName"), g("scientificNameAuthorship"), "")
         return
     print("format : ColDP Taxon + Name", file=sys.stderr)
     taxa = []
     for g in _chain(first, it):
         st = "provisionally accepted" if g("provisional").lower() == "true" else "accepted"
-        taxa.append((g("ID"), g("parentID"), st, g("nameID")))
+        taxa.append((g("ID"), g("parentID"), st, g("nameID"), g("extinct")))
     need = {t[3] for t in taxa}
     names = {}
     nh = open_tsv(src, "Name.tsv")
     for g in rows(nh):
         if g("ID") in need:
             names[g("ID")] = (g("rank"), g("scientificName"), g("authorship"))
-    for i, p, st, nid in taxa:
+    for i, p, st, nid, ext in taxa:
         rk, nm, au = names.get(nid, ("", "", ""))
-        yield i, p, st, rk, nm, au
+        yield i, p, st, rk, nm, au, ext
 
 
 def _chain(first, it):
@@ -147,10 +149,10 @@ def main(src, ann_dir, out):
     ann = load_annotations(ann_dir)
     print("annotations", len(ann), file=sys.stderr)
 
-    parent, rank, name, auth = {}, {}, {}, {}
+    parent, rank, name, auth, extinct = {}, {}, {}, {}, set()
     seen_ranks = collections.Counter()
     n = 0
-    for i, p, st, rk, nm, au in usages(src):
+    for i, p, st, rk, nm, au, ext in usages(src):
         n += 1
         if st.lower() not in ACCEPTED:
             continue
@@ -160,8 +162,10 @@ def main(src, ann_dir, out):
         rank[i] = rk.lower()
         name[i] = nm
         auth[i] = au
+        if ext.lower() in ("true", "1", "yes"):
+            extinct.add(i)
         seen_ranks[rank[i]] += 1
-    print("lignes", n, "acceptées", len(parent), file=sys.stderr)
+    print("lignes", n, "acceptées", len(parent), "éteints", len(extinct), file=sys.stderr)
     print("rangs", seen_ranks.most_common(40), file=sys.stderr)
 
     fr = {}
@@ -199,22 +203,31 @@ def main(src, ann_dir, out):
 
     # Racine virtuelle et regroupement des eucaryotes.
     VIRT = {"__vie": ("c", "Vie", "Le vivant", "Catalogue complet des espèces décrites, d'après le Catalogue of Life. Seules les espèces acceptées sont listées (pas les synonymes ni les sous-espèces)."),
-            "__euk": ("D", "Eukaryota", "Eucaryotes", "Cellules à noyau.")}
+            "__euk": ("D", "Eukaryota", "Eucaryotes", "Cellules à noyau."),
+            "__vir": ("D", "Viruses", "Virus (hors arbre)", "Les virus ne sont pas des cellules et n'ont pas d'ancêtre commun unique : ils sont classés à part, en « domaines » (realms) définis par l'ICTV, avec les viroïdes et les satellites.")}
+    print("racines", sorted(name[r] for r in roots), file=sys.stderr)
     by_name = {name[r]: r for r in roots}
-    top = []
-    for k in ("Bacteria", "Archaea"):
-        if k in by_name: top.append(by_name[k])
-    euk = [by_name[k] for k in ("Protozoa", "Chromista", "Fungi", "Animalia", "Plantae") if k in by_name]
-    top.append("__euk")
-    kids["__euk"] = euk
-    if "Viruses" in by_name: top.append(by_name["Viruses"])
-    others = [r for r in roots if r not in top and r not in euk]
-    kids["__vie"] = top + others
-    print("racines", [name[r] for r in roots], file=sys.stderr)
+    top = [by_name[k] for k in ("Bacteria", "Archaea") if k in by_name]
+    if "Eukaryota" in by_name:
+        euk_node = by_name["Eukaryota"]
+    else:
+        euk_node = "__euk"
+        kids["__euk"] = [by_name[k] for k in ("Protozoa", "Chromista", "Fungi", "Animalia", "Plantae") if k in by_name]
+    top.append(euk_node)
+    placed = set(top) | set(kids.get("__euk", []))
+    others = [r for r in roots if r not in placed]
+    if "Viruses" in by_name:
+        vir_node = by_name["Viruses"]
+        kids[vir_node] = kids.get(vir_node, []) + [r for r in others if r != vir_node]
+    else:
+        vir_node = "__vir"
+        kids["__vir"] = others
+    top.append(vir_node)
+    kids["__vie"] = top
 
     # Exclusions végétales : sous-arbre remplacé par un nœud « x ».
     for i in list(kept):
-        if name[i] in EXCLUDE and rank[i] in ("phylum", "class"):
+        if name[i] in EXCLUDE and rank[i] in ("subkingdom", "phylum", "class"):
             kids[i] = []
             rank[i] = "__x"
             fr[i] = EXCLUDE[name[i]]
@@ -247,14 +260,14 @@ def main(src, ann_dir, out):
     def info(i):
         if i in VIRT:
             c, nm, f, note = VIRT[i]
-            return c, nm, f, note, ""
+            return c, nm, f, note, "", ""
         nm = name[i]
         a = ann.get(nm, ("", ""))
         f = a[0] or fr.get(i, "") or (KINGDOM_FR.get(nm, "") if rank[i] == "kingdom" else "")
         note = a[1]
         if code(i) == "x":
             note = "Végétal multicellulaire : hors du périmètre de l'atlas."
-        return code(i), nm, f, note, auth.get(i, "")
+        return code(i), nm, f, note, auth.get(i, ""), ("1" if i in extinct else "")
 
     clean = lambda s: s.replace("\t", " ").replace("\n", " ")
     os.makedirs(os.path.join(out, "t"), exist_ok=True)
@@ -279,14 +292,14 @@ def main(src, ann_dir, out):
         lines = [f"#{ident[i]}\n"]
         genus = name[i] + " " if code(i) == "G" and i not in VIRT else None
         for c in ch:
-            cc, nm, f, note, au = info(c)
+            cc, nm, f, note, au, ex = info(c)
             if cc == "S":
                 if genus and nm.startswith(genus):
-                    lines.append(f"~{clean(nm[len(genus):])}\t{clean(au)}\t{clean(f)}\t{clean(note)}\n")
+                    lines.append(f"~{clean(nm[len(genus):])}\t{clean(au)}\t{clean(f)}\t{clean(note)}\t{ex}".rstrip("\t") + "\n")
                 else:
-                    lines.append(f"!{clean(nm)}\t{clean(au)}\t{clean(f)}\t{clean(note)}\n")
+                    lines.append(f"!{clean(nm)}\t{clean(au)}\t{clean(f)}\t{clean(note)}\t{ex}".rstrip("\t") + "\n")
             else:
-                lines.append(f"{cc}\t{clean(nm)}\t{size[c]}\t{nsp[c]}\t{clean(f)}\t{clean(note)}\t{clean(au)}\n")
+                lines.append(f"{cc}\t{clean(nm)}\t{size[c]}\t{nsp[c]}\t{clean(f)}\t{clean(note)}\t{clean(au)}\t{ex}".rstrip("\t") + "\n")
         block = "".join(lines)
         if cur + len(block) > LIMIT and buf:
             flush(); start = ident[i]; cur = 0
@@ -297,44 +310,37 @@ def main(src, ann_dir, out):
     entries = []
     for i in order:
         if i in VIRT: continue
-        cc, nm, f, note, au = info(i)
+        cc, nm, f, note, au, ex = info(i)
         if cc == "x": continue
         k = norm(nm)
-        if k: entries.append((k, ident[i], cc, nm, f))
+        if k: entries.append((k, ident[i], cc, nm, f, ex))
         if f:
             words = norm(f).split()
             for w in range(len(words)):
                 kk = " ".join(words[w:])
-                if len(kk) >= 2: entries.append((kk, ident[i], cc, nm, f))
+                if len(kk) >= 2: entries.append((kk, ident[i], cc, nm, f, ex))
     entries.sort(key=lambda e: (e[0], ORDER[e[2]], e[1]))
     print("entrées de recherche", len(entries), file=sys.stderr)
 
-    SHARD = 450_000
-    def line(e): return f"{e[0]}\t{e[1]}\t{e[2]}\t{clean(e[3])}\t{clean(e[4])}\n"
-    shards = {}
-    def split(items, depth):
-        groups = collections.OrderedDict()
-        for e in items:
-            p = e[0][:depth].replace(" ", "_")
-            groups.setdefault(p, []).append(e)
-        for p, g in groups.items():
-            sz = sum(len(line(e)) for e in g)
-            if sz > SHARD and depth < 6 and any(len(e[0]) > depth for e in g):
-                exact = [e for e in g if len(e[0]) <= depth]
-                rest = [e for e in g if len(e[0]) > depth]
-                if exact: shards.setdefault(p + "=", exact)
-                split(rest, depth + 1)
-            else:
-                shards[p] = g
-    split(entries, 2)
-    names = sorted(shards)
-    for idx, p in enumerate(names):
-        with gzip.open(os.path.join(out, "s", f"{idx}.gz"), "wt", encoding="utf-8", compresslevel=9) as w:
-            w.write("".join(line(e) for e in shards[p]))
+    # Tranches contiguës d'environ 1 Mo ; une même clé n'est jamais coupée en deux.
+    SHARD = 1_000_000
+    def line(e): return f"{e[0]}\t{e[1]}\t{e[2]}\t{clean(e[3])}\t{clean(e[4])}\t{e[5]}".rstrip("\t") + "\n"
+    names, buf, cur, last = [], [], 0, None
+    def flush_shard():
+        with gzip.open(os.path.join(out, "s", f"{len(names) - 1}.gz"), "wt", encoding="utf-8", compresslevel=9) as w:
+            w.write("".join(buf))
+    for e in entries:
+        l = line(e)
+        if not buf or (cur + len(l) > SHARD and e[0] != last):
+            if buf: flush_shard()
+            names.append(e[0]); buf, cur = [], 0
+        buf.append(l); cur += len(l); last = e[0]
+    if buf: flush_shard()
 
     counts = {}
-    for c in kids["__vie"] + kids["__euk"]:
-        if c != "__euk": counts[name[c]] = nsp[c]
+    for c in kids["__vie"] + kids.get(euk_node, []):
+        if c != euk_node: counts[c if c in VIRT else name[c]] = nsp[c]
+    counts = {(VIRT[k][1] if k in VIRT else k): v for k, v in counts.items()}
     meta = {
         "built": datetime.date.today().isoformat(),
         "source": os.path.basename(src.rstrip("/")),

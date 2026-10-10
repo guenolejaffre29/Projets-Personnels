@@ -112,9 +112,9 @@
       const f = line.split("\t");
       if (line[0] === "~" || line[0] === "!") {
         const nm = line[0] === "~" ? n.name + " " + f[0].slice(1) : f[0].slice(1);
-        c = { id, code: "S", name: nm, auth: f[1] || "", fr: f[2] || "", note: f[3] || "", size: 0, nsp: 1 };
+        c = { id, code: "S", name: nm, auth: f[1] || "", fr: f[2] || "", note: f[3] || "", ext: f[4] === "1", size: 0, nsp: 1 };
       } else {
-        c = { id, code: f[0], name: f[1], size: +f[2], nsp: +f[3], fr: f[4] || "", note: f[5] || "", auth: f[6] || "" };
+        c = { id, code: f[0], name: f[1], size: +f[2], nsp: +f[3], fr: f[4] || "", note: f[5] || "", auth: f[6] || "", ext: f[7] === "1" };
       }
       c.parent = n;
       c.group = GROUPS[c.name] ? c.name : n.group;
@@ -140,8 +140,9 @@
 
   let ROOT;
   const lineage = n => { const a = []; for (let p = n; p; p = p.parent) a.unshift(p); return a; };
-  const title = n => n.fr || n.name;
-  const sciHTML = n => ITALIC[n.code] ? `<span class="it">${esc(n.name)}</span>` : esc(n.name);
+  const dag = n => n.ext ? "† " : "";
+  const title = n => dag(n) + (n.fr || n.name);
+  const sciHTML = n => dag(n) + (ITALIC[n.code] ? `<span class="it">${esc(n.name)}</span>` : esc(n.name));
   const colorOf = n => n.code === "x" ? "var(--g-excl)" : (n.group && GROUPS[n.group] ? `var(${GROUPS[n.group][0]})` : "var(--accent)");
 
   function rowHTML(n, opts = {}) {
@@ -151,7 +152,7 @@
     let right = "";
     if (n.size) right = `<span>${n.nsp ? fmt(n.nsp) + " esp." : fmt(n.size)}</span>${chev}`;
     const cls = ["row"]; if (n.code === "x") cls.push("excl"); if (opts.current) cls.push("current");
-    const nm = opts.hl ? opts.hl(n) : (n.fr ? esc(n.fr) : sciHTML(n));
+    const nm = opts.hl ? dag(n) + opts.hl(n) : (n.fr ? dag(n) + esc(n.fr) : sciHTML(n));
     return `<li><button class="${cls.join(" ")}" data-id="${n.id}"${opts.current ? ' aria-current="true"' : ""}>
       <span class="dot" style="--c:${colorOf(n)}"></span>
       <span class="t"><span class="n">${nm}</span><span class="s">${sub.join(" · ")}</span>${opts.path ? `<span class="path">${opts.path}</span>` : ""}</span>
@@ -173,6 +174,7 @@
     let h = `<section class="card">
       <div class="meta"><span class="dot" style="--c:${colorOf(n)}"></span><span>${esc(groupName)}</span><span class="rank">${RANKS[n.code] || n.code}</span></div>
       <h1${!n.fr && ITALIC[n.code] ? ' class="it"' : ""}>${esc(title(n))}</h1>
+      ${n.ext ? `<p class="ext">Espèce ou groupe éteint, connu par des fossiles.</p>` : ""}
       ${n.fr ? `<p class="sci">${sciHTML(n)}${n.auth ? ` <span class="auth">${esc(n.auth)}</span>` : ""}</p>` : (n.auth ? `<p class="sci"><span class="auth">${esc(n.auth)}</span></p>` : "")}
       ${n.note ? `<p class="note">${esc(n.note)}</p>` : ""}
       ${n.code === "x" ? `<div class="excl-banner">Branche végétale multicellulaire : signalée pour situer l'arbre, mais pas détaillée ici.</div>` : ""}`;
@@ -180,7 +182,7 @@
       h += `<div class="stats"><span><b>${fmt(n.nsp)}</b> espèce${n.nsp > 1 ? "s" : ""}</span><span><b>${fmt(n.size)}</b> taxons en dessous</span></div>`;
     }
     if (n === ROOT && meta) {
-      h += `<div class="legend">${Object.entries(meta.counts).map(([k, v]) => GROUPS[k] ? `<span><span class="dot" style="--c:var(${GROUPS[k][0]})"></span>${GROUPS[k][1]} <b class="num">${fmt(v)}</b></span>` : "").join("")}</div>`;
+      h += `<div class="legend">${["Bacteria", "Archaea", "Protozoa", "Chromista", "Plantae", "Fungi", "Animalia", "Viruses"].filter(k => k in meta.counts).map(k => [k, meta.counts[k]]).map(([k, v]) => GROUPS[k] ? `<span><span class="dot" style="--c:var(${GROUPS[k][0]})"></span>${GROUPS[k][1]} <b class="num">${fmt(v)}</b></span>` : "").join("")}</div>`;
     }
     if (n !== ROOT && n.code !== "x" && n.code !== "c") {
       h += `<div class="links"><a href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(n.name)}" target="_blank" rel="noopener">Wikipédia ↗</a><a href="https://www.catalogueoflife.org/data/search?q=${encodeURIComponent(n.name)}" target="_blank" rel="noopener">Catalogue of Life ↗</a></div>`;
@@ -286,13 +288,12 @@
     const raw = q.value.trim(), k = norm(raw), my = ++searchToken;
     if (!meta) return;
     if (k.length < 2) { if (current) render(current, 0); return; }
+    // Les tranches couvrent des plages de clés contiguës : on prend celles qui recoupent [k, k + \uffff].
+    const lastLE = s => { const a = meta.shards; let lo = 0, hi = a.length - 1; while (lo < hi) { const m = (lo + hi + 1) >> 1; if (a[m] <= s) lo = m; else hi = m - 1; } return lo; };
     const cands = [];
-    meta.shards.forEach((p, i) => {
-      const pp = p.replace(/=$/, "").replace(/_/g, " ");
-      if (pp.startsWith(k) || k.startsWith(pp)) cands.push(i);
-    });
+    for (let i = lastLE(k), j = lastLE(k + "\uffff"); i <= j; i++) cands.push(i);
     crumbs.innerHTML = `<button disabled>Recherche</button>`;
-    if (cands.length > 8) {
+    if (cands.length > 6) {
       view.innerHTML = `<p class="results-info">Tapez une ou deux lettres de plus pour chercher parmi ${fmt(meta.nodes)} noms.</p>`;
       return;
     }
@@ -309,7 +310,7 @@
       const id = +f[1];
       if (seen.has(id)) continue;
       seen.add(id); total++;
-      if (hits.length < 2000) hits.push({ key: f[0], id, code: f[2], name: f[3], fr: f[4] || "" });
+      if (hits.length < 2000) hits.push({ key: f[0], id, code: f[2], name: f[3], fr: f[4] || "", ext: f[5] === "1" });
     }
     hits.sort((a, b) => (a.key === k ? 0 : 1) - (b.key === k ? 0 : 1) || RANK_ORDER[a.code] - RANK_ORDER[b.code] || a.key.localeCompare(b.key));
     const shown = hits.slice(0, 100);
@@ -321,7 +322,7 @@
       return text === n.name && ITALIC[n.code] ? `<span class="it">${inner}</span>` : inner;
     };
     view.innerHTML = `<p class="results-info">${total ? `${fmt(total)} résultat${total > 1 ? "s" : ""}${total > shown.length ? ` (${shown.length} premiers affichés)` : ""} pour « ${esc(raw)} »` : `Aucun résultat pour « ${esc(raw)} ». Essayez le nom latin, ou le début du nom.`}</p>` +
-      (shown.length ? `<ul class="list">${shown.map(h => rowHTML({ id: h.id, code: h.code, name: h.name, fr: h.fr, size: 0, group: null }, { hl })).join("")}</ul>` : "");
+      (shown.length ? `<ul class="list">${shown.map(h => rowHTML({ id: h.id, code: h.code, name: h.name, fr: h.fr, ext: h.ext, size: 0, group: null }, { hl })).join("")}</ul>` : "");
   }
 
   // ---------- Démarrage ----------

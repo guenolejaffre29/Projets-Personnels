@@ -12,3 +12,4 @@
   border: 1px solid var(--line); background: var(--surface); color: var(--accent); font: inherit; cursor: pointer;
 }
 footer a { color: var(--accent); }
+.ext { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
