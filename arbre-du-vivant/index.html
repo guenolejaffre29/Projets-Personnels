@@ -1,0 +1,3294 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ECEFE9">
+<title>Arbre du vivant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap">
+<style>
+/* Layout : une seule colonne de navigation en profondeur, pensée pour le pouce.
+   Barre collante (retour, recherche) → fil d'Ariane de la lignée → fiche du taxon → sous-groupes. */
+:root {
+  --bg: #ECEFE9;
+  --surface: #F8FAF5;
+  --ink: #17201B;
+  --muted: #5A675F;
+  --line: #D3DAD2;
+  --chip: #E1E7DF;
+  --accent: #1F6A50;
+  --accent-ink: #F8FAF5;
+  --g-bact: #2B78A8;
+  --g-arch: #A8650F;
+  --g-prot: #8550A8;
+  --g-fung: #B04468;
+  --g-anim: #B4472A;
+  --g-vir: #66706B;
+  --g-excl: #9AA59E;
+  --f-name: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1411; --surface: #161E1A; --ink: #E3EAE5; --muted: #93A29A; --line: #27332D; --chip: #212B26;
+    --accent: #72C9A4; --accent-ink: #0E1411;
+    --g-bact: #6CB3E3; --g-arch: #E3A955; --g-prot: #C397E0; --g-fung: #EB8DAB; --g-anim: #F0896A; --g-vir: #A3ADA8; --g-excl: #5F6B65;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1411; --surface: #161E1A; --ink: #E3EAE5; --muted: #93A29A; --line: #27332D; --chip: #212B26;
+  --accent: #72C9A4; --accent-ink: #0E1411;
+  --g-bact: #6CB3E3; --g-arch: #E3A955; --g-prot: #C397E0; --g-fung: #EB8DAB; --g-anim: #F0896A; --g-vir: #A3ADA8; --g-excl: #5F6B65;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--ink); }
+body { font-family: var(--f-body); font-size: 16px; line-height: 1.45; margin: 0; -webkit-text-size-adjust: 100%; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; }
+
+/* Barre du haut */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; padding-block: 10px; }
+.iconbtn {
+  min-width: 44px; height: 44px; padding: 0 12px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--surface); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 15px;
+}
+.iconbtn:disabled { opacity: .35; cursor: default; }
+.iconbtn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.search { position: relative; min-width: 0; }
+.search input {
+  width: 100%; height: 44px; border-radius: 12px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); font: inherit; font-size: 16px;
+  padding: 0 38px 0 12px; -webkit-appearance: none; appearance: none;
+}
+.search input::placeholder { color: var(--muted); }
+.search input::-webkit-search-cancel-button { display: none; }
+.search .clear {
+  position: absolute; right: 4px; top: 4px; width: 36px; height: 36px; border: 0; background: transparent;
+  border-radius: 10px; cursor: pointer; color: var(--muted); font-size: 20px; line-height: 1;
+}
+
+/* Fil d'Ariane */
+.crumbs {
+  display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding-block: 10px 2px;
+  font-size: 13px; white-space: nowrap; -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+  padding-inline: 14px; margin-inline: -14px;
+}
+.crumbs::-webkit-scrollbar { display: none; }
+.crumbs button {
+  border: 0; background: transparent; color: var(--muted); padding: 6px 4px; cursor: pointer; border-radius: 8px;
+  flex: none;
+}
+.crumbs button:last-child { color: var(--ink); font-weight: 700; }
+.crumbs .sep { color: var(--line); padding: 6px 0; flex: none; }
+
+/* Fiche du taxon */
+.card { padding-block: 14px 18px; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--g-vir)); flex: none; }
+.rank { background: var(--chip); color: var(--ink); padding: 3px 8px; border-radius: 6px; }
+h1 {
+  font-family: var(--f-name); font-weight: 600; font-size: clamp(30px, 8vw, 44px); line-height: 1.05;
+  margin: 10px 0 4px; text-wrap: balance; letter-spacing: -.01em;
+}
+.sci { font-family: var(--f-name); font-size: 19px; color: var(--muted); margin: 0; }
+.it { font-style: italic; }
+.note { margin: 12px 0 0; max-width: 62ch; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; font-size: 14px; color: var(--muted); }
+.stats b { font-family: var(--f-mono); font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.links a, .links button {
+  font-size: 14px; color: var(--accent); text-decoration: none; border: 1px solid var(--line);
+  background: var(--surface); border-radius: 999px; padding: 7px 12px; cursor: pointer;
+}
+.excl-banner { margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: var(--chip); color: var(--muted); font-size: 14px; }
+
+/* Liste des sous-groupes */
+.listhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-block: 6px 8px; border-top: 1px solid var(--line); }
+.listhead h2 { font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 10px 0 0; }
+.list { list-style: none; margin: 0 0 28px; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.list li + li { border-top: 1px solid var(--line); }
+.row {
+  width: 100%; display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 12px; align-items: center;
+  text-align: left; border: 0; background: transparent; padding: 12px 14px; min-height: 60px; cursor: pointer;
+}
+.row:active { background: var(--chip); }
+@media (hover: hover) { .row:hover { background: var(--chip); } }
+.row .t { min-width: 0; }
+.row .n { display: block; font-weight: 700; font-size: 16.5px; line-height: 1.25; overflow-wrap: anywhere; }
+.row .s { display: block; font-size: 14px; color: var(--muted); line-height: 1.3; margin-top: 2px; overflow-wrap: anywhere; }
+.row .s .r { font-family: var(--f-mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+.row .side { display: flex; align-items: center; gap: 6px; color: var(--muted); font-family: var(--f-mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+.row .chev { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+.row.current { background: var(--chip); }
+.row.excl .n { color: var(--muted); font-weight: 400; }
+.row.excl .dot { background: transparent; border: 1.5px dashed var(--g-excl); }
+
+/* Résultats de recherche */
+.results-info { color: var(--muted); font-size: 14px; padding-block: 14px 8px; }
+.row .path { display: block; font-size: 12.5px; color: var(--muted); margin-top: 3px; overflow-wrap: anywhere; }
+mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: inherit; border-radius: 3px; }
+
+/* Accueil : domaines */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); margin-top: 12px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+footer { color: var(--muted); font-size: 13px; padding-block: 8px 40px; max-width: 62ch; }
+footer p { margin: 0 0 8px; }
+
+.enter { animation: enter .2s ease-out; }
+.enter-back { animation: enterBack .2s ease-out; }
+@keyframes enter { from { transform: translateX(18px); opacity: .5; } to { transform: none; opacity: 1; } }
+@keyframes enterBack { from { transform: translateX(-18px); opacity: .5; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .enter, .enter-back { animation: none; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <button class="iconbtn" id="back" aria-label="Remonter d'un niveau" disabled>
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Renard, diatomée, Plasmodium…" aria-label="Chercher un être vivant">
+      <button class="clear" id="clear" aria-label="Effacer la recherche" hidden>×</button>
+    </div>
+    <button class="iconbtn" id="rand" aria-label="Aller à une espèce au hasard">
+      <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" id="crumbs" aria-label="Lignée"></nav>
+  <main id="view"></main>
+  <footer>
+    <p>Classification phylogénétique simplifiée, d'après les synthèses récentes (arbre des eucaryotes de Burki et al. 2020 et mises à jour, noms de procaryotes LPSN/GTDB, ICTV pour les virus). Les nœuds « clade » n'ont pas de rang classique ; l'ordre des branches suit la phylogénie, pas l'alphabet.</p>
+    <p>Périmètre : tout le vivant sauf le monde végétal multicellulaire (plantes terrestres et grandes algues), qui reste signalé en pointillés. Toutes les lignées unicellulaires sont présentes, y compris les algues microscopiques. † = éteint.</p>
+    <p id="count"></p>
+  </footer>
+</div>
+
+<script type="text/plain" id="tree-data">
+# Format : indentation d'un espace par niveau ; code|Nom scientifique|Nom français|Note
+# "@@ Nom" rattache les lignes suivantes (profondeur 0) à un nœud déjà défini.
+c|Vie|Le vivant|Tout descend d'un ancêtre commun, LUCA, qui vivait il y a environ 4,2 milliards d'années. Trois grandes lignées cellulaires en sont issues ; les virus sont rangés à part.
+ D|Bacteria|Bactéries|Cellules sans noyau, à paroi le plus souvent en peptidoglycane. Environ 20 000 espèces décrites, des millions estimées.
+  R|Bacillati|Terrabactéries|Grande lignée surtout terrestre à l'origine ; souvent une seule membrane (Gram positif).
+   P|Bacillota|Firmicutes|Bactéries Gram positif à faible teneur en GC, beaucoup forment des endospores.
+    C|Bacilli|Bacilles
+     O|Bacillales|Bacillales
+      S|Bacillus subtilis|Bacille du foin|Modèle de laboratoire, forme des spores très résistantes.
+      S|Bacillus anthracis|Bacille du charbon|Agent de la maladie du charbon (anthrax).
+      S|Bacillus thuringiensis|Bacille de Thuringe|Ses toxines sont utilisées comme insecticide biologique.
+      S|Staphylococcus aureus|Staphylocoque doré|Commensal de la peau, pathogène opportuniste (SARM).
+      S|Listeria monocytogenes|Listeria|Responsable de la listériose alimentaire.
+     O|Lactobacillales|Bactéries lactiques
+      S|Lactobacillus delbrueckii|Lactobacille bulgare|Ferment du yaourt avec Streptococcus thermophilus.
+      S|Lacticaseibacillus casei|Lactobacille casei
+      S|Streptococcus pneumoniae|Pneumocoque
+      S|Streptococcus pyogenes|Streptocoque du groupe A|Angines, scarlatine.
+      S|Streptococcus thermophilus|Streptocoque thermophile
+      S|Lactococcus lactis|Lactocoque|Ferment des fromages.
+      S|Enterococcus faecalis|Entérocoque
+    C|Clostridia|Clostridies
+     S|Clostridium botulinum|Bacille botulique|Produit la toxine botulique, la plus puissante connue.
+     S|Clostridium tetani|Bacille du tétanos
+     S|Clostridioides difficile|Clostridioides difficile|Diarrhées après antibiotiques.
+     S|Faecalibacterium duncaniae|Faecalibacterium|Une des bactéries les plus abondantes de l'intestin humain (ex-F. prausnitzii).
+     G|Epulopiscium|Epulopiscium|Bactérie géante de l'intestin des poissons-chirurgiens, visible à l'œil nu.
+    C|Negativicutes|Négativicutes|Firmicutes à double membrane.
+     G|Veillonella|Veillonella
+    C|Erysipelotrichia|Érysipélotriches
+   P|Mycoplasmatota|Mycoplasmes|Sans paroi cellulaire, génomes minuscules (ex-Tenericutes).
+    C|Mollicutes|Mollicutes
+     S|Mycoplasmoides genitalium|Mycoplasma genitalium|Un des plus petits génomes d'organisme cultivable : environ 525 gènes.
+     S|Mycoplasmoides pneumoniae|Mycoplasma pneumoniae
+     G|Spiroplasma|Spiroplasma|Hélicoïdales, symbiotes d'insectes.
+     G|Candidatus Phytoplasma|Phytoplasmes|Parasites de la sève, transmis par des insectes.
+   P|Actinomycetota|Actinobactéries|Gram positif à forte teneur en GC ; grands producteurs d'antibiotiques.
+    C|Actinomycetes|Actinomycètes
+     O|Mycobacteriales|Mycobactéries
+      S|Mycobacterium tuberculosis|Bacille de Koch|Agent de la tuberculose.
+      S|Mycobacterium leprae|Bacille de Hansen|Agent de la lèpre.
+      S|Corynebacterium diphtheriae|Bacille diphtérique
+      G|Nocardia|Nocardia
+     O|Kitasatosporales|Streptomycètes
+      G|Streptomyces|Streptomyces|Source de plus des deux tiers des antibiotiques naturels ; donne l'odeur de terre mouillée (géosmine).
+     O|Bifidobacteriales|Bifidobactéries
+      G|Bifidobacterium|Bifidobacterium|Colonise l'intestin des nourrissons allaités.
+     O|Propionibacteriales|Propionibactéries
+      S|Cutibacterium acnes|Bacille de l'acné
+      S|Propionibacterium freudenreichii|Propionibactérie|Fait les trous de l'emmental.
+     O|Micrococcales|Micrococcales
+      G|Micrococcus|Micrococcus
+     O|Frankiales|Frankiales
+      G|Frankia|Frankia|Fixe l'azote dans les racines de l'aulne.
+    C|Coriobacteriia|Coriobactéries
+    C|Rubrobacteria|Rubrobactéries
+    C|Acidimicrobiia|Acidimicrobies
+   P|Cyanobacteriota|Cyanobactéries|Ont inventé la photosynthèse qui libère de l'oxygène (Grande Oxydation, ~2,4 Ga). Un de leurs ancêtres est devenu le chloroplaste.
+    C|Cyanophyceae|Cyanobactéries photosynthétiques
+     O|Gloeobacterales|Gloeobacter|Lignée la plus ancienne, sans thylakoïdes.
+      S|Gloeobacter violaceus|Gloeobacter
+     O|Synechococcales|Synechococcales
+      S|Prochlorococcus marinus|Prochlorococcus|L'organisme photosynthétique le plus abondant de la planète.
+      G|Synechococcus|Synechococcus
+     O|Chroococcales|Chroococcales
+      S|Microcystis aeruginosa|Microcystis|Responsable des « fleurs d'eau » toxiques des lacs.
+     O|Oscillatoriales|Oscillatoriales
+      S|Limnospira platensis|Spiruline|Vendue comme complément alimentaire (ex-Arthrospira).
+      S|Trichodesmium erythraeum|Trichodesmium|Fixe l'azote en haute mer ; colore la mer Rouge.
+      G|Oscillatoria|Oscillatoria
+     O|Nostocales|Nostocales|Filaments avec hétérocystes fixateurs d'azote.
+      G|Nostoc|Nostoc
+      G|Anabaena|Anabaena
+    C|Vampirovibrionia|Mélainabactéries|Cousines non photosynthétiques des cyanobactéries.
+   P|Chloroflexota|Bactéries vertes non sulfureuses
+    S|Chloroflexus aurantiacus|Chloroflexus
+    G|Dehalococcoides|Dehalococcoides|Dégrade des solvants chlorés.
+   P|Deinococcota|Deinococcus-Thermus
+    S|Deinococcus radiodurans|Deinococcus|Résiste à des radiations mille fois mortelles pour l'humain.
+    S|Thermus aquaticus|Thermus aquaticus|Source de la Taq polymérase utilisée en PCR.
+   P|Armatimonadota|Armatimonadota
+   P|Dormibacterota|Dormibacterota
+  R|Pseudomonadati|Gracilicutes|Grande lignée de bactéries à double membrane (Gram négatif).
+   P|Pseudomonadota|Protéobactéries|Le plus vaste embranchement bactérien (ex-Proteobacteria).
+    C|Alphaproteobacteria|Alphaprotéobactéries|Les mitochondries descendent d'une bactérie proche de ce groupe.
+     O|Rickettsiales|Rickettsiales
+      S|Rickettsia prowazekii|Rickettsie du typhus
+      S|Wolbachia pipientis|Wolbachia|Infecte peut-être la moitié des espèces d'insectes et manipule leur reproduction.
+     O|Pelagibacterales|SAR11
+      S|Pelagibacter ubique|Pelagibacter|Probablement la bactérie la plus nombreuse des océans.
+     O|Hyphomicrobiales|Rhizobiales
+      G|Rhizobium|Rhizobium|Fixe l'azote dans les nodosités des légumineuses.
+      S|Agrobacterium tumefaciens|Agrobactérie|Transfère naturellement de l'ADN aux plantes.
+      S|Brucella melitensis|Brucella|Agent de la brucellose.
+      S|Bartonella henselae|Bartonella|Maladie des griffes du chat.
+     O|Caulobacterales|Caulobacterales
+      S|Caulobacter crescentus|Caulobacter|Modèle du cycle cellulaire asymétrique.
+     O|Rhodobacterales|Rhodobacterales
+      G|Rhodobacter|Rhodobacter
+     O|Sphingomonadales|Sphingomonadales
+     O|Rhodospirillales|Rhodospirillales
+      S|Magnetospirillum magneticum|Magnétospirille|Fabrique des cristaux de magnétite pour s'orienter.
+     O|Acetobacterales|Bactéries acétiques
+      G|Acetobacter|Acetobacter|Transforme le vin en vinaigre.
+     O|Holosporales|Holosporales|Parasites du noyau des paramécies.
+    C|Betaproteobacteria|Bêtaprotéobactéries
+     O|Neisseriales|Neisseriales
+      S|Neisseria meningitidis|Méningocoque
+      S|Neisseria gonorrhoeae|Gonocoque
+     O|Burkholderiales|Burkholderiales
+      S|Bordetella pertussis|Bacille de la coqueluche
+      S|Burkholderia pseudomallei|Burkholderia
+     O|Nitrosomonadales|Nitrosomonadales
+      S|Nitrosomonas europaea|Nitrosomonas|Oxyde l'ammoniac : étape clé du cycle de l'azote.
+    C|Gammaproteobacteria|Gammaprotéobactéries
+     O|Enterobacterales|Entérobactéries
+      S|Escherichia coli|Colibacille|L'organisme modèle le plus étudié de la biologie.
+      S|Salmonella enterica|Salmonelle
+      G|Shigella|Shigella|Dysenterie bacillaire.
+      S|Klebsiella pneumoniae|Klebsielle
+      S|Yersinia pestis|Bacille de la peste|A causé la Peste noire au XIVe siècle.
+      S|Buchnera aphidicola|Buchnera|Symbiote obligatoire des pucerons.
+      S|Serratia marcescens|Serratia
+      S|Proteus mirabilis|Proteus
+     O|Pseudomonadales|Pseudomonadales
+      S|Pseudomonas aeruginosa|Bacille pyocyanique
+      S|Pseudomonas fluorescens|Pseudomonas fluorescent
+      S|Acinetobacter baumannii|Acinetobacter
+     O|Vibrionales|Vibrionales
+      S|Vibrio cholerae|Vibrion cholérique|Agent du choléra.
+      S|Aliivibrio fischeri|Vibrio fischeri|Bactérie lumineuse symbiote du calmar Euprymna.
+     O|Pasteurellales|Pasteurellales
+      S|Haemophilus influenzae|Haemophilus|Premier génome d'organisme libre séquencé (1995).
+      S|Pasteurella multocida|Pasteurella
+     O|Legionellales|Legionellales
+      S|Legionella pneumophila|Légionelle
+      S|Coxiella burnetii|Coxiella|Fièvre Q.
+     O|Thiotrichales|Thiotrichales
+      S|Francisella tularensis|Francisella|Tularémie.
+      S|Thiomargarita magnifica|Thiomargarita magnifica|Plus grande bactérie connue : un filament de 2 cm.
+     O|Xanthomonadales|Xanthomonadales
+      S|Xylella fastidiosa|Xylella|Tue les oliviers des Pouilles.
+      S|Xanthomonas campestris|Xanthomonas|Produit la gomme xanthane.
+     O|Chromatiales|Bactéries pourpres sulfureuses
+     O|Alteromonadales|Alteromonadales
+      S|Shewanella oneidensis|Shewanella|Respire des métaux.
+     O|Methylococcales|Méthanotrophes
+    C|Zetaproteobacteria|Zétaprotéobactéries
+     S|Mariprofundus ferrooxydans|Mariprofundus|Oxyde le fer près des sources hydrothermales.
+    C|Acidithiobacillia|Acidithiobacillia
+     S|Acidithiobacillus ferrooxidans|Acidithiobacillus|Utilisé pour extraire le cuivre des minerais.
+   P|Campylobacterota|Campylobactéries
+    S|Campylobacter jejuni|Campylobacter|Première cause bactérienne de gastro-entérite.
+    S|Helicobacter pylori|Hélicobactère|Responsable des ulcères de l'estomac (Nobel 2005).
+   P|Thermodesulfobacteriota|Desulfobacterota|Bactéries réductrices de sulfate.
+    G|Desulfovibrio|Desulfovibrio
+    S|Geobacter sulfurreducens|Geobacter|Produit de l'électricité : fabrique des « nanofils ».
+   P|Myxococcota|Myxobactéries
+    S|Myxococcus xanthus|Myxococcus|Les cellules s'assemblent en fructifications multicellulaires.
+   P|Bdellovibrionota|Bdellovibrions
+    S|Bdellovibrio bacteriovorus|Bdellovibrio|Prédateur qui pénètre dans d'autres bactéries.
+   P|Acidobacteriota|Acidobactéries|Très abondantes dans les sols.
+   P|Nitrospirota|Nitrospira
+    G|Nitrospira|Nitrospira|Certaines oxydent l'ammoniac jusqu'au nitrate (comammox).
+    G|Leptospirillum|Leptospirillum
+   P|Nitrospinota|Nitrospina
+   P|Spirochaetota|Spirochètes|Bactéries en tire-bouchon, flagelles internes.
+    S|Treponema pallidum|Tréponème pâle|Agent de la syphilis.
+    S|Borreliella burgdorferi|Borrélie|Agent de la maladie de Lyme.
+    S|Leptospira interrogans|Leptospire|Leptospirose.
+   P|Elusimicrobiota|Elusimicrobiota
+   P|Deferribacterota|Deferribacterota
+   c|Groupe PVC|Planctomycètes, Verrucomicrobies, Chlamydies
+    P|Planctomycetota|Planctomycètes|Membranes internes complexes.
+     S|Gemmata obscuriglobus|Gemmata
+     G|Candidatus Brocadia|Brocadia|Oxyde l'ammonium sans oxygène (anammox).
+    P|Verrucomicrobiota|Verrucomicrobies
+     S|Akkermansia muciniphila|Akkermansia|Se nourrit du mucus intestinal.
+    P|Chlamydiota|Chlamydies|Parasites intracellulaires obligatoires.
+     S|Chlamydia trachomatis|Chlamydia|Trachome et infection sexuellement transmissible.
+    P|Lentisphaerota|Lentisphaerota
+    P|Kiritimatiellota|Kiritimatiellota
+   c|Groupe FCB|Fibrobactères, Chlorobi, Bacteroidetes
+    P|Bacteroidota|Bactéroïdes|Grands dégradeurs de sucres complexes dans l'intestin.
+     S|Bacteroides fragilis|Bacteroides
+     S|Porphyromonas gingivalis|Porphyromonas|Maladie des gencives.
+     G|Prevotella|Prevotella
+     G|Flavobacterium|Flavobacterium
+    P|Chlorobiota|Bactéries vertes sulfureuses|Photosynthèse dans très peu de lumière.
+     G|Chlorobium|Chlorobium
+    P|Fibrobacterota|Fibrobacter|Dégradent la cellulose dans la panse des ruminants.
+    P|Gemmatimonadota|Gemmatimonadota
+    P|Ignavibacteriota|Ignavibacteriota
+    P|Balneolota|Balneolota
+    P|Calditrichota|Calditrichota
+  R|Fusobacteriati|Fusobactéries
+   P|Fusobacteriota|Fusobactéries
+    S|Fusobacterium nucleatum|Fusobacterium|Bactérie buccale associée au cancer colorectal.
+  R|Thermotogati|Thermotogati|Lignée de bactéries thermophiles.
+   P|Thermotogota|Thermotogales|Entourées d'une gaine (« toge »).
+    S|Thermotoga maritima|Thermotoga
+  c|Autres lignées thermophiles|Lignées basales, position débattue
+   P|Aquificota|Aquificales|Parmi les bactéries les plus thermophiles (jusqu'à 95 °C).
+    S|Aquifex aeolicus|Aquifex
+   P|Dictyoglomota|Dictyoglomota
+   P|Caldisericota|Caldisericota
+   P|Coprothermobacterota|Coprothermobacterota
+   P|Synergistota|Synergistota
+  c|Patescibacteria|Radiation des phylums candidats (CPR)|Bactéries ultra-petites (~0,2 µm) connues surtout par leur ADN ; elles vivent accrochées à d'autres bactéries. Peut-être un quart de la diversité bactérienne.
+   P|Candidatus Saccharibacteria|Saccharibactéries (TM7)|Vit en épibionte sur des actinobactéries de la bouche.
+   P|Candidatus Parcubacteria|Parcubactéries
+   P|Candidatus Microgenomates|Microgénomates
+ D|Archaea|Archées|Cellules sans noyau mais à machinerie proche des eucaryotes, membranes à lipides éthers. Aucune n'est pathogène connue. Souvent extrêmophiles, mais aussi partout dans les océans et les sols.
+  R|Methanobacteriati|Euryarchées
+   P|Methanobacteriota|Euryarchéotes|(ex-Euryarchaeota)
+    C|Methanobacteria|Méthanobactéries
+     S|Methanobrevibacter smithii|Methanobrevibacter|Principale archée de l'intestin humain, produit du méthane.
+     G|Methanobacterium|Methanobacterium
+     G|Methanothermobacter|Methanothermobacter
+    C|Methanococci|Méthanocoques
+     S|Methanocaldococcus jannaschii|Methanocaldococcus|Première archée séquencée (1996).
+    C|Methanopyri|Méthanopyres
+     S|Methanopyrus kandleri|Methanopyrus|Une souche se multiplie à 122 °C, record pour la vie.
+    C|Methanomicrobia|Méthanomicrobes
+     G|Methanosarcina|Methanosarcina|Plus grand génome d'archée connu.
+     G|Methanothrix|Methanothrix
+     c|ANME|Méthanotrophes anaérobies|Consomment le méthane des fonds marins avec des bactéries partenaires.
+    C|Halobacteria|Halobactéries|Vivent dans des saumures saturées en sel ; colorent les marais salants en rose.
+     S|Halobacterium salinarum|Halobacterium
+     S|Haloferax volcanii|Haloferax
+     S|Haloquadratum walsbyi|Archée carrée|Cellules plates et carrées.
+    C|Thermococci|Thermocoques
+     S|Pyrococcus furiosus|Pyrococcus|Pousse à 100 °C ; source de la polymérase Pfu.
+     G|Thermococcus|Thermococcus
+    C|Archaeoglobi|Archéoglobes
+     S|Archaeoglobus fulgidus|Archaeoglobus
+    C|Thermoplasmata|Thermoplasmes
+     S|Thermoplasma acidophilum|Thermoplasma|Sans paroi cellulaire.
+     S|Picrophilus torridus|Picrophilus|Vit à pH 0.
+     G|Ferroplasma|Ferroplasma
+    C|Poseidoniia|Archées marines du groupe II|Très abondantes dans les eaux de surface.
+   P|Hadarchaeota|Hadarchées|Vivent dans les sédiments profonds.
+  R|Thermoproteati|Groupe TACK
+   P|Thermoproteota|Thermoprotéotes|(ex-Crenarchaeota et Thaumarchaeota)
+    C|Thermoprotei|Thermoprotées|Hyperthermophiles des sources chaudes.
+     O|Sulfolobales|Sulfolobales
+      S|Saccharolobus solfataricus|Sulfolobus|Vit dans les solfatares à 80 °C et pH 3.
+      S|Sulfolobus acidocaldarius|Sulfolobus acidocaldarius
+     O|Desulfurococcales|Desulfurococcales
+      S|Pyrolobus fumarii|Pyrolobus|Survit jusqu'à 113 °C.
+      G|Ignicoccus|Ignicoccus|Hôte de la minuscule Nanoarchaeum.
+     O|Thermoproteales|Thermoproteales
+      G|Pyrobaculum|Pyrobaculum
+      G|Thermoproteus|Thermoproteus
+    C|Nitrososphaeria|Thaumarchées|Oxydent l'ammoniac ; parmi les êtres vivants les plus nombreux des océans.
+     S|Nitrosopumilus maritimus|Nitrosopumilus
+     G|Nitrososphaera|Nitrososphaera
+     S|Cenarchaeum symbiosum|Cenarchaeum|Symbiote d'une éponge.
+    C|Korarchaeia|Korarchées
+     S|Candidatus Korarchaeum cryptofilum|Korarchaeum
+    C|Bathyarchaeia|Bathyarchées|Abondantes dans les sédiments marins.
+    C|Methanomethylicia|Verstraetearchées|Méthanogènes hors des Euryarchées.
+  R|Nanobdellati|Superphylum DPANN|Archées minuscules, souvent symbiotes ou parasites d'autres archées.
+   P|Nanobdellota|Nanoarchées
+    S|Nanoarchaeum equitans|Nanoarchaeum|Vit accrochée à Ignicoccus ; génome de 490 000 paires de bases.
+   P|Candidatus Micrarchaeota|Micrarchées|Archées ARMAN des drainages miniers acides.
+   P|Candidatus Woesearchaeota|Woesearchées
+   P|Candidatus Altiarchaeota|Altiarchées
+    S|Candidatus Altiarchaeum hamiconexum|Altiarchaeum|Cellules hérissées de grappins.
+   P|Candidatus Nanohaloarchaeota|Nanohaloarchées
+   P|Candidatus Aenigmarchaeota|Aenigmarchées
+  R|Promethearchaeati|Archées d'Asgard|Les plus proches parentes des eucaryotes : elles possèdent déjà des gènes « eucaryotes » (actine, ESCRT…). Noms tirés des dieux nordiques.
+   P|Promethearchaeota|Asgardarchées
+    C|Lokiarchaeia|Lokiarchées|Découvertes près du Château de Loki, une source hydrothermale arctique (2015).
+     S|Candidatus Prometheoarchaeum syntrophicum|Prometheoarchaeum|Première archée d'Asgard cultivée (2020), après 12 ans d'efforts ; cellules à longs bras.
+    C|Thorarchaeia|Thorarchées
+    C|Odinarchaeia|Odinarchées
+    C|Helarchaeia|Helarchées
+    C|Heimdallarchaeia|Heimdallarchées|Groupe dont seraient issus les eucaryotes (Hodarchaeales).
+ D|Eukaryota|Eucaryotes|Cellules à noyau, avec mitochondries (héritées d'une alphaprotéobactérie). Issus d'une archée d'Asgard il y a environ 2 milliards d'années. La plupart des lignées sont unicellulaires : les « protistes ».
+ c|Virus|Virus (hors arbre)|Les virus ne sont pas des cellules et n'ont pas d'ancêtre commun unique : ils ne font pas partie de l'arbre du vivant au sens strict. Ils sont classés en « domaines » (realms) par l'ICTV.
+  D|Riboviria|Riboviria|Virus à ARN et rétrovirus.
+   R|Orthornavirae|Virus à ARN
+    F|Coronaviridae|Coronavirus
+     S|SARS-CoV-2|Coronavirus du Covid-19
+    F|Orthomyxoviridae|Virus grippaux
+     S|Alphainfluenzavirus influenzae|Virus de la grippe A
+    F|Filoviridae|Filovirus
+     S|Orthoebolavirus zairense|Virus Ebola
+    F|Rhabdoviridae|Rhabdovirus
+     S|Lyssavirus rabies|Virus de la rage
+    F|Paramyxoviridae|Paramyxovirus
+     S|Morbillivirus hominis|Virus de la rougeole
+    F|Picornaviridae|Picornavirus
+     S|Enterovirus coxsackiepol|Poliovirus
+    F|Flaviviridae|Flavivirus
+     S|Orthoflavivirus denguei|Virus de la dengue
+     S|Orthoflavivirus zikaense|Virus Zika
+     S|Hepacivirus hominis|Virus de l'hépatite C
+    F|Virgaviridae|Virgavirus
+     S|Tobamovirus tabaci|Virus de la mosaïque du tabac|Premier virus découvert (1892).
+   R|Pararnavirae|Rétrovirus et apparentés
+    F|Retroviridae|Rétrovirus
+     S|Lentivirus humimdef1|VIH-1
+    F|Hepadnaviridae|Hépadnavirus
+     S|Orthohepadnavirus hominoidei|Virus de l'hépatite B
+  D|Duplodnaviria|Duplodnaviria|Virus à ADN double brin à capside « HK97 ».
+   C|Caudoviricetes|Bactériophages à queue|Les entités biologiques les plus nombreuses sur Terre (~10³¹).
+    G|Tequatrovirus|Phage T4|Phage d'Escherichia coli, modèle historique de la biologie moléculaire.
+    G|Lambdavirus|Phage lambda
+    c|crAssphage|crAssphage|Le virus le plus abondant de l'intestin humain.
+   O|Herpesvirales|Herpèsvirus
+    S|Simplexvirus humanalpha1|Herpès simplex 1
+    S|Varicellovirus humanalpha3|Virus de la varicelle
+    S|Lymphocryptovirus humangamma4|Virus d'Epstein-Barr
+  D|Varidnaviria|Varidnaviria|Virus à ADN à capside « double gelée roulée ».
+   P|Nucleocytoviricota|Virus géants|Plus gros que certaines bactéries.
+    S|Mimivirus bradfordmassiliense|Mimivirus|Découvert en 1992 dans une amibe, pris d'abord pour une bactérie.
+    G|Pandoravirus|Pandoravirus|Génome de 2,5 millions de paires de bases.
+    G|Pithovirus|Pithovirus|Réveillé après 30 000 ans dans le pergélisol sibérien.
+    F|Poxviridae|Poxvirus
+     S|Orthopoxvirus variola|Virus de la variole|Éradiqué en 1980.
+     S|Orthopoxvirus monkeypox|Virus mpox
+    F|Asfarviridae|Asfarvirus
+     S|Asfivirus haemorrhagiae|Virus de la peste porcine africaine
+   F|Adenoviridae|Adénovirus
+  D|Monodnaviria|Monodnaviria|Petits virus à ADN.
+   F|Papillomaviridae|Papillomavirus
+    G|Alphapapillomavirus|Papillomavirus humains (HPV 16, 18…)|Principale cause du cancer du col de l'utérus.
+   F|Polyomaviridae|Polyomavirus
+   F|Parvoviridae|Parvovirus
+   F|Microviridae|Microvirus
+    G|Sinsheimervirus|Phage φX174|Premier génome ADN entièrement séquencé (1977).
+  D|Adnaviria|Adnaviria|Virus d'archées hyperthermophiles, ADN sous forme A.
+   F|Rudiviridae|Rudivirus
+  D|Ribozyviria|Ribozyviria|Satellites à ARN circulaire avec ribozyme.
+   S|Deltavirus italiense|Virus de l'hépatite D
+@@ Eukaryota
+c|Amorphea|Amorphea|Animaux, champignons, amibes et leurs parents unicellulaires.
+ c|Obazoa|Obazoa
+  c|Opisthokonta|Opisthocontes|Cellules mobiles à un flagelle postérieur, comme le spermatozoïde.
+   c|Holomycota|Holomycètes|Champignons et leurs parents amiboïdes.
+    c|Rotosphaerida|Nucléariides|Amibes à fins pseudopodes, plus proches parents des champignons.
+     G|Nuclearia|Nuclearia
+     S|Fonticula alba|Fonticula|Amibe qui s'agrège en petite fructification.
+   c|Holozoa|Holozoaires|Animaux et leurs parents unicellulaires.
+    c|Ichthyosporea|Ichthyosporés|Parasites et commensaux d'animaux aquatiques.
+     S|Sphaeroforma arctica|Sphaeroforma
+     S|Creolimax fragrantissima|Creolimax
+     S|Ichthyophonus hoferi|Ichthyophonus|Parasite des harengs.
+    c|Pluriformea|Pluriformea
+     S|Corallochytrium limacisporum|Corallochytrium
+     S|Syssomonas multiformis|Syssomonas
+    c|Filasterea|Filastérés
+     S|Capsaspora owczarzaki|Capsaspora|Amibe vivant dans un escargot, utilisée pour comprendre l'origine des animaux.
+     G|Ministeria|Ministeria
+    c|Choanoflagellata|Choanoflagellés|Les plus proches parents unicellulaires des animaux : une cellule à collerette, comme celles des éponges.
+     S|Monosiga brevicollis|Monosiga
+     S|Salpingoeca rosetta|Salpingoeca|Forme des colonies en rosette, déclenchées par une bactérie.
+     S|Choanoeca flexa|Choanoeca|Colonies en coupe qui se retournent à la lumière.
+  c|Apusomonadida|Apusomonades|Petits flagellés glisseurs des sols et sédiments.
+   G|Apusomonas|Apusomonas
+   S|Thecamonas trahens|Thecamonas
+  c|Breviatea|Breviates|Amiboflagellés des milieux sans oxygène.
+   S|Breviata anathema|Breviata
+   S|Pygsuia biforma|Pygsuia
+ P|Amoebozoa|Amibozoaires|Amibes à pseudopodes lobés, dont les myxomycètes.
+  c|Tubulinea|Tubulinés
+   S|Amoeba proteus|Amibe protée|L'amibe des manuels scolaires.
+   S|Chaos carolinense|Amibe géante|Jusqu'à 5 mm, des centaines de noyaux.
+   c|Arcellinida|Thécamibes à coque
+    G|Arcella|Arcella
+    G|Difflugia|Difflugia|Construit sa coque avec des grains de sable.
+  c|Discosea|Discosés
+   S|Acanthamoeba castellanii|Acanthamibe|Kératites des porteurs de lentilles ; hôte des virus géants.
+   S|Balamuthia mandrillaris|Balamuthia
+   G|Vannella|Vannella
+  c|Evosea|Évosés
+   c|Archamoebae|Archamibes|Amibes sans mitochondries classiques.
+    S|Entamoeba histolytica|Amibe dysentérique|Responsable de l'amibiase.
+    S|Pelomyxa palustris|Pélomyxe|Amibe géante des vases, sans mitochondries.
+    G|Mastigamoeba|Mastigamoeba
+   c|Eumycetozoa|Mycétozoaires
+    C|Myxogastria|Myxomycètes|Plasmodes géants à milliers de noyaux, longtemps pris pour des champignons.
+     S|Physarum polycephalum|Blob|Résout des labyrinthes sans cerveau ; a voyagé dans l'ISS.
+     S|Fuligo septica|Fleur de tan|Masse jaune vif sur les copeaux de bois.
+     G|Stemonitis|Stémonite
+     S|Lycogala epidendrum|Lait de loup
+    C|Dictyostelia|Dictyostélides|Amibes sociales : des milliers de cellules forment une limace puis une tige.
+     S|Dictyostelium discoideum|Dictyostelium|Organisme modèle en biologie.
+    c|Protosporangiida|Protosporangiides
+     S|Ceratiomyxa fruticulosa|Cératiomyxe
+   c|Variosea|Variosés
+ c|CRuMs|CRuMs|Petits groupes de flagellés, parents proches d'Amorphea.
+  S|Collodictyon triciliatum|Collodictyon
+  G|Rigifila|Rigifila
+  G|Mantamonas|Mantamonas
+c|Diaphoretickes|Diaphoretickes|Lignées où la photosynthèse est apparue (par endosymbiose) ou a été empruntée plusieurs fois.
+ c|Archaeplastida|Archéplastides|Lignée issue de l'endosymbiose primaire d'une cyanobactérie. Ici, seules les formes unicellulaires sont détaillées.
+  P|Glaucophyta|Glaucophytes|Leur chloroplaste garde une paroi de peptidoglycane, comme une cyanobactérie.
+   S|Cyanophora paradoxa|Cyanophora
+   G|Glaucocystis|Glaucocystis
+   G|Gloeochaete|Gloeochaete
+  P|Rhodophyta|Algues rouges (unicellulaires)
+   C|Cyanidiophyceae|Cyanidiophycées|Algues rouges extrêmophiles des sources acides et chaudes.
+    S|Cyanidioschyzon merolae|Cyanidioschyzon|Un des plus petits génomes d'eucaryote photosynthétique.
+    S|Galdieria sulphuraria|Galdieria|Vit à pH 1 et 56 °C ; a emprunté des gènes aux bactéries.
+   C|Porphyridiophyceae|Porphyridiophycées
+    S|Porphyridium purpureum|Porphyridium
+   C|Rhodellophyceae|Rhodellophycées
+    G|Rhodella|Rhodella
+   x|Florideophyceae et Bangiophyceae|Algues rouges multicellulaires|Nori, corallines, Gracilaria… (végétal, non détaillé)
+  c|Rhodelphidia|Rhodelphides|Prédateurs non photosynthétiques, parents des algues rouges.
+   S|Rhodelphis limneticus|Rhodelphis
+  P|Picozoa|Picozoaires|Minuscules prédateurs marins, cousins des algues rouges.
+   S|Picomonas judraskeda|Picomonas
+  c|Viridiplantae|Lignée verte|Ici, seules les algues vertes unicellulaires sont détaillées.
+   P|Prasinodermophyta|Prasinodermophytes
+    S|Prasinoderma coloniale|Prasinoderma
+   P|Chlorophyta|Chlorophytes (unicellulaires)
+    C|Mamiellophyceae|Mamiellophycées
+     S|Ostreococcus tauri|Ostreococcus|Le plus petit eucaryote libre connu (~1 µm), découvert dans l'étang de Thau.
+     S|Micromonas pusilla|Micromonas
+     G|Bathycoccus|Bathycoccus
+    C|Pyramimonadophyceae|Pyramimonadophycées
+     G|Pyramimonas|Pyramimonas
+    C|Chlorodendrophyceae|Chlorodendrophycées
+     G|Tetraselmis|Tetraselmis|Partenaire photosynthétique du ver de Roscoff.
+    C|Trebouxiophyceae|Trébouxiophycées
+     S|Chlorella vulgaris|Chlorelle
+     G|Trebouxia|Trebouxia|L'algue la plus fréquente dans les lichens.
+     S|Botryococcus braunii|Botryococcus|Produit des hydrocarbures.
+    C|Chlorophyceae|Chlorophycées
+     S|Chlamydomonas reinhardtii|Chlamydomonas|Modèle pour l'étude des flagelles et de la photosynthèse.
+     S|Dunaliella salina|Dunaliella|Rend roses certains lacs salés (bêta-carotène).
+     S|Haematococcus lacustris|Haematococcus|Source d'astaxanthine.
+     x|Volvox et colonies|Algues vertes coloniales et multicellulaires|Volvox, ulves, Caulerpa… (non détaillées)
+   P|Streptophyta|Streptophytes (unicellulaires)
+    S|Mesostigma viride|Mesostigma|Flagellé, à la base de la lignée des plantes terrestres.
+    S|Chlorokybus atmophyticus|Chlorokybus
+    C|Zygnematophyceae|Desmidiées et conjuguées|Les plus proches parentes algales des plantes terrestres.
+     G|Closterium|Closterium|Cellule en croissant.
+     G|Cosmarium|Cosmarium|Cellule en deux moitiés symétriques.
+     G|Micrasterias|Micrasterias|Cellule étoilée découpée comme un flocon.
+    x|Embryophyta|Plantes terrestres|Mousses, fougères, conifères, plantes à fleurs… (végétal, non détaillé)
+ c|Cryptista|Cryptistes
+  C|Cryptophyceae|Cryptophytes|Algues dont le chloroplaste contient encore le noyau réduit (nucléomorphe) d'une algue rouge avalée.
+   S|Guillardia theta|Guillardia
+   G|Cryptomonas|Cryptomonas
+   G|Rhodomonas|Rhodomonas
+  c|Goniomonadida|Goniomonades
+   G|Goniomonas|Goniomonas
+  c|Katablepharidophyta|Katablépharides
+   G|Katablepharis|Katablepharis
+  S|Palpitomonas bilix|Palpitomonas
+ c|Haptista|Haptistes
+  P|Haptophyta|Haptophytes
+   C|Prymnesiophyceae|Prymnésiophycées
+    S|Gephyrocapsa huxleyi|Emiliania huxleyi|Coccolithophore dont les blooms se voient de l'espace ; ses plaques calcaires forment la craie.
+    S|Phaeocystis globosa|Phaeocystis|Forme la mousse des plages au printemps.
+    S|Prymnesium parvum|Prymnesium|Algue dorée toxique pour les poissons.
+    G|Coccolithus|Coccolithus
+   C|Pavlovophyceae|Pavlovophycées
+    G|Pavlova|Pavlova
+  c|Centroplasthelida|Centrohélidés|Héliozoaires aux longs bras rayonnants.
+   G|Acanthocystis|Acanthocystis
+   G|Raphidiophrys|Raphidiophrys
+ c|Provora|Provora|Prédateurs découverts en 2022.
+  G|Nibbleromonas|Nibbleromonas
+  S|Ancoracysta twista|Ancoracysta
+ c|TSAR|TSAR|Télonèmes, Straménopiles, Alvéolés et Rhizaria.
+  c|Telonemia|Télonèmes
+   S|Telonema subtile|Telonema
+  c|Stramenopiles|Straménopiles|Flagelle orné de poils tripartites. Comprend diatomées, oomycètes et algues brunes.
+   c|Bigyra|Bigyra
+    c|Opalinata|Opalines
+     G|Opalina|Opalina|Couverte de milliers de flagelles, vit dans l'intestin des grenouilles.
+     S|Blastocystis hominis|Blastocystis|Un des eucaryotes les plus fréquents de l'intestin humain.
+    c|Bicosoecida|Bicosoécides
+     S|Cafeteria roenbergensis|Cafeteria|Flagellé marin parasité par un virus géant.
+    C|Labyrinthulomycetes|Labyrinthulomycètes
+     G|Labyrinthula|Labyrinthula|Maladie de la zostère.
+     G|Aurantiochytrium|Aurantiochytrium|Produit des oméga-3 (DHA) industriels.
+   c|Pseudofungi|Pseudo-champignons
+    P|Oomycota|Oomycètes|Ressemblent à des champignons mais sont des straménopiles.
+     S|Phytophthora infestans|Mildiou de la pomme de terre|Cause de la Grande Famine irlandaise (1845).
+     S|Plasmopara viticola|Mildiou de la vigne
+     G|Saprolegnia|Saprolegnia|Moisissure des poissons d'aquarium.
+     G|Pythium|Pythium|Fonte des semis.
+    c|Hyphochytrea|Hyphochytridiomycètes
+     G|Hyphochytrium|Hyphochytrium
+   P|Ochrophyta|Ochrophytes|Straménopiles photosynthétiques.
+    C|Bacillariophyceae|Diatomées|Algues dans une boîte de verre (silice). Elles produisent environ 20 % de l'oxygène de la planète.
+     S|Thalassiosira pseudonana|Thalassiosira
+     S|Phaeodactylum tricornutum|Phaeodactylum
+     G|Coscinodiscus|Coscinodiscus
+     G|Navicula|Navicula
+     G|Pseudo-nitzschia|Pseudo-nitzschia|Produit l'acide domoïque (intoxication amnésiante).
+     S|Didymosphenia geminata|Didymo|« Morve de roche » des rivières.
+    C|Bolidophyceae|Bolidophycées
+    C|Chrysophyceae|Chrysophycées|Algues dorées d'eau douce.
+     G|Ochromonas|Ochromonas
+     G|Dinobryon|Dinobryon
+     G|Synura|Synura
+    C|Dictyochophyceae|Dictyochophycées|Silicoflagellés à squelette en étoile.
+     G|Dictyocha|Dictyocha
+    C|Pelagophyceae|Pélagophycées
+     S|Aureococcus anophagefferens|Aureococcus|Responsable des « marées brunes ».
+    C|Eustigmatophyceae|Eustigmatophycées
+     G|Nannochloropsis|Nannochloropsis|Microalgue cultivée pour les biocarburants.
+    C|Raphidophyceae|Raphidophycées
+     S|Heterosigma akashiwo|Heterosigma|Tue les poissons d'élevage.
+     G|Chattonella|Chattonella
+    C|Pinguiophyceae|Pinguiophycées
+    C|Xanthophyceae|Xanthophycées (unicellulaires)
+     G|Botrydiopsis|Botrydiopsis
+    x|Phaeophyceae|Algues brunes|Varech, laminaires, fucus, sargasses… (grandes algues, non détaillées)
+  c|Alveolata|Alvéolés|Sacs aplatis (alvéoles) sous la membrane.
+   P|Ciliophora|Ciliés|Couverts de cils ; deux noyaux, un pour le quotidien, un pour la reproduction.
+    C|Heterotrichea|Hétérotriches
+     S|Stentor coeruleus|Stentor|Cellule en trompette de 2 mm, capable de se régénérer à partir d'un fragment.
+     S|Spirostomum ambiguum|Spirostome|Se contracte en quelques millisecondes.
+     G|Blepharisma|Blepharisma
+    C|Karyorelictea|Karyorelictés
+     G|Loxodes|Loxodes
+    C|Spirotrichea|Spirotriches
+     G|Euplotes|Euplotes|Marche sur des touffes de cils.
+     S|Oxytricha trifallax|Oxytricha|Découpe et réassemble son génome.
+     G|Stylonychia|Stylonychia
+     c|Tintinnida|Tintinnides|Vivent dans une logette en vase.
+    C|Oligohymenophorea|Oligohyménophores
+     S|Paramecium caudatum|Paramécie|Le cilié des cours de SVT.
+     S|Paramecium tetraurelia|Paramecium tetraurelia
+     S|Tetrahymena thermophila|Tetrahymena|A permis de découvrir les télomérases et les ribozymes (deux prix Nobel).
+     G|Vorticella|Vorticelle|Cloche sur un pédoncule ressort.
+     S|Ichthyophthirius multifiliis|Ichthyo|Maladie des points blancs des poissons.
+    C|Litostomatea|Litostomés
+     S|Didinium nasutum|Didinium|Avale des paramécies entières.
+     S|Balantioides coli|Balantidium|Seul cilié parasite de l'humain.
+     c|Entodiniomorphida|Ciliés de la panse|Des milliards dans le rumen des vaches.
+    C|Phyllopharyngea|Phyllopharyngés
+     c|Suctoria|Acinétiens|Capturent leurs proies avec des tentacules suceurs.
+    C|Colpodea|Colpodés
+     G|Colpoda|Colpoda
+    C|Prostomatea|Prostomés
+     G|Coleps|Coleps
+    C|Armophorea|Armophorés
+     G|Metopus|Metopus
+   c|Myzozoa|Myzozoaires
+    P|Apicomplexa|Apicomplexes|Parasites munis d'un complexe apical pour envahir les cellules.
+     c|Haemosporida|Hémosporidies
+      S|Plasmodium falciparum|Plasmodium falciparum|Forme la plus grave du paludisme ; plus de 600 000 morts par an.
+      S|Plasmodium vivax|Plasmodium vivax
+      S|Plasmodium malariae|Plasmodium malariae
+      S|Plasmodium knowlesi|Plasmodium knowlesi|Paludisme du macaque transmis à l'humain.
+     c|Piroplasmida|Piroplasmes
+      G|Babesia|Babesia|Transmis par les tiques.
+      G|Theileria|Theileria
+     c|Coccidia|Coccidies
+      S|Toxoplasma gondii|Toxoplasme|Infecte un tiers de l'humanité ; hôte final : le chat.
+      G|Eimeria|Eimeria|Coccidiose des volailles.
+      S|Neospora caninum|Neospora
+      S|Cyclospora cayetanensis|Cyclospora
+      G|Sarcocystis|Sarcocystis
+     c|Gregarinomorphea|Grégarines et cryptosporidies
+      G|Gregarina|Grégarine|Parasite intestinal des insectes.
+      S|Cryptosporidium parvum|Cryptosporidie
+    c|Chrompodellida|Chromérides et colpodelles|Parents photosynthétiques des apicomplexes.
+     S|Chromera velia|Chromera|Algue des coraux, parente du parasite du paludisme.
+     S|Vitrella brassicaformis|Vitrella
+     G|Colpodella|Colpodella
+    P|Perkinsozoa|Perkinsozoaires
+     S|Perkinsus marinus|Perkinsus|Parasite des huîtres.
+    P|Dinoflagellata|Dinoflagellés|Deux flagelles, dont un enroulé en ceinture. Génomes géants, chromosomes toujours condensés.
+     c|Syndiniales|Syndiniales|Parasites marins très abondants.
+      G|Amoebophrya|Amoebophrya
+      G|Hematodinium|Hematodinium|Parasite des crabes.
+     S|Oxyrrhis marina|Oxyrrhis
+     C|Dinophyceae|Dinophycées
+      S|Noctiluca scintillans|Noctiluque|Rend la mer lumineuse la nuit.
+      G|Pyrocystis|Pyrocystis|Bioluminescence bleue des baies.
+      c|Symbiodiniaceae|Zooxanthelles|Algues symbiotiques des coraux ; leur départ provoque le blanchissement.
+       G|Symbiodinium|Symbiodinium
+       G|Breviolum|Breviolum
+      S|Karenia brevis|Karenia|Marées rouges de Floride.
+      G|Alexandrium|Alexandrium|Toxines paralysantes dans les coquillages.
+      G|Gambierdiscus|Gambierdiscus|Cause de la ciguatera.
+      G|Dinophysis|Dinophysis|Toxines diarrhéiques des moules.
+      S|Lingulodinium polyedra|Lingulodinium
+      S|Tripos furca|Ceratium|Dinoflagellé à cornes (ex-Ceratium).
+      S|Pfiesteria piscicida|Pfiesteria
+   c|Colponemida|Colponémides
+    G|Colponema|Colponema
+  c|Rhizaria|Rhizaires|Amibes à pseudopodes filiformes, souvent dans une coque ou un squelette.
+   P|Cercozoa|Cercozoaires
+    c|Chlorarachniophyta|Chlorarachniophytes|Amibes qui ont avalé une algue verte, dont il reste un mini-noyau.
+     S|Bigelowiella natans|Bigelowiella
+    S|Paulinella chromatophora|Paulinella|Seul autre cas connu d'endosymbiose primaire d'une cyanobactérie (~100 Ma).
+    c|Euglyphida|Euglyphides
+     G|Euglypha|Euglypha|Coque en plaques de silice.
+    c|Cercomonadida|Cercomonades
+     G|Cercomonas|Cercomonas
+    c|Thaumatomonadida|Thaumatomonades
+   c|Endomyxa|Endomyxa
+    c|Vampyrellida|Vampyrellides
+     G|Vampyrella|Vampyrella|Perce les algues pour en aspirer le contenu.
+    C|Phytomyxea|Phytomyxés
+     S|Plasmodiophora brassicae|Hernie du chou
+    C|Ascetosporea|Ascétosporés|Parasites des mollusques.
+     G|Bonamia|Bonamia|Parasite de l'huître plate.
+     G|Marteilia|Marteilia
+     G|Haplosporidium|Haplosporidium
+    S|Gromia sphaerica|Gromia|Amibe de la taille d'un raisin, laisse des traces au fond de la mer.
+   P|Retaria|Rétariens
+    P|Foraminifera|Foraminifères|Coquilles calcaires ou agglutinées ; leurs fossiles datent les roches. Environ 10 000 espèces vivantes.
+     c|Monothalamea|Monothalamés
+      S|Allogromia laticollaris|Allogromia
+      c|Xenophyophorea|Xénophyophores|Cellules géantes des abysses.
+       S|Syringammina fragilissima|Syringammina|Une seule cellule de 20 cm de large.
+     O|Miliolida|Miliolides
+     O|Rotaliida|Rotaliides
+      S|Ammonia tepida|Ammonia
+      G|Elphidium|Elphidium
+      S|†Nummulites gizehensis|Nummulite|Les pierres des pyramides de Gizeh en sont pleines.
+     O|Globigerinida|Globigérines|Foraminifères planctoniques.
+      S|Globigerina bulloides|Globigérine
+     O|Textulariida|Textulariides
+    P|Radiolaria|Radiolaires|Squelettes de silice d'une géométrie spectaculaire (dessinés par Haeckel).
+     C|Polycystinea|Polycystines
+      O|Spumellaria|Spumellaires
+      O|Nassellaria|Nassellaires
+      O|Collodaria|Collodaires|Colonies gélatineuses de plusieurs mètres.
+     C|Acantharia|Acanthaires|Squelette de sulfate de strontium (célestine), unique dans le vivant.
+      G|Acanthometra|Acanthometra
+     c|Taxopodida|Taxopodes
+      S|Sticholonche zanclea|Sticholonche|Rame avec ses épines.
+c|Hemimastigophora|Hémimastigophores|Lignée profonde, découverte dans un sol canadien (2018).
+ S|Hemimastix kukwesjijk|Hemimastix
+ G|Spironema|Spironema
+c|Discoba|Discoba|Ancien groupe des « excavés ».
+ P|Euglenozoa|Euglénozoaires
+  c|Euglenida|Euglènes
+   S|Euglena gracilis|Euglène|Algue mobile à tache oculaire ; chloroplaste emprunté à une algue verte.
+   G|Phacus|Phacus
+   G|Trachelomonas|Trachelomonas
+   G|Peranema|Peranema|Euglène prédatrice sans chloroplaste.
+  C|Kinetoplastea|Kinétoplastidés|Un énorme ADN mitochondrial en réseau (kinétoplaste).
+   S|Trypanosoma brucei|Trypanosome africain|Maladie du sommeil, transmise par la mouche tsé-tsé.
+   S|Trypanosoma cruzi|Trypanosome de Chagas
+   S|Leishmania donovani|Leishmanie|Leishmaniose viscérale, transmise par les phlébotomes.
+   S|Leishmania major|Leishmania major
+   S|Bodo saltans|Bodo
+  C|Diplonemea|Diplonémides|Parmi les eucaryotes les plus diversifiés des océans profonds.
+   S|Diplonema papillatum|Diplonema
+  c|Symbiontida|Symbiontides
+ P|Heterolobosea|Hétérolobosés|Amibes qui peuvent se transformer en flagellés.
+  S|Naegleria fowleri|Amibe mangeuse de cerveau|Rare mais presque toujours mortelle.
+  S|Naegleria gruberi|Naegleria gruberi
+  S|Acrasis rosea|Acrasis|Amibe sociale apparue indépendamment des dictyostélides.
+ c|Jakobida|Jakobides
+  S|Andalucia godoyi|Andalucia|Possède l'ADN mitochondrial le plus « bactérien » connu.
+  S|Reclinomonas americana|Reclinomonas
+ c|Tsukubamonadida|Tsukubamonades
+  S|Tsukubamonas globosa|Tsukubamonas
+c|Metamonada|Métamonadines|Flagellés sans mitochondries classiques, des milieux sans oxygène.
+ c|Fornicata|Fornicates
+  c|Diplomonadida|Diplomonadines
+   S|Giardia intestinalis|Giardia|Parasite intestinal à deux noyaux, au « visage » souriant.
+   S|Spironucleus salmonicida|Spironucleus
+  c|Retortamonadida|Rétortamonades
+   G|Chilomastix|Chilomastix
+  G|Carpediemonas|Carpediemonas
+ c|Parabasalia|Parabasaliens
+  S|Trichomonas vaginalis|Trichomonas|L'IST non virale la plus fréquente.
+  S|Tritrichomonas foetus|Tritrichomonas
+  S|Histomonas meleagridis|Histomonas|Maladie de la tête noire des dindes.
+  S|Dientamoeba fragilis|Dientamoeba
+  G|Trichonympha|Trichonympha|Digère le bois dans l'intestin des termites.
+  S|Mixotricha paradoxa|Mixotricha|Se déplace grâce à des bactéries qui lui servent de cils.
+ c|Preaxostyla|Préaxostylés
+  S|Monocercomonoides exilis|Monocercomonoides|Premier eucaryote connu sans aucune mitochondrie (2016).
+  G|Pyrsonympha|Pyrsonympha
+  G|Paratrimastix|Paratrimastix
+c|Malawimonadida|Malawimonades
+ S|Malawimonas jakobiformis|Malawimonas
+c|Ancyromonadida|Ancyromonades|Lignée très ancienne, peut-être proche de la racine des eucaryotes.
+ S|Ancyromonas sigmoides|Ancyromonas
+ G|Fabomonas|Fabomonas
+@@ Holomycota
+R|Fungi|Champignons|Plus proches des animaux que des plantes : paroi de chitine, réserves de glycogène. Environ 155 000 espèces décrites, peut-être 2 à 3 millions au total.
+ c|Opisthosporidia|Opisthosporidies|Lignées parasites à la base des champignons.
+  P|Rozellomycota|Cryptomycètes
+   S|Rozella allomycis|Rozella|Parasite d'autres champignons.
+  P|Microsporidia|Microsporidies|Parasites intracellulaires à génomes ultra-réduits, qui injectent leur contenu par un tube polaire.
+   S|Vairimorpha ceranae|Nosema de l'abeille|Affaiblit les colonies d'abeilles (ex-Nosema ceranae).
+   S|Encephalitozoon cuniculi|Encephalitozoon|Un des plus petits génomes d'eucaryote : 2,9 millions de paires de bases.
+   S|Enterocytozoon bieneusi|Enterocytozoon
+  P|Aphelida|Aphélides|Parasites d'algues.
+   G|Aphelidium|Aphelidium
+ P|Chytridiomycota|Chytrides|Spores nageuses à flagelle ; surtout aquatiques.
+  S|Batrachochytrium dendrobatidis|Chytride des amphibiens|A causé le déclin de plus de 500 espèces d'amphibiens.
+  S|Batrachochytrium salamandrivorans|Chytride des salamandres
+  S|Synchytrium endobioticum|Galle verruqueuse de la pomme de terre
+  C|Monoblepharidomycetes|Monoblépharidomycètes
+ P|Neocallimastigomycota|Champignons du rumen|Anaérobies, digèrent la cellulose dans la panse des herbivores.
+  G|Neocallimastix|Neocallimastix
+  G|Piromyces|Piromyces
+ P|Blastocladiomycota|Blastocladiomycètes
+  S|Allomyces macrogynus|Allomyces
+  G|Coelomomyces|Coelomomyces|Parasite des larves de moustiques.
+ P|Olpidiomycota|Olpidiomycètes
+  S|Olpidium brassicae|Olpidium
+ c|Zoopagomycota|Zoopagomycètes
+  Pb|Entomophthoromycotina|Entomophthorales|Champignons tueurs d'insectes.
+   S|Entomophthora muscae|Entomophthora|Pousse la mouche à grimper puis à mourir les ailes écartées pour disperser ses spores.
+   G|Basidiobolus|Basidiobolus
+  Pb|Kickxellomycotina|Kickxellomycotina
+  Pb|Zoopagomycotina|Zoopagomycotina|Prédateurs d'amibes et de nématodes.
+ P|Mucoromycota|Mucoromycètes|Moisissures à croissance rapide et champignons mycorhiziens.
+  Pb|Mucoromycotina|Mucorales
+   G|Mucor|Mucor
+   S|Rhizopus stolonifer|Moisissure noire du pain
+   S|Rhizopus oryzae|Rhizopus du tempeh
+   S|Phycomyces blakesleeanus|Phycomyces|Ses filaments se tournent vers la lumière.
+  Pb|Mortierellomycotina|Mortierellales
+   G|Mortierella|Mortierella
+  Pb|Glomeromycotina|Gloméromycètes|Forment les mycorhizes arbusculaires avec environ 70 % des plantes terrestres.
+   S|Rhizophagus irregularis|Rhizophagus
+   S|Geosiphon pyriformis|Geosiphon|Abrite des cyanobactéries dans ses vésicules.
+ c|Dikarya|Dicaryotes|Champignons supérieurs : leurs cellules passent par un stade à deux noyaux.
+  P|Ascomycota|Ascomycètes|Spores formées dans un sac (asque). Le plus grand embranchement de champignons (~95 000 espèces).
+   Pb|Taphrinomycotina|Taphrinomycètes
+    S|Schizosaccharomyces pombe|Levure de fission|Modèle du cycle cellulaire (Nobel 2001).
+    S|Pneumocystis jirovecii|Pneumocystis|Pneumonies chez les immunodéprimés.
+    S|Taphrina deformans|Cloque du pêcher
+    G|Neolecta|Neolecta
+   Pb|Saccharomycotina|Levures vraies
+    S|Saccharomyces cerevisiae|Levure de boulanger|Pain, bière, vin : domestiquée depuis plus de 5 000 ans. Premier eucaryote séquencé (1996).
+    S|Candida albicans|Candida|Champignon commensal responsable de mycoses.
+    S|Candidozyma auris|Candida auris|Levure multirésistante émergente.
+    S|Komagataella phaffii|Pichia|Usine à protéines en biotechnologie.
+    S|Kluyveromyces lactis|Kluyveromyces|Fermente le lactose.
+    S|Yarrowia lipolytica|Yarrowia
+    S|Brettanomyces bruxellensis|Brettanomyces|Donne le goût « animal » de certains vins et des bières lambics.
+   Pb|Pezizomycotina|Pézizomycètes au sens large|Champignons filamenteux ascomycètes.
+    C|Pezizomycetes|Pézizes
+     S|Morchella esculenta|Morille commune
+     S|Tuber melanosporum|Truffe noire du Périgord
+     S|Tuber magnatum|Truffe blanche d'Alba
+     S|Sarcoscypha coccinea|Pézize écarlate
+     S|Peziza vesiculosa|Pézize vésiculeuse
+    C|Orbiliomycetes|Orbiliomycètes
+     S|Arthrobotrys oligospora|Arthrobotrys|Capture les nématodes dans des lassos.
+    C|Eurotiomycetes|Eurotiomycètes
+     S|Penicillium rubens|Penicillium de Fleming|La moisissure qui a donné la pénicilline (1928).
+     S|Penicillium roqueforti|Penicillium du roquefort
+     S|Penicillium camemberti|Penicillium du camembert
+     S|Aspergillus niger|Aspergillus noir|Produit l'acide citrique industriel.
+     S|Aspergillus fumigatus|Aspergillus fumigatus|Aspergillose pulmonaire.
+     S|Aspergillus flavus|Aspergillus flavus|Produit l'aflatoxine, très cancérigène.
+     S|Trichophyton rubrum|Trichophyton|Mycose des pieds.
+     S|Histoplasma capsulatum|Histoplasma
+    C|Sordariomycetes|Sordariomycètes
+     S|Neurospora crassa|Neurospora|Expérience « un gène, une enzyme » (1941).
+     S|Claviceps purpurea|Ergot du seigle|Responsable du « mal des ardents » ; origine du LSD.
+     S|Ophiocordyceps unilateralis|Cordyceps des fourmis|Transforme les fourmis en « zombies » qui s'agrippent aux feuilles.
+     S|Cordyceps militaris|Cordyceps militaire
+     S|Fusarium graminearum|Fusariose du blé
+     S|Fusarium oxysporum|Fusarium oxysporum
+     S|Trichoderma reesei|Trichoderma|Produit des cellulases industrielles.
+     S|Pyricularia oryzae|Pyriculariose du riz|Une des maladies les plus graves du riz.
+     S|Beauveria bassiana|Muscardine blanche|Insecticide biologique.
+     S|Ophiostoma novo-ulmi|Graphiose de l'orme|A décimé les ormes d'Europe.
+     S|Xylaria hypoxylon|Xylaire du bois
+    C|Leotiomycetes|Léotiomycètes
+     S|Botrytis cinerea|Pourriture grise|Aussi « pourriture noble » des vins liquoreux.
+     S|Erysiphe necator|Oïdium de la vigne
+     S|Blumeria graminis|Oïdium des céréales
+     S|Hymenoscyphus fraxineus|Chalarose du frêne
+    C|Dothideomycetes|Dothidéomycètes
+     S|Venturia inaequalis|Tavelure du pommier
+     G|Alternaria|Alternaria
+     G|Cladosporium|Cladosporium|Une des moisissures les plus fréquentes dans l'air.
+     S|Zymoseptoria tritici|Septoriose du blé
+     S|Aureobasidium pullulans|Aureobasidium
+    C|Lecanoromycetes|Lichens (lécanoromycètes)|La plupart des lichens : un champignon associé à une algue ou une cyanobactérie.
+     S|Xanthoria parietina|Parmélie des murailles|Lichen jaune orangé des toits et des troncs.
+     S|Cladonia rangiferina|Lichen des rennes
+     G|Usnea|Usnée|Barbe de vieillard des forêts humides.
+     S|Lobaria pulmonaria|Lobaire pulmonaire
+     S|Evernia prunastri|Mousse de chêne|Utilisée en parfumerie.
+     G|Peltigera|Peltigère
+    C|Laboulbeniomycetes|Laboulbéniomycètes|Minuscules parasites externes d'insectes.
+     G|Laboulbenia|Laboulbenia
+  P|Basidiomycota|Basidiomycètes|Spores portées par des basides. La plupart des champignons à chapeau (~50 000 espèces).
+   Pb|Pucciniomycotina|Rouilles
+    S|Puccinia graminis|Rouille noire du blé
+    S|Hemileia vastatrix|Rouille du caféier|A ruiné la culture du café à Ceylan au XIXe siècle.
+    G|Rhodotorula|Rhodotorula|Levure rose.
+   Pb|Ustilaginomycotina|Charbons
+    S|Ustilago maydis|Charbon du maïs|Mangé au Mexique sous le nom de huitlacoche.
+    G|Malassezia|Malassezia|Levure de la peau, liée aux pellicules.
+    G|Tilletia|Carie du blé
+   Pb|Wallemiomycotina|Wallemiomycètes
+    G|Wallemia|Wallemia|Supporte des milieux très salés ou sucrés.
+   Pb|Agaricomycotina|Agaricomycètes au sens large
+    C|Tremellomycetes|Trémelles
+     S|Cryptococcus neoformans|Cryptocoque|Méningites chez les immunodéprimés.
+     S|Tremella mesenterica|Trémelle mésentérique
+     S|Tremella fuciformis|Champignon des neiges
+    C|Dacrymycetes|Dacrymycètes
+     G|Dacrymyces|Dacrymyces
+    C|Agaricomycetes|Agaricomycètes|Les champignons à chapeau, polypores, vesses-de-loup…
+     O|Agaricales|Agaricales|Champignons à lames, l'ordre le plus vaste (~13 000 espèces).
+      S|Agaricus bisporus|Champignon de Paris
+      S|Agaricus campestris|Rosé des prés
+      S|Amanita phalloides|Amanite phalloïde|Responsable de la plupart des intoxications mortelles.
+      S|Amanita muscaria|Amanite tue-mouches
+      S|Amanita caesarea|Oronge|Amanite des Césars, comestible.
+      S|Amanita virosa|Amanite vireuse
+      S|Pleurotus ostreatus|Pleurote en huître|Chasse les nématodes avec des toxines.
+      S|Lentinula edodes|Shiitake
+      S|Flammulina filiformis|Enoki
+      S|Psilocybe cubensis|Psilocybe cubensis
+      S|Psilocybe semilanceata|Psilocybe lancéolé
+      S|Coprinus comatus|Coprin chevelu|Se liquéfie en encre noire.
+      S|Armillaria ostoyae|Armillaire obscure|Un individu de l'Oregon couvre 9 km² : un des plus grands organismes du monde.
+      S|Marasmius oreades|Faux mousseron|Forme des « ronds de sorcière ».
+      S|Cortinarius orellanus|Cortinaire des montagnes|Mortel, toxicité rénale retardée.
+      S|Lepista nuda|Pied bleu
+      S|Macrolepiota procera|Coulemelle
+      S|Mycena chlorophos|Mycène luminescente
+      S|Omphalotus olearius|Clitocybe de l'olivier|Lames phosphorescentes.
+      S|Schizophyllum commune|Schizophylle commun|Plus de 20 000 types sexuels.
+      S|Calvatia gigantea|Vesse-de-loup géante|Peut dépasser 50 cm et contenir des milliers de milliards de spores.
+      S|Lycoperdon perlatum|Vesse-de-loup perlée
+      S|Fistulina hepatica|Langue de bœuf
+      S|Tricholoma matsutake|Matsutake
+      S|Hypholoma fasciculare|Hypholome en touffe
+      S|Laccaria amethystina|Laccaire améthyste
+     O|Boletales|Bolets
+      S|Boletus edulis|Cèpe de Bordeaux
+      S|Boletus aereus|Cèpe tête-de-nègre
+      S|Imleria badia|Bolet bai
+      S|Suillus luteus|Nonnette voilée
+      S|Rubroboletus satanas|Bolet Satan
+      S|Paxillus involutus|Paxille enroulé|Longtemps mangé, il peut provoquer une hémolyse mortelle.
+      S|Serpula lacrymans|Mérule pleureuse|Détruit les charpentes.
+      G|Scleroderma|Scléroderme
+     O|Russulales|Russulales
+      G|Russula|Russules
+      S|Lactarius deliciosus|Lactaire délicieux
+      S|Hericium erinaceus|Hydne hérisson
+      S|Heterobasidion annosum|Fomès|Pourriture des racines des conifères.
+     O|Cantharellales|Chanterelles
+      S|Cantharellus cibarius|Girolle
+      S|Craterellus cornucopioides|Trompette de la mort
+      S|Hydnum repandum|Pied-de-mouton
+     O|Polyporales|Polypores
+      S|Fomes fomentarius|Amadouvier|Ötzi en portait sur lui il y a 5 300 ans.
+      S|Ganoderma lucidum|Ganoderme luisant|Le « reishi ».
+      S|Trametes versicolor|Tramète versicolore
+      S|Laetiporus sulphureus|Polypore soufré
+      S|Grifola frondosa|Maitake
+      S|Sparassis crispa|Sparassis crépu
+      S|Phanerochaete chrysosporium|Phanerochaete|Dégrade la lignine.
+     O|Hymenochaetales|Hyménochétales
+      S|Inonotus obliquus|Chaga
+     O|Phallales|Phallales
+      S|Phallus impudicus|Satyre puant|Odeur de charogne qui attire les mouches.
+      S|Clathrus archeri|Doigts du diable
+      S|Clathrus ruber|Clathre rouge
+     O|Geastrales|Géastres
+      G|Geastrum|Géastre|Vesse-de-loup en étoile.
+     O|Auriculariales|Auriculariales
+      S|Auricularia auricula-judae|Oreille de Judas
+     O|Gomphales|Gomphales
+      G|Ramaria|Clavaires
+     O|Thelephorales|Théléphorales
+      S|Sarcodon imbricatus|Hydne imbriqué
+@@ Holozoa
+R|Metazoa|Animaux|Pluricellulaires hétérotrophes, issus d'un ancêtre proche des choanoflagellés il y a plus de 600 millions d'années. Environ 1,5 million d'espèces décrites, dont un million d'insectes.
+ P|Ctenophora|Cténophores|Nagent avec des peignes de cils irisés. Probablement la lignée sœur de tous les autres animaux (2023).
+  S|Mnemiopsis leidyi|Mnémiopsis|Invasive en mer Noire dans les années 1980.
+  S|Pleurobrachia pileus|Groseille de mer
+  G|Beroe|Béroé
+  S|Cestum veneris|Ceinture de Vénus|Ruban transparent de plus d'un mètre.
+  G|Coeloplana|Coeloplana|Cténophore rampant.
+ P|Porifera|Éponges|Sans tissus ni organes : l'eau est filtrée par des cellules à collerette. Environ 9 000 espèces.
+  C|Demospongiae|Démosponges
+   S|Spongia officinalis|Éponge de toilette
+   S|Spongilla lacustris|Éponge d'eau douce
+   G|Cliona|Cliona|Creuse les coquilles et le calcaire.
+  C|Hexactinellida|Éponges siliceuses
+   S|Euplectella aspergillum|Corbeille de Vénus|Abrite souvent un couple de crevettes à vie.
+   S|Monorhaphis chuni|Monorhaphis|Un spécimen aurait 11 000 ans.
+  C|Calcarea|Éponges calcaires
+   G|Sycon|Sycon
+   G|Leucosolenia|Leucosolenia
+  C|Homoscleromorpha|Homoscléromorphes
+   G|Oscarella|Oscarella
+ P|Placozoa|Placozoaires|Animaux les plus simples : une galette de quelques milliers de cellules, sans neurones.
+  S|Trichoplax adhaerens|Trichoplax
+  S|Hoilungia hongkongensis|Hoilungia
+ P|Cnidaria|Cnidaires|Cellules urticantes (cnidocytes). Méduses, coraux, anémones. Environ 11 000 espèces.
+  C|Anthozoa|Anthozoaires
+   Cb|Hexacorallia|Hexacoralliaires
+    O|Actiniaria|Anémones de mer
+     S|Actinia equina|Tomate de mer
+     S|Anemonia viridis|Anémone verte
+     S|Nematostella vectensis|Nematostella|Modèle de l'évolution du développement.
+    O|Scleractinia|Coraux durs|Bâtisseurs des récifs, en symbiose avec des zooxanthelles.
+     G|Acropora|Acropora
+     G|Porites|Porites
+     G|Fungia|Corail champignon
+    O|Zoantharia|Zoanthaires
+    O|Antipatharia|Coraux noirs|Certaines colonies ont plus de 4 000 ans.
+    O|Ceriantharia|Cérianthes
+   Cb|Octocorallia|Octocoralliaires
+    S|Corallium rubrum|Corail rouge de Méditerranée
+    G|Gorgonia|Gorgone
+    S|Alcyonium digitatum|Main de mer
+    G|Pennatula|Plume de mer
+    S|Heliopora coerulea|Corail bleu
+  C|Scyphozoa|Scyphozoaires|Les « vraies » méduses.
+   S|Aurelia aurita|Méduse lune
+   S|Pelagia noctiluca|Pélagie|Méduse urticante de Méditerranée, luminescente.
+   S|Rhizostoma pulmo|Rhizostome
+   S|Chrysaora hysoscella|Méduse rayonnée
+   S|Cyanea capillata|Méduse à crinière de lion|Tentacules de plus de 30 m.
+   G|Cassiopea|Méduse à l'envers
+  C|Cubozoa|Cuboméduses|Méduses à 24 yeux, très venimeuses.
+   S|Chironex fleckeri|Guêpe de mer|Un des animaux les plus venimeux du monde.
+   S|Malo kingi|Irukandji
+  C|Staurozoa|Staurozoaires|Méduses fixées par un pédoncule.
+   G|Haliclystus|Haliclystus
+  C|Hydrozoa|Hydrozoaires
+   S|Hydra vulgaris|Hydre d'eau douce|Ne semble pas vieillir.
+   S|Physalia physalis|Galère portugaise|Une colonie de polypes spécialisés.
+   S|Velella velella|Vélelle|Voile triangulaire qui la fait dériver au vent.
+   S|Turritopsis dohrnii|Méduse immortelle|Peut redevenir polype et recommencer sa vie.
+   S|Craspedacusta sowerbii|Méduse d'eau douce
+   G|Millepora|Corail de feu
+   G|Obelia|Obelia
+  C|Myxozoa|Myxozoaires|Cnidaires devenus parasites microscopiques de poissons.
+   S|Myxobolus cerebralis|Myxobolus|Maladie du tournis de la truite.
+   S|Henneguya salminicola|Henneguya|Seul animal connu sans génome mitochondrial.
+   S|Polypodium hydriforme|Polypodium|Parasite des œufs d'esturgeon.
+ c|Bilateria|Bilatériens|Symétrie gauche-droite, une tête, trois feuillets embryonnaires.
+  P|Xenacoelomorpha|Xénacœlomorphes|Vers très simples, sans anus.
+   S|Xenoturbella bocki|Xenoturbella
+   c|Acoela|Acœles
+    S|Symsagittifera roscoffensis|Ver de Roscoff|Vit grâce aux algues photosynthétiques logées sous sa peau.
+   c|Nemertodermatida|Némertodermatides
+  c|Protostomia|Protostomiens|La bouche se forme en premier dans l'embryon.
+   c|Ecdysozoa|Ecdysozoaires|Animaux qui muent leur cuticule.
+    c|Scalidophora|Scalidophores
+     P|Priapulida|Priapuliens
+      S|Priapulus caudatus|Priapule
+     P|Kinorhyncha|Kinorhynques
+      G|Echinoderes|Echinoderes
+     P|Loricifera|Loricifères|Certains vivraient sans oxygène dans les bassins hypersalés de Méditerranée.
+      G|Spinoloricus|Spinoloricus
+    c|Nematoida|Nématoïdes
+     P|Nematoda|Nématodes|Vers ronds. Les animaux les plus nombreux : quatre animaux sur cinq sur Terre. Environ 28 000 espèces décrites.
+      S|Caenorhabditis elegans|C. elegans|959 cellules exactement chez l'adulte hermaphrodite ; modèle de la mort cellulaire programmée.
+      S|Ascaris lumbricoides|Ascaris|Infecte près d'un milliard de personnes.
+      S|Enterobius vermicularis|Oxyure
+      S|Toxocara canis|Toxocara du chien
+      S|Trichinella spiralis|Trichine
+      S|Necator americanus|Ankylostome
+      S|Wuchereria bancrofti|Filaire de Bancroft|Éléphantiasis.
+      S|Onchocerca volvulus|Onchocerque|Cécité des rivières.
+      S|Loa loa|Ver de l'œil
+      S|Dracunculus medinensis|Ver de Guinée|Bientôt éradiqué : 15 cas humains en 2024.
+      S|Dirofilaria immitis|Ver du cœur du chien
+      S|Anisakis simplex|Anisakis|Ver du poisson cru.
+      G|Meloidogyne|Nématode à galles
+      S|Halicephalobus mephisto|Ver du diable|Trouvé à 1,3 km sous terre dans une mine d'or.
+     P|Nematomorpha|Nématomorphes|Vers gordiens.
+      S|Spinochordodes tellinii|Spinochordodes|Pousse les sauterelles à se jeter à l'eau.
+      G|Gordius|Gordius
+    c|Panarthropoda|Panarthropodes
+     P|Tardigrada|Tardigrades|Oursons d'eau : survivent au vide spatial et à la dessiccation (cryptobiose).
+      S|Hypsibius exemplaris|Hypsibius
+      S|Ramazzottius varieornatus|Ramazzottius
+      S|Milnesium tardigradum|Milnesium
+     P|Onychophora|Onychophores|Vers à pattes qui projettent de la glu pour chasser.
+      G|Peripatus|Péripate
+      S|Euperipatoides rowelli|Euperipatoides
+     P|Arthropoda|Arthropodes|Squelette externe articulé. Le plus grand embranchement : plus de 1,2 million d'espèces décrites.
+   c|Spiralia|Spiraliens|Segmentation en spirale de l'œuf. Mollusques, annélides, vers plats…
+    c|Gnathifera|Gnathifères|Mâchoires complexes.
+     P|Rotifera|Rotifères|Couronne de cils qui tourne comme une roue.
+      c|Bdelloidea|Bdelloïdes|Uniquement des femelles depuis des millions d'années.
+       S|Adineta vaga|Adineta|Un bdelloïde a été ranimé après 24 000 ans dans le pergélisol.
+      c|Monogononta|Monogonontes
+       S|Brachionus plicatilis|Brachionus
+       G|Asplanchna|Asplanchna
+      c|Acanthocephala|Acanthocéphales|Rotifères devenus parasites, à trompe épineuse.
+       S|Pomphorhynchus laevis|Pomphorhynchus
+     P|Gnathostomulida|Gnathostomulides
+     P|Micrognathozoa|Micrognathozoaires|Un seul représentant, découvert au Groenland (2000).
+      S|Limnognathia maerski|Limnognathia
+     P|Chaetognatha|Chétognathes|Vers flèches, prédateurs du plancton.
+      G|Parasagitta|Sagitta
+    P|Platyhelminthes|Vers plats|Sans cavité générale ni appareil circulatoire. Environ 30 000 espèces.
+     c|Catenulida|Caténulides
+      G|Stenostomum|Stenostomum
+     O|Tricladida|Planaires
+      S|Schmidtea mediterranea|Planaire méditerranéenne|Régénère un corps entier à partir d'un fragment.
+      S|Obama nungara|Obama nungara|Ver plat invasif des jardins français.
+      S|Bipalium kewense|Bipalium|Planaire terrestre à tête en marteau.
+     O|Polycladida|Polyclades|Vers plats marins très colorés.
+      G|Pseudobiceros|Pseudobiceros
+     c|Neodermata|Néodermates|Vers plats parasites.
+      C|Trematoda|Douves
+       S|Schistosoma mansoni|Schistosome|Bilharziose : plus de 200 millions de personnes infectées.
+       S|Fasciola hepatica|Grande douve du foie
+       S|Dicrocoelium dendriticum|Petite douve|Manipule les fourmis pour qu'elles soient mangées.
+       S|Leucochloridium paradoxum|Leucochloridium|Fait pulser les tentacules des escargots comme des chenilles.
+      C|Cestoda|Ténias
+       S|Taenia solium|Ténia du porc
+       S|Taenia saginata|Ténia du bœuf|Peut dépasser 10 m.
+       S|Echinococcus multilocularis|Échinocoque du renard
+       S|Dibothriocephalus latus|Bothriocéphale|Ténia du poisson, jusqu'à 15 m.
+      C|Monogenea|Monogènes
+       S|Gyrodactylus salaris|Gyrodactylus
+    P|Gastrotricha|Gastrotriches
+     G|Chaetonotus|Chaetonotus
+    c|Mesozoa|Mésozoaires|Parasites très simplifiés, position discutée.
+     P|Dicyemida|Dicyémides|Vivent dans les reins des pieuvres.
+      G|Dicyema|Dicyema
+     P|Orthonectida|Orthonectides
+      S|Intoshia linei|Intoshia
+    c|Lophotrochozoa|Lophotrochozoaires
+     P|Cycliophora|Cycliophores|Vivent sur les pièces buccales des homards.
+      S|Symbion pandora|Symbion
+     P|Entoprocta|Entoproctes
+      G|Pedicellina|Pedicellina
+     P|Bryozoa|Bryozoaires|Colonies de minuscules animaux filtreurs.
+      S|Membranipora membranacea|Dentelle de mer
+      S|Bugula neritina|Bugula|Source de la bryostatine.
+      S|Cristatella mucedo|Cristatella
+     P|Nemertea|Némertes|Vers rubans à trompe évaginable.
+      S|Lineus longissimus|Ver lacet de botte|Peut-être l'animal le plus long : jusqu'à 30 m, voire plus.
+     P|Brachiopoda|Brachiopodes|Ressemblent à des coquillages mais n'en sont pas.
+      S|Lingula anatina|Lingule|Quasiment inchangée depuis 500 millions d'années.
+      G|Terebratulina|Terebratulina
+     P|Phoronida|Phoronidiens
+      G|Phoronis|Phoronis
+     P|Mollusca|Mollusques|Corps mou, souvent une coquille. Environ 85 000 espèces.
+      C|Solenogastres|Solénogastres|Mollusques vermiformes sans coquille.
+      C|Caudofoveata|Caudofovéates
+      C|Polyplacophora|Chitons|Coquille en huit plaques ; dents renforcées de magnétite.
+       S|Acanthochitona fascicularis|Chiton
+      C|Monoplacophora|Monoplacophores|Connus seulement par des fossiles jusqu'à leur redécouverte vivante en 1952.
+       S|Neopilina galatheae|Neopilina
+      C|Gastropoda|Gastéropodes|Escargots, limaces, nudibranches. Environ 65 000 espèces.
+       O|Patellogastropoda|Patelles
+        S|Patella vulgata|Patelle|Ses dents sont le matériau biologique le plus résistant connu.
+       O|Vetigastropoda|Vétigastéropodes
+        S|Haliotis tuberculata|Ormeau
+       O|Cycloneritida|Nérites
+        G|Nerita|Nérite
+       Cb|Caenogastropoda|Cénogastéropodes
+        S|Littorina littorea|Bigorneau
+        S|Buccinum undatum|Bulot
+        S|Conus geographus|Cône géographe|Son venin a tué des humains.
+        S|Aliger gigas|Lambi
+        S|Cypraea tigris|Porcelaine tigre
+        S|Charonia tritonis|Triton géant
+        S|Crepidula fornicata|Crépidule
+        S|Pomacea canaliculata|Escargot pomme
+        S|Chrysomallon squamiferum|Gastéropode à pied écailleux|Pied couvert d'écailles de sulfure de fer.
+        S|Janthina janthina|Janthine|Flotte grâce à un radeau de bulles.
+       Cb|Heterobranchia|Hétérobranches
+        O|Nudibranchia|Nudibranches|Limaces de mer aux couleurs vives.
+         S|Glaucus atlanticus|Dragon bleu|Mange les galères portugaises et stocke leur venin.
+         G|Hypselodoris|Hypselodoris
+        S|Elysia chlorotica|Élysie émeraude|Vole les chloroplastes des algues qu'elle mange.
+        S|Aplysia californica|Lièvre de mer|Modèle de la mémoire (Nobel 2000).
+        O|Pteropoda|Ptéropodes|Escargots nageurs du plancton.
+         S|Clione limacina|Ange de mer
+         S|Limacina helicina|Papillon de mer
+        O|Hygrophila|Escargots d'eau douce
+         S|Lymnaea stagnalis|Limnée
+         S|Biomphalaria glabrata|Biomphalaria|Hôte du parasite de la bilharziose.
+        O|Stylommatophora|Escargots et limaces terrestres
+         S|Helix pomatia|Escargot de Bourgogne
+         S|Cornu aspersum|Petit-gris
+         S|Arion rufus|Limace rouge
+         S|Limax maximus|Limace léopard
+         S|Lissachatina fulica|Achatine|Escargot géant africain, très invasif.
+      C|Bivalvia|Bivalves|Deux valves, pas de tête. Environ 9 000 espèces.
+       S|Mytilus edulis|Moule commune
+       S|Mytilus galloprovincialis|Moule méditerranéenne
+       S|Magallana gigas|Huître creuse
+       S|Ostrea edulis|Huître plate
+       S|Pecten maximus|Coquille Saint-Jacques|Une centaine d'yeux au bord du manteau.
+       S|Tridacna gigas|Bénitier géant|Plus de 200 kg.
+       S|Cerastoderma edule|Coque
+       S|Ruditapes decussatus|Palourde
+       S|Pinna nobilis|Grande nacre|Menacée d'extinction en Méditerranée.
+       S|Pinctada margaritifera|Huître perlière
+       S|Margaritifera margaritifera|Moule perlière d'eau douce
+       S|Dreissena polymorpha|Moule zébrée
+       S|Teredo navalis|Taret|Creuse le bois des navires.
+       S|Arctica islandica|Cyprine d'Islande|Un individu, « Ming », a vécu 507 ans.
+       G|Ensis|Couteau
+      C|Scaphopoda|Scaphopodes|Coquille en défense d'éléphant.
+       G|Antalis|Dentale
+      C|Cephalopoda|Céphalopodes|Les invertébrés les plus intelligents. Environ 800 espèces.
+       Cb|Nautiloidea|Nautiles
+        S|Nautilus pompilius|Nautile flammé
+       Cb|Coleoidea|Coléoïdes
+        O|Octopoda|Pieuvres
+         S|Octopus vulgaris|Poulpe commun
+         S|Hapalochlaena lunulata|Poulpe à anneaux bleus|Venin à la tétrodotoxine.
+         S|Enteroctopus dofleini|Pieuvre géante du Pacifique
+         S|Thaumoctopus mimicus|Poulpe mimétique
+         S|Argonauta argo|Argonaute
+         G|Grimpoteuthis|Pieuvre Dumbo
+        O|Vampyromorphida|Vampyromorphes
+         S|Vampyroteuthis infernalis|Vampire des abysses
+        O|Sepiida|Seiches
+         S|Sepia officinalis|Seiche commune
+         S|Metasepia pfefferi|Seiche flamboyante
+        O|Sepiolida|Sépioles
+         S|Euprymna scolopes|Calmar hawaïen|Lumière produite par des bactéries symbiotiques.
+        O|Spirulida|Spirules
+         S|Spirula spirula|Spirule
+        O|Myopsida|Calmars côtiers
+         S|Loligo vulgaris|Calmar commun
+        O|Oegopsida|Calmars océaniques
+         S|Architeuthis dux|Calmar géant|Les plus grands yeux du règne animal (27 cm).
+         S|Mesonychoteuthis hamiltoni|Calmar colossal|Le plus lourd des invertébrés, filmé vivant pour la première fois en 2025.
+         S|Dosidicus gigas|Calmar de Humboldt
+     P|Annelida|Annélides|Vers segmentés. Environ 22 000 espèces.
+      c|Errantia|Errantes|Vers marins mobiles.
+       S|Alitta virens|Néréis|Ver de pêche.
+       S|Hediste diversicolor|Gravette
+       S|Eunice aphroditois|Ver de Bobbit|Chasseur embusqué de plus de 2 m.
+       S|Aphrodita aculeata|Aphrodite|Poils irisés comme une souris de mer.
+       G|Tomopteris|Tomopteris
+       S|Ramisyllis multicaudata|Ramisyllis|Ver ramifié en centaines de branches dans une éponge.
+       S|Alvinella pompejana|Ver de Pompéi|Vit sur des cheminées hydrothermales à plus de 50 °C.
+      c|Sedentaria|Sédentaires
+       S|Arenicola marina|Arénicole|Laisse les tortillons de sable sur les plages.
+       S|Sabella spallanzanii|Spirographe
+       S|Spirobranchus giganteus|Ver arbre de Noël
+       c|Siboglinidae|Vers tubicoles des abysses|Sans bouche ni intestin, nourris par des bactéries.
+        S|Riftia pachyptila|Riftia|Vers géants des sources hydrothermales.
+        G|Osedax|Ver mangeur d'os|Vit sur les squelettes de baleines.
+        S|Lamellibrachia luymesi|Lamellibrachia|Peut vivre plus de 250 ans.
+       c|Echiura|Échiuriens
+        S|Bonellia viridis|Bonellie|Le mâle, minuscule, vit dans la femelle.
+       C|Clitellata|Clitellates
+        Cb|Oligochaeta|Vers de terre
+         S|Lumbricus terrestris|Lombric|Darwin lui a consacré son dernier livre.
+         S|Eisenia fetida|Ver du fumier
+         S|Megascolides australis|Ver géant du Gippsland|Jusqu'à 3 m.
+         S|Tubifex tubifex|Tubifex
+        Cb|Hirudinea|Sangsues
+         S|Hirudo medicinalis|Sangsue médicinale
+         S|Haementeria ghilianii|Sangsue géante d'Amazonie
+      c|Sipuncula|Siponcles|Vers cacahuètes, rattachés aux annélides.
+       S|Sipunculus nudus|Siponcle
+  c|Deuterostomia|Deutérostomiens|L'anus se forme avant la bouche dans l'embryon.
+   c|Ambulacraria|Ambulacraires
+    P|Echinodermata|Échinodermes|Symétrie d'ordre 5 chez l'adulte, squelette calcaire. Environ 7 000 espèces, toutes marines.
+     C|Crinoidea|Crinoïdes|Lys de mer et comatules.
+      S|Antedon bifida|Comatule
+     C|Asteroidea|Étoiles de mer
+      S|Asterias rubens|Étoile de mer commune
+      S|Marthasterias glacialis|Étoile de mer glaciaire
+      S|Acanthaster planci|Couronne d'épines|Dévore les coraux.
+      S|Pycnopodia helianthoides|Étoile tournesol|Jusqu'à 24 bras ; décimée depuis 2013.
+     C|Ophiuroidea|Ophiures
+      S|Ophiothrix fragilis|Ophiure fragile
+      G|Gorgonocephalus|Gorgonocéphale
+     C|Echinoidea|Oursins
+      S|Paracentrotus lividus|Oursin violet
+      S|Strongylocentrotus purpuratus|Oursin pourpre|Modèle d'embryologie.
+      S|Echinocardium cordatum|Oursin cœur
+      S|Diadema setosum|Diadème
+      G|Mellita|Dollar des sables
+     C|Holothuroidea|Holothuries|Concombres de mer.
+      S|Holothuria forskali|Concombre de mer noir
+      S|Apostichopus japonicus|Trépang
+      S|Enypniastes eximia|Holothurie nageuse
+    P|Hemichordata|Hémicordés
+     C|Enteropneusta|Entéropneustes|Vers glands.
+      S|Saccoglossus kowalevskii|Saccoglossus
+     C|Pterobranchia|Ptérobranches
+      G|Rhabdopleura|Rhabdopleura
+   P|Chordata|Cordés|Corde dorsale, tube nerveux dorsal, fentes pharyngiennes. Environ 75 000 espèces.
+    Pb|Cephalochordata|Céphalocordés
+     S|Branchiostoma lanceolatum|Amphioxus|Un « vertébré sans vertèbres », proche du plan de base des cordés.
+    c|Olfactores|Olfactores
+     Pb|Tunicata|Tuniciers|Les plus proches parents invertébrés des vertébrés ; la larve ressemble à un têtard.
+      C|Ascidiacea|Ascidies
+       S|Ciona intestinalis|Ciona
+       S|Halocynthia roretzi|Ananas de mer
+       S|Botryllus schlosseri|Botrylle
+       S|Clavelina lepadiformis|Clavelina
+      C|Thaliacea|Thaliacés
+       S|Pyrosoma atlanticum|Pyrosome|Colonie tubulaire lumineuse.
+       G|Salpa|Salpe
+      C|Appendicularia|Appendiculaires
+       S|Oikopleura dioica|Oikopleura|Construit une « maison » de mucus filtrante, renouvelée toutes les 4 heures.
+     Pb|Vertebrata|Vertébrés|Crâne et colonne vertébrale. Environ 72 000 espèces.
+@@ Arthropoda
+Pb|Chelicerata|Chélicérates|Pièces buccales en pinces (chélicères), pas d'antennes.
+ C|Pycnogonida|Pycnogonides|Araignées de mer : leur intestin se prolonge dans les pattes.
+  G|Nymphon|Nymphon
+ C|Merostomata|Limules|« Fossiles vivants » au sang bleu, utilisé pour tester les vaccins.
+  S|Limulus polyphemus|Limule
+  S|Tachypleus tridentatus|Limule japonaise
+ C|Arachnida|Arachnides|Huit pattes. Environ 110 000 espèces.
+  O|Araneae|Araignées|Fabriquent de la soie avec des filières abdominales. Environ 52 000 espèces.
+   Ob|Mesothelae|Liphistiides|Araignées primitives à abdomen segmenté.
+    G|Liphistius|Liphistius
+   Oi|Mygalomorphae|Mygales
+    F|Theraphosidae|Mygales théraphoses
+     S|Theraphosa blondi|Mygale Goliath|La plus grande araignée en masse.
+     S|Brachypelma hamorii|Mygale à genoux rouges
+    F|Atracidae|Atracidés
+     S|Atrax robustus|Atrax de Sydney|Venin mortel pour l'humain.
+   Oi|Araneomorphae|Aranéomorphes
+    F|Araneidae|Araignées à toile orbiculaire
+     S|Araneus diadematus|Épeire diadème
+     S|Argiope bruennichi|Argiope frelon
+     S|Caerostris darwini|Araignée de Darwin|Soie parmi les plus résistantes ; toiles de 25 m au-dessus des rivières.
+    F|Theridiidae|Théridiidés
+     S|Latrodectus mactans|Veuve noire
+     S|Latrodectus tredecimguttatus|Malmignatte
+     S|Steatoda nobilis|Fausse veuve noire
+    F|Salticidae|Araignées sauteuses|La plus grande famille d'araignées ; excellente vision.
+     S|Maratus volans|Araignée paon|Le mâle danse en dépliant un éventail coloré.
+     S|Bagheera kiplingi|Bagheera|Seule araignée presque végétarienne.
+     S|Salticus scenicus|Saltique chevronnée
+    F|Lycosidae|Araignées-loups
+     S|Lycosa tarantula|Tarentule|Le nom de la tarentelle vient d'elle.
+    F|Sicariidae|Sicariidés
+     S|Loxosceles reclusa|Recluse brune
+     S|Loxosceles rufescens|Recluse méditerranéenne
+    F|Pholcidae|Pholques
+     S|Pholcus phalangioides|Pholque phalangide
+    F|Thomisidae|Araignées-crabes
+     S|Misumena vatia|Thomise variable|Change de couleur selon la fleur.
+    F|Agelenidae|Agélénidés
+     S|Eratigena atrica|Tégénaire des maisons
+    F|Ctenidae|Araignées-bananes
+     S|Phoneutria nigriventer|Araignée-banane
+    F|Dictynidae|Dictynidés
+     S|Argyroneta aquatica|Argyronète|Vit sous l'eau dans une cloche d'air.
+    F|Pisauridae|Pisauridés
+     S|Dolomedes fimbriatus|Dolomède|Chasse à la surface des mares.
+    F|Linyphiidae|Linyphiidés|Araignées de quelques millimètres qui voyagent au vent sur un fil.
+  O|Scorpiones|Scorpions|Brillent sous ultraviolets. Environ 2 700 espèces.
+   S|Androctonus australis|Androctone|« Tueur d'hommes » du Sahara.
+   S|Leiurus quinquestriatus|Rôdeur mortel
+   S|Buthus occitanus|Scorpion languedocien
+   S|Euscorpius flavicaudis|Scorpion à queue jaune
+   S|Pandinus imperator|Scorpion empereur
+  O|Opiliones|Opilions|Faucheux : corps en une seule pièce, pas de venin ni de soie.
+   S|Phalangium opilio|Faucheux commun
+  O|Pseudoscorpiones|Pseudoscorpions
+   S|Chelifer cancroides|Chélifère des livres
+  O|Solifugae|Solifuges|Araignées-chameaux.
+   G|Galeodes|Galeodes
+  O|Amblypygi|Amblypyges|Scorpions-fouets sans queue.
+   G|Phrynus|Phrynus
+  O|Uropygi|Uropyges|Vinaigriers : projettent de l'acide acétique.
+   S|Mastigoproctus giganteus|Vinaigrier géant
+  O|Ricinulei|Ricinules
+  O|Palpigradi|Palpigrades
+  O|Schizomida|Schizomides
+  c|Acari|Acariens et tiques|Environ 55 000 espèces décrites, sans doute bien plus.
+   O|Ixodida|Tiques
+    S|Ixodes ricinus|Tique du mouton|Transmet la maladie de Lyme en Europe.
+    S|Hyalomma marginatum|Tique Hyalomma|Vecteur de la fièvre de Crimée-Congo.
+   O|Mesostigmata|Mésostigmates
+    S|Varroa destructor|Varroa|Parasite majeur des abeilles domestiques.
+    S|Dermanyssus gallinae|Pou rouge des poules
+   O|Trombidiformes|Trombidiformes
+    S|Demodex folliculorum|Demodex|Vit dans les follicules des cils de presque tous les humains.
+    S|Tetranychus urticae|Araignée rouge
+    S|Neotrombicula autumnalis|Aoûtat
+   O|Sarcoptiformes|Sarcoptiformes
+    S|Sarcoptes scabiei|Sarcopte de la gale
+    S|Dermatophagoides pteronyssinus|Acarien de la poussière
+    c|Oribatida|Oribates|Acariens du sol, parfois des centaines de milliers par m².
+Pb|Myriapoda|Myriapodes|Mille-pattes et apparentés. Environ 16 000 espèces.
+ C|Chilopoda|Chilopodes|Une paire de pattes par segment, crochets à venin.
+  S|Scolopendra gigantea|Scolopendre géante|Chasse les chauves-souris.
+  S|Scolopendra cingulata|Scolopendre méditerranéenne
+  S|Scutigera coleoptrata|Scutigère véloce
+  S|Lithobius forficatus|Lithobie
+ C|Diplopoda|Diplopodes|Deux paires de pattes par segment.
+  S|Eumillipes persephone|Eumillipes|Premier vrai « mille-pattes » : 1 306 pattes (2021).
+  S|Illacme plenipes|Illacme|Jusqu'à 750 pattes.
+  S|Glomeris marginata|Gloméris|Se roule en boule.
+  S|Archispirostreptus gigas|Mille-pattes géant africain
+ C|Pauropoda|Pauropodes
+ C|Symphyla|Symphyles
+  G|Scutigerella|Scutigerella
+c|Pancrustacea|Pancrustacés|Crustacés et hexapodes : les insectes sont des crustacés devenus terrestres.
+ C|Ostracoda|Ostracodes|Crustacés dans une coquille à deux valves.
+  G|Cypris|Cypris
+ C|Ichthyostraca|Ichthyostracés
+  c|Branchiura|Branchiures
+   G|Argulus|Pou des poissons
+  c|Pentastomida|Pentastomides|Parasites vermiformes des poumons de reptiles.
+   S|Linguatula serrata|Linguatule
+ C|Thecostraca|Cirripèdes|Darwin a passé huit ans à les étudier.
+  G|Balanus|Balane
+  S|Lepas anatifera|Anatife
+  S|Pollicipes pollicipes|Pouce-pied
+  S|Sacculina carcini|Sacculine|Parasite qui castre le crabe et le fait couver ses œufs.
+ C|Copepoda|Copépodes|Peut-être les animaux les plus nombreux des océans.
+  S|Calanus finmarchicus|Calanus
+  G|Cyclops|Cyclope
+  S|Lernaeocera branchialis|Lernée
+ C|Malacostraca|Malacostracés|Les « grands » crustacés. Environ 40 000 espèces.
+  O|Leptostraca|Leptostracés
+   G|Nebalia|Nebalia
+  O|Stomatopoda|Squilles
+   S|Odontodactylus scyllarus|Crevette-mante paon|Frappe à la vitesse d'une balle ; 16 types de photorécepteurs.
+   S|Squilla mantis|Squille
+  O|Euphausiacea|Krill
+   S|Euphausia superba|Krill antarctique|Une des plus grandes biomasses animales : ~380 millions de tonnes.
+  O|Decapoda|Décapodes|Crabes, homards, crevettes. Dix pattes.
+   F|Nephropidae|Homards
+    S|Homarus gammarus|Homard européen
+    S|Homarus americanus|Homard américain
+    S|Nephrops norvegicus|Langoustine
+   F|Palinuridae|Langoustes
+    S|Palinurus elephas|Langouste rouge
+   F|Astacidae|Écrevisses
+    S|Astacus astacus|Écrevisse à pattes rouges
+    S|Austropotamobius pallipes|Écrevisse à pattes blanches
+   F|Cambaridae|Écrevisses américaines
+    S|Procambarus clarkii|Écrevisse de Louisiane
+    S|Procambarus virginalis|Écrevisse marbrée|Uniquement des femelles clonales.
+   c|Brachyura|Crabes
+    S|Cancer pagurus|Tourteau
+    S|Carcinus maenas|Crabe vert
+    S|Maja squinado|Araignée de mer
+    S|Macrocheira kaempferi|Crabe géant du Japon|Jusqu'à 3,7 m d'envergure.
+    S|Gecarcoidea natalis|Crabe rouge de l'île Christmas|Migration de dizaines de millions de crabes.
+    S|Eriocheir sinensis|Crabe chinois
+    G|Uca|Crabe violoniste
+   c|Anomura|Anomoures
+    S|Pagurus bernhardus|Bernard-l'ermite
+    S|Birgus latro|Crabe de cocotier|Le plus grand arthropode terrestre.
+    S|Paralithodes camtschaticus|Crabe royal
+   c|Caridea|Crevettes
+    S|Crangon crangon|Crevette grise
+    S|Palaemon serratus|Bouquet
+    G|Alpheus|Crevette pistolet|Claquement qui crée une bulle à 4 700 °C.
+    S|Lysmata amboinensis|Crevette nettoyeuse
+   F|Penaeidae|Crevettes pénéides
+    S|Penaeus monodon|Crevette géante tigrée
+  O|Isopoda|Isopodes|Environ 10 000 espèces, dont les cloportes terrestres.
+   S|Armadillidium vulgare|Cloporte commun
+   S|Porcellio scaber|Cloporte rugueux
+   S|Asellus aquaticus|Aselle
+   S|Bathynomus giganteus|Isopode géant|Jusqu'à 50 cm dans les abysses.
+   S|Cymothoa exigua|Pou mangeur de langue|Remplace la langue du poisson.
+   S|Ligia oceanica|Ligie
+  O|Amphipoda|Amphipodes
+   S|Talitrus saltator|Puce de mer
+   S|Gammarus pulex|Gammare
+   G|Caprella|Caprelle
+   S|Hirondellea gigas|Hirondellea|Vit au fond de la fosse des Mariannes.
+  O|Mysida|Mysidacés
+ C|Branchiopoda|Branchiopodes
+  O|Anostraca|Anostracés
+   S|Artemia salina|Artémie|Ses œufs survivent des années à sec.
+  O|Notostraca|Notostracés
+   S|Triops cancriformis|Triops|Presque inchangé depuis 250 millions d'années.
+  O|Diplostraca|Puces d'eau
+   S|Daphnia pulex|Daphnie
+   S|Daphnia magna|Grande daphnie
+ C|Remipedia|Rémipèdes|Crustacés aveugles des grottes sous-marines, proches parents des hexapodes.
+  G|Speleonectes|Speleonectes
+ C|Cephalocarida|Céphalocarides
+ Cs|Hexapoda|Hexapodes|Six pattes, trois segments.
+  C|Collembola|Collemboles|Sautent grâce à une fourche ventrale ; jusqu'à 100 000 par m² de sol.
+   S|Folsomia candida|Folsomia
+   S|Sminthurus viridis|Sminthure vert
+   S|Anurida maritima|Anurida
+  C|Protura|Protoures|Sans yeux ni antennes.
+  C|Diplura|Diploures
+   G|Campodea|Campodea
+  C|Insecta|Insectes|Environ un million d'espèces décrites : plus de la moitié des espèces connues.
+@@ Insecta
+O|Archaeognatha|Archéognathes|Insectes sans ailes primitifs.
+ G|Machilis|Machilis
+O|Zygentoma|Zygentomes
+ S|Lepisma saccharinum|Poisson d'argent
+ S|Thermobia domestica|Thermobie
+c|Pterygota|Ptérygotes|Insectes ailés : les premiers animaux à voler (~400 Ma).
+ O|Ephemeroptera|Éphémères|Adultes sans bouche, vivent parfois quelques heures.
+  S|Ephemera danica|Éphémère danoise
+  S|Palingenia longicauda|Fleur de la Tisza
+ O|Odonata|Odonates|Libellules et demoiselles. Environ 6 400 espèces.
+  Ob|Anisoptera|Libellules
+   S|Anax imperator|Anax empereur
+   S|Aeshna cyanea|Aeschne bleue
+   S|Libellula depressa|Libellule déprimée
+   S|Pantala flavescens|Pantala|Migration transocéanique de 18 000 km sur plusieurs générations.
+  Ob|Zygoptera|Demoiselles
+   S|Calopteryx virgo|Caloptéryx vierge
+   S|Calopteryx splendens|Caloptéryx éclatant
+   S|Coenagrion puella|Agrion jouvencelle
+ c|Neoptera|Néoptères|Peuvent replier leurs ailes sur le dos.
+  c|Polyneoptera|Polynéoptères
+   O|Plecoptera|Plécoptères|Larves indicatrices d'eau propre.
+    G|Perla|Perla
+   O|Dermaptera|Dermaptères
+    S|Forficula auricularia|Perce-oreille
+   O|Orthoptera|Orthoptères|Criquets, sauterelles, grillons. Environ 29 000 espèces.
+    Ob|Caelifera|Criquets
+     S|Schistocerca gregaria|Criquet pèlerin|Essaims de milliards d'individus.
+     S|Locusta migratoria|Criquet migrateur
+     G|Chorthippus|Criquet mélodieux
+    Ob|Ensifera|Sauterelles et grillons
+     S|Gryllus campestris|Grillon champêtre
+     S|Acheta domesticus|Grillon domestique
+     S|Gryllotalpa gryllotalpa|Courtilière
+     S|Tettigonia viridissima|Grande sauterelle verte
+     S|Deinacrida heteracantha|Wētā géant|Un des insectes les plus lourds (70 g).
+   O|Phasmatodea|Phasmes
+    S|Carausius morosus|Phasme bâton
+    S|Phryganistria chinensis|Phasme géant de Chine|Plus long insecte : 64 cm.
+    G|Phyllium|Phyllie|Imite une feuille.
+    S|Dryococelus australis|Phasme de Lord Howe|Cru éteint, redécouvert sur un rocher en 2001.
+   O|Mantodea|Mantes
+    S|Mantis religiosa|Mante religieuse
+    S|Hymenopus coronatus|Mante orchidée
+    S|Empusa pennata|Empuse
+   O|Blattodea|Blattes et termites
+    S|Periplaneta americana|Blatte américaine
+    S|Blattella germanica|Blatte germanique
+    S|Macropanesthia rhinoceros|Blatte rhinocéros|La plus lourde (35 g).
+    c|Termitoidae|Termites|Des blattes sociales. Environ 3 000 espèces.
+     S|Macrotermes bellicosus|Macrotermes|Termitières climatisées de plusieurs mètres.
+     S|Reticulitermes flavipes|Termite de Saintonge
+     S|Mastotermes darwiniensis|Mastotermes|Le plus primitif des termites.
+   O|Embioptera|Embioptères|Tissent de la soie avec leurs pattes avant.
+   O|Zoraptera|Zoraptères
+   O|Grylloblattodea|Grylloblattes|Insectes des glaciers.
+   O|Mantophasmatodea|Mantophasmes|Ordre découvert en 2002.
+  c|Paraneoptera|Paranéoptères
+   O|Psocodea|Psoques et poux
+    S|Pediculus humanus capitis|Pou de tête
+    S|Pediculus humanus humanus|Pou de corps|Vecteur du typhus.
+    S|Pthirus pubis|Morpion
+    G|Liposcelis|Pou des livres
+   O|Thysanoptera|Thrips
+    S|Frankliniella occidentalis|Thrips californien
+   O|Hemiptera|Hémiptères|Pièces buccales en rostre piqueur. Environ 100 000 espèces.
+    Ob|Heteroptera|Punaises
+     S|Pyrrhocoris apterus|Gendarme
+     S|Graphosoma italicum|Punaise arlequin
+     S|Halyomorpha halys|Punaise diabolique
+     S|Cimex lectularius|Punaise de lit
+     S|Triatoma infestans|Triatome|Vecteur de la maladie de Chagas.
+     S|Gerris lacustris|Gerris|Marche sur l'eau.
+     S|Notonecta glauca|Notonecte|Nage sur le dos.
+     G|Lethocerus|Punaise d'eau géante
+    Ob|Auchenorrhyncha|Cigales et cicadelles
+     S|Lyristes plebejus|Grande cigale commune
+     S|Magicicada septendecim|Cigale de 17 ans|Émerge en masse tous les 17 ans (nombre premier).
+     S|Philaenus spumarius|Cercope des prés|Larves dans la « crachat de coucou » ; vecteur de Xylella.
+     S|Fulgora laternaria|Fulgore porte-lanterne
+    Ob|Sternorrhyncha|Pucerons et cochenilles
+     S|Acyrthosiphon pisum|Puceron du pois
+     S|Myzus persicae|Puceron vert du pêcher
+     S|Daktulosphaira vitifoliae|Phylloxéra|A ravagé le vignoble européen au XIXe siècle.
+     S|Bemisia tabaci|Aleurode du tabac
+     S|Dactylopius coccus|Cochenille du carmin|Donne le colorant rouge E120.
+     S|Kerria lacca|Cochenille à laque|Source de la gomme-laque.
+  c|Holometabola|Holométaboles|Métamorphose complète avec nymphe. Plus de 80 % des insectes.
+   O|Hymenoptera|Hyménoptères|Abeilles, guêpes, fourmis. Environ 150 000 espèces.
+    Ob|Symphyta|Tenthrèdes et sirex|Hyménoptères sans « taille de guêpe ».
+     G|Tenthredo|Tenthrède
+     S|Urocerus gigas|Sirex géant
+    c|Parasitica|Guêpes parasitoïdes|Pondent dans d'autres insectes.
+     F|Ichneumonidae|Ichneumons
+     F|Braconidae|Braconides
+      S|Cotesia glomerata|Cotesia
+     c|Chalcidoidea|Chalcidiens
+      S|Blastophaga psenes|Blastophage du figuier|Seul pollinisateur du figuier commun.
+      G|Trichogramma|Trichogramme|Lutte biologique contre la pyrale du maïs.
+      S|Dicopomorpha echmepterygis|Dicopomorpha|Le mâle mesure 0,14 mm : plus petit insecte connu.
+    c|Aculeata|Aculéates|Hyménoptères à aiguillon.
+     F|Chrysididae|Guêpes coucous
+      G|Chrysis|Chrysis
+     F|Ampulicidae|Guêpes à cafards
+      S|Ampulex compressa|Guêpe émeraude|Pique le cerveau d'une blatte pour la mener en laisse.
+     F|Pompilidae|Pompiles
+      G|Pepsis|Guêpe tueuse de tarentules
+     F|Mutillidae|Fourmis de velours
+      S|Mutilla europaea|Mutille européenne
+     F|Vespidae|Guêpes sociales et solitaires
+      S|Vespa crabro|Frelon européen
+      S|Vespa velutina|Frelon asiatique|Invasif en France depuis 2004.
+      S|Vespa mandarinia|Frelon géant
+      S|Vespula vulgaris|Guêpe commune
+      S|Polistes dominula|Poliste gaulois
+     F|Formicidae|Fourmis|Environ 14 000 espèces ; peut-être 20 millions de milliards de fourmis sur Terre.
+      S|Formica rufa|Fourmi rousse des bois
+      S|Lasius niger|Fourmi noire des jardins
+      G|Camponotus|Fourmi charpentière
+      S|Atta cephalotes|Fourmi coupe-feuille|Cultive un champignon.
+      S|Eciton burchellii|Fourmi légionnaire
+      S|Oecophylla smaragdina|Fourmi tisserande
+      S|Paraponera clavata|Fourmi balle de fusil|Piqûre la plus douloureuse de l'échelle de Schmidt.
+      S|Solenopsis invicta|Fourmi de feu
+      S|Linepithema humile|Fourmi d'Argentine|Une « supercolonie » s'étend sur 6 000 km le long de la Méditerranée.
+      S|Messor barbarus|Fourmi moissonneuse
+     c|Anthophila|Abeilles|Environ 20 000 espèces, dont 1 000 en France.
+      S|Apis mellifera|Abeille domestique|Communique par la danse (Nobel 1973).
+      S|Apis cerana|Abeille asiatique
+      S|Bombus terrestris|Bourdon terrestre
+      S|Xylocopa violacea|Xylocope violet
+      S|Osmia cornuta|Osmie cornue
+      S|Megachile pluto|Abeille géante de Wallace|La plus grande abeille, redécouverte en 2019.
+      G|Melipona|Mélipone|Abeille sans dard.
+      G|Halictus|Halicte
+      G|Andrena|Andrène
+   c|Neuropterida|Neuroptéroïdes
+    O|Neuroptera|Névroptères
+     S|Chrysoperla carnea|Chrysope verte
+     S|Myrmeleon formicarius|Fourmilion|Larve qui creuse des pièges en entonnoir.
+    O|Megaloptera|Mégaloptères
+     G|Sialis|Sialis
+    O|Raphidioptera|Raphidioptères
+   O|Coleoptera|Coléoptères|Le plus grand ordre du vivant : environ 400 000 espèces. Ailes avant durcies en élytres.
+    Ob|Adephaga|Adéphages
+     F|Carabidae|Carabes
+      S|Carabus auronitens|Carabe doré
+      S|Brachinus crepitans|Bombardier|Projette un jet bouillant de 100 °C.
+      S|Cicindela campestris|Cicindèle champêtre
+     F|Dytiscidae|Dytiques
+      S|Dytiscus marginalis|Dytique bordé
+     F|Gyrinidae|Gyrins|Tourniquets à la surface de l'eau.
+    Ob|Polyphaga|Polyphages
+     F|Ptiliidae|Ptiliidés
+      S|Scydosella musawasensis|Scydosella|Plus petit coléoptère : 0,3 mm.
+     F|Staphylinidae|Staphylins|Une des plus grandes familles animales : environ 64 000 espèces.
+      S|Ocypus olens|Staphylin odorant
+     F|Silphidae|Silphes
+      S|Nicrophorus vespilloides|Nécrophore|Enterre les cadavres et nourrit ses larves.
+     F|Lucanidae|Lucanes
+      S|Lucanus cervus|Lucane cerf-volant
+     F|Geotrupidae|Géotrupes
+     F|Scarabaeidae|Scarabées
+      S|Scarabaeus sacer|Scarabée sacré|S'oriente grâce à la Voie lactée.
+      S|Melolontha melolontha|Hanneton commun
+      S|Cetonia aurata|Cétoine dorée
+      S|Oryctes nasicornis|Rhinocéros
+      S|Dynastes hercules|Dynaste Hercule
+      S|Goliathus goliatus|Goliath
+      S|Popillia japonica|Scarabée japonais
+     F|Buprestidae|Buprestes
+     F|Elateridae|Taupins
+     F|Lampyridae|Lucioles
+      S|Lampyris noctiluca|Ver luisant
+      S|Photinus pyralis|Luciole commune d'Amérique
+     F|Dermestidae|Dermestes
+     F|Coccinellidae|Coccinelles
+      S|Coccinella septempunctata|Coccinelle à sept points
+      S|Harmonia axyridis|Coccinelle asiatique
+      S|Adalia bipunctata|Coccinelle à deux points
+     F|Tenebrionidae|Ténébrions
+      S|Tenebrio molitor|Ver de farine|Peut digérer le polystyrène.
+      S|Tribolium castaneum|Tribolium
+      S|Onymacris unguicularis|Ténébrion du Namib|Boit le brouillard condensé sur son dos.
+     F|Meloidae|Méloés
+      S|Lytta vesicatoria|Cantharide officinale
+     F|Cerambycidae|Longicornes
+      S|Cerambyx cerdo|Grand capricorne
+      S|Rosalia alpina|Rosalie des Alpes
+      S|Titanus giganteus|Titan|Jusqu'à 17 cm.
+      S|Anoplophora glabripennis|Capricorne asiatique
+     F|Chrysomelidae|Chrysomèles
+      S|Leptinotarsa decemlineata|Doryphore
+      S|Diabrotica virgifera|Chrysomèle du maïs
+     F|Curculionidae|Charançons|Environ 50 000 espèces.
+      S|Sitophilus granarius|Charançon du blé
+      S|Rhynchophorus ferrugineus|Charançon rouge du palmier
+      S|Ips typographus|Typographe|Scolyte qui tue les épicéas affaiblis.
+      S|Anthonomus grandis|Anthonome du cotonnier
+   O|Strepsiptera|Strepsiptères|Parasites d'autres insectes ; femelles sans ailes ni pattes.
+    G|Stylops|Stylops
+   c|Mecopterida|Mécoptéroïdes
+    O|Trichoptera|Trichoptères|Larves aquatiques qui se construisent un fourreau.
+     G|Phryganea|Phrygane
+    O|Lepidoptera|Lépidoptères|Papillons de jour et de nuit, ailes couvertes d'écailles. Environ 160 000 espèces.
+     F|Micropterigidae|Micropterigidés|Papillons primitifs avec des mandibules.
+      G|Micropterix|Micropterix
+     F|Tineidae|Teignes
+      S|Tineola bisselliella|Mite des vêtements
+     F|Tortricidae|Tordeuses
+      S|Cydia pomonella|Carpocapse des pommes
+     F|Crambidae|Crambidés
+      S|Cydalima perspectalis|Pyrale du buis
+      S|Ostrinia nubilalis|Pyrale du maïs
+     F|Pyralidae|Pyrales
+      S|Galleria mellonella|Fausse teigne de la cire|Sa chenille dégrade le polyéthylène.
+     F|Hesperiidae|Hespéries
+     F|Papilionidae|Porte-queue
+      S|Papilio machaon|Machaon
+      S|Iphiclides podalirius|Flambé
+      S|Parnassius apollo|Apollon
+      S|Ornithoptera alexandrae|Ornithoptère de la reine Alexandra|Plus grand papillon de jour : 28 cm.
+     F|Pieridae|Piérides
+      S|Pieris brassicae|Piéride du chou
+      S|Gonepteryx rhamni|Citron
+     F|Lycaenidae|Lycènes
+      S|Polyommatus icarus|Azuré commun
+      S|Phengaris arion|Azuré du serpolet|Sa chenille est élevée par des fourmis.
+     F|Nymphalidae|Nymphalidés
+      S|Danaus plexippus|Monarque|Migre jusqu'à 4 000 km vers le Mexique.
+      S|Vanessa atalanta|Vulcain
+      S|Vanessa cardui|Belle-Dame|Migre entre l'Afrique et l'Europe.
+      S|Aglais io|Paon-du-jour
+      S|Morpho menelaus|Morpho bleu|Couleur structurale, sans pigment.
+      S|Heliconius melpomene|Heliconius
+     F|Geometridae|Géomètres|Chenilles arpenteuses.
+      S|Biston betularia|Phalène du bouleau|Exemple classique de sélection naturelle (mélanisme industriel).
+     F|Bombycidae|Bombycidés
+      S|Bombyx mori|Ver à soie|Domestiqué en Chine il y a 5 000 ans ; ne survit plus à l'état sauvage.
+     F|Saturniidae|Saturnies
+      S|Saturnia pyri|Grand paon de nuit|Plus grand papillon d'Europe.
+      S|Attacus atlas|Atlas
+      S|Actias luna|Papillon lune
+      S|Graellsia isabellae|Isabelle de France
+     F|Sphingidae|Sphinx
+      S|Acherontia atropos|Sphinx tête-de-mort|Pousse un cri et vole le miel des ruches.
+      S|Macroglossum stellatarum|Moro-sphinx|Butine en vol stationnaire comme un colibri.
+      S|Xanthopan praedicta|Sphinx de Morgan|Prédit par Darwin à partir d'une orchidée.
+     F|Notodontidae|Notodontidés
+      S|Thaumetopoea pityocampa|Processionnaire du pin
+     F|Erebidae|Érébidés
+      S|Arctia caja|Écaille martre
+      S|Lymantria dispar|Bombyx disparate
+     F|Noctuidae|Noctuelles
+      S|Helicoverpa armigera|Noctuelle de la tomate
+    O|Diptera|Diptères|Mouches et moustiques : une seule paire d'ailes, l'autre réduite en balanciers. Environ 160 000 espèces.
+     c|Nematocera|Nématocères|Moustiques et apparentés.
+      F|Culicidae|Moustiques|L'animal le plus mortel pour l'humain.
+       S|Anopheles gambiae|Anophèle|Vecteur du paludisme.
+       S|Aedes aegypti|Moustique de la fièvre jaune
+       S|Aedes albopictus|Moustique tigre
+       S|Culex pipiens|Moustique commun
+      F|Psychodidae|Phlébotomes et papillons de salle de bain
+       S|Phlebotomus papatasi|Phlébotome
+      F|Simuliidae|Simulies
+       S|Simulium damnosum|Simulie|Vecteur de la cécité des rivières.
+      F|Ceratopogonidae|Moucherons piqueurs
+       G|Culicoides|Culicoides|Vecteur de la fièvre catarrhale ovine.
+      F|Chironomidae|Chironomes
+       S|Belgica antarctica|Belgica|Seul insecte endémique de l'Antarctique.
+      F|Tipulidae|Tipules
+       S|Tipula oleracea|Tipule
+      F|Cecidomyiidae|Cécidomyies
+     c|Brachycera|Brachycères|Mouches.
+      F|Tabanidae|Taons
+       S|Tabanus bovinus|Taon des bœufs
+      F|Asilidae|Asiles
+      F|Bombyliidae|Bombyles
+       S|Bombylius major|Grand bombyle
+      F|Syrphidae|Syrphes|Imitent les guêpes ; pollinisateurs importants.
+       S|Episyrphus balteatus|Syrphe ceinturé
+       S|Eristalis tenax|Éristale gluante
+      F|Tephritidae|Mouches des fruits
+       S|Ceratitis capitata|Mouche méditerranéenne des fruits
+       S|Bactrocera oleae|Mouche de l'olive
+      F|Drosophilidae|Drosophiles
+       S|Drosophila melanogaster|Drosophile|Modèle de la génétique depuis 1910 ; au moins six prix Nobel.
+       S|Drosophila suzukii|Drosophile à ailes tachetées
+      F|Muscidae|Mouches domestiques
+       S|Musca domestica|Mouche domestique
+       S|Stomoxys calcitrans|Mouche des étables
+      F|Glossinidae|Mouches tsé-tsé
+       S|Glossina palpalis|Tsé-tsé|Vecteur de la maladie du sommeil.
+      F|Calliphoridae|Mouches à viande
+       S|Calliphora vomitoria|Mouche bleue
+       S|Lucilia sericata|Mouche verte|Asticots utilisés pour nettoyer les plaies.
+       S|Cochliomyia hominivorax|Lucilie bouchère
+      F|Oestridae|Œstres
+       S|Dermatobia hominis|Ver macaque|Larve sous la peau, pondue via un moustique.
+      F|Hippoboscidae|Mouches plates
+      F|Tachinidae|Tachinaires|Parasitoïdes de chenilles.
+    O|Mecoptera|Mécoptères
+     S|Panorpa communis|Mouche-scorpion
+    O|Siphonaptera|Puces|Sautent 100 fois leur longueur.
+     S|Pulex irritans|Puce de l'homme
+     S|Ctenocephalides felis|Puce du chat
+     S|Xenopsylla cheopis|Puce du rat|Vecteur de la peste.
+@@ Vertebrata
+c|Cyclostomata|Cyclostomes|Vertébrés sans mâchoires.
+ C|Myxini|Myxines|Produisent des litres de mucus en quelques secondes.
+  S|Myxine glutinosa|Myxine
+ C|Petromyzontida|Lamproies
+  S|Petromyzon marinus|Lamproie marine
+  S|Lampetra fluviatilis|Lamproie de rivière
+  S|Lampetra planeri|Lamproie de Planer
+c|Gnathostomata|Gnathostomes|Vertébrés à mâchoires.
+ C|Chondrichthyes|Poissons cartilagineux|Squelette en cartilage. Environ 1 300 espèces.
+  Cb|Holocephali|Chimères
+   S|Chimaera monstrosa|Chimère commune
+   S|Callorhinchus milii|Chimère éléphant|Génome qui évolue le plus lentement parmi les vertébrés.
+  Cb|Elasmobranchii|Élasmobranches
+   c|Selachimorpha|Requins|Environ 550 espèces.
+    O|Heterodontiformes|Requins dormeurs
+     S|Heterodontus portusjacksoni|Requin de Port-Jackson
+    O|Orectolobiformes|Requins-tapis
+     S|Rhincodon typus|Requin-baleine|Le plus grand poisson : jusqu'à 18 m, se nourrit de plancton.
+     S|Ginglymostoma cirratum|Requin-nourrice
+     S|Stegostoma tigrinum|Requin-zèbre
+     G|Hemiscyllium|Requin marcheur|Marche sur ses nageoires.
+    O|Lamniformes|Lamniformes
+     S|Carcharodon carcharias|Grand requin blanc
+     S|Isurus oxyrinchus|Requin mako|Le plus rapide des requins.
+     S|Cetorhinus maximus|Requin pèlerin
+     S|Megachasma pelagios|Requin grande gueule|Découvert en 1976.
+     S|Alopias vulpinus|Requin-renard|Assomme ses proies avec sa queue.
+     S|Mitsukurina owstoni|Requin-lutin
+     S|Lamna nasus|Requin-taupe commun
+     S|†Otodus megalodon|Mégalodon|Requin géant éteint il y a 3,6 millions d'années.
+    O|Carcharhiniformes|Carcharhiniformes
+     S|Galeocerdo cuvier|Requin-tigre
+     S|Carcharhinus leucas|Requin-bouledogue|Remonte les fleuves.
+     S|Carcharhinus longimanus|Requin océanique
+     S|Prionace glauca|Requin bleu
+     S|Sphyrna mokarran|Grand requin-marteau
+     S|Scyliorhinus canicula|Petite roussette
+     G|Mustelus|Émissole
+    O|Hexanchiformes|Hexanchiformes
+     S|Hexanchus griseus|Requin griset
+     S|Chlamydoselachus anguineus|Requin-lézard
+    O|Squaliformes|Squaliformes
+     S|Squalus acanthias|Aiguillat commun
+     S|Somniosus microcephalus|Requin du Groenland|Vertébré le plus longévif : environ 400 ans.
+     S|Isistius brasiliensis|Squalelet féroce|Découpe des morceaux ronds dans les grands animaux.
+    O|Squatiniformes|Anges de mer
+     S|Squatina squatina|Ange de mer commun
+    O|Pristiophoriformes|Requins-scies
+   c|Batoidea|Raies|Environ 650 espèces.
+    O|Rajiformes|Raies vraies
+     S|Raja clavata|Raie bouclée
+     S|Dipturus batis|Pocheteau gris
+    O|Myliobatiformes|Pastenagues et raies mantas
+     S|Mobula birostris|Raie manta géante|Plus gros cerveau des poissons.
+     S|Dasyatis pastinaca|Pastenague commune
+     G|Potamotrygon|Raie d'eau douce
+     S|Aetobatus narinari|Raie léopard
+    O|Torpediniformes|Torpilles|Décharges électriques jusqu'à 220 volts.
+     S|Torpedo marmorata|Torpille marbrée
+    O|Rhinopristiformes|Poissons-scies et poissons-guitares
+     S|Pristis pristis|Poisson-scie commun
+     S|Rhina ancylostomus|Raie-guitare bouclée
+ c|Osteichthyes|Poissons osseux et tétrapodes|Squelette ossifié. Comprend tous les vertébrés terrestres.
+  C|Actinopterygii|Poissons à nageoires rayonnées|La moitié des vertébrés : environ 34 000 espèces.
+   c|Cladistia|Polyptères
+    O|Polypteriformes|Polyptères|Respirent de l'air avec des poumons.
+     S|Polypterus bichir|Bichir du Nil
+     S|Erpetoichthys calabaricus|Poisson-roseau
+   c|Chondrostei|Chondrostéens
+    O|Acipenseriformes|Esturgeons
+     S|Acipenser sturio|Esturgeon européen|Ne survit en France que dans la Gironde.
+     S|Huso huso|Béluga|Source du caviar le plus cher ; jusqu'à 7 m.
+     S|Polyodon spathula|Spatulaire
+     S|†Psephurus gladius|Poisson-spatule chinois|Déclaré éteint en 2022.
+   c|Holostei|Holostéens
+    O|Lepisosteiformes|Lépisostés
+     S|Atractosteus spatula|Garpique alligator
+    O|Amiiformes|Amies
+     S|Amia calva|Poisson-castor
+   c|Teleostei|Téléostéens|96 % des poissons actuels.
+    c|Elopomorpha|Élopomorphes|Larve transparente en forme de feuille (leptocéphale).
+     O|Elopiformes|Tarpons
+      S|Megalops atlanticus|Tarpon
+     O|Anguilliformes|Anguilles
+      S|Anguilla anguilla|Anguille européenne|Se reproduit dans la mer des Sargasses.
+      S|Conger conger|Congre
+      S|Muraena helena|Murène de Méditerranée
+      S|Eurypharynx pelecanoides|Grand-gousier
+    c|Osteoglossomorpha|Ostéoglossomorphes
+     O|Osteoglossiformes|Ostéoglossiformes
+      S|Arapaima gigas|Arapaïma|Un des plus grands poissons d'eau douce, respire de l'air.
+      S|Osteoglossum bicirrhosum|Arowana argenté
+      S|Gnathonemus petersii|Poisson éléphant|S'oriente par champ électrique.
+      S|Pantodon buchholzi|Poisson-papillon d'eau douce
+    c|Otomorpha|Otomorphes
+     O|Clupeiformes|Harengs et sardines
+      S|Clupea harengus|Hareng de l'Atlantique
+      S|Sardina pilchardus|Sardine
+      S|Engraulis encrasicolus|Anchois
+      S|Alosa alosa|Grande alose
+     O|Gonorynchiformes|Gonorynchiformes
+      S|Chanos chanos|Chanos
+     O|Cypriniformes|Carpes et apparentés|Environ 4 500 espèces.
+      S|Cyprinus carpio|Carpe commune
+      S|Carassius auratus|Poisson rouge|Domestiqué en Chine il y a plus de 1 000 ans.
+      S|Danio rerio|Poisson-zèbre|Modèle du développement des vertébrés.
+      S|Tinca tinca|Tanche
+      S|Rutilus rutilus|Gardon
+      S|Barbus barbus|Barbeau
+      S|Ctenopharyngodon idella|Carpe amour
+      S|Paedocypris progenetica|Paedocypris|Un des plus petits vertébrés : 7,9 mm.
+     O|Characiformes|Characiformes
+      S|Pygocentrus nattereri|Piranha à ventre rouge
+      S|Paracheirodon innesi|Néon
+      S|Astyanax mexicanus|Tétra aveugle|Une forme a perdu ses yeux dans les grottes.
+      S|Hydrocynus goliath|Poisson-tigre goliath
+     O|Siluriformes|Poissons-chats|Environ 4 000 espèces.
+      S|Silurus glanis|Silure glane|Jusqu'à 2,7 m ; attrape des pigeons sur les berges.
+      S|Ameiurus melas|Poisson-chat
+      S|Pangasianodon gigas|Silure géant du Mékong
+      S|Vandellia cirrhosa|Candiru
+      S|Malapterurus electricus|Poisson-chat électrique
+      G|Corydoras|Corydoras
+     O|Gymnotiformes|Gymnotes
+      S|Electrophorus electricus|Anguille électrique|Décharges de 860 volts.
+    c|Euteleostei|Eutéléostéens
+     O|Esociformes|Brochets
+      S|Esox lucius|Brochet
+     O|Salmoniformes|Saumons et truites
+      S|Salmo salar|Saumon atlantique|Retrouve sa rivière natale à l'odeur.
+      S|Salmo trutta|Truite commune
+      S|Oncorhynchus mykiss|Truite arc-en-ciel
+      S|Oncorhynchus nerka|Saumon rouge
+      S|Salvelinus alpinus|Omble chevalier
+      S|Thymallus thymallus|Ombre commun
+      S|Hucho hucho|Huchon
+     O|Osmeriformes|Éperlans
+      S|Osmerus eperlanus|Éperlan
+     O|Stomiiformes|Stomiiformes|Poissons des grands fonds, souvent lumineux.
+      S|Chauliodus sloani|Chauliode
+      G|Argyropelecus|Poisson-hachette
+      G|Cyclothone|Cyclothone|Probablement le vertébré le plus nombreux de la planète.
+     O|Aulopiformes|Aulopiformes
+      G|Bathypterois|Poisson-trépied
+     O|Myctophiformes|Poissons-lanternes|Migration verticale quotidienne, la plus grande du monde animal.
+     O|Lampriformes|Lampriformes
+      S|Regalecus glesne|Régalec|Le plus long poisson osseux (8 m) ; origine probable du serpent de mer.
+      S|Lampris guttatus|Opah|Premier poisson entièrement à sang chaud.
+     O|Gadiformes|Morues et merlus
+      S|Gadus morhua|Morue|Cabillaud quand il est frais.
+      S|Merluccius merluccius|Merlu
+      S|Melanogrammus aeglefinus|Églefin
+      S|Pollachius virens|Lieu noir
+      S|Lota lota|Lotte de rivière
+     O|Zeiformes|Zéiformes
+      S|Zeus faber|Saint-pierre
+     O|Trachichthyiformes|Trachichthyiformes
+      S|Hoplostethus atlanticus|Hoplostète orange|Peut vivre 250 ans.
+     c|Percomorpha|Percomorphes|La grande radiation des poissons modernes : environ 17 000 espèces.
+@@ Percomorpha
+O|Ophidiiformes|Ophidiiformes
+ S|Abyssobrotula galatheae|Abyssobrotula|Pêché à 8 370 m.
+O|Batrachoidiformes|Poissons-crapauds
+ S|Opsanus tau|Poisson-crapaud huître
+O|Gobiiformes|Gobies|Environ 2 300 espèces.
+ S|Gobius niger|Gobie noir
+ G|Periophthalmus|Périophtalme|Poisson qui marche hors de l'eau.
+ S|Pandaka pygmaea|Gobie pygmée nain
+O|Syngnathiformes|Syngnathiformes
+ S|Hippocampus guttulatus|Hippocampe moucheté|C'est le mâle qui porte les petits.
+ S|Hippocampus hippocampus|Hippocampe à museau court
+ S|Phycodurus eques|Dragon de mer feuillu
+ G|Syngnathus|Syngnathe
+ S|Mullus surmuletus|Rouget de roche
+ S|Dactylopterus volitans|Poule de mer
+O|Scombriformes|Thons et maquereaux
+ S|Thunnus thynnus|Thon rouge de l'Atlantique|Jusqu'à 680 kg ; nage à 70 km/h.
+ S|Thunnus albacares|Albacore
+ S|Katsuwonus pelamis|Bonite à ventre rayé
+ S|Scomber scombrus|Maquereau commun
+ S|Trichiurus lepturus|Poisson-sabre
+c|Carangaria|Carangaria
+ O|Istiophoriformes|Espadons et voiliers
+  S|Xiphias gladius|Espadon|Chauffe ses yeux et son cerveau.
+  S|Istiophorus platypterus|Voilier
+  S|Makaira nigricans|Marlin bleu
+ O|Carangiformes|Carangues
+  S|Trachurus trachurus|Chinchard
+  S|Seriola dumerili|Sériole
+  S|Echeneis naucrates|Rémora|S'accroche aux requins par une ventouse.
+  S|Coryphaena hippurus|Coryphène|Mahi-mahi.
+ O|Pleuronectiformes|Poissons plats|Un œil migre de l'autre côté de la tête pendant la croissance.
+  S|Pleuronectes platessa|Plie
+  S|Solea solea|Sole commune
+  S|Scophthalmus maximus|Turbot
+  S|Hippoglossus hippoglossus|Flétan de l'Atlantique
+ S|Sphyraena barracuda|Barracuda
+ S|Toxotes jaculatrix|Poisson-archer|Abat les insectes d'un jet d'eau.
+c|Ovalentaria|Ovalentaria
+ O|Cichliformes|Cichlidés|Radiations explosives dans les grands lacs africains : plus de 1 700 espèces.
+  S|Oreochromis niloticus|Tilapia du Nil
+  S|Pterophyllum scalare|Scalaire
+  S|Symphysodon discus|Discus
+  S|Astronotus ocellatus|Oscar
+  S|Maylandia zebra|Cichlidé zèbre du Malawi
+ O|Cyprinodontiformes|Cyprinodontiformes
+  S|Poecilia reticulata|Guppy
+  S|Xiphophorus hellerii|Porte-épée
+  S|Gambusia affinis|Gambusie
+  S|Kryptolebias marmoratus|Rivulus des mangroves|Seul vertébré qui s'autoféconde.
+  S|Nothobranchius furzeri|Killi turquoise|Vertébré à la vie la plus courte en captivité : quelques mois.
+  S|Cyprinodon diabolis|Poisson du trou du Diable|Toute l'espèce vit dans une seule mare.
+ O|Beloniformes|Béloniformes
+  S|Exocoetus volitans|Poisson volant
+  S|Belone belone|Orphie
+  S|Oryzias latipes|Médaka|Premier vertébré à s'accoupler dans l'espace (1994).
+ O|Atheriniformes|Athérines
+  S|Atherina presbyter|Prêtre
+ O|Mugiliformes|Mulets
+  S|Mugil cephalus|Mulet cabot
+ O|Blenniiformes|Blennies et poissons-clowns
+  S|Parablennius gattorugine|Blennie gattorugine
+  S|Amphiprion ocellaris|Poisson-clown|Change de sexe : le plus gros individu devient femelle.
+  G|Chromis|Castagnole
+O|Anabantiformes|Anabantiformes
+ S|Betta splendens|Combattant|Respire de l'air par un organe labyrinthe.
+ S|Channa argus|Tête de serpent
+O|Synbranchiformes|Anguilles des marais
+ S|Monopterus albus|Anguille des rizières
+c|Eupercaria|Eupercaria
+ O|Labriformes|Labres et perroquets
+  S|Labroides dimidiatus|Labre nettoyeur|Réussit le test du miroir.
+  S|Cheilinus undulatus|Napoléon
+  G|Scarus|Poisson-perroquet|Fabrique une partie du sable blanc des plages tropicales.
+ O|Acanthuriformes|Poissons-chirurgiens et apparentés
+  S|Paracanthurus hepatus|Chirurgien bleu
+  G|Chaetodon|Poisson-papillon
+  S|Pomacanthus imperator|Poisson-ange empereur
+  S|Argyrosomus regius|Maigre
+ O|Spariformes|Dorades
+  S|Sparus aurata|Dorade royale
+  S|Diplodus sargus|Sar commun
+ S|Dicentrarchus labrax|Bar commun|Loup en Méditerranée.
+ O|Lophiiformes|Baudroies
+  S|Lophius piscatorius|Baudroie commune|Lotte au marché.
+  S|Melanocetus johnsonii|Poisson-pêcheur des abysses
+  S|Ceratias holboelli|Cératies|Le mâle se soude à la femelle pour toujours.
+  G|Antennarius|Poisson-grenouille
+ O|Tetraodontiformes|Tétraodontiformes
+  S|Mola mola|Poisson-lune|Poisson osseux le plus lourd : plus de 2 tonnes.
+  S|Takifugu rubripes|Fugu|Mortel s'il est mal préparé (tétrodotoxine).
+  S|Diodon hystrix|Poisson porc-épic
+  S|Balistes capriscus|Baliste
+  S|Ostracion cubicum|Poisson-coffre jaune
+  S|Torquigener albomaculosus|Poisson-ballon architecte|Dessine des cercles de 2 m dans le sable.
+ O|Perciformes|Perciformes|Ordre restreint aux perches, rascasses et apparentés.
+  S|Perca fluviatilis|Perche commune
+  S|Sander lucioperca|Sandre
+  S|Epinephelus marginatus|Mérou brun
+  S|Scorpaena scrofa|Rascasse rouge
+  S|Pterois volitans|Rascasse volante|Invasive dans les Caraïbes.
+  S|Synanceia verrucosa|Poisson-pierre|Le poisson le plus venimeux.
+  S|Gasterosteus aculeatus|Épinoche|Le mâle construit un nid.
+  S|Cottus gobio|Chabot
+  S|Cyclopterus lumpus|Lompe
+  S|Anarhichas lupus|Loup atlantique
+  S|Pseudoliparis swirei|Limace de mer de la fosse des Mariannes|Vit au-delà de 7 000 m.
+  c|Notothenioidei|Poissons des glaces|Protéines antigel dans le sang.
+   S|Chaenocephalus aceratus|Poisson des glaces|Sang transparent, sans hémoglobine.
+   S|Dissostichus mawsoni|Légine antarctique
+@@ Osteichthyes
+C|Sarcopterygii|Sarcoptérygiens|Nageoires charnues sur un axe osseux : les ancêtres des membres.
+ c|Actinistia|Actinistiens
+  O|Coelacanthiformes|Cœlacanthes|Crus éteints depuis 66 millions d'années, retrouvés vivants en 1938.
+   S|Latimeria chalumnae|Cœlacanthe des Comores
+   S|Latimeria menadoensis|Cœlacanthe indonésien
+ c|Rhipidistia|Rhipidistiens
+  c|Dipnoi|Dipneustes|Poissons à poumons.
+   S|Neoceratodus forsteri|Dipneuste australien|Génome de 43 milliards de paires de bases, 14 fois le nôtre.
+   S|Protopterus annectens|Protoptère africain|Survit des années dans un cocon de boue séchée.
+   S|Lepidosiren paradoxa|Lépidosirène
+  c|Tetrapoda|Tétrapodes|Vertébrés à quatre membres, sortis de l'eau il y a environ 370 millions d'années.
+   S|†Tiktaalik roseae|Tiktaalik|Poisson à « poignets », transition vers la terre ferme.
+   C|Amphibia|Amphibiens|Peau nue et perméable ; souvent une larve aquatique. Environ 8 900 espèces, très menacées.
+    O|Anura|Grenouilles et crapauds|Environ 7 800 espèces.
+     F|Ascaphidae|Ascaphidés
+      S|Ascaphus truei|Grenouille à queue
+     F|Leiopelmatidae|Léiopelmatidés
+      G|Leiopelma|Leiopelma
+     F|Alytidae|Alytes et discoglosses
+      S|Alytes obstetricans|Alyte accoucheur|Le mâle porte les œufs enroulés autour des pattes.
+     F|Bombinatoridae|Sonneurs
+      S|Bombina variegata|Sonneur à ventre jaune
+     F|Pipidae|Pipidés
+      S|Xenopus laevis|Xénope lisse|Ancien test de grossesse ; modèle de laboratoire.
+      S|Pipa pipa|Pipa|Les petits sortent de la peau du dos de la mère.
+     F|Pelobatidae|Pélobates
+      S|Pelobates fuscus|Pélobate brun
+     F|Myobatrachidae|Myobatrachidés
+      S|†Rheobatrachus silus|Grenouille à incubation gastrique|Couvait ses petits dans son estomac ; éteinte vers 1983.
+     F|Bufonidae|Crapauds
+      S|Bufo bufo|Crapaud commun
+      S|Epidalea calamita|Crapaud calamite
+      S|Rhinella marina|Crapaud buffle|Invasif en Australie.
+      S|†Incilius periglenes|Crapaud doré|Disparu vers 1989, victime du chytride.
+     F|Dendrobatidae|Grenouilles venimeuses
+      S|Phyllobates terribilis|Phyllobate terrible|Assez de poison pour tuer dix personnes.
+      S|Dendrobates tinctorius|Dendrobate à tapirer
+      S|Oophaga pumilio|Dendrobate fraise
+     F|Hylidae|Rainettes
+      S|Hyla arborea|Rainette verte
+      S|Hyla meridionalis|Rainette méridionale
+      S|Agalychnis callidryas|Rainette aux yeux rouges
+      S|Ranoidea caerulea|Rainette de White
+     F|Centrolenidae|Grenouilles de verre|Ventre transparent.
+      G|Hyalinobatrachium|Hyalinobatrachium
+     F|Ranidae|Grenouilles vraies
+      S|Rana temporaria|Grenouille rousse
+      S|Pelophylax esculentus|Grenouille verte
+      S|Aquarana catesbeiana|Ouaouaron|Grenouille-taureau invasive.
+      S|Lithobates sylvaticus|Grenouille des bois|Gèle en hiver et redémarre au printemps.
+     F|Conrauidae|Conrauidés
+      S|Conraua goliath|Grenouille goliath|La plus grande grenouille : 3 kg.
+     F|Rhacophoridae|Grenouilles arboricoles d'Asie
+      S|Rhacophorus nigropalmatus|Grenouille volante de Wallace
+     F|Microhylidae|Microhylidés
+      S|Paedophryne amauensis|Paedophryne|Le plus petit vertébré connu : 7,7 mm.
+    O|Caudata|Urodèles|Salamandres et tritons. Environ 830 espèces.
+     F|Cryptobranchidae|Salamandres géantes
+      S|Andrias davidianus|Salamandre géante de Chine|Plus grand amphibien : jusqu'à 1,8 m.
+      S|Cryptobranchus alleganiensis|Ménopome
+     F|Hynobiidae|Hynobiidés
+     F|Sirenidae|Sirènes
+      S|Siren lacertina|Grande sirène
+     F|Salamandridae|Salamandres et tritons
+      S|Salamandra salamandra|Salamandre tachetée
+      S|Salamandra atra|Salamandre noire|Gestation de 2 à 4 ans en altitude.
+      S|Triturus cristatus|Triton crêté
+      S|Ichthyosaura alpestris|Triton alpestre
+      S|Lissotriton helveticus|Triton palmé
+      S|Pleurodeles waltl|Pleurodèle de Waltl|Perce sa peau avec ses côtes pour se défendre.
+     F|Ambystomatidae|Ambystomes
+      S|Ambystoma mexicanum|Axolotl|Reste larvaire toute sa vie et régénère ses membres.
+      S|Ambystoma tigrinum|Salamandre tigrée
+     F|Proteidae|Protées
+      S|Proteus anguinus|Protée anguillard|Aveugle, vit dans les grottes ; peut vivre 100 ans.
+      S|Necturus maculosus|Necture tacheté
+     F|Plethodontidae|Salamandres sans poumons|Respirent par la peau.
+      G|Speleomantes|Spélerpès
+      G|Bolitoglossa|Bolitoglossa
+    O|Gymnophiona|Gymnophiones|Cécilies : amphibiens sans pattes, souvent fouisseurs. Environ 220 espèces.
+     S|Typhlonectes natans|Typhlonectes
+     S|Atretochoana eiselti|Atretochoana|Grande cécilie sans poumons.
+     G|Ichthyophis|Ichthyophis
+     G|Boulengerula|Boulengerula|Les petits mangent la peau de leur mère.
+   c|Amniota|Amniotes|Œuf à membranes (amnios) : reproduction affranchie de l'eau.
+    c|Sauropsida|Sauropsidés|Reptiles, oiseaux compris.
+     c|Lepidosauria|Lépidosauriens
+      O|Rhynchocephalia|Rhynchocéphales|Un seul survivant d'un groupe autrefois diversifié.
+       S|Sphenodon punctatus|Sphénodon|Le tuatara de Nouvelle-Zélande, à « troisième œil ».
+      O|Squamata|Squamates|Lézards et serpents. Environ 12 000 espèces.
+       c|Gekkota|Geckos
+        S|Tarentola mauritanica|Tarente de Maurétanie
+        S|Gekko gecko|Gecko tokay|Adhère aux murs par des milliards de poils microscopiques.
+        S|Eublepharis macularius|Gecko léopard
+        G|Uroplatus|Gecko à queue plate
+        S|Sphaerodactylus ariasae|Sphérodactyle de Jaragua|Un des plus petits reptiles : 16 mm.
+       c|Scincoidea|Scinques
+        G|Tiliqua|Scinque à langue bleue
+        S|Chalcides chalcides|Seps strié
+        S|Corucia zebrata|Scinque à queue préhensile
+       c|Lacertoidea|Lacertoïdes
+        F|Lacertidae|Lézards vrais
+         S|Podarcis muralis|Lézard des murailles
+         S|Lacerta bilineata|Lézard vert occidental
+         S|Timon lepidus|Lézard ocellé
+         S|Zootoca vivipara|Lézard vivipare
+        F|Teiidae|Téiidés
+         S|Salvator merianae|Tégu
+         G|Aspidoscelis|Cnémidophore|Certaines espèces n'ont que des femelles.
+        c|Amphisbaenia|Amphisbènes|Lézards fouisseurs sans pattes.
+         S|Blanus cinereus|Amphisbène cendré
+         S|Bipes biporus|Bipes|N'a que deux pattes avant.
+       c|Toxicofera|Toxicofères|Lignée où le venin est apparu.
+        c|Anguimorpha|Anguimorphes
+         S|Anguis fragilis|Orvet fragile|Un lézard sans pattes.
+         S|Heloderma suspectum|Monstre de Gila|Son venin a inspiré un médicament antidiabète.
+         S|Varanus komodoensis|Dragon de Komodo|Le plus grand lézard : 3 m.
+         S|Varanus niloticus|Varan du Nil
+         S|Lanthanotus borneensis|Varan sans oreilles
+        c|Iguania|Iguaniens
+         S|Iguana iguana|Iguane vert
+         S|Amblyrhynchus cristatus|Iguane marin|Seul lézard qui se nourrit en mer.
+         S|Basiliscus basiliscus|Basilic|Court sur l'eau.
+         S|Phrynosoma cornutum|Lézard cornu|Projette du sang par les yeux.
+         S|Anolis carolinensis|Anolis vert
+         S|Draco volans|Dragon volant
+         S|Pogona vitticeps|Agame barbu
+         S|Moloch horridus|Diable cornu|Boit par capillarité à travers sa peau.
+         S|Chlamydosaurus kingii|Lézard à collerette
+         S|Chamaeleo chamaeleon|Caméléon commun
+         S|Furcifer pardalis|Caméléon panthère
+         S|Brookesia nana|Brookesia nana|Le plus petit reptile connu : 22 mm (2021).
+        c|Serpentes|Serpents|Environ 4 100 espèces.
+         S|Indotyphlops braminus|Typhlops brame|Serpent aveugle, uniquement femelle.
+         F|Boidae|Boas
+          S|Boa constrictor|Boa constricteur
+          S|Eunectes murinus|Anaconda vert|Le serpent le plus lourd.
+         F|Pythonidae|Pythons
+          S|Malayopython reticulatus|Python réticulé|Le plus long serpent : plus de 7 m.
+          S|Python bivittatus|Python birman
+          S|Python regius|Python royal
+         F|Acrochordidae|Serpents-verrues
+         F|Viperidae|Vipères|Crochets mobiles repliables.
+          S|Vipera aspis|Vipère aspic
+          S|Vipera berus|Vipère péliade
+          S|Bitis gabonica|Vipère du Gabon|Crochets les plus longs : 5 cm.
+          S|Bitis arietans|Vipère heurtante
+          S|Echis carinatus|Vipère des pyramides
+          S|Cerastes cerastes|Vipère à cornes
+          S|Crotalus atrox|Crotale diamantin de l'Ouest
+          S|Bothrops insularis|Bothrops de l'île de Queimada Grande
+          S|Lachesis muta|Maître de la brousse
+         F|Elapidae|Élapidés|Cobras, mambas et serpents marins.
+          S|Ophiophagus hannah|Cobra royal|Le plus long serpent venimeux ; mange d'autres serpents.
+          S|Naja naja|Cobra indien
+          S|Naja haje|Cobra égyptien
+          S|Dendroaspis polylepis|Mamba noir
+          S|Oxyuranus microlepidotus|Taïpan du désert|Venin le plus toxique des serpents terrestres.
+          S|Pseudonaja textilis|Serpent brun de l'Est
+          G|Micrurus|Serpent corail
+          S|Hydrophis platurus|Serpent marin à ventre jaune
+          S|Laticauda colubrina|Tricot rayé
+         F|Psammophiidae|Psammophiidés
+          S|Malpolon monspessulanus|Couleuvre de Montpellier
+         F|Colubridae|Couleuvres
+          S|Natrix helvetica|Couleuvre helvétique|Fait la morte quand on la dérange.
+          S|Zamenis longissimus|Couleuvre d'Esculape
+          S|Hierophis viridiflavus|Couleuvre verte et jaune
+          S|Pantherophis guttatus|Serpent des blés
+          S|Dispholidus typus|Boomslang
+          S|Chrysopelea paradisi|Serpent volant
+     c|Archelosauria|Archélosauriens|Tortues et archosaures.
+      O|Testudines|Tortues|Carapace formée par les côtes. Environ 360 espèces.
+       Ob|Pleurodira|Tortues à cou de côté
+        S|Chelus fimbriata|Matamata
+        S|Podocnemis expansa|Tortue arrau
+       Ob|Cryptodira|Tortues à cou rétractile
+        F|Chelydridae|Tortues serpentines
+         S|Macrochelys temminckii|Tortue alligator|Attire les poissons avec un leurre sur la langue.
+        F|Dermochelyidae|Tortue luth
+         S|Dermochelys coriacea|Tortue luth|La plus grande tortue : plus de 600 kg ; plonge à 1 200 m.
+        F|Cheloniidae|Tortues marines
+         S|Chelonia mydas|Tortue verte
+         S|Caretta caretta|Caouanne
+         S|Eretmochelys imbricata|Tortue imbriquée
+        F|Trionychidae|Tortues à carapace molle
+         S|Rafetus swinhoei|Tortue géante du Yangtsé|Probablement la tortue la plus menacée : un ou deux individus connus.
+        F|Emydidae|Émydidés
+         S|Emys orbicularis|Cistude d'Europe
+         S|Trachemys scripta|Tortue de Floride
+        F|Testudinidae|Tortues terrestres
+         S|Testudo hermanni|Tortue d'Hermann
+         S|Chelonoidis niger|Tortue géante des Galápagos
+         S|Aldabrachelys gigantea|Tortue géante des Seychelles|Jonathan, né vers 1832, est le plus vieil animal terrestre connu.
+      c|Archosauria|Archosaures|Crocodiles, dinosaures et oiseaux.
+       O|Crocodylia|Crocodiliens|Les plus proches parents vivants des oiseaux. Environ 28 espèces.
+        S|Crocodylus porosus|Crocodile marin|Le plus grand reptile actuel : 6 m.
+        S|Crocodylus niloticus|Crocodile du Nil
+        S|Alligator mississippiensis|Alligator d'Amérique
+        S|Alligator sinensis|Alligator de Chine
+        S|Caiman crocodilus|Caïman à lunettes
+        S|Melanosuchus niger|Caïman noir
+        S|Gavialis gangeticus|Gavial du Gange
+        S|Tomistoma schlegelii|Faux-gavial
+       c|Avemetatarsalia|Avémétatarsaliens
+        O|†Pterosauria|Ptérosaures|Premiers vertébrés volants, éteints il y a 66 millions d'années. Ce ne sont pas des dinosaures.
+         S|†Quetzalcoatlus northropi|Quetzalcoatlus|10 m d'envergure.
+         S|†Pteranodon longiceps|Ptéranodon
+        c|Dinosauria|Dinosaures|Les oiseaux en sont les seuls survivants.
+         c|†Ornithischia|Ornithischiens
+          S|†Triceratops horridus|Tricératops
+          S|†Stegosaurus stenops|Stégosaure
+          S|†Iguanodon bernissartensis|Iguanodon|Dizaines de squelettes trouvés dans une mine belge.
+          S|†Ankylosaurus magniventris|Ankylosaure
+          S|†Parasaurolophus walkeri|Parasaurolophus
+         c|Saurischia|Saurischiens
+          c|†Sauropodomorpha|Sauropodes
+           S|†Diplodocus carnegii|Diplodocus
+           S|†Brachiosaurus altithorax|Brachiosaure
+           S|†Patagotitan mayorum|Patagotitan|Un des plus grands animaux terrestres : plus de 50 tonnes.
+          c|Theropoda|Théropodes|Dinosaures bipèdes, souvent carnivores, souvent à plumes.
+           S|†Tyrannosaurus rex|Tyrannosaure
+           S|†Spinosaurus aegyptiacus|Spinosaure
+           S|†Allosaurus fragilis|Allosaure
+           S|†Velociraptor mongoliensis|Vélociraptor|Couvert de plumes, de la taille d'une dinde.
+           S|†Archaeopteryx lithographica|Archéoptéryx|Le « premier oiseau », découvert en 1861.
+           C|Aves|Oiseaux|Dinosaures à plumes, à bec et à œufs à coquille dure. Environ 11 000 espèces.
+    C|Mammalia|Mammifères|Poils, glandes mammaires, trois osselets dans l'oreille. Environ 6 600 espèces.
+@@ Aves
+Os|Palaeognathae|Paléognathes|Ratites et tinamous.
+ O|Struthioniformes|Autruches
+  S|Struthio camelus|Autruche|Le plus grand oiseau vivant ; court à 70 km/h.
+ O|Rheiformes|Nandous
+  S|Rhea americana|Nandou d'Amérique
+ O|Tinamiformes|Tinamous|Les seuls paléognathes qui volent.
+  S|Tinamus major|Grand tinamou
+ O|Casuariiformes|Casoars et émeus
+  S|Casuarius casuarius|Casoar à casque
+  S|Dromaius novaehollandiae|Émeu
+ O|Apterygiformes|Kiwis|Pondent un œuf qui fait 20 % de leur poids.
+  S|Apteryx mantelli|Kiwi de Mantell
+ O|†Dinornithiformes|Moas|Exterminés en Nouvelle-Zélande vers 1400.
+  S|†Dinornis robustus|Moa géant
+ O|†Aepyornithiformes|Oiseaux-éléphants
+  S|†Aepyornis maximus|Aepyornis|Œufs de 10 litres, à Madagascar.
+Os|Galloanserae|Galloansères
+ O|Galliformes|Galliformes
+  S|Gallus gallus|Coq doré|Ancêtre de la poule : environ 25 milliards de poulets vivent sur Terre.
+  S|Meleagris gallopavo|Dindon sauvage
+  S|Pavo cristatus|Paon bleu
+  S|Phasianus colchicus|Faisan de Colchide
+  S|Coturnix coturnix|Caille des blés
+  S|Tetrao urogallus|Grand tétras
+  S|Lagopus muta|Lagopède alpin
+  S|Alectoris rufa|Perdrix rouge
+  S|Numida meleagris|Pintade de Numidie
+  G|Megapodius|Mégapode|Fait couver ses œufs par la chaleur du compost.
+ O|Anseriformes|Ansériformes
+  S|Anhima cornuta|Kamichi cornu
+  S|Anas platyrhynchos|Canard colvert
+  S|Cygnus olor|Cygne tuberculé
+  S|Anser anser|Oie cendrée
+  S|Branta canadensis|Bernache du Canada
+  S|Aix galericulata|Canard mandarin
+  S|Somateria mollissima|Eider à duvet
+Os|Neoaves|Néoaves|La grande radiation des oiseaux après la chute de l'astéroïde.
+@@ Neoaves
+O|Columbiformes|Pigeons et tourterelles
+ S|Columba livia|Pigeon biset
+ S|Streptopelia decaocto|Tourterelle turque
+ S|†Ectopistes migratorius|Pigeon voyageur|Des milliards au XIXe siècle ; la dernière, Martha, est morte en 1914.
+ S|†Raphus cucullatus|Dodo|Disparu de l'île Maurice vers 1680.
+ S|Goura victoria|Goura de Victoria
+O|Pterocliformes|Gangas|Les mâles transportent l'eau dans leurs plumes.
+O|Mesitornithiformes|Mésites
+O|Phoenicopteriformes|Flamants
+ S|Phoenicopterus roseus|Flamant rose|Couleur due aux caroténoïdes de sa nourriture.
+O|Podicipediformes|Grèbes
+ S|Podiceps cristatus|Grèbe huppé
+O|Cuculiformes|Coucous
+ S|Cuculus canorus|Coucou gris|Pond dans le nid d'autres oiseaux.
+ S|Geococcyx californianus|Grand géocoucou
+O|Otidiformes|Outardes
+ S|Otis tarda|Grande outarde|Un des oiseaux volants les plus lourds.
+O|Musophagiformes|Touracos
+O|Caprimulgiformes|Engoulevents
+ S|Caprimulgus europaeus|Engoulevent d'Europe
+O|Nyctibiiformes|Ibijaux
+ S|Nyctibius griseus|Ibijau gris|Se camoufle en branche morte.
+O|Steatornithiformes|Guacharo
+ S|Steatornis caripensis|Guacharo des cavernes|Oiseau écholocalisant.
+O|Apodiformes|Martinets et colibris
+ S|Apus apus|Martinet noir|Peut rester en vol 10 mois sans se poser.
+ S|Mellisuga helenae|Colibri d'Elena|Le plus petit oiseau : 2 g.
+ S|Archilochus colubris|Colibri à gorge rubis
+ S|Patagona gigas|Colibri géant
+O|Opisthocomiformes|Hoazin
+ S|Opisthocomus hoazin|Hoazin|Les poussins ont des griffes aux ailes.
+O|Gruiformes|Grues et râles
+ S|Grus grus|Grue cendrée
+ S|Fulica atra|Foulque macroule
+ S|Gallinula chloropus|Gallinule poule-d'eau
+ S|Rallus aquaticus|Râle d'eau
+ S|Porphyrio hochstetteri|Takahé|Cru éteint, redécouvert en 1948.
+O|Charadriiformes|Limicoles, mouettes et pingouins
+ S|Vanellus vanellus|Vanneau huppé
+ S|Haematopus ostralegus|Huîtrier pie
+ S|Recurvirostra avosetta|Avocette élégante
+ S|Scolopax rusticola|Bécasse des bois
+ S|Limosa lapponica|Barge rousse|Record de vol sans escale : 13 560 km.
+ S|Calidris alba|Bécasseau sanderling
+ S|Larus argentatus|Goéland argenté
+ S|Chroicocephalus ridibundus|Mouette rieuse
+ S|Sterna paradisaea|Sterne arctique|Plus longue migration : 70 000 km par an.
+ S|Stercorarius skua|Grand labbe
+ S|Fratercula arctica|Macareux moine
+ S|Alca torda|Petit pingouin
+ S|†Pinguinus impennis|Grand pingouin|Le vrai « pingouin », exterminé en 1844.
+O|Eurypygiformes|Kagou et caurale
+ S|Rhynochetos jubatus|Kagou huppé|Emblème de la Nouvelle-Calédonie.
+O|Phaethontiformes|Phaétons
+O|Gaviiformes|Plongeons
+ S|Gavia immer|Plongeon huard
+O|Sphenisciformes|Manchots|Ailes transformées en nageoires. 18 espèces.
+ S|Aptenodytes forsteri|Manchot empereur|Couve en plein hiver antarctique, l'œuf sur les pattes.
+ S|Aptenodytes patagonicus|Manchot royal
+ S|Pygoscelis adeliae|Manchot Adélie
+ S|Spheniscus demersus|Manchot du Cap
+ S|Eudyptula minor|Manchot pygmée
+O|Procellariiformes|Albatros et pétrels|Narines tubulaires, odorat développé.
+ S|Diomedea exulans|Albatros hurleur|Plus grande envergure : 3,5 m.
+ S|Phoebastria immutabilis|Albatros de Laysan|« Wisdom » pond encore à plus de 70 ans.
+ S|Fulmarus glacialis|Fulmar boréal
+ S|Puffinus puffinus|Puffin des Anglais
+ S|Hydrobates pelagicus|Océanite tempête
+O|Ciconiiformes|Cigognes
+ S|Ciconia ciconia|Cigogne blanche
+ S|Ciconia nigra|Cigogne noire
+ S|Leptoptilos crumenifer|Marabout d'Afrique
+O|Suliformes|Fous et cormorans
+ S|Morus bassanus|Fou de Bassan
+ S|Sula nebouxii|Fou à pieds bleus
+ S|Phalacrocorax carbo|Grand cormoran
+ S|Fregata magnificens|Frégate superbe
+O|Pelecaniformes|Pélicans, hérons et ibis
+ S|Pelecanus onocrotalus|Pélican blanc
+ S|Balaeniceps rex|Bec-en-sabot
+ S|Scopus umbretta|Ombrette africaine
+ S|Ardea cinerea|Héron cendré
+ S|Ardea alba|Grande aigrette
+ S|Egretta garzetta|Aigrette garzette
+ S|Botaurus stellaris|Butor étoilé
+ S|Threskiornis aethiopicus|Ibis sacré
+ S|Platalea leucorodia|Spatule blanche
+ S|Eudocimus ruber|Ibis rouge
+O|Cathartiformes|Vautours du Nouveau Monde
+ S|Vultur gryphus|Condor des Andes
+ S|Gymnogyps californianus|Condor de Californie|Sauvé de justesse : 27 individus en 1987.
+ S|Cathartes aura|Urubu à tête rouge
+O|Accipitriformes|Rapaces diurnes
+ S|Pandion haliaetus|Balbuzard pêcheur
+ S|Sagittarius serpentarius|Messager sagittaire|Tue les serpents à coups de pied.
+ S|Aquila chrysaetos|Aigle royal
+ S|Haliaeetus leucocephalus|Pygargue à tête blanche
+ S|Harpia harpyja|Harpie féroce
+ S|Pithecophaga jefferyi|Pygargue des singes
+ S|Gyps fulvus|Vautour fauve
+ S|Gypaetus barbatus|Gypaète barbu|Se nourrit d'os, qu'il brise en les lâchant sur les rochers.
+ S|Buteo buteo|Buse variable
+ S|Accipiter nisus|Épervier d'Europe
+ S|Milvus milvus|Milan royal
+ S|Circaetus gallicus|Circaète Jean-le-Blanc
+O|Strigiformes|Rapaces nocturnes
+ S|Tyto alba|Effraie des clochers
+ S|Bubo bubo|Grand-duc d'Europe
+ S|Bubo scandiacus|Harfang des neiges
+ S|Strix aluco|Chouette hulotte
+ S|Athene noctua|Chevêche d'Athéna
+ S|Asio otus|Hibou moyen-duc
+ S|Glaucidium passerinum|Chevêchette d'Europe
+O|Coliiformes|Colious
+O|Leptosomiformes|Courol
+ S|Leptosomus discolor|Courol vouroudriou
+O|Trogoniformes|Trogons
+ S|Pharomachrus mocinno|Quetzal resplendissant
+O|Bucerotiformes|Calaos et huppes
+ S|Buceros bicornis|Calao bicorne
+ S|Bucorvus leadbeateri|Bucorve du Sud
+ S|Upupa epops|Huppe fasciée
+O|Coraciiformes|Martins-pêcheurs et rolliers
+ S|Alcedo atthis|Martin-pêcheur d'Europe
+ S|Dacelo novaeguineae|Martin-chasseur géant|Le kookaburra, au cri de rire.
+ S|Merops apiaster|Guêpier d'Europe
+ S|Coracias garrulus|Rollier d'Europe
+O|Piciformes|Pics et toucans
+ S|Dendrocopos major|Pic épeiche
+ S|Dryocopus martius|Pic noir
+ S|Picus viridis|Pic vert
+ S|Jynx torquilla|Torcol fourmilier
+ S|Ramphastos toco|Toucan toco
+ S|Indicator indicator|Grand indicateur|Guide les humains vers les ruches.
+O|Cariamiformes|Cariamas
+ S|Cariama cristata|Cariama huppé
+O|Falconiformes|Faucons|Plus proches des perroquets que des aigles.
+ S|Falco peregrinus|Faucon pèlerin|L'animal le plus rapide : plus de 380 km/h en piqué.
+ S|Falco tinnunculus|Faucon crécerelle
+ S|Falco rusticolus|Faucon gerfaut
+ S|Caracara plancus|Caracara huppé
+O|Psittaciformes|Perroquets|Environ 400 espèces.
+ S|Strigops habroptilus|Kakapo|Perroquet nocturne qui ne vole pas ; environ 240 individus.
+ S|Nestor notabilis|Kéa
+ S|Ara macao|Ara rouge
+ S|Anodorhynchus hyacinthinus|Ara hyacinthe
+ S|Psittacus erithacus|Perroquet gris du Gabon
+ S|Melopsittacus undulatus|Perruche ondulée
+ S|Nymphicus hollandicus|Calopsitte
+ S|Cacatua galerita|Cacatoès à huppe jaune
+ S|Psittacula krameri|Perruche à collier
+O|Passeriformes|Passereaux|Plus de la moitié des oiseaux : environ 6 500 espèces.
+ Ob|Acanthisitti|Xéniques
+  S|Acanthisitta chloris|Xénique grimpeur
+ Ob|Tyranni|Suboscines|Chant inné, non appris.
+  F|Tyrannidae|Tyrans
+  F|Pipridae|Manakins
+  F|Cotingidae|Cotingas
+   S|Rupicola rupicola|Coq-de-roche orange
+  F|Furnariidae|Fourniers
+   S|Furnarius rufus|Fournier roux
+  F|Pittidae|Brèves
+ Ob|Passeri|Oscines|Passereaux chanteurs, qui apprennent leur chant.
+  F|Menuridae|Ménures
+   S|Menura novaehollandiae|Ménure superbe|Imite tronçonneuses et appareils photo.
+  F|Ptilonorhynchidae|Jardiniers|Le mâle décore une tonnelle.
+   S|Ptilonorhynchus violaceus|Jardinier satiné
+  F|Maluridae|Mérions
+   S|Malurus cyaneus|Mérion superbe
+  F|Meliphagidae|Méliphages
+  F|Paradisaeidae|Paradisiers
+   S|Paradisaea raggiana|Paradisier de Raggi
+   S|Lophorina superba|Paradisier superbe
+  F|Laniidae|Pies-grièches|Empalent leurs proies sur des épines.
+   S|Lanius collurio|Pie-grièche écorcheur
+  F|Oriolidae|Loriots
+   S|Oriolus oriolus|Loriot d'Europe
+  F|Corvidae|Corvidés|Parmi les oiseaux les plus intelligents.
+   S|Corvus corax|Grand corbeau
+   S|Corvus corone|Corneille noire
+   S|Corvus frugilegus|Corbeau freux
+   S|Corvus moneduloides|Corbeau calédonien|Fabrique des outils en crochet.
+   S|Pica pica|Pie bavarde|Réussit le test du miroir.
+   S|Garrulus glandarius|Geai des chênes|Plante des milliers de glands.
+   S|Nucifraga caryocatactes|Cassenoix moucheté
+  F|Paridae|Mésanges
+   S|Parus major|Mésange charbonnière
+   S|Cyanistes caeruleus|Mésange bleue
+  F|Alaudidae|Alouettes
+   S|Alauda arvensis|Alouette des champs
+  F|Hirundinidae|Hirondelles
+   S|Hirundo rustica|Hirondelle rustique
+   S|Delichon urbicum|Hirondelle de fenêtre
+  F|Aegithalidae|Orites
+   S|Aegithalos caudatus|Mésange à longue queue
+  F|Phylloscopidae|Pouillots
+   S|Phylloscopus collybita|Pouillot véloce
+  F|Acrocephalidae|Rousserolles
+   S|Acrocephalus scirpaceus|Rousserolle effarvatte
+  F|Sylviidae|Fauvettes
+   S|Sylvia atricapilla|Fauvette à tête noire
+  F|Regulidae|Roitelets
+   S|Regulus regulus|Roitelet huppé|Le plus petit oiseau d'Europe : 5 g.
+  F|Troglodytidae|Troglodytes
+   S|Troglodytes troglodytes|Troglodyte mignon
+  F|Sittidae|Sittelles
+   S|Sitta europaea|Sittelle torchepot
+  F|Sturnidae|Étourneaux
+   S|Sturnus vulgaris|Étourneau sansonnet|Murmurations de milliers d'oiseaux.
+   S|Gracula religiosa|Mainate religieux
+  F|Mimidae|Moqueurs
+   S|Mimus polyglottos|Moqueur polyglotte
+  F|Turdidae|Grives et merles
+   S|Turdus merula|Merle noir
+   S|Turdus philomelos|Grive musicienne
+  F|Muscicapidae|Gobemouches
+   S|Erithacus rubecula|Rougegorge familier
+   S|Luscinia megarhynchos|Rossignol philomèle
+   S|Phoenicurus ochruros|Rougequeue noir
+  F|Cinclidae|Cincles
+   S|Cinclus cinclus|Cincle plongeur|Marche au fond des torrents.
+  F|Bombycillidae|Jaseurs
+   S|Bombycilla garrulus|Jaseur boréal
+  F|Passeridae|Moineaux
+   S|Passer domesticus|Moineau domestique
+   S|Passer montanus|Moineau friquet
+  F|Ploceidae|Tisserins
+   S|Quelea quelea|Travailleur à bec rouge|L'oiseau sauvage le plus nombreux : 1,5 milliard.
+   S|Ploceus cucullatus|Tisserin gendarme
+  F|Estrildidae|Astrilds
+   S|Taeniopygia guttata|Diamant mandarin|Modèle de l'apprentissage du chant.
+  F|Motacillidae|Bergeronnettes et pipits
+   S|Motacilla alba|Bergeronnette grise
+  F|Fringillidae|Fringilles
+   S|Fringilla coelebs|Pinson des arbres
+   S|Carduelis carduelis|Chardonneret élégant
+   S|Serinus canaria|Serin des Canaries
+   S|Pyrrhula pyrrhula|Bouvreuil pivoine
+   S|Loxia curvirostra|Bec-croisé des sapins
+  F|Emberizidae|Bruants
+   S|Emberiza citrinella|Bruant jaune
+  F|Cardinalidae|Cardinaux
+   S|Cardinalis cardinalis|Cardinal rouge
+  F|Parulidae|Parulines
+  F|Thraupidae|Tangaras|Comprend les pinsons de Darwin.
+   S|Geospiza fortis|Géospize à bec moyen|Son bec a changé en quelques générations pendant les sécheresses.
+@@ Mammalia
+Cb|Prototheria|Monotrèmes|Mammifères qui pondent des œufs.
+ O|Monotremata|Monotrèmes
+  S|Ornithorhynchus anatinus|Ornithorynque|Bec électrosensible ; le mâle a un ergot venimeux.
+  S|Tachyglossus aculeatus|Échidné à nez court
+  S|Zaglossus attenboroughi|Échidné d'Attenborough|Redécouvert en 2023 après 60 ans.
+Cb|Theria|Thériens|Mammifères vivipares.
+ Ci|Marsupialia|Marsupiaux|Les petits finissent leur développement dans une poche. Environ 380 espèces.
+  O|Didelphimorphia|Opossums
+   S|Didelphis virginiana|Opossum de Virginie|Fait le mort.
+  O|Paucituberculata|Opossums musaraignes
+  O|Microbiotheria|Microbiothères
+   S|Dromiciops gliroides|Monito del monte|Plus proche des marsupiaux australiens que des opossums.
+  O|Dasyuromorphia|Dasyuromorphes
+   S|Sarcophilus harrisii|Diable de Tasmanie|Menacé par un cancer contagieux.
+   S|†Thylacinus cynocephalus|Thylacine|Le « tigre de Tasmanie », disparu en 1936.
+   S|Myrmecobius fasciatus|Numbat
+   G|Dasyurus|Quoll
+  O|Peramelemorphia|Bandicoots
+   S|Macrotis lagotis|Bilby
+  O|Notoryctemorphia|Taupes marsupiales
+   S|Notoryctes typhlops|Taupe marsupiale
+  O|Diprotodontia|Diprotodontes
+   S|Osphranter rufus|Kangourou roux|Le plus grand marsupial.
+   S|Macropus giganteus|Kangourou géant
+   S|Setonix brachyurus|Quokka
+   G|Dendrolagus|Kangourou arboricole
+   S|Phascolarctos cinereus|Koala|Mange des feuilles d'eucalyptus toxiques pour presque tous les autres.
+   S|Vombatus ursinus|Wombat commun|Crottes cubiques.
+   S|Petaurus breviceps|Phalanger volant
+   S|Trichosurus vulpecula|Phalanger-renard
+   S|Tarsipes rostratus|Souris à miel
+ Ci|Placentalia|Placentaires|Environ 6 100 espèces.
+  c|Afrotheria|Afrothériens|Lignée née en Afrique.
+   O|Afrosoricida|Tenrecs et taupes dorées
+    S|Tenrec ecaudatus|Tenrec commun|Jusqu'à 32 petits par portée.
+    c|Chrysochloridae|Taupes dorées|Fourrure irisée.
+   O|Macroscelidea|Musaraignes à trompe
+    S|Rhynchocyon petersi|Rat à trompe de Peters
+   O|Tubulidentata|Oryctérope
+    S|Orycteropus afer|Oryctérope du Cap
+   O|Hyracoidea|Damans|Plus proches parents des éléphants, malgré leur taille de lapin.
+    S|Procavia capensis|Daman du Cap
+   O|Proboscidea|Éléphants
+    S|Loxodonta africana|Éléphant de savane d'Afrique|Plus grand animal terrestre.
+    S|Loxodonta cyclotis|Éléphant de forêt d'Afrique
+    S|Elephas maximus|Éléphant d'Asie
+    S|†Mammuthus primigenius|Mammouth laineux|Les derniers ont vécu sur l'île Wrangel il y a 4 000 ans.
+   O|Sirenia|Siréniens|Mammifères marins herbivores.
+    S|Trichechus manatus|Lamantin des Caraïbes
+    S|Dugong dugon|Dugong
+    S|†Hydrodamalis gigas|Rhytine de Steller|Exterminée 27 ans après sa découverte (1768).
+  c|Xenarthra|Xénarthres|Lignée née en Amérique du Sud.
+   O|Cingulata|Tatous
+    S|Dasypus novemcinctus|Tatou à neuf bandes|Donne toujours naissance à des quadruplés identiques.
+    S|Priodontes maximus|Tatou géant
+    S|Chlamyphorus truncatus|Chlamyphore tronqué
+    S|†Glyptodon clavipes|Glyptodon|Tatou géant de la taille d'une voiture.
+   O|Pilosa|Paresseux et fourmiliers
+    S|Bradypus variegatus|Paresseux à gorge brune|Des algues poussent dans son pelage.
+    S|Choloepus didactylus|Unau
+    S|†Megatherium americanum|Mégathérium|Paresseux terrestre de 4 tonnes.
+    S|Myrmecophaga tridactyla|Tamanoir
+    S|Tamandua tetradactyla|Tamandua
+    S|Cyclopes didactylus|Myrmidon
+  c|Boreoeutheria|Boréoeuthériens
+   c|Euarchontoglires|Euarchontoglires
+    c|Glires|Glires|Rongeurs et lagomorphes : incisives à croissance continue.
+     O|Lagomorpha|Lagomorphes
+      S|Oryctolagus cuniculus|Lapin de garenne
+      S|Lepus europaeus|Lièvre d'Europe
+      S|Lepus timidus|Lièvre variable
+      S|Ochotona princeps|Pika d'Amérique
+     O|Rodentia|Rongeurs|L'ordre le plus vaste des mammifères : environ 2 600 espèces.
+      Ob|Sciuromorpha|Écureuils et loirs
+       S|Sciurus vulgaris|Écureuil roux
+       S|Marmota marmota|Marmotte des Alpes
+       S|Cynomys ludovicianus|Chien de prairie
+       S|Tamias striatus|Tamia rayé
+       S|Glis glis|Loir gris
+       S|Muscardinus avellanarius|Muscardin
+      Ob|Castorimorpha|Castors et apparentés
+       S|Castor fiber|Castor d'Europe
+       S|Castor canadensis|Castor du Canada
+       G|Dipodomys|Rat-kangourou|Ne boit jamais.
+      Ob|Myomorpha|Myomorphes
+       S|Mus musculus|Souris domestique
+       S|Rattus norvegicus|Rat surmulot
+       S|Rattus rattus|Rat noir
+       S|Mesocricetus auratus|Hamster doré
+       S|Cricetus cricetus|Grand hamster d'Alsace
+       S|Meriones unguiculatus|Gerbille de Mongolie
+       S|Microtus arvalis|Campagnol des champs
+       S|Ondatra zibethicus|Rat musqué
+       S|Lemmus lemmus|Lemming de Norvège
+       S|Jaculus jaculus|Gerboise
+       G|Spalax|Rat-taupe aveugle
+      Ob|Anomaluromorpha|Anomaluromorphes
+       S|Pedetes capensis|Lièvre sauteur
+      Ob|Hystricomorpha|Hystricomorphes
+       S|Hydrochoerus hydrochaeris|Capybara|Le plus grand rongeur : 65 kg.
+       S|Cavia porcellus|Cobaye
+       S|Heterocephalus glaber|Rat-taupe nu|Ne ressent presque pas la douleur ; vit plus de 30 ans ; société à reine.
+       S|Hystrix cristata|Porc-épic à crête
+       S|Erethizon dorsatum|Porc-épic d'Amérique
+       S|Chinchilla lanigera|Chinchilla|Fourrure la plus dense des mammifères terrestres.
+       S|Myocastor coypus|Ragondin
+       S|Dolichotis patagonum|Mara
+    c|Euarchonta|Euarchontes
+     O|Scandentia|Toupayes
+      G|Tupaia|Toupaye
+     O|Dermoptera|Dermoptères
+      S|Galeopterus variegatus|Galéopithèque|Plane jusqu'à 100 m.
+     O|Primates|Primates|Environ 520 espèces.
+      Ob|Strepsirrhini|Strepsirrhiniens|Lémuriens et loris.
+       S|Lemur catta|Maki catta
+       S|Daubentonia madagascariensis|Aye-aye|Chasse les larves en tapotant le bois avec un doigt filiforme.
+       S|Microcebus berthae|Microcèbe de Mme Berthe|Le plus petit primate : 30 g.
+       S|Propithecus verreauxi|Propithèque de Verreaux
+       S|Indri indri|Indri
+       S|Nycticebus coucang|Loris lent|Un des rares mammifères venimeux.
+       S|Galago senegalensis|Galago du Sénégal
+      Ob|Haplorhini|Haplorhiniens
+       Oi|Tarsiiformes|Tarsiers
+        S|Carlito syrichta|Tarsier des Philippines|Chaque œil est aussi gros que son cerveau.
+       Oi|Platyrrhini|Singes du Nouveau Monde
+        S|Sapajus apella|Sapajou
+        S|Saimiri sciureus|Saïmiri
+        G|Alouatta|Singe hurleur|Cri audible à 5 km.
+        G|Ateles|Atèle
+        S|Callithrix jacchus|Ouistiti commun
+        S|Cebuella pygmaea|Ouistiti pygmée
+        S|Leontopithecus rosalia|Tamarin-lion doré
+        G|Aotus|Douroucouli|Seul singe nocturne.
+        S|Cacajao calvus|Ouakari chauve
+       Oi|Catarrhini|Singes de l'Ancien Monde
+        F|Cercopithecidae|Cercopithécidés
+         S|Macaca mulatta|Macaque rhésus|A donné son nom au facteur Rhésus.
+         S|Macaca fuscata|Macaque japonais|Se baigne dans les sources chaudes.
+         S|Macaca sylvanus|Magot
+         S|Papio anubis|Babouin olive
+         S|Mandrillus sphinx|Mandrill
+         S|Theropithecus gelada|Gélada
+         S|Nasalis larvatus|Nasique
+         S|Colobus guereza|Colobe guéréza
+         S|Rhinopithecus roxellana|Rhinopithèque de Roxellane
+        F|Hylobatidae|Gibbons
+         S|Hylobates lar|Gibbon à mains blanches
+         S|Symphalangus syndactylus|Siamang
+        F|Hominidae|Hominidés|Grands singes, humains compris.
+         Fb|Ponginae|Orangs-outans
+          S|Pongo pygmaeus|Orang-outan de Bornéo
+          S|Pongo abelii|Orang-outan de Sumatra
+          S|Pongo tapanuliensis|Orang-outan de Tapanuli|Décrit en 2017 ; environ 800 individus.
+         Fb|Homininae|Homininés
+          T|Gorillini|Gorilles
+           S|Gorilla gorilla|Gorille de l'Ouest
+           S|Gorilla beringei|Gorille de l'Est
+          T|Hominini|Hominines|Chimpanzés et humains.
+           G|Pan|Chimpanzés|Nos plus proches parents vivants : séparés il y a 6 à 7 millions d'années.
+            S|Pan troglodytes|Chimpanzé
+            S|Pan paniscus|Bonobo
+           c|Hominina|Lignée humaine
+            S|†Sahelanthropus tchadensis|Toumaï|7 millions d'années, Tchad.
+            S|†Ardipithecus ramidus|Ardi
+            S|†Australopithecus afarensis|Lucy|3,2 millions d'années, Éthiopie.
+            S|†Paranthropus boisei|Paranthrope de Boisei
+            G|Homo|Humains
+             S|†Homo habilis|Homme habile
+             S|†Homo erectus|Homme dressé|Premier à quitter l'Afrique.
+             S|†Homo floresiensis|Homme de Florès|« Hobbit » d'un mètre.
+             S|†Homo naledi|Homo naledi
+             S|†Homo neanderthalensis|Néandertalien|2 % environ de l'ADN des non-Africains vient de lui.
+             S|†Homo longi|Dénisovien|Identifié par l'ADN ; le crâne de Harbin lui a été rattaché en 2025.
+             S|Homo sapiens|Humain|Apparu en Afrique il y a environ 300 000 ans. 8 milliards d'individus.
+   c|Laurasiatheria|Laurasiathériens
+    O|Eulipotyphla|Hérissons, taupes et musaraignes
+     S|Erinaceus europaeus|Hérisson d'Europe
+     S|Talpa europaea|Taupe d'Europe
+     S|Condylura cristata|Condylure étoilé|Nez à 22 tentacules ultrasensibles.
+     S|Sorex araneus|Musaraigne carrelet
+     S|Suncus etruscus|Pachyure étrusque|Le plus petit mammifère par la masse : 1,8 g.
+     S|Neomys fodiens|Crossope aquatique|Salive venimeuse.
+     S|Galemys pyrenaicus|Desman des Pyrénées
+     S|Solenodon paradoxus|Solénodon d'Haïti|Mammifère venimeux.
+    O|Chiroptera|Chauves-souris|Seuls mammifères au vol actif. Environ 1 480 espèces : un mammifère sur cinq.
+     Ob|Yinpterochiroptera|Yinptérochiroptères
+      S|Pteropus vampyrus|Grand renard volant|1,5 m d'envergure.
+      S|Rousettus aegyptiacus|Roussette d'Égypte
+      S|Rhinolophus ferrumequinum|Grand rhinolophe
+      S|Craseonycteris thonglongyai|Chauve-souris bourdon|2 g.
+     Ob|Yangochiroptera|Yangochiroptères
+      S|Pipistrellus pipistrellus|Pipistrelle commune
+      S|Myotis myotis|Grand murin
+      S|Nyctalus noctula|Noctule commune
+      S|Plecotus auritus|Oreillard roux
+      S|Tadarida brasiliensis|Molosse du Brésil|Colonies de 20 millions d'individus ; vol à 160 km/h.
+      S|Desmodus rotundus|Vampire commun|Partage le sang avec les congénères affamés.
+      S|Glossophaga soricina|Glossophage de Pallas|Chauve-souris nectarivore.
+      S|Noctilio leporinus|Noctilion pêcheur
+    O|Pholidota|Pangolins|Écailles de kératine ; les mammifères les plus braconnés.
+     S|Manis pentadactyla|Pangolin de Chine
+     S|Manis javanica|Pangolin javanais
+     S|Smutsia gigantea|Pangolin géant
+    O|Carnivora|Carnivores|Environ 300 espèces.
+     Ob|Feliformia|Féliformes
+      F|Felidae|Félins
+       S|Panthera leo|Lion
+       S|Panthera tigris|Tigre
+       S|Panthera pardus|Léopard
+       S|Panthera onca|Jaguar
+       S|Panthera uncia|Panthère des neiges
+       S|Acinonyx jubatus|Guépard|Le plus rapide des animaux terrestres : 100 km/h.
+       S|Puma concolor|Puma
+       S|Lynx lynx|Lynx boréal
+       S|Lynx pardinus|Lynx pardelle
+       S|Felis catus|Chat domestique
+       S|Felis silvestris|Chat forestier
+       S|Caracal caracal|Caracal
+       S|Leptailurus serval|Serval
+       S|†Smilodon fatalis|Smilodon|Félin à dents de sabre.
+      F|Hyaenidae|Hyènes
+       S|Crocuta crocuta|Hyène tachetée
+       S|Hyaena hyaena|Hyène rayée
+       S|Proteles cristata|Protèle|Hyène qui mange des termites.
+      F|Herpestidae|Mangoustes
+       S|Herpestes ichneumon|Mangouste ichneumon
+       S|Suricata suricatta|Suricate
+      F|Viverridae|Civettes et genettes
+       S|Genetta genetta|Genette commune
+       S|Arctictis binturong|Binturong|Sent le pop-corn.
+      F|Eupleridae|Euplérides
+       S|Cryptoprocta ferox|Fossa|Prédateur des lémuriens à Madagascar.
+     Ob|Caniformia|Caniformes
+      F|Canidae|Canidés
+       S|Canis lupus|Loup gris
+       Sb|Canis lupus familiaris|Chien|Domestiqué il y a plus de 15 000 ans.
+       S|Canis latrans|Coyote
+       S|Canis aureus|Chacal doré
+       S|Canis simensis|Loup d'Éthiopie
+       S|Lycaon pictus|Lycaon
+       S|Cuon alpinus|Dhole
+       S|Chrysocyon brachyurus|Loup à crinière
+       S|Vulpes vulpes|Renard roux
+       S|Vulpes lagopus|Renard polaire
+       S|Vulpes zerda|Fennec
+       S|Nyctereutes procyonoides|Chien viverrin
+      F|Ursidae|Ours
+       S|Ursus arctos|Ours brun
+       S|Ursus maritimus|Ours polaire
+       S|Ursus americanus|Ours noir
+       S|Ailuropoda melanoleuca|Panda géant|Carnivore devenu presque exclusivement mangeur de bambou.
+       S|Helarctos malayanus|Ours malais
+       S|Tremarctos ornatus|Ours à lunettes
+       S|Melursus ursinus|Ours lippu
+      c|Pinnipedia|Pinnipèdes
+       F|Otariidae|Otaries
+        S|Zalophus californianus|Otarie de Californie
+        S|Eumetopias jubatus|Lion de mer de Steller
+       F|Odobenidae|Morses
+        S|Odobenus rosmarus|Morse
+       F|Phocidae|Phoques
+        S|Phoca vitulina|Phoque veau-marin
+        S|Halichoerus grypus|Phoque gris
+        S|Mirounga leonina|Éléphant de mer austral
+        S|Hydrurga leptonyx|Léopard de mer
+        S|Leptonychotes weddellii|Phoque de Weddell
+        S|Pusa sibirica|Phoque du Baïkal|Seul phoque d'eau douce.
+        S|Monachus monachus|Phoque moine de Méditerranée
+      F|Mephitidae|Mouffettes
+       S|Mephitis mephitis|Mouffette rayée
+      F|Ailuridae|Panda roux
+       S|Ailurus fulgens|Panda roux
+      F|Procyonidae|Procyonidés
+       S|Procyon lotor|Raton laveur
+       S|Nasua nasua|Coati roux
+       S|Potos flavus|Kinkajou
+      F|Mustelidae|Mustélidés
+       S|Meles meles|Blaireau européen
+       S|Lutra lutra|Loutre d'Europe
+       S|Enhydra lutris|Loutre de mer|Utilise des pierres pour casser les coquillages.
+       S|Pteronura brasiliensis|Loutre géante
+       S|Mustela nivalis|Belette|Le plus petit carnivore.
+       S|Mustela erminea|Hermine
+       Sb|Mustela putorius furo|Furet
+       S|Martes martes|Martre des pins
+       S|Martes foina|Fouine
+       S|Gulo gulo|Glouton
+       S|Mellivora capensis|Ratel
+    O|Perissodactyla|Périssodactyles|Ongulés à nombre impair de doigts.
+     F|Equidae|Équidés
+      S|Equus ferus caballus|Cheval
+      S|Equus przewalskii|Cheval de Przewalski
+      S|Equus asinus|Âne
+      S|Equus quagga|Zèbre des plaines
+      S|Equus grevyi|Zèbre de Grévy
+      S|Equus hemionus|Hémione
+     F|Rhinocerotidae|Rhinocéros
+      S|Ceratotherium simum|Rhinocéros blanc|La sous-espèce du Nord ne compte plus que deux femelles.
+      S|Diceros bicornis|Rhinocéros noir
+      S|Rhinoceros unicornis|Rhinocéros indien
+      S|Rhinoceros sondaicus|Rhinocéros de Java
+      S|Dicerorhinus sumatrensis|Rhinocéros de Sumatra
+      S|†Coelodonta antiquitatis|Rhinocéros laineux
+     F|Tapiridae|Tapirs
+      S|Tapirus terrestris|Tapir du Brésil
+      S|Tapirus indicus|Tapir de Malaisie
+    O|Artiodactyla|Cétartiodactyles|Ongulés à nombre pair de doigts… et les cétacés, qui en descendent.
+     Ob|Tylopoda|Camélidés
+      S|Camelus dromedarius|Dromadaire
+      S|Camelus bactrianus|Chameau de Bactriane
+      S|Lama glama|Lama
+      S|Vicugna pacos|Alpaga
+      S|Vicugna vicugna|Vigogne
+     Ob|Suina|Suidés et pécaris
+      S|Sus scrofa|Sanglier
+      Sb|Sus scrofa domesticus|Porc
+      S|Phacochoerus africanus|Phacochère
+      S|Babyrousa babyrussa|Babiroussa|Les canines percent le museau et se recourbent.
+      S|Pecari tajacu|Pécari à collier
+     Ob|Ruminantia|Ruminants|Estomac à quatre poches.
+      S|Tragulus kanchil|Petit chevrotain
+      F|Giraffidae|Girafidés
+       S|Giraffa camelopardalis|Girafe
+       S|Okapia johnstoni|Okapi
+      F|Antilocapridae|Antilocapre
+       S|Antilocapra americana|Pronghorn
+      F|Moschidae|Porte-musc
+      F|Cervidae|Cervidés|Bois renouvelés chaque année.
+       S|Cervus elaphus|Cerf élaphe
+       S|Capreolus capreolus|Chevreuil
+       S|Dama dama|Daim
+       S|Alces alces|Élan
+       S|Rangifer tarandus|Renne|Caribou en Amérique.
+       S|Pudu puda|Pudu
+       S|Hydropotes inermis|Hydropote|Cerf sans bois, à canines en défenses.
+       S|†Megaloceros giganteus|Mégacéros|Bois de 3,6 m d'envergure.
+      F|Bovidae|Bovidés|Cornes permanentes.
+       S|Bos taurus|Vache|Descend de l'aurochs.
+       S|†Bos primigenius|Aurochs|Dernière femelle morte en Pologne en 1627.
+       S|Bos indicus|Zébu
+       S|Bos grunniens|Yack
+       S|Bison bison|Bison d'Amérique
+       S|Bison bonasus|Bison d'Europe
+       S|Bubalus bubalis|Buffle d'eau
+       S|Syncerus caffer|Buffle d'Afrique
+       S|Ovis aries|Mouton
+       S|Ovis gmelini|Mouflon
+       S|Ovis ammon|Argali
+       S|Capra hircus|Chèvre
+       S|Capra ibex|Bouquetin des Alpes
+       S|Rupicapra rupicapra|Chamois
+       S|Ovibos moschatus|Bœuf musqué
+       S|Connochaetes taurinus|Gnou bleu|Grande migration de 1,5 million de gnous.
+       S|Aepyceros melampus|Impala
+       S|Gazella dorcas|Gazelle dorcas
+       S|Oryx gazella|Oryx gazelle
+       S|Saiga tatarica|Saïga
+       S|Tragelaphus strepsiceros|Grand koudou
+       S|Taurotragus oryx|Éland du Cap
+     c|Whippomorpha|Hippopotames et cétacés
+      F|Hippopotamidae|Hippopotames|Plus proches parents vivants des baleines.
+       S|Hippopotamus amphibius|Hippopotame
+       S|Choeropsis liberiensis|Hippopotame pygmée
+      Oi|Cetacea|Cétacés|Mammifères retournés à la mer il y a 50 millions d'années. Environ 94 espèces.
+       c|Mysticeti|Baleines à fanons
+        S|Balaenoptera musculus|Baleine bleue|Le plus gros animal ayant jamais existé : jusqu'à 30 m et 190 tonnes.
+        S|Balaenoptera physalus|Rorqual commun
+        S|Balaenoptera acutorostrata|Petit rorqual
+        S|Megaptera novaeangliae|Baleine à bosse|Chants complexes qui se transmettent d'un océan à l'autre.
+        S|Eschrichtius robustus|Baleine grise
+        S|Balaena mysticetus|Baleine boréale|Le mammifère le plus longévif : plus de 200 ans.
+        S|Eubalaena glacialis|Baleine franche de l'Atlantique Nord
+        S|Caperea marginata|Baleine pygmée
+       c|Odontoceti|Cétacés à dents|Chassent par écholocation.
+        S|Physeter macrocephalus|Cachalot|Le plus gros cerveau du règne animal.
+        S|Kogia breviceps|Cachalot pygmée
+        S|Monodon monoceros|Narval|Sa « corne » est une dent de 3 m.
+        S|Delphinapterus leucas|Béluga
+        S|Ziphius cavirostris|Baleine à bec de Cuvier|Record de plongée : 2 992 m et 3 h 42 sous l'eau.
+        S|Orcinus orca|Orque|Le plus grand des dauphins.
+        S|Tursiops truncatus|Grand dauphin
+        S|Delphinus delphis|Dauphin commun
+        S|Globicephala melas|Globicéphale noir
+        S|Grampus griseus|Dauphin de Risso
+        S|Stenella coeruleoalba|Dauphin bleu et blanc
+        S|Phocoena phocoena|Marsouin commun
+        S|Phocoena sinus|Vaquita|Le cétacé le plus menacé : une dizaine d'individus.
+        S|Inia geoffrensis|Dauphin de l'Amazone
+        S|Platanista gangetica|Dauphin du Gange
+        S|†Lipotes vexillifer|Baiji|Dauphin du Yangtsé, déclaré fonctionnellement éteint en 2006.
+</script>
+<script>
+(function () {
+  "use strict";
+
+  const RANKS = {
+    c: "clade", D: "domaine", R: "règne", Rb: "sous-règne",
+    P: "embranchement", Pb: "sous-embranchement",
+    Cs: "super-classe", C: "classe", Cb: "sous-classe", Ci: "infra-classe",
+    Os: "super-ordre", O: "ordre", Ob: "sous-ordre", Oi: "infra-ordre",
+    Fs: "super-famille", F: "famille", Fb: "sous-famille", T: "tribu",
+    G: "genre", S: "espèce", Sb: "sous-espèce", x: "hors périmètre"
+  };
+  const ITALIC = { G: 1, S: 1, Sb: 1 };
+  const GROUPS = {
+    "Bacteria": ["--g-bact", "Bactéries"],
+    "Archaea": ["--g-arch", "Archées"],
+    "Eukaryota": ["--g-prot", "Eucaryotes unicellulaires"],
+    "Fungi": ["--g-fung", "Champignons"],
+    "Metazoa": ["--g-anim", "Animaux"],
+    "Virus": ["--g-vir", "Virus"]
+  };
+
+  // ---------- Lecture des données ----------
+  const nodes = [];
+  const byName = new Map();
+  (function parse(txt) {
+    const virtual = { kids: [] };
+    let stack = [virtual];
+    for (const raw of txt.split("\n")) {
+      if (!raw.trim() || raw.trim().startsWith("#")) continue;
+      if (raw.startsWith("@@")) {
+        const anchor = byName.get(raw.slice(2).trim());
+        if (!anchor) { console.warn("Ancre introuvable", raw); stack = [virtual]; continue; }
+        stack = [anchor];
+        continue;
+      }
+      const depth = raw.length - raw.trimStart().length;
+      const parts = raw.trim().split("|").map(s => s.trim());
+      const parent = stack[Math.min(depth, stack.length - 1)];
+      const n = { id: nodes.length, code: parts[0], name: parts[1] || "?", fr: parts[2] || "", note: parts[3] || "", kids: [], parent };
+      parent.kids.push(n);
+      nodes.push(n);
+      if (!byName.has(n.name)) byName.set(n.name, n);
+      stack[depth + 1] = n;
+      stack.length = depth + 2;
+    }
+    nodes.root = virtual.kids[0];
+    nodes.root.parent = null;
+  })(document.getElementById("tree-data").textContent);
+  const ROOT = nodes.root;
+
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  (function annotate(n, group) {
+    if (GROUPS[n.name]) group = n.name;
+    n.group = group;
+    n.key = norm(n.name + " " + n.fr);
+    n.size = 0;
+    for (const k of n.kids) { annotate(k, group); n.size += 1 + k.size; }
+  })(ROOT, null);
+
+  const groupColor = n => n.code === "x" ? "var(--g-excl)" : (n.group ? `var(${GROUPS[n.group][0]})` : "var(--accent)");
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const sciHTML = n => ITALIC[n.code] ? `<span class="it">${esc(n.name)}</span>` : esc(n.name);
+  const title = n => n.fr || n.name;
+  const lineage = n => { const a = []; for (let p = n; p; p = p.parent) a.unshift(p); return a; };
+  const fmt = x => x.toLocaleString("fr-FR");
+
+  const $ = id => document.getElementById(id);
+  const view = $("view"), crumbs = $("crumbs"), q = $("q"), backBtn = $("back"), clearBtn = $("clear");
+
+  const chev = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+
+  function rowHTML(n, opts = {}) {
+    const showSci = n.fr && n.fr !== n.name;
+    const sub = [];
+    if (showSci) sub.push(sciHTML(n));
+    sub.push(`<span class="r">${RANKS[n.code] || n.code}</span>`);
+    const right = n.kids.length ? `<span>${fmt(n.size)}</span>${chev}` : "";
+    const cls = ["row"]; if (n.code === "x") cls.push("excl"); if (opts.current) cls.push("current");
+    const nm = opts.hl ? opts.hl(n.fr || n.name, !n.fr && ITALIC[n.code]) : (n.fr ? esc(n.fr) : sciHTML(n));
+    const path = opts.path ? `<span class="path">${opts.path}</span>` : "";
+    return `<li><button class="${cls.join(" ")}" data-id="${n.id}"${opts.current ? ' aria-current="true"' : ""}>
+      <span class="dot" style="--c:${groupColor(n)}"></span>
+      <span class="t"><span class="n">${nm}</span><span class="s">${sub.join(" · ")}</span>${path}</span>
+      <span class="side">${right}</span></button></li>`;
+  }
+
+  // ---------- Vue d'un nœud ----------
+  let current = ROOT;
+  function render(n, dir) {
+    current = n;
+    const line = lineage(n);
+    crumbs.innerHTML = line.map((p, i) =>
+      (i ? '<span class="sep" aria-hidden="true">›</span>' : "") +
+      `<button data-id="${p.id}">${esc(p.fr ? p.fr : p.name)}</button>`).join("");
+    crumbs.scrollLeft = crumbs.scrollWidth;
+    backBtn.disabled = !n.parent;
+
+    const groupName = n.group ? GROUPS[n.group][1] : "Tout le vivant";
+    const showSci = n.fr && n.fr !== n.name;
+    let h = `<section class="card">
+      <div class="meta"><span class="dot" style="--c:${groupColor(n)}"></span><span>${esc(groupName)}</span><span class="rank">${RANKS[n.code] || n.code}</span></div>
+      <h1${!n.fr && ITALIC[n.code] ? ' class="it"' : ""}>${esc(title(n))}</h1>
+      ${showSci ? `<p class="sci">${sciHTML(n)}</p>` : ""}
+      ${n.note ? `<p class="note">${esc(n.note)}</p>` : ""}
+      ${n.code === "x" ? `<div class="excl-banner">Branche végétale multicellulaire : signalée pour situer l'arbre, mais pas détaillée ici.</div>` : ""}`;
+    if (n.kids.length) {
+      const leaves = countLeaves(n);
+      h += `<div class="stats"><span><b>${fmt(n.kids.length)}</b> branche${n.kids.length > 1 ? "s" : ""} directe${n.kids.length > 1 ? "s" : ""}</span><span><b>${fmt(n.size)}</b> taxons en dessous</span><span><b>${fmt(leaves)}</b> extrémités</span></div>`;
+    }
+    if (n === ROOT) {
+      h += `<div class="legend">${Object.values(GROUPS).map(([v, l]) => `<span><span class="dot" style="--c:var(${v})"></span>${l}</span>`).join("")}<span><span class="dot" style="--c:transparent;border:1.5px dashed var(--g-excl)"></span>Végétal (non détaillé)</span></div>`;
+    }
+    if (n !== ROOT && n.code !== "x") {
+      h += `<div class="links"><a href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(n.name.replace(/^† ?/, ""))}" target="_blank" rel="noopener">Wikipédia ↗</a></div>`;
+    }
+    h += `</section>`;
+
+    if (n.kids.length) {
+      h += `<div class="listhead"><h2>Sous-groupes</h2></div><ul class="list">${n.kids.map(k => rowHTML(k)).join("")}</ul>`;
+    } else if (n.parent) {
+      h += `<div class="listhead"><h2>Dans ${esc(title(n.parent))}</h2></div><ul class="list">${n.parent.kids.map(k => rowHTML(k, { current: k === n })).join("")}</ul>`;
+    }
+    view.innerHTML = h;
+    view.classList.remove("enter", "enter-back");
+    if (dir) { void view.offsetWidth; view.classList.add(dir < 0 ? "enter-back" : "enter"); }
+    document.title = n === ROOT ? "Arbre du vivant" : `${title(n)} · Arbre du vivant`;
+    try { localStorage.setItem("adv-last", String(n.id)); } catch (e) {}
+  }
+
+  const leafCache = new Map();
+  function countLeaves(n) {
+    if (leafCache.has(n)) return leafCache.get(n);
+    let c = n.kids.length ? 0 : 1;
+    for (const k of n.kids) c += countLeaves(k);
+    leafCache.set(n, c);
+    return c;
+  }
+
+  function go(n, push = true) {
+    if (!n) return;
+    const dir = isAncestor(n, current) ? -1 : 1;
+    closeSearch(false);
+    render(n, dir);
+    window.scrollTo({ top: 0 });
+    if (push) { try { history.pushState({ id: n.id }, ""); } catch (e) {} }
+  }
+  const isAncestor = (a, b) => { for (let p = b.parent; p; p = p.parent) if (p === a) return true; return false; };
+
+  window.addEventListener("popstate", e => {
+    const id = e.state && typeof e.state.id === "number" ? e.state.id : ROOT.id;
+    if (e.state && e.state.search) return;
+    go(nodes[id], false);
+  });
+
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-id]");
+    if (b) { go(nodes[+b.dataset.id]); return; }
+  });
+  backBtn.addEventListener("click", () => { if (current.parent) go(current.parent); });
+
+  // ---------- Hasard ----------
+  const species = nodes.filter(n => n.code === "S" && n.group !== "Virus");
+  $("rand").addEventListener("click", () => go(species[Math.floor(Math.random() * species.length)]));
+
+  // ---------- Recherche ----------
+  let timer = null;
+  q.addEventListener("input", () => {
+    clearBtn.hidden = !q.value;
+    clearTimeout(timer);
+    timer = setTimeout(search, 110);
+  });
+  q.addEventListener("keydown", e => {
+    if (e.key === "Escape") { closeSearch(true); q.blur(); }
+    if (e.key === "Enter") { const first = view.querySelector(".row"); if (first) first.click(); q.blur(); }
+  });
+  clearBtn.addEventListener("click", () => { closeSearch(true); q.focus(); });
+
+  function closeSearch(rerender) {
+    const was = !!q.value;
+    q.value = ""; clearBtn.hidden = true;
+    if (rerender && was) render(current, 0);
+  }
+
+  function search() {
+    const raw = q.value.trim();
+    if (raw.length < 2) { render(current, 0); return; }
+    const terms = norm(raw).split(/\s+/).filter(Boolean);
+    const hits = [];
+    for (const n of nodes) {
+      if (!terms.every(t => n.key.includes(t))) continue;
+      const k1 = norm(n.fr), k2 = norm(n.name), t0 = terms[0];
+      let score = 3;
+      if (k1 === norm(raw) || k2 === norm(raw)) score = 0;
+      else if (k1.startsWith(t0) || k2.startsWith(t0)) score = 1;
+      else if (new RegExp("\\b" + t0.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).test(n.key)) score = 2;
+      hits.push([score, n.size ? -1 : 0, n]);
+    }
+    hits.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2].id - b[2].id);
+    const shown = hits.slice(0, 80);
+    const hl = (text, italic) => {
+      // Surligne le premier terme sans casser les accents.
+      const nt = norm(text), t = terms[0], i = nt.indexOf(t);
+      const inner = i < 0 ? esc(text) : esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + t.length)) + "</mark>" + esc(text.slice(i + t.length));
+      return italic ? `<span class="it">${inner}</span>` : inner;
+    };
+    const pathOf = n => lineage(n).slice(1, -1).slice(-3).map(p => esc(p.fr || p.name)).join(" › ");
+    crumbs.innerHTML = `<button disabled>Recherche</button>`;
+    view.innerHTML = `<p class="results-info">${hits.length ? `${fmt(hits.length)} résultat${hits.length > 1 ? "s" : ""}${hits.length > shown.length ? ` (${shown.length} premiers affichés)` : ""} pour « ${esc(raw)} »` : `Aucun résultat pour « ${esc(raw)} ». Essayez un nom latin ou un nom plus court.`}</p>` +
+      (shown.length ? `<ul class="list">${shown.map(([, , n]) => rowHTML(n, { hl, path: pathOf(n) })).join("")}</ul>` : "");
+    view.classList.remove("enter", "enter-back");
+  }
+
+  // ---------- Démarrage ----------
+  const total = nodes.length;
+  const nSpecies = nodes.filter(n => n.code === "S" || n.code === "Sb").length;
+  $("count").textContent = `${fmt(total)} taxons dans cet atlas, dont ${fmt(nSpecies)} espèces citées en exemple — sur environ 2,2 millions d'espèces décrites et sans doute plus de 10 millions au total.`;
+  try { history.replaceState({ id: ROOT.id }, ""); } catch (e) {}
+  render(ROOT, 0);
+})();
+</script>
+</body>
+</html>
